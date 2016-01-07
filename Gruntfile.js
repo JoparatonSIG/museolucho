@@ -27,8 +27,7 @@ module.exports = function(grunt) {
         '!src/public/css/**',
         '!src/public/js/**',
         '!src/stylus/**'
-      ]
-    },
+      ]    },
     jshint: {
       options: {
         jshintrc: '.jshintrc',
