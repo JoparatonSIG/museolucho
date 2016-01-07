@@ -61,21 +61,6 @@ module.exports = function(grunt) {
       npminstall: {
         command: 'npm install'
       },
-      serverLogs: {
-        command: 'pm2 logs'
-      },
-      serverStatus: {
-        command: 'pm2 list'
-      },
-      serverStop: {
-        command: 'pm2 kill'
-      },
-      serverDelete: {
-        command: 'pm2 delete pm2.json'
-      },
-      serverStart: {
-        command: 'pm2 start pm2.json'
-      },
       logClean: {
         command: 'rm -f logs/*.log'
       },
