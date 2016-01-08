@@ -29,28 +29,28 @@ var sequelize = new Sequelize(dbName, user, pwd,
   }
 );
 // Importar definicion de la tabla Forum
-var usuariosPath = path.join(__dirname,'usuarios');
-var Usuarios = sequelize.import(usuariosPath);
+var usuarioPath = path.join(__dirname,'usuario');
+var Usuario = sequelize.import(usuarioPath);
 
 // Importar definicion de la tabla Topic
-var nivelesPath = path.join(__dirname,'niveles');
-var Niveles = sequelize.import(nivelesPath);
+var nivelPath = path.join(__dirname,'nivel');
+var Nivel = sequelize.import(nivelPath);
 
 // los topics pertenecen a un forum registrado
-Usuarios.belongsTo(Niveles);
-Niveles.hasMany(Usuarios);
+Usuario.belongsTo(Nivel);
+Nivel.hasMany(Usuario);
 
 // exportar tablas
-exports.Usuarios = Usuarios;
-exports.Niveles = Niveles;
+exports.Usuario = Usuario;
+exports.Nivel = Nivel;
 
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function () {
   console.log ('sequelize SYNC');
   // then(..) ejecuta el manejador una vez creada la tabla
-  Usuarios.count().then(function (count) {
+  Usuario.count().then(function (count) {
     if (count === 0) {   // la tabla se inicializa solo si está vacía
-      Usuarios.bulkCreate(
+      Usuario.bulkCreate(
         [
           { email: 'lucho@gmail.com' ,nombre: 'lucho' ,password: 'mono' },
           { email: 'usu@gmail.com' ,nombre: 'usu' ,password: 'usu' },
@@ -58,9 +58,9 @@ sequelize.sync().then(function () {
         ]
       ).then(function () {
       console.log('Base de datos (tabla usuarios) inicializada');
-      Niveles.count().then(function (count) {
+      Nivel.count().then(function (count) {
         if (count === 0) {
-          Niveles.bulkCreate(
+          Nivel.bulkCreate(
           [
             { categoria: 'admin' },
             { categoria: 'empleado' },
@@ -70,8 +70,8 @@ sequelize.sync().then(function () {
             console.log('Base de datos (tabla Niveles) inicializada');
           });
         }
-      }); // Niveles.count()
+      }); // Nivel.count()
     });
     }
-  }); // Usuarios.count()
+  }); // Usuario.count()
 });
