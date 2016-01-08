@@ -25,7 +25,13 @@ var sequelize = new Sequelize(dbName, user, pwd,
     port:     port,
     host:     host,
     storage:  storage,  // solo SQLite (.env)
-    omitNull: true      // solo Postgres
+    omitNull: true,      // solo Postgres
+    maxConcurrentQueries: 100,
+    define: {
+      timestamps: true,
+      paranoid: true
+    },
+    pool: { maxConnections:5, maxIdleTime: 30}
   }
 );
 // Importar definicion de la tabla Forum
