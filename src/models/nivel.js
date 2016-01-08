@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'categoria',
         comment: 'Categoria del Nivel',
         validate: {
-          is: ["[a-z]",'i'],
+          is: ['[a-z]','i'],
           notNull: true,
           notEmpty: true
         }
@@ -26,28 +26,26 @@ module.exports = function (sequelize, DataTypes) {
           Nivel.findAll({})
           .then(onSuccess).catch(onError);
         },
-        retrieveById: function(nivelId, onSuccess, onError) {
-          Nivel.find({where: {id: nivelId}}, {raw: true})
+        retrieveById: function (nivelId, onSuccess, onError) {
+          Nivel.find( { where: { id: nivelId } }, { raw: true } )
           .then(onSuccess).catch(onError);
         },
-        retrieveByCategoria: function(nivelCategoria, onSuccess, onError) {
-          Nivel.find({where: {categoria: nivelCategoria}}, {raw: true})
+        retrieveByCategoria: function (nivelCategoria, onSuccess, onError) {
+          Nivel.find( { where: { categoria: nivelCategoria } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
-        add: function(onSuccess, onError) {
+        add: function (onSuccess, onError) {
           var categoria = this.categoria;
 
           Nivel.build({ categoria: categoria })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function(nivelId, onSuccess, onError) {
-          var id = nivelId;
-
-          Nivel.update({ categoria: categoria},{where: {id: id} })
+        updateById: function (nivelId, categoria, onSuccess, onError) {
+          Nivel.update( { categoria: categoria },{ where: { id: nivelId } })
           .then(onSuccess).catch(onError);
         },
-        removeById: function(nivelId, onSuccess, onError) {
-          Nivel.destroy({where: {id: nivelId}})
+        removeById: function (nivelId, onSuccess, onError) {
+          Nivel.destroy( { where: { id: nivelId } })
           .then(onSuccess).catch(onError);
          }
       },

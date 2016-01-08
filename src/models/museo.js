@@ -31,7 +31,7 @@ var sequelize = new Sequelize(dbName, user, pwd,
       timestamps: true,
       paranoid: true
     },
-    pool: { maxConnections:5, maxIdleTime: 30}
+    pool: { maxConnections:5, maxIdleTime: 30 }
   }
 );
 // Importar definicion de la tabla Forum
