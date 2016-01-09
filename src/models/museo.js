@@ -74,6 +74,14 @@ var Ubicacion = sequelize.import(ubicacionPath);
 var conservacionPath = path.join(__dirname,'conservaciones');
 var Conservacion = sequelize.import(conservacionPath);
 
+// Importar definicion de la fotografias
+var fotografiaPath = path.join(__dirname,'fotografias');
+var Fotografia = sequelize.import(fotografiaPath);
+
+// Importar definicion de la Accesorio
+var accesorioPath = path.join(__dirname,'accesorios');
+var Accesorio = sequelize.import(accesorioPath);
+
 // Usuarios tienen un Nivel de acceso
 Usuario.belongsTo(Nivel);
 Nivel.hasMany(Usuario);
@@ -104,6 +112,14 @@ Lugar.hasMany(Ubicacion);
 Conservacion.belongsTo(Obra);
 Obra.hasMany(Conservacion);
 
+// Obras tienen relevamiento
+Fotografia.belongsTo(Obra);
+Obra.hasMany(Fotografia);
+
+// Obras tienen Accesorios
+Accesorio.belongsTo(Obra);
+Obra.hasMany(Accesorio);
+
 // exportar tablas
 exports.Usuario = Usuario;
 exports.Nivel = Nivel;
@@ -115,6 +131,8 @@ exports.Obra = Obra;
 exports.Ubicacion = Ubicacion;
 exports.Lugar = Lugar;
 exports.Conservacion = Conservacion;
+exports.Fotografia = Fotografia;
+exports.Accesorio = Accesorio;
 
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function () {
