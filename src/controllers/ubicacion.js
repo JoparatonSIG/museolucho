@@ -1,0 +1,103 @@
+'use strict';
+
+// USUARIOS CRUD
+
+// Importar rutas
+// =============================================================================
+var express = require('express');
+var router = express.Router();
+
+var Museo = require('../models/museo.js');
+
+/* Rutas que terminan en /ubicacion
+// router.route('/ubicacion') */
+
+// POST /ubicacion
+router.post('/ubicacion', function (req, res) {
+	// bodyParser debe hacer la magia
+	var email = req.body.email;
+	var nombre = req.body.nombre;
+	var password = req.body.password;
+
+	var ubicacion = Museo.Ubicacion.build({ email: email, password: password });
+
+	ubicacion.add(function (success) {
+		res.json({ message: 'Ubicacion creado!' });
+	},
+	function (err) {
+		res.send(err);
+	});
+});
+
+/* (trae todos los ubicacion)
+// GET /ubicacion */
+router.get('/ubicacion', function (req, res) {
+	var ubicacion = Museo.Ubicacion.build();
+
+	ubicacion.retrieveAll(function (ubicacion) {
+		if (ubicacion) {
+			res.json(ubicacion);
+		} else {
+			res.send(401, 'No se encontraron Ubicacion');
+		}
+	}, function (error) {
+		res.send('Ubicacion no encontrado');
+	});
+});
+
+/* Rutas que terminan en /ubicacion/:ubicacionId
+// router.route('/ubicacion/:ubicacionId')
+// PUT /ubicacion/:ubicacionId
+// Actualiza ubicacion */
+
+router.put('/ubicacion/:ubicacionId', function (req, res) {
+	var ubicacion = Museo.Ubicacion.build();
+
+	ubicacion.email = req.body.email;
+	ubicacion.nombre = req.body.nombre;
+	ubicacion.password = req.body.password;
+
+	ubicacion.updateById(req.params.ubicacionId, function (success) {
+		if (success) {
+			res.json({ message: 'Ubicacion actualizado!' });
+		} else {
+			res.send(401, 'Ubicacion no encontrado');
+		}
+		}, function (error) {
+			res.send('Ubicacion no encontrado');
+	});
+});
+
+// GET /ubicacion/:ubicacionId
+// Toma un ubicacion por id
+router.get('/ubicacion/:ubicacionId', function (req, res) {
+	var ubicacion = Museo.Ubicacion.build();
+
+	ubicacion.retrieveById(req.params.ubicacionId, function (ubicacion) {
+		if (ubicacion) {
+			res.json(ubicacion);
+		} else {
+			res.send(401, 'Ubicacion no encontrado');
+		}
+		}, function (error) {
+			res.send('Ubicacion no encontrado');
+	});
+});
+
+// DELETE /ubicacion/ubicacionId
+// Borra el ubicacionId
+router.delete('/ubicacion/:ubicacionId', function (req, res) {
+	var ubicacion = Museo.Ubicacion.build();
+
+	ubicacion.removeById(req.params.ubicacionId, function (ubicacion) {
+		if (ubicacion) {
+			res.json({ message: 'Ubicacion borrado!' });
+		} else {
+			res.send(401, 'Ubicacion no encontrado');
+		}
+		}, function (error) {
+			res.send('Ubicacion no encontrado');
+	});
+});
+
+module.exports = router;
