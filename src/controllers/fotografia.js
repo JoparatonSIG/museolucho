@@ -38,7 +38,7 @@ router.get('/fotografia', function (req, res) {
 		if (fotografias) {
 			res.json(fotografias);
 		} else {
-			res.send(401, 'No se encontraron Fotografias');
+			res.status(401).send('No se encontraron Fotografias');
 		}
 	}, function (error) {
 		res.send('Fotografia no encontrado');
@@ -77,7 +77,7 @@ router.get('/fotografia/:fotografiaId', function (req, res) {
 		if (fotografia) {
 			res.json(fotografia);
 		} else {
-			res.send(401, 'Fotografia no encontrado');
+			res.status(401).send('Fotografia no encontrada');
 		}
 		}, function (error) {
 			res.send('Fotografia no encontrado');

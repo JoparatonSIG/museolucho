@@ -5,9 +5,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var accesorio = require('./controllers/accesorio');
+var analisis = require('./controllers/analisis');
+var conservacion = require('./controllers/conservacion');
+var descripcion = require('./controllers/descripcion');
 var estatico = require('./controllers/estatico');
-var usuario = require('./controllers/usuario');
+var fotografia = require('./controllers/fotografia');
+var lugar = require('./controllers/lugar');
 var nivel = require('./controllers/nivel');
+var obra = require('./controllers/obra');
+var relevamiento = require('./controllers/relevamiento');
+var tipoAnalisis = require('./controllers/tipoAnalisis');
+var ubicacion = require('./controllers/ubicacion');
+var usuario = require('./controllers/usuario');
 
 var app = express();
 
@@ -24,9 +34,19 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', accesorio);
+app.use('/api', analisis);
+app.use('/api', conservacion);
+app.use('/api', descripcion);
 app.use('/', estatico);
-app.use('/api', usuario);
+app.use('/api', fotografia);
+app.use('/api', lugar);
 app.use('/api', nivel);
+app.use('/api', obra);
+app.use('/api', relevamiento);
+app.use('/api', tipoAnalisis);
+app.use('/api', ubicacion);
+app.use('/api', usuario);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

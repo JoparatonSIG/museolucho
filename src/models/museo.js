@@ -82,6 +82,30 @@ var Fotografia = sequelize.import(fotografiaPath);
 var accesorioPath = path.join(__dirname,'accesorios');
 var Accesorio = sequelize.import(accesorioPath);
 
+// Importar definicion de la Especialidades
+var especialidadPath = path.join(__dirname,'especialidades');
+var Especialidad = sequelize.import(especialidadPath);
+
+// Importar definicion de la Naturaleza
+var naturalezaPath = path.join(__dirname,'naturaleza');
+var Naturaleza = sequelize.import(naturalezaPath);
+
+// Importar definicion de la Espacio
+var espacioPath = path.join(__dirname,'espacios');
+var Espacio = sequelize.import(espacioPath);
+
+// Importar definicion de la Estructura
+var estructuraPath = path.join(__dirname,'estructuras');
+var Estructura = sequelize.import(estructuraPath);
+
+// Importar definicion de la Tecnica
+var tecnicaPath = path.join(__dirname,'tecnicas');
+var Tecnica = sequelize.import(tecnicaPath);
+
+// Importar definicion de la TecnicaArte
+var tecnicaArtePath = path.join(__dirname,'tecnicasArte');
+var TecnicaArte = sequelize.import(tecnicaArtePath);
+
 // Usuarios tienen un Nivel de acceso
 Usuario.belongsTo(Nivel);
 Nivel.hasMany(Usuario);
@@ -120,6 +144,14 @@ Obra.hasMany(Fotografia);
 Accesorio.belongsTo(Obra);
 Obra.hasMany(Accesorio);
 
+// Relacion NaN Naturaleza Especialidad
+Naturaleza.belongsToMany(Especialidad, { as: 'Naturaleza', through: 'naturalezaEspecialidad', foreignKey: 'NaturalezaId' })
+Especialidad.belongsToMany(Naturaleza, { as: 'Especialidad', through: 'naturalezaEspecialidad', foreignKey: 'EspecialidadId' })
+
+// Obras tienen Accesorios
+Espacio.belongsTo(Obra);
+Obra.hasMany(Espacio);
+
 // exportar tablas
 exports.Usuario = Usuario;
 exports.Nivel = Nivel;
@@ -133,6 +165,8 @@ exports.Lugar = Lugar;
 exports.Conservacion = Conservacion;
 exports.Fotografia = Fotografia;
 exports.Accesorio = Accesorio;
+exports.Naturaleza = Naturaleza;
+exports.Especialidad = Especialidad;
 
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function () {
