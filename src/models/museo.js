@@ -35,20 +35,86 @@ var sequelize = new Sequelize(dbName, user, pwd,
   }
 );
 // Importar definicion de la tabla Forum
-var usuarioPath = path.join(__dirname,'usuario');
+var usuarioPath = path.join(__dirname,'usuarios');
 var Usuario = sequelize.import(usuarioPath);
 
 // Importar definicion de la tabla Topic
-var nivelPath = path.join(__dirname,'nivel');
+var nivelPath = path.join(__dirname,'niveles');
 var Nivel = sequelize.import(nivelPath);
 
-// los topics pertenecen a un forum registrado
+// Importar definicion de la tabla Obra
+var obraPath = path.join(__dirname,'obras');
+var Obra = sequelize.import(obraPath);
+
+// Importar definicion de la tabla relevamiento
+var relevamientoPath = path.join(__dirname,'relevamientos');
+var Relevamiento = sequelize.import(relevamientoPath);
+
+// Importar definicion de la tabla tipoAnalisis
+var tipoAnalisisPath = path.join(__dirname,'tipoAnalisis');
+var TipoAnalisis = sequelize.import(tipoAnalisisPath);
+
+// Importar definicion de la tabla Analisis
+var analisisPath = path.join(__dirname,'analisis');
+var Analisis = sequelize.import(analisisPath);
+
+// Importar definicion de la descripciones
+var descripcionPath = path.join(__dirname,'descripciones');
+var Descripcion = sequelize.import(descripcionPath);
+
+// Importar definicion de la lugares
+var lugarPath = path.join(__dirname,'lugares');
+var Lugar = sequelize.import(lugarPath);
+
+// Importar definicion de la ubicacion
+var ubicacionPath = path.join(__dirname,'ubicaciones');
+var Ubicacion = sequelize.import(ubicacionPath);
+
+// Importar definicion de la conservacion
+var conservacionPath = path.join(__dirname,'conservaciones');
+var Conservacion = sequelize.import(conservacionPath);
+
+// Usuarios tienen un Nivel de acceso
 Usuario.belongsTo(Nivel);
 Nivel.hasMany(Usuario);
+
+// Obras tienen relevamiento
+Relevamiento.belongsTo(Obra);
+Obra.hasMany(Relevamiento);
+
+// Obras tienen Analisis
+Analisis.belongsTo(Obra);
+Obra.hasMany(Analisis);
+
+Analisis.belongsTo(TipoAnalisis);
+TipoAnalisis.hasMany(Analisis);
+
+// Obras tienen Descipcion
+Descripcion.belongsTo(Obra);
+Obra.hasMany(Descripcion);
+
+// Obras tienen Analisis
+Ubicacion.belongsTo(Obra);
+Obra.hasMany(Ubicacion);
+
+Ubicacion.belongsTo(Lugar);
+Lugar.hasMany(Ubicacion);
+
+// Obras tienen conservacion
+Conservacion.belongsTo(Obra);
+Obra.hasMany(Conservacion);
 
 // exportar tablas
 exports.Usuario = Usuario;
 exports.Nivel = Nivel;
+exports.Analisis = Analisis;
+exports.TipoAnalisis = TipoAnalisis;
+exports.Relevamiento = Relevamiento;
+exports.Descripcion = Descripcion;
+exports.Obra = Obra;
+exports.Ubicacion = Ubicacion;
+exports.Lugar = Lugar;
+exports.Conservacion = Conservacion;
 
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function () {

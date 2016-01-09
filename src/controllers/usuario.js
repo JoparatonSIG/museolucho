@@ -9,8 +9,8 @@ var router = express.Router();
 
 var Museo = require('../models/museo.js');
 
-// Rutas que terminan en /usuarios
-// router.route('/usuario')
+/* Rutas que terminan en /usuarios
+// router.route('/usuario') */
 
 // POST /usuarios
 router.post('/usuario', function (req, res) {
@@ -29,8 +29,8 @@ router.post('/usuario', function (req, res) {
 	});
 });
 
-// (trae todos los usuarios)
-// GET /usuario
+/* (trae todos los usuarios)
+// GET /usuario */
 router.get('/usuario', function (req, res) {
 	var usuario = Museo.Usuario.build();
 
@@ -45,11 +45,11 @@ router.get('/usuario', function (req, res) {
 	});
 });
 
-// Rutas que terminan en /usuarios/:usuariosId
+/* Rutas que terminan en /usuarios/:usuariosId
 // router.route('/usuario/:usuarioId')
-
 // PUT /usuarios/:usuarioId
-// Actualiza usuario
+// Actualiza usuario */
+
 router.put('/usuario/:usuarioId', function (req, res) {
 	var usuario = Museo.Usuario.build();
 
