@@ -15,6 +15,7 @@
     "mysql": "^2.10.0",
     "sequelize": "^3.17.1",
     "serve-favicon": "~2.3.0",
+    "sqlite3": "^3.1.1",
     "stylus": "0.42.3"
   },
   "devDependencies": {
