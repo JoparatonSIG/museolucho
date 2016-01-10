@@ -34,19 +34,33 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', accesorio);
-app.use('/api', analisis);
-app.use('/api', conservacion);
-app.use('/api', descripcion);
+var router = express.Router();
+
+/*
+  este router va a estar montado bajo /api, es decir router.use( '/usuario', usuario )
+  va a montar el controlador usuario bajo /api/usuario.
+*/
+
+router.use( '/usuario', usuario );
+router.use( '/accesorio', accesorio );
+router.use( '/analisis', analisis );
+router.use( '/conservacion', conservacion );
+router.use( '/descripcion', descripcion );
+router.use( '/fotografia', fotografia );
+router.use( '/lugar', lugar );
+router.use( '/nivel', nivel );
+router.use( '/obra', obra );
+router.use( '/relevamiento', relevamiento );
+router.use( '/tipoAnalisis', tipoAnalisis );
+router.use( '/ubicacion', ubicacion );
+
+app.use( '/api', router );
+
+/*
+  esta ruta es para el controlador de páginas estáticas, va a estar montada en la raíz
+*/
+
 app.use('/', estatico);
-app.use('/api', fotografia);
-app.use('/api', lugar);
-app.use('/api', nivel);
-app.use('/api', obra);
-app.use('/api', relevamiento);
-app.use('/api', tipoAnalisis);
-app.use('/api', ubicacion);
-app.use('/api', usuario);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
