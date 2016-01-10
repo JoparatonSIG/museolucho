@@ -98,13 +98,13 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxEspacio',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['Espacio']
         },
         {
           name: 'idxInmuebles',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['inmuebles']
         },
         {

@@ -72,19 +72,19 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxEspacio',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['espacio']
         },
         {
           name: 'idxInmueble',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['inmueble']
         },
         {
           name: 'idxPropietario',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['propietario']
         }
       ]

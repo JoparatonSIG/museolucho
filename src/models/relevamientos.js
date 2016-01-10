@@ -118,19 +118,19 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxFechaRelevamiento',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['fechaRelev']
         },
         {
           name: 'idxFechaCatalog',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['fechaCatalog']
         },
         {
           name: 'idxFechaRevision',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['fechaRevision']
         }
       ]

@@ -108,25 +108,25 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxLocalidad',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['localidad']
         },
         {
           name: 'idxMunicipio',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['municipio']
         },
         {
           name: 'idxProvincia',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['provincia']
         },
         {
           name: 'idxDepartamento',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['departamento']
         }
       ]

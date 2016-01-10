@@ -64,7 +64,7 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxEstructura',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['estructura']
         }
       ]

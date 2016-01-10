@@ -80,19 +80,19 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxTipo',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['tipo']
         },
         {
           name: 'idxSubTipo',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['subTipo']
         },
         {
           name: 'idxValorPredeterminado',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['valorPredeterminado']
         }
       ]

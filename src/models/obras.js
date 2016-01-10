@@ -36,6 +36,18 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: null,
         comment: 'Codigo anterior'
       },
+      tituloCastellano: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Titulo de la Obra en Castellano'
+      },
+      tituloGuarani: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Titulo de la Obra en Guarani'
+      },
       denominacion: {
         type: DataTypes.STRING(50),
         allowNull: true,
@@ -71,6 +83,12 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
         defaultValue: null,
         comment: 'Funcion Original / uso actual'
+      },
+      origen: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Origen de la obra'
       }
     },
     {
@@ -94,12 +112,14 @@ module.exports = function (sequelize, DataTypes) {
           var autor = this.autor;
           var funcionOriginal = this.funcionOriginal;
           var tecnicaMaterial = this.tecnicaMaterial;
+          var origen = this.origen;
 
           Obra.build({
             numero: numero, codigo: codigo, codigoAnterior1: codigoAnterior1,
             codigoAnterior2: codigoAnterior2, denominacion: denominacion,
             especialidad: especialidad, epoca: epoca, autor: autor,
-            funcionOriginal: funcionOriginal, tecnicaMaterial: tecnicaMaterial
+            funcionOriginal: funcionOriginal, tecnicaMaterial: tecnicaMaterial,
+            origen: origen
           })
           .save().then(onSuccess).catch(onError);
         },
@@ -115,12 +135,14 @@ module.exports = function (sequelize, DataTypes) {
           var autor = this.autor;
           var funcionOriginal = this.funcionOriginal;
           var tecnicaMaterial = this.tecnicaMaterial;
+          var origen = this.origen;
 
           Obra.update({
             numero: numero, codigo: codigo, codigoAnterior1: codigoAnterior1,
             codigoAnterior2: codigoAnterior2, denominacion: denominacion,
             especialidad: especialidad, epoca: epoca, autor: autor,
-            funcionOriginal: funcionOriginal, tecnicaMaterial: tecnicaMaterial
+            funcionOriginal: funcionOriginal, tecnicaMaterial: tecnicaMaterial,
+            origen: origen
           },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
@@ -142,19 +164,19 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxCodigo',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['codigo']
         },
         {
           name: 'idxCodigo1',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['codigoAnterior1']
         },
         {
           name: 'idxCodigo2',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['codigoAnterior2']
         }
       ]

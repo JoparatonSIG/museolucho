@@ -1,53 +1,53 @@
 module.exports = function (sequelize, DataTypes) {
-  var Tecnica = sequelize.define(
-    'Tecnica',
+  var Adquisicion = sequelize.define(
+    'Adquisicion',
     {
       id: {
         type: DataTypes.BIGINT(11),
         primaryKey: true,
         autoIncrement: true,
-        comment: 'ID tecnica',
+        comment: 'ID Tipo Analisis',
         validate: {
           isNumeric:true,
           notNull: true
         }
       },
-      tecnica: {
+      tipoAdquisicion: {
         type: DataTypes.STRING(50),
         allowNull: true,
         defaultValue: null,
-        comment: 'Tecnica'
+        comment: 'Tipo de Adquisicion'
       }
     },
     {
       instanceMethods: {
         retrieveAll: function (onSuccess, onError) {
-          Tecnica.findAll( { } )
+          Adquisicion.findAll( { } )
           .then(onSuccess).catch(onError);
         },
-        retrieveById: function (tecnicaId, onSuccess, onError) {
-          Tecnica.find( { where: { id: tecnicaId } }, { raw: true })
+        retrieveById: function (taId, onSuccess, onError) {
+          Adquisicion.find( { where: { id: taId } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
         add: function (onSuccess, onError) {
-          var tecnica = this.tecnica;
+          var tipoAdquisicion = this.tipoAdquisicion;
 
-          Tecnica.build({
-            tecnica: tecnica
+          Adquisicion.build({
+            tipoAdquisicion: tipoAdquisicion
           })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (tecnicaId, onSuccess, onError) {
-          var id = tecnicaId;
-          var tecnica = this.tecnica;
+        updateById: function (taId, onSuccess, onError) {
+          var id = taId;
+          var tipoAdquisicion = this.tipoAdquisicion;
 
-          Tecnica.update({
-            tecnica: tecnica
+          Adquisicion.update({
+            tipoAdquisicion: tipoAdquisicion
           },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
-        removeById: function (tecnicaId, onSuccess, onError) {
-          Tecnica.destroy({ where: { id: tecnicaId }})
+        removeById: function (taId, onSuccess, onError) {
+          Adquisicion.destroy({ where: { id: taId }})
           .then(onSuccess).catch(onError);
         }
       },
@@ -58,17 +58,17 @@ module.exports = function (sequelize, DataTypes) {
       deletedAt: 'borrado',
       underscore: false,
       freezeTableName:true,
-      tableName: 'Tecnicas',
-      comment: 'Tecnicas registradas',
+      tableName: 'Adquisicion',
+      comment: 'Adquisicion registradas',
       indexes: [
         {
-          name: 'idxTecnica',
+          name: 'idxTipoAdquisicion',
           method: 'BTREE',
           unique: false,
-          fields: ['tecnica']
+          fields: ['tipo']
         }
       ]
     }
   );
-  return Tecnica;
+  return Adquisicion;
 };

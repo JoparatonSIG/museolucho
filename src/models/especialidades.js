@@ -64,7 +64,7 @@ module.exports = function (sequelize, DataTypes) {
         {
           name: 'idxEspecialidad',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['especialidad']
         }
       ]
