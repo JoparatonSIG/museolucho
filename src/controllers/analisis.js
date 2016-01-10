@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/analisis') */
 
 // POST /analisiss
-router.post('/analisis', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/analisis', function (req, res) {
 
 /* (trae todos los analisiss)
 // GET /analisis */
-router.get('/analisis', function (req, res) {
+router.get('/', function (req, res) {
 	var analisis = Museo.Analisis.build();
 
 	analisis.retrieveAll(function (analisiss) {
@@ -50,7 +50,7 @@ router.get('/analisis', function (req, res) {
 // PUT /analisis/:analisisId
 // Actualiza analisis */
 
-router.put('/analisis/:analisisId', function (req, res) {
+router.put('/:analisisId', function (req, res) {
 	var analisis = Museo.Analisis.build();
 
 	analisis.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/analisis/:analisisId', function (req, res) {
 
 // GET /analisis/:analisisId
 // Toma un analisis por id
-router.get('/analisis/:analisisId', function (req, res) {
+router.get('/:analisisId', function (req, res) {
 	var analisis = Museo.Analisis.build();
 
 	analisis.retrieveById(req.params.analisisId, function (analisis) {
@@ -86,7 +86,7 @@ router.get('/analisis/:analisisId', function (req, res) {
 
 // DELETE /analisis/analisisId
 // Borra el analisisId
-router.delete('/analisis/:analisisId', function (req, res) {
+router.delete('/:analisisId', function (req, res) {
 	var analisis = Museo.Analisis.build();
 
 	analisis.removeById(req.params.analisisId, function (analisis) {

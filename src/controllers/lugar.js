@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/lugar') */
 
 // POST /lugares
-router.post('/lugar', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/lugar', function (req, res) {
 
 /* (trae todos los lugares)
 // GET /lugar */
-router.get('/lugar', function (req, res) {
+router.get('/', function (req, res) {
 	var lugar = Museo.Lugar.build();
 
 	lugar.retrieveAll(function (lugares) {
@@ -50,7 +50,7 @@ router.get('/lugar', function (req, res) {
 // PUT /lugares/:lugarId
 // Actualiza lugar */
 
-router.put('/lugar/:lugarId', function (req, res) {
+router.put('/:lugarId', function (req, res) {
 	var lugar = Museo.Lugar.build();
 
 	lugar.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/lugar/:lugarId', function (req, res) {
 
 // GET /lugar/:lugarId
 // Toma un lugar por id
-router.get('/lugar/:lugarId', function (req, res) {
+router.get('/:lugarId', function (req, res) {
 	var lugar = Museo.Lugar.build();
 
 	lugar.retrieveById(req.params.lugarId, function (lugar) {
@@ -86,7 +86,7 @@ router.get('/lugar/:lugarId', function (req, res) {
 
 // DELETE /lugar/lugarId
 // Borra el lugarId
-router.delete('/lugar/:lugarId', function (req, res) {
+router.delete('/:lugarId', function (req, res) {
 	var lugar = Museo.Lugar.build();
 
 	lugar.removeById(req.params.lugarId, function (lugar) {

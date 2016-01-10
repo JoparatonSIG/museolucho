@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/obra') */
 
 // POST /obras
-router.post('/obra', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/obra', function (req, res) {
 
 /* (trae todos los obras)
 // GET /obra */
-router.get('/obra', function (req, res) {
+router.get('/', function (req, res) {
 	var obra = Museo.Obra.build();
 
 	obra.retrieveAll(function (obras) {
@@ -50,7 +50,7 @@ router.get('/obra', function (req, res) {
 // PUT /obras/:obraId
 // Actualiza obra */
 
-router.put('/obra/:obraId', function (req, res) {
+router.put('/:obraId', function (req, res) {
 	var obra = Museo.Obra.build();
 
 	obra.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/obra/:obraId', function (req, res) {
 
 // GET /obra/:obraId
 // Toma un obra por id
-router.get('/obra/:obraId', function (req, res) {
+router.get('/:obraId', function (req, res) {
 	var obra = Museo.Obra.build();
 
 	obra.retrieveById(req.params.obraId, function (obra) {
@@ -86,7 +86,7 @@ router.get('/obra/:obraId', function (req, res) {
 
 // DELETE /obra/obraId
 // Borra el obraId
-router.delete('/obra/:obraId', function (req, res) {
+router.delete('/:obraId', function (req, res) {
 	var obra = Museo.Obra.build();
 
 	obra.removeById(req.params.obraId, function (obra) {

@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/fotografia') */
 
 // POST /fotografias
-router.post('/fotografia', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/fotografia', function (req, res) {
 
 /* (trae todos los fotografias)
 // GET /fotografia */
-router.get('/fotografia', function (req, res) {
+router.get('/', function (req, res) {
 	var fotografia = Museo.Fotografia.build();
 
 	fotografia.retrieveAll(function (fotografias) {
@@ -50,7 +50,7 @@ router.get('/fotografia', function (req, res) {
 // PUT /fotografias/:fotografiaId
 // Actualiza fotografia */
 
-router.put('/fotografia/:fotografiaId', function (req, res) {
+router.put('/:fotografiaId', function (req, res) {
 	var fotografia = Museo.Fotografia.build();
 
 	fotografia.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/fotografia/:fotografiaId', function (req, res) {
 
 // GET /fotografia/:fotografiaId
 // Toma un fotografia por id
-router.get('/fotografia/:fotografiaId', function (req, res) {
+router.get('/:fotografiaId', function (req, res) {
 	var fotografia = Museo.Fotografia.build();
 
 	fotografia.retrieveById(req.params.fotografiaId, function (fotografia) {
@@ -86,7 +86,7 @@ router.get('/fotografia/:fotografiaId', function (req, res) {
 
 // DELETE /fotografia/fotografiaId
 // Borra el fotografiaId
-router.delete('/fotografia/:fotografiaId', function (req, res) {
+router.delete('/:fotografiaId', function (req, res) {
 	var fotografia = Museo.Fotografia.build();
 
 	fotografia.removeById(req.params.fotografiaId, function (fotografia) {

@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/conservacion') */
 
 // POST /conservacions
-router.post('/conservacion', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/conservacion', function (req, res) {
 
 /* (trae todos los conservacions)
 // GET /conservacion */
-router.get('/conservacion', function (req, res) {
+router.get('/', function (req, res) {
 	var conservacion = Museo.Conservacion.build();
 
 	conservacion.retrieveAll(function (conservacions) {
@@ -50,7 +50,7 @@ router.get('/conservacion', function (req, res) {
 // PUT /conservacion/:conservacionId
 // Actualiza conservacion */
 
-router.put('/conservacion/:conservacionId', function (req, res) {
+router.put('/:conservacionId', function (req, res) {
 	var conservacion = Museo.Conservacion.build();
 
 	conservacion.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/conservacion/:conservacionId', function (req, res) {
 
 // GET /conservacion/:conservacionId
 // Toma un conservacion por id
-router.get('/conservacion/:conservacionId', function (req, res) {
+router.get('/:conservacionId', function (req, res) {
 	var conservacion = Museo.Conservacion.build();
 
 	conservacion.retrieveById(req.params.conservacionId, function (conservacion) {
@@ -86,7 +86,7 @@ router.get('/conservacion/:conservacionId', function (req, res) {
 
 // DELETE /conservacion/conservacionId
 // Borra el conservacionId
-router.delete('/conservacion/:conservacionId', function (req, res) {
+router.delete('/:conservacionId', function (req, res) {
 	var conservacion = Museo.Conservacion.build();
 
 	conservacion.removeById(req.params.conservacionId, function (conservacion) {

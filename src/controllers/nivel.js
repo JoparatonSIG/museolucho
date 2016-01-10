@@ -10,7 +10,7 @@ var Museo = require('../models/museo.js');
 // Rutas que terminan en /nivel
 
 // POST /nivel
-router.post('/nivel', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var categoria = req.body.categoria;
 	var nivel = Museo.Nivel.build({ categoria: categoria });
@@ -25,7 +25,7 @@ router.post('/nivel', function (req, res) {
 
 // (trae todos los niveles)
 // GET /nivel
-router.get('/nivel', function (req, res) {
+router.get('/', function (req, res) {
 	var nivel = Museo.Nivel.build();
 
 	nivel.retrieveAll(function (niveles) {
@@ -43,7 +43,7 @@ router.get('/nivel', function (req, res) {
 
 // PUT /nivel/:nivelId
 // Actualiza nivel
-router.put('/nivel/:nivelId', function (req, res) {
+router.put('/:nivelId', function (req, res) {
 	var nivel = Museo.Nivel.build();
 	nivel.categoria = req.body.categoria;
 
@@ -61,7 +61,7 @@ router.put('/nivel/:nivelId', function (req, res) {
 
 // GET /nivel/:nivelId
 // Toma un nivel por id
-router.get('/nivel/:nivelId', function (req, res) {
+router.get('/:nivelId', function (req, res) {
 	var nivel = Museo.Nivel.build();
 
 	nivel.retrieveById(req.params.nivelId, function (nivel) {
@@ -77,7 +77,7 @@ router.get('/nivel/:nivelId', function (req, res) {
 
 // DELETE /nivel/nivelId
 // Borra el nivelId
-router.delete('/nivel/:nivelId', function (req, res) {
+router.delete('/:nivelId', function (req, res) {
 	var nivel = Museo.Nivel.build();
 
 	nivel.removeById(req.params.nivelId, function (nivel) {

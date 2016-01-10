@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/accesorio') */
 
 // POST /accesorios
-router.post('/accesorio', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/accesorio', function (req, res) {
 
 /* (trae todos los accesorios)
 // GET /accesorio */
-router.get('/accesorio', function (req, res) {
+router.get('/', function (req, res) {
 	var accesorio = Museo.Accesorio.build();
 
 	accesorio.retrieveAll(function (accesorios) {
@@ -50,7 +50,7 @@ router.get('/accesorio', function (req, res) {
 // PUT /accesorios/:accesorioId
 // Actualiza accesorio */
 
-router.put('/accesorio/:accesorioId', function (req, res) {
+router.put('/:accesorioId', function (req, res) {
 	var accesorio = Museo.Accesorio.build();
 
 	accesorio.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/accesorio/:accesorioId', function (req, res) {
 
 // GET /accesorio/:accesorioId
 // Toma un accesorio por id
-router.get('/accesorio/:accesorioId', function (req, res) {
+router.get('/:accesorioId', function (req, res) {
 	var accesorio = Museo.Accesorio.build();
 
 	accesorio.retrieveById(req.params.accesorioId, function (accesorio) {
@@ -86,7 +86,7 @@ router.get('/accesorio/:accesorioId', function (req, res) {
 
 // DELETE /accesorio/accesorioId
 // Borra el accesorioId
-router.delete('/accesorio/:accesorioId', function (req, res) {
+router.delete('/:accesorioId', function (req, res) {
 	var accesorio = Museo.Accesorio.build();
 
 	accesorio.removeById(req.params.accesorioId, function (accesorio) {

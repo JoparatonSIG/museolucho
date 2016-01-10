@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/descripcion') */
 
 // POST /descripciones
-router.post('/descripcion', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/descripcion', function (req, res) {
 
 /* (trae todos los descripciones)
 // GET /descripcion */
-router.get('/descripcion', function (req, res) {
+router.get('/', function (req, res) {
 	var descripcion = Museo.Descripcion.build();
 
 	descripcion.retrieveAll(function (descripciones) {
@@ -50,7 +50,7 @@ router.get('/descripcion', function (req, res) {
 // PUT /descripciones/:descripcionId
 // Actualiza descripcion */
 
-router.put('/descripcion/:descripcionId', function (req, res) {
+router.put('/:descripcionId', function (req, res) {
 	var descripcion = Museo.Descripcion.build();
 
 	descripcion.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/descripcion/:descripcionId', function (req, res) {
 
 // GET /descripcion/:descripcionId
 // Toma un descripcion por id
-router.get('/descripcion/:descripcionId', function (req, res) {
+router.get('/:descripcionId', function (req, res) {
 	var descripcion = Museo.Descripcion.build();
 
 	descripcion.retrieveById(req.params.descripcionId, function (descripcion) {
@@ -86,7 +86,7 @@ router.get('/descripcion/:descripcionId', function (req, res) {
 
 // DELETE /descripcion/descripcionId
 // Borra el descripcionId
-router.delete('/descripcion/:descripcionId', function (req, res) {
+router.delete('/:descripcionId', function (req, res) {
 	var descripcion = Museo.Descripcion.build();
 
 	descripcion.removeById(req.params.descripcionId, function (descripcion) {

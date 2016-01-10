@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/relevamiento') */
 
 // POST /relevamientos
-router.post('/relevamiento', function (req, res) {
+router.post('/', function (req, res) {
 	// bodyParser debe hacer la magia
 	var email = req.body.email;
 	var nombre = req.body.nombre;
@@ -31,7 +31,7 @@ router.post('/relevamiento', function (req, res) {
 
 /* (trae todos los relevamientos)
 // GET /relevamiento */
-router.get('/relevamiento', function (req, res) {
+router.get('/', function (req, res) {
 	var relevamiento = Museo.Relevamiento.build();
 
 	relevamiento.retrieveAll(function (relevamientos) {
@@ -50,7 +50,7 @@ router.get('/relevamiento', function (req, res) {
 // PUT /relevamientos/:relevamientoId
 // Actualiza relevamiento */
 
-router.put('/relevamiento/:relevamientoId', function (req, res) {
+router.put('/:relevamientoId', function (req, res) {
 	var relevamiento = Museo.Relevamiento.build();
 
 	relevamiento.email = req.body.email;
@@ -70,7 +70,7 @@ router.put('/relevamiento/:relevamientoId', function (req, res) {
 
 // GET /relevamiento/:relevamientoId
 // Toma un relevamiento por id
-router.get('/relevamiento/:relevamientoId', function (req, res) {
+router.get('/:relevamientoId', function (req, res) {
 	var relevamiento = Museo.Relevamiento.build();
 
 	relevamiento.retrieveById(req.params.relevamientoId, function (relevamiento) {
@@ -86,7 +86,7 @@ router.get('/relevamiento/:relevamientoId', function (req, res) {
 
 // DELETE /relevamiento/relevamientoId
 // Borra el relevamientoId
-router.delete('/relevamiento/:relevamientoId', function (req, res) {
+router.delete('/:relevamientoId', function (req, res) {
 	var relevamiento = Museo.Relevamiento.build();
 
 	relevamiento.removeById(req.params.relevamientoId, function (relevamiento) {
