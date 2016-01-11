@@ -15,11 +15,21 @@ var Museo = require('../models/museo.js');
 // POST /fotografias
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var foto = req.body.foto;
+  var codArchivoFotografico = req.body.codArchivoFotografico;
+  var numRollo = req.body.numRollo;
+  var numFoto = req.body.numFoto;
+  var fotografo = req.body.fotografo;
+  var fecha = req.body.fecha;
 
-  var fotografia = Museo.Fotografia.build({ email: email, password: password });
+  var fotografia = Museo.Fotografia.build({
+    foto: foto,
+    codArchivoFotografico: codArchivoFotografico,
+    numRollo: numRollo,
+    numFoto: numFoto,
+    fotografo: fotografo,
+    fecha: fecha
+  });
 
   fotografia.add(function (success) {
     res.json({ message: 'Fotografia creado!' });
@@ -53,9 +63,12 @@ router.get('/', function (req, res) {
 router.put('/:fotografiaId', function (req, res) {
   var fotografia = Museo.Fotografia.build();
 
-  fotografia.email = req.body.email;
-  fotografia.nombre = req.body.nombre;
-  fotografia.password = req.body.password;
+  fotografia.foto = req.body.foto;
+  fotografia.codArchivoFotografico = req.body.codArchivoFotografico;
+  fotografia.numRollo = req.body.numRollo;
+  fotografia.numFoto = req.body.numFoto;
+  fotografia.fotografo = req.body.fotografo;
+  fotografia.fecha = req.body.fecha;
 
   fotografia.updateById(req.params.fotografiaId, function (success) {
     if (success) {

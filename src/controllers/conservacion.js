@@ -15,11 +15,12 @@ var Museo = require('../models/museo.js');
 // POST /conservacions
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var conservacionreq = req.body.conservacion;
+  var condicionesSeguridad = req.body.condicionesSeguridad;
 
-  var conservacion = Museo.Conservacion.build({ email: email, password: password });
+  var conservacion = Museo.Conservacion.build({
+    conservacion: conservacionreq, condicionesSeguridad: condicionesSeguridad
+  });
 
   conservacion.add(function (success) {
     res.json({ message: 'Conservacion creado!' });
@@ -53,9 +54,8 @@ router.get('/', function (req, res) {
 router.put('/:conservacionId', function (req, res) {
   var conservacion = Museo.Conservacion.build();
 
-  conservacion.email = req.body.email;
-  conservacion.nombre = req.body.nombre;
-  conservacion.password = req.body.password;
+  conservacion.conservacion = req.body.conservacion;
+  conservacion.condicionesSeguridad = req.body.condicionesSeguridad;
 
   conservacion.updateById(req.params.conservacionId, function (success) {
     if (success) {

@@ -15,11 +15,9 @@ var Museo = require('../models/museo.js');
 // POST /analisiss
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var analisisreq = req.body.analisis;
 
-  var analisis = Museo.Analisis.build({ email: email, password: password });
+  var analisis = Museo.Analisis.build({ analisis: analisisreq });
 
   analisis.add(function (success) {
     res.json({ message: 'Analisis creado!' });
@@ -53,9 +51,7 @@ router.get('/', function (req, res) {
 router.put('/:analisisId', function (req, res) {
   var analisis = Museo.Analisis.build();
 
-  analisis.email = req.body.email;
-  analisis.nombre = req.body.nombre;
-  analisis.password = req.body.password;
+  analisis.analisis = req.body.analisis;
 
   analisis.updateById(req.params.analisisId, function (success) {
     if (success) {

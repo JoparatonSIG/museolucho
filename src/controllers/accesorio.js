@@ -15,11 +15,10 @@ var Museo = require('../models/museo.js');
 // POST /accesorios
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var objetoCodigo = req.body.objetoCodigo;
+  var relacion = req.body.relacion;
 
-  var accesorio = Museo.Accesorio.build({ email: email, password: password });
+  var accesorio = Museo.Accesorio.build({ objetoCodigo: objetoCodigo, relacion: relacion });
 
   accesorio.add(function (success) {
     res.json({ message: 'Accesorio creado!' });
@@ -53,9 +52,8 @@ router.get('/', function (req, res) {
 router.put('/:accesorioId', function (req, res) {
   var accesorio = Museo.Accesorio.build();
 
-  accesorio.email = req.body.email;
-  accesorio.nombre = req.body.nombre;
-  accesorio.password = req.body.password;
+  accesorio.objetoCodigo = req.body.objetoCodigo;
+  accesorio.relacion = req.body.relacion;
 
   accesorio.updateById(req.params.accesorioId, function (success) {
     if (success) {

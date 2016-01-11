@@ -15,11 +15,31 @@ var Museo = require('../models/museo.js');
 // POST /obras
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var numero = req.body.numero;
+  var codigo = req.body.codigo;
+  var codigoAnterior1 = req.body.codigoAnterior1;
+  var codigoAnterior2 = req.body.codigoAnterior2;
+  var denominacion = req.body.denominacion;
+  var especialidad = req.body.especialidad;
+  var epoca = req.body.epoca;
+  var autor = req.body.autor;
+  var funcionOriginal = req.body.funcionOriginal;
+  var tecnicaMaterial = req.body.tecnicaMaterial;
+  var origen = req.body.origen;
 
-  var obra = Museo.Obra.build({ email: email, password: password });
+  var obra = Museo.Obra.build({
+    numero: numero,
+    codigo: codigo,
+    codigoAnterior1: codigoAnterior1,
+    codigoAnterior2: codigoAnterior2,
+    denominacion: denominacion,
+    especialidad: especialidad,
+    epoca: epoca,
+    autor: autor,
+    funcionOriginal: funcionOriginal,
+    tecnicaMaterial: tecnicaMaterial,
+    origen: origen
+  });
 
   obra.add(function (success) {
     res.json({ message: 'Obra creado!' });
@@ -54,9 +74,17 @@ router.get('/', function (req, res) {
 router.put('/:obraId', function (req, res) {
   var obra = Museo.Obra.build();
 
-  obra.email = req.body.email;
-  obra.nombre = req.body.nombre;
-  obra.password = req.body.password;
+  obra.numero = req.body.numero;
+  obra.codigo = req.body.codigo;
+  obra.codigoAnterior1 = req.body.codigoAnterior1;
+  obra.codigoAnterior2 = req.body.codigoAnterior2;
+  obra.denominacion = req.body.denominacion;
+  obra.especialidad = req.body.especialidad;
+  obra.epoca = req.body.epoca;
+  obra.autor = req.body.autor;
+  obra.funcionOriginal = req.body.funcionOriginal;
+  obra.tecnicaMaterial = req.body.tecnicaMaterial;
+  obra.origen = req.body.origen;
 
   obra.updateById(req.params.obraId, function (success) {
     if (success) {

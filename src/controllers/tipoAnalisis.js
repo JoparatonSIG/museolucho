@@ -15,11 +15,15 @@ var Museo = require('../models/museo.js');
 // POST /tipoAnalisis
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var tipo = req.body.tipo;
+  var subTipo = req.body.subTipo;
+  var valorPredeterminado = req.body.valorPredeterminado;
 
-  var tipoAnalisis = Museo.TipoAnalisis.build({ email: email, password: password });
+  var tipoAnalisis = Museo.TipoAnalisis.build({
+    tipo: tipo,
+    subTipo: subTipo,
+    valorPredeterminado: valorPredeterminado
+  });
 
   tipoAnalisis.add(function (success) {
     res.json({ message: 'TipoAnalisis creado!' });
@@ -53,9 +57,9 @@ router.get('/', function (req, res) {
 router.put('/:tipoAnalisisId', function (req, res) {
   var tipoAnalisis = Museo.TipoAnalisis.build();
 
-  tipoAnalisis.email = req.body.email;
-  tipoAnalisis.nombre = req.body.nombre;
-  tipoAnalisis.password = req.body.password;
+  tipoAnalisis.tipo = req.body.tipo;
+  tipoAnalisis.subTipo = req.body.subTipo;
+  tipoAnalisis.valorPredeterminado = req.body.valorPredeterminado;
 
   tipoAnalisis.updateById(req.params.tipoAnalisisId, function (success) {
     if (success) {
