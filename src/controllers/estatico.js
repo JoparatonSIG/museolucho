@@ -3,14 +3,6 @@ var router = express.Router();
 
 var Museo = require('../models/museo.js');
 
-var paginate = require( 'express-paginate' );
-
-/*
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-*/
-
 router.get( '/obra', function ( req, res ) {
   console.log( 'get /obra');
 
