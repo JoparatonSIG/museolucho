@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
 
   especialidad.retrieveAll(function (especialidades) {
     if (especialidades) {
-      res.json(especialidads);
+      res.json(especialidades);
     } else {
       res.send(401, 'No se encontraron Especialidads');
     }

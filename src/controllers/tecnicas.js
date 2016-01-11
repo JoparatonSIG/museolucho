@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
 
   tecnicas.retrieveAll(function (tecnicas) {
     if (tecnicas) {
-      res.json(tecnicass);
+      res.json(tecnicas);
     } else {
       res.send(401, 'No se encontraron Tecnicass');
     }

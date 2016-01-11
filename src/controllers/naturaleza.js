@@ -38,7 +38,7 @@ router.get('/', function (req, res) {
 
   naturaleza.retrieveAll(function (naturaleza) {
     if (naturaleza) {
-      res.json(naturalezaes);
+      res.json(naturaleza);
     } else {
       res.send(401, 'No se encontraron Naturalezaes');
     }
