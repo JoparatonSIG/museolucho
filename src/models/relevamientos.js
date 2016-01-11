@@ -2,6 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   var Relevamiento = sequelize.define(
     'Relevamiento',
     {
+      /*
       id: {
         type: DataTypes.BIGINT(11),
         primaryKey: true,
@@ -12,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
           notNull: true
         }
       },
+      */
       fechaRelev: {
         type: DataTypes.DATE,
         allowNull: true,
@@ -66,13 +68,13 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         },
         add: function (onSuccess, onError) {
-          var fechaRelev = this.fechaRelev
-          var fechaCatalog = this.fechaCatalog
-          var fechaRevision = this.fechaRevision
-          var quienRelevo = this.quienRelevo
-          var quienCatalogo = this.quienCatalogo
-          var quienReviso = this.quienReviso
-          var observaciones = this.observaciones
+          var fechaRelev = this.fechaRelev;
+          var fechaCatalog = this.fechaCatalog;
+          var fechaRevision = this.fechaRevision;
+          var quienRelevo = this.quienRelevo;
+          var quienCatalogo = this.quienCatalogo;
+          var quienReviso = this.quienReviso;
+          var observaciones = this.observaciones;
 
           Relevamiento.build({
             fechaRelev: fechaRelev, fechaCatalog: fechaCatalog,
@@ -84,13 +86,13 @@ module.exports = function (sequelize, DataTypes) {
         },
         updateById: function (relevamientoId, onSuccess, onError) {
           var id = relevamientoId;
-          var fechaRelev = this.fechaRelev
-          var fechaCatalog = this.fechaCatalog
-          var fechaRevision = this.fechaRevision
-          var quienRelevo = this.quienRelevo
-          var quienCatalogo = this.quienCatalogo
-          var quienReviso = this.quienReviso
-          var observaciones = this.observaciones
+          var fechaRelev = this.fechaRelev;
+          var fechaCatalog = this.fechaCatalog;
+          var fechaRevision = this.fechaRevision;
+          var quienRelevo = this.quienRelevo;
+          var quienCatalogo = this.quienCatalogo;
+          var quienReviso = this.quienReviso;
+          var observaciones = this.observaciones;
 
           Relevamiento.update({
             fechaRelev: fechaRelev, fechaCatalog: fechaCatalog,

@@ -112,7 +112,7 @@ Nivel.hasMany(Usuario);
 
 // Obras tienen relevamiento
 Relevamiento.belongsTo(Obra);
-Obra.hasMany(Relevamiento);
+Obra.hasOne(Relevamiento);
 
 // Obras tienen Analisis
 Analisis.belongsTo(Obra);
@@ -123,34 +123,38 @@ TipoAnalisis.hasMany(Analisis);
 
 // Obras tienen Descipcion
 Descripcion.belongsTo(Obra);
-Obra.hasMany(Descripcion);
+Obra.hasOne(Descripcion);
 
 // Obras tienen Analisis
 Ubicacion.belongsTo(Obra);
-Obra.hasMany(Ubicacion);
+Obra.hasOne(Ubicacion);
 
 Ubicacion.belongsTo(Lugar);
 Lugar.hasMany(Ubicacion);
 
 // Obras tienen conservacion
 Conservacion.belongsTo(Obra);
-Obra.hasMany(Conservacion);
+Obra.hasOne(Conservacion);
 
 // Obras tienen relevamiento
 Fotografia.belongsTo(Obra);
-Obra.hasMany(Fotografia);
+Obra.hasOne(Fotografia);
 
 // Obras tienen Accesorios
 Accesorio.belongsTo(Obra);
 Obra.hasMany(Accesorio);
 
 // Relacion NaN Naturaleza Especialidad
-Naturaleza.belongsToMany(Especialidad, { as: 'Naturaleza', through: 'naturalezaEspecialidad', foreignKey: 'NaturalezaId' })
-Especialidad.belongsToMany(Naturaleza, { as: 'Especialidad', through: 'naturalezaEspecialidad', foreignKey: 'EspecialidadId' })
-
-// Obras tienen Accesorios
-Espacio.belongsTo(Obra);
-Obra.hasMany(Espacio);
+Naturaleza.belongsToMany(Especialidad, {
+  as: 'Naturaleza',
+  through: 'naturalezaEspecialidad',
+  foreignKey: 'NaturalezaId'
+});
+Especialidad.belongsToMany(Naturaleza, {
+  as: 'Especialidad',
+  through: 'naturalezaEspecialidad',
+  foreignKey: 'EspecialidadId'
+});
 
 // exportar tablas
 exports.Usuario = Usuario;

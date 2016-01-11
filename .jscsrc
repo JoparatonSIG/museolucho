@@ -14,7 +14,7 @@
   //"disallowSpacesInsideArrayBrackets": true,
   //"disallowTrailingComma": true,
   //"disallowSpacesInsideParentheses": true,
-  //"disallowTrailingWhitespace": true,
+  "disallowTrailingWhitespace": true,
   "requireCapitalizedConstructors": true,
   "requireCommaBeforeLineBreak": true,
   "requireCurlyBraces": ["if", "else", "for", "while", "do", "try", "catch", "case", "default", "validate"],

@@ -14,35 +14,35 @@ var Museo = require('../models/museo.js');
 
 // POST /analisiss
 router.post('/', function (req, res) {
-	// bodyParser debe hacer la magia
-	var email = req.body.email;
-	var nombre = req.body.nombre;
-	var password = req.body.password;
+  // bodyParser debe hacer la magia
+  var email = req.body.email;
+  var nombre = req.body.nombre;
+  var password = req.body.password;
 
-	var analisis = Museo.Analisis.build({ email: email, password: password });
+  var analisis = Museo.Analisis.build({ email: email, password: password });
 
-	analisis.add(function (success) {
-		res.json({ message: 'Analisis creado!' });
-	},
-	function (err) {
-		res.send(err);
-	});
+  analisis.add(function (success) {
+    res.json({ message: 'Analisis creado!' });
+  },
+  function (err) {
+    res.send(err);
+  });
 });
 
 /* (trae todos los analisiss)
 // GET /analisis */
 router.get('/', function (req, res) {
-	var analisis = Museo.Analisis.build();
+  var analisis = Museo.Analisis.build();
 
-	analisis.retrieveAll(function (analisiss) {
-		if (analisis) {
-			res.json(analisis);
-		} else {
-			res.send(401, 'No se encontraron Analisis');
-		}
-	}, function (error) {
-		res.send('Analisis no encontrado');
-	});
+  analisis.retrieveAll(function (analisiss) {
+    if (analisis) {
+      res.json(analisis);
+    } else {
+      res.send(401, 'No se encontraron Analisis');
+    }
+  }, function (error) {
+    res.send('Analisis no encontrado');
+  });
 });
 
 /* Rutas que terminan en /analisis/:analisisId
@@ -51,53 +51,53 @@ router.get('/', function (req, res) {
 // Actualiza analisis */
 
 router.put('/:analisisId', function (req, res) {
-	var analisis = Museo.Analisis.build();
+  var analisis = Museo.Analisis.build();
 
-	analisis.email = req.body.email;
-	analisis.nombre = req.body.nombre;
-	analisis.password = req.body.password;
+  analisis.email = req.body.email;
+  analisis.nombre = req.body.nombre;
+  analisis.password = req.body.password;
 
-	analisis.updateById(req.params.analisisId, function (success) {
-		if (success) {
-			res.json({ message: 'Analisis actualizado!' });
-		} else {
-			res.send(401, 'Analisis no encontrado');
-		}
-		}, function (error) {
-			res.send('Analisis no encontrado');
-	});
+  analisis.updateById(req.params.analisisId, function (success) {
+    if (success) {
+      res.json({ message: 'Analisis actualizado!' });
+    } else {
+      res.send(401, 'Analisis no encontrado');
+    }
+  }, function (error) {
+    res.send('Analisis no encontrado');
+  });
 });
 
 // GET /analisis/:analisisId
 // Toma un analisis por id
 router.get('/:analisisId', function (req, res) {
-	var analisis = Museo.Analisis.build();
+  var analisis = Museo.Analisis.build();
 
-	analisis.retrieveById(req.params.analisisId, function (analisis) {
-		if (analisis) {
-			res.json(analisis);
-		} else {
-			res.send(401, 'Analisis no encontrado');
-		}
-		}, function (error) {
-			res.send('Analisis no encontrado');
-	});
+  analisis.retrieveById(req.params.analisisId, function (analisis) {
+    if (analisis) {
+      res.json(analisis);
+    } else {
+      res.send(401, 'Analisis no encontrado');
+    }
+  }, function (error) {
+    res.send('Analisis no encontrado');
+  });
 });
 
 // DELETE /analisis/analisisId
 // Borra el analisisId
 router.delete('/:analisisId', function (req, res) {
-	var analisis = Museo.Analisis.build();
+  var analisis = Museo.Analisis.build();
 
-	analisis.removeById(req.params.analisisId, function (analisis) {
-		if (analisis) {
-			res.json({ message: 'Analisis borrado!' });
-		} else {
-			res.send(401, 'Analisis no encontrado');
-		}
-		}, function (error) {
-			res.send('Analisis no encontrado');
-	});
+  analisis.removeById(req.params.analisisId, function (analisis) {
+    if (analisis) {
+      res.json({ message: 'Analisis borrado!' });
+    } else {
+      res.send(401, 'Analisis no encontrado');
+    }
+  }, function (error) {
+    res.send('Analisis no encontrado');
+  });
 });
 
 module.exports = router;

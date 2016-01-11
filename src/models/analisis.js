@@ -50,16 +50,6 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName:true,
       tableName: 'Analisis',
       comment: 'Analisis registradas'
-      /* ,
-      indexes: [
-        {
-          name: 'idxAnalisis',
-          method: 'FULLTEXT',
-          unique: true,
-          fields: ['analisis']
-        }
-      ]
-      */
     }
   );
   return Analisis;

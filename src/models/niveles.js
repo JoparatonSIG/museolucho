@@ -47,7 +47,7 @@ module.exports = function (sequelize, DataTypes) {
         removeById: function (nivelId, onSuccess, onError) {
           Nivel.destroy( { where: { id: nivelId } })
           .then(onSuccess).catch(onError);
-         }
+        }
       },
       timestamps: true,
       paranoid:true,
