@@ -4,7 +4,7 @@ var router = express.Router();
 var Museo = require('../models/museo.js');
 
 router.get( '/', function ( req, res ) {
-  res.render( 'home/index', { title: 'Benvenidos' });
+  res.render( 'home/index', { title: 'Bienvenidos' });
 });
 
 

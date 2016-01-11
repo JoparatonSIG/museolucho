@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>el titulo</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <% include ./partials/head %>
   <body>
-    <%- body %>
+    <div id="page-wrap">
+      <header class="main" id="h1">
+        <% include ./partials/navbar %>
+      </header>
+    <div class='container-fluid'>
+      <%- body %>
+      <% include ./partials/footer %>
+    </div> <!-- container -->
+    <% include ./partials/footerScripts %>
   </body>
 </html>

@@ -65,6 +65,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var router = express.Router();
 
+// Keep user, csrf token and config available
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  res.locals.config = config;
+  res.locals._csrf = "req.csrfToken()";
+  next();
+});
+
 /*
   este router va a estar montado bajo /api, es decir router.use( '/usuario', usuario )
   va a montar el controlador usuario bajo /api/usuario.
