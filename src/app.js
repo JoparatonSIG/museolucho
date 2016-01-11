@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLayouts = require('express-ejs-layouts');
 
+var config = require('./config/config');
+
 var accesorio = require('./controllers/accesorio');
 var analisis = require('./controllers/analisis');
 var conservacion = require('./controllers/conservacion');
@@ -21,6 +23,21 @@ var ubicacion = require('./controllers/ubicacion');
 var usuario = require('./controllers/usuario');
 
 var app = express();
+
+/**
+ * Configuración y seteo de Express
+ */
+
+// Las variables locals son para la renderización de todos los templates
+// dentro de la aplicación. Son utiles para proveer de funciones Helpers
+// a los templates, así como datos globales a nivel del app
+
+app.locals.application  = config.name;
+app.locals.version      = config.version;
+app.locals.description  = config.description;
+app.locals.author       = config.author;
+app.locals.keywords     = config.keywords;
+app.locals.ga           = config.ga;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

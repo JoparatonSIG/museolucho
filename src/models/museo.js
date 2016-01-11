@@ -1,10 +1,9 @@
 'use strict';
 
 var path = require('path');
+var config = require('../config/config');
 
-// Postgres DATABASE_URL = postgres://user:passwd@host:port/database
-// MariaDB DATABASE_URL = mariadb://user:passwd@host:port/database
-// SQLite   DATABASE_URL = sqlite://:@:/
+/*
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var dbName  = (url[6] || null);
 var user     = (url[2] || null);
@@ -14,6 +13,15 @@ var dialect  = (url[1] || null);
 var port     = (url[5] || null);
 var host     = (url[4] || null);
 var storage  = process.env.DATABASE_STORAGE;
+*/
+var dbName   = config.db.name;
+var user     = config.db.user;
+var pwd      = config.db.pwd;
+var protocol = config.db.protocol;
+var dialect  = config.db.dialect;
+var port     = config.db.port;
+var host     = config.db.host;
+var storage  = config.db.storage;
 
 // Cargar Modelo ORM
 var Sequelize = require('sequelize');

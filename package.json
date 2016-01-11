@@ -1,9 +1,29 @@
 {
   "name": "museoLucho",
+  "author": "Lucho Benitez",
+  "description": "Cataloging system for Jseuit Museum",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joparatonsig/museolucho.git"
+  },
+  "bugs": "https://github.com/joparatonsig/museolucho/issues",
+  "contributors": "https://github.com/joparatonsig/museolucho/graphs/contributors",
+  "keywords": [
+    "catalog",
+    "museum",
+    "history",
+    "Jesuits",
+    "Paraguay"
+  ],
+  "engines": {
+    "node": "5.x.x",
+    "npm": "3.x.x"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

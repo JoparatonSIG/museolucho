@@ -3,8 +3,12 @@ var router = express.Router();
 
 var Museo = require('../models/museo.js');
 
+router.get( '/', function ( req, res ) {
+  res.render( 'home/index', { title: 'Benvenidos' });
+});
+
+
 router.get( '/obra', function ( req, res ) {
-  console.log( 'get /obra');
 
   var obra = Museo.Obra.build();
   var page = 0; // iniciar la paginacion en 0 (si existe el parametro page va a sobreescribirlo)
