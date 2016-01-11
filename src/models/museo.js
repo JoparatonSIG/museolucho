@@ -111,8 +111,8 @@ var tecnicaPath = path.join(__dirname,'tecnicas');
 var Tecnica = sequelize.import(tecnicaPath);
 
 // Importar definicion de la TecnicaArte
-var tecnicaArtePath = path.join(__dirname,'tecnicasArte');
-var TecnicaArte = sequelize.import(tecnicaArtePath);
+var tecnicasArtePath = path.join(__dirname,'tecnicasArte');
+var TecnicasArte = sequelize.import(tecnicasArtePath);
 
 // Usuarios tienen un Nivel de acceso
 Usuario.belongsTo(Nivel);
@@ -178,8 +178,8 @@ exports.Naturaleza = Naturaleza;
 exports.Nivel = Nivel;
 exports.Obra = Obra;
 exports.Relevamiento = Relevamiento;
-// exports.Tecnicas = Tecnicas;
-// exports.TecnicasArte = TecnicasArte;
+exports.Tecnica = Tecnica;
+exports.TecnicasArte = TecnicasArte;
 exports.TipoAnalisis = TipoAnalisis;
 exports.Ubicacion = Ubicacion;
 exports.Usuario = Usuario;

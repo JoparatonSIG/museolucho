@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
 /* (trae todos los tecnicaArtes)
 // GET /tecnicaArte */
 router.get('/', function (req, res) {
-  var tecnicaArte = Museo.TecnicaArte.build();
+  var tecnicaArte = Museo.TecnicasArte.build();
 
   tecnicaArte.retrieveAll(function (tecnicaArtes) {
     if (tecnicaArtes) {
@@ -69,7 +69,7 @@ router.put('/:tecnicaArteId', function (req, res) {
 // GET /tecnicaArte/:tecnicaArteId
 // Toma un tecnicaArte por id
 router.get('/:tecnicaArteId', function (req, res) {
-  var tecnicaArte = Museo.TecnicaArte.build();
+  var tecnicaArte = Museo.TecnicasArte.build();
 
   tecnicaArte.retrieveById(req.params.tecnicaArteId, function (tecnicaArte) {
     if (tecnicaArte) {

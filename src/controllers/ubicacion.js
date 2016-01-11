@@ -13,7 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/ubicacion') */
 
 // POST /ubicacion
-router.post('/ubicacion', function (req, res) {
+router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var espacio = req.body.espacio;
   var inmueble = req.body.inmueble;
@@ -35,12 +35,12 @@ router.post('/ubicacion', function (req, res) {
 
 /* (trae todos los ubicacion)
 // GET /ubicacion */
-router.get('/ubicacion', function (req, res) {
+router.get('/', function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
-  ubicacion.retrieveAll(function (ubicacion) {
-    if (ubicacion) {
-      res.json(ubicacion);
+  ubicacion.retrieveAll(function (ubicaciones) {
+    if (ubicaciones) {
+      res.json(ubicaciones);
     } else {
       res.send(401, 'No se encontraron Ubicacion');
     }
@@ -54,7 +54,7 @@ router.get('/ubicacion', function (req, res) {
 // PUT /ubicacion/:ubicacionId
 // Actualiza ubicacion */
 
-router.put('/ubicacion/:ubicacionId', function (req, res) {
+router.put('/:ubicacionId', function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.espacio = req.body.espacio;
@@ -74,7 +74,7 @@ router.put('/ubicacion/:ubicacionId', function (req, res) {
 
 // GET /ubicacion/:ubicacionId
 // Toma un ubicacion por id
-router.get('/ubicacion/:ubicacionId', function (req, res) {
+router.get('/:ubicacionId', function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.retrieveById(req.params.ubicacionId, function (ubicacion) {
@@ -90,7 +90,7 @@ router.get('/ubicacion/:ubicacionId', function (req, res) {
 
 // DELETE /ubicacion/ubicacionId
 // Borra el ubicacionId
-router.delete('/ubicacion/:ubicacionId', function (req, res) {
+router.delete('/:ubicacionId', function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.removeById(req.params.ubicacionId, function (ubicacion) {

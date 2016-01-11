@@ -84,7 +84,7 @@ router.use( '/naturaleza', naturaleza );
 router.use( '/nivel', nivel );
 router.use( '/obra', obra );
 router.use( '/relevamiento', relevamiento );
-router.use( '/tecnicas', tecnicas );
+router.use( '/tecnica', tecnicas );
 router.use( '/tecnicasArte', tecnicasArte );
 router.use( '/tipoAnalisis', tipoAnalisis );
 router.use( '/ubicacion', ubicacion );
