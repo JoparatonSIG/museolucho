@@ -27,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(expressLayouts); // cargar el módulo de layouts
-app.set('layout', 'layout') // layout por defecto
+app.set('layout', 'layout'); // layout por defecto
 
 
 // uncomment after placing your favicon in /public
