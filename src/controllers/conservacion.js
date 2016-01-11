@@ -14,35 +14,35 @@ var Museo = require('../models/museo.js');
 
 // POST /conservacions
 router.post('/', function (req, res) {
-	// bodyParser debe hacer la magia
-	var email = req.body.email;
-	var nombre = req.body.nombre;
-	var password = req.body.password;
+  // bodyParser debe hacer la magia
+  var email = req.body.email;
+  var nombre = req.body.nombre;
+  var password = req.body.password;
 
-	var conservacion = Museo.Conservacion.build({ email: email, password: password });
+  var conservacion = Museo.Conservacion.build({ email: email, password: password });
 
-	conservacion.add(function (success) {
-		res.json({ message: 'Conservacion creado!' });
-	},
-	function (err) {
-		res.send(err);
-	});
+  conservacion.add(function (success) {
+    res.json({ message: 'Conservacion creado!' });
+  },
+  function (err) {
+    res.send(err);
+  });
 });
 
 /* (trae todos los conservacions)
 // GET /conservacion */
 router.get('/', function (req, res) {
-	var conservacion = Museo.Conservacion.build();
+  var conservacion = Museo.Conservacion.build();
 
-	conservacion.retrieveAll(function (conservacions) {
-		if (conservacion) {
-			res.json(conservacion);
-		} else {
-			res.send(401, 'No se encontraron Conservacion');
-		}
-	}, function (error) {
-		res.send('Conservacion no encontrado');
-	});
+  conservacion.retrieveAll(function (conservacions) {
+    if (conservacion) {
+      res.json(conservacion);
+    } else {
+      res.send(401, 'No se encontraron Conservacion');
+    }
+  }, function (error) {
+    res.send('Conservacion no encontrado');
+  });
 });
 
 /* Rutas que terminan en /conservacion/:conservacionId
@@ -51,53 +51,53 @@ router.get('/', function (req, res) {
 // Actualiza conservacion */
 
 router.put('/:conservacionId', function (req, res) {
-	var conservacion = Museo.Conservacion.build();
+  var conservacion = Museo.Conservacion.build();
 
-	conservacion.email = req.body.email;
-	conservacion.nombre = req.body.nombre;
-	conservacion.password = req.body.password;
+  conservacion.email = req.body.email;
+  conservacion.nombre = req.body.nombre;
+  conservacion.password = req.body.password;
 
-	conservacion.updateById(req.params.conservacionId, function (success) {
-		if (success) {
-			res.json({ message: 'Conservacion actualizado!' });
-		} else {
-			res.send(401, 'Conservacion no encontrado');
-		}
-		}, function (error) {
-			res.send('Conservacion no encontrado');
-	});
+  conservacion.updateById(req.params.conservacionId, function (success) {
+    if (success) {
+      res.json({ message: 'Conservacion actualizado!' });
+    } else {
+      res.send(401, 'Conservacion no encontrado');
+    }
+  }, function (error) {
+    res.send('Conservacion no encontrado');
+  });
 });
 
 // GET /conservacion/:conservacionId
 // Toma un conservacion por id
 router.get('/:conservacionId', function (req, res) {
-	var conservacion = Museo.Conservacion.build();
+  var conservacion = Museo.Conservacion.build();
 
-	conservacion.retrieveById(req.params.conservacionId, function (conservacion) {
-		if (conservacion) {
-			res.json(conservacion);
-		} else {
-			res.send(401, 'Conservacion no encontrado');
-		}
-		}, function (error) {
-			res.send('Conservacion no encontrado');
-	});
+  conservacion.retrieveById(req.params.conservacionId, function (conservacion) {
+    if (conservacion) {
+      res.json(conservacion);
+    } else {
+      res.send(401, 'Conservacion no encontrado');
+    }
+  }, function (error) {
+    res.send('Conservacion no encontrado');
+  });
 });
 
 // DELETE /conservacion/conservacionId
 // Borra el conservacionId
 router.delete('/:conservacionId', function (req, res) {
-	var conservacion = Museo.Conservacion.build();
+  var conservacion = Museo.Conservacion.build();
 
-	conservacion.removeById(req.params.conservacionId, function (conservacion) {
-		if (conservacion) {
-			res.json({ message: 'Conservacion borrado!' });
-		} else {
-			res.send(401, 'Conservacion no encontrado');
-		}
-		}, function (error) {
-			res.send('Conservacion no encontrado');
-	});
+  conservacion.removeById(req.params.conservacionId, function (conservacion) {
+    if (conservacion) {
+      res.json({ message: 'Conservacion borrado!' });
+    } else {
+      res.send(401, 'Conservacion no encontrado');
+    }
+  }, function (error) {
+    res.send('Conservacion no encontrado');
+  });
 });
 
 module.exports = router;

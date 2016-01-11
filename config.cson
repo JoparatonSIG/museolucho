@@ -1,0 +1,21 @@
+"*":
+  "exception-reporting":
+    userId: "f10c00ff-69e3-91d0-a481-1d8be0fc9c68"
+  welcome:
+    showOnStartup: false
+  core: {}
+  editor:
+    invisibles: {}
+    fontFamily: "Ubuntu Mono"
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  linter:
+    statusBar: "Show error of the selected line"
+    lintDebug: true
+    showInfoMessages: true
+  "autocomplete-plus": {}
+  "linter-jscs":
+    preset: "google"
+  "linter-jshint": {}
