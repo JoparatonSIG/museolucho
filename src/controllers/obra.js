@@ -31,7 +31,9 @@ router.post('/', function (req, res) {
 
 /* (trae todos los obras)
 // GET /obra */
+
 router.get('/', function (req, res) {
+
 	var obra = Museo.Obra.build();
 
 	obra.retrieveAll(function (obras) {

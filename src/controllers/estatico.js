@@ -17,7 +17,7 @@ router.get( '/obra', function( req, res ) {
 		if (obras) {
 			// res.json(obras);
       console.log( 'obras!', obras);
-      
+      res.render( 'obra/index', { obras: obras } );
 		} else {
 			// res.send(401, 'No se encontraron Obras');
 		}
@@ -25,7 +25,7 @@ router.get( '/obra', function( req, res ) {
 		// res.send('Obra no encontrado');
 	});
 
-  res.render( 'obra/index' );
+
 });
 
 router.get( '/obra/create', function( req, res ) {
