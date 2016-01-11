@@ -15,11 +15,15 @@ var Museo = require('../models/museo.js');
 // POST /ubicacion
 router.post('/ubicacion', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var espacio = req.body.espacio;
+  var inmueble = req.body.inmueble;
+  var propietario = req.body.propietario;
 
-  var ubicacion = Museo.Ubicacion.build({ email: email, password: password });
+  var ubicacion = Museo.Ubicacion.build({
+    espacio: espacio,
+    inmueble: inmueble,
+    propietario: propietario
+  });
 
   ubicacion.add(function (success) {
     res.json({ message: 'Ubicacion creado!' });
@@ -53,9 +57,9 @@ router.get('/ubicacion', function (req, res) {
 router.put('/ubicacion/:ubicacionId', function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
-  ubicacion.email = req.body.email;
-  ubicacion.nombre = req.body.nombre;
-  ubicacion.password = req.body.password;
+  ubicacion.espacio = req.body.espacio;
+  ubicacion.inmueble = req.body.inmueble;
+  ubicacion.propietario = req.body.propietario;
 
   ubicacion.updateById(req.params.ubicacionId, function (success) {
     if (success) {

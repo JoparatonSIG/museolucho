@@ -15,11 +15,29 @@ var Museo = require('../models/museo.js');
 // POST /descripciones
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var marcasInscripciones = req.body.marcasInscripciones;
+  var alto = req.body.alto;
+  var ancho = req.body.ancho;
+  var longitud = req.body.longitud;
+  var profundidad = req.body.profundidad;
+  var diametro = req.body.diametro;
+  var espesor = req.body.espesor;
+  var peso = req.body.peso;
+  var observaciones = req.body.observaciones;
+  var descripcionreq = req.body.descripcion;
 
-  var descripcion = Museo.Descripcion.build({ email: email, password: password });
+  var descripcion = Museo.Descripcion.build({
+    marcasInscripciones: marcasInscripciones,
+    alto: alto,
+    ancho: ancho,
+    longitud: longitud,
+    profundidad: profundidad,
+    diametro: diametro,
+    espesor: espesor,
+    peso: peso,
+    observaciones: observaciones,
+    descripcion: descripcionreq
+  });
 
   descripcion.add(function (success) {
     res.json({ message: 'Descripcion creado!' });
@@ -53,9 +71,16 @@ router.get('/', function (req, res) {
 router.put('/:descripcionId', function (req, res) {
   var descripcion = Museo.Descripcion.build();
 
-  descripcion.email = req.body.email;
-  descripcion.nombre = req.body.nombre;
-  descripcion.password = req.body.password;
+  descripcion.marcasInscripciones = req.body.marcasInscripciones;
+  descripcion.alto = req.body.alto;
+  descripcion.ancho = req.body.ancho;
+  descripcion.longitud = req.body.longitud;
+  descripcion.profundidad = req.body.profundidad;
+  descripcion.diametro = req.body.diametro;
+  descripcion.espesor = req.body.espesor;
+  descripcion.peso = req.body.peso;
+  descripcion.observaciones = req.body.observaciones;
+  descripcion.descripcion = req.body.descripcion;
 
   descripcion.updateById(req.params.descripcionId, function (success) {
     if (success) {

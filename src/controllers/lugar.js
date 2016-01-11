@@ -15,11 +15,21 @@ var Museo = require('../models/museo.js');
 // POST /lugares
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var localidad = req.body.localidad;
+  var codigoLocalidad = req.body.codigoLocalidad;
+  var municipio = req.body.municipio;
+  var provincia = req.body.provincia;
+  var codigoProvincia = req.body.codigoProvincia;
+  var departamento = req.body.departamento;
 
-  var lugar = Museo.Lugar.build({ email: email, password: password });
+  var lugar = Museo.Lugar.build({
+    localidad: localidad,
+    codigoLocalidad: codigoLocalidad,
+    municipio: municipio,
+    provincia: provincia,
+    codigoProvincia: codigoProvincia,
+    departamento: departamento
+  });
 
   lugar.add(function (success) {
     res.json({ message: 'Lugar creado!' });
@@ -53,9 +63,12 @@ router.get('/', function (req, res) {
 router.put('/:lugarId', function (req, res) {
   var lugar = Museo.Lugar.build();
 
-  lugar.email = req.body.email;
-  lugar.nombre = req.body.nombre;
-  lugar.password = req.body.password;
+  lugar.localidad = req.body.localidad;
+  lugar.codigoLocalidad = req.body.codigoLocalidad;
+  lugar.municipio = req.body.municipio;
+  lugar.provincia = req.body.provincia;
+  lugar.codigoProvincia = req.body.codigoProvincia;
+  lugar.departamento = req.body.departamento;
 
   lugar.updateById(req.params.lugarId, function (success) {
     if (success) {

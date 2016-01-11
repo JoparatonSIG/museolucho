@@ -15,11 +15,23 @@ var Museo = require('../models/museo.js');
 // POST /relevamientos
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var email = req.body.email;
-  var nombre = req.body.nombre;
-  var password = req.body.password;
+  var fechaRelev = req.body.fechaRelev;
+  var fechaCatalog = req.body.fechaCatalog;
+  var fechaRevision = req.body.fechaRevision;
+  var quienRelevo = req.body.quienRelevo;
+  var quienCatalogo = req.body.quienCatalogo;
+  var quienReviso = req.body.quienReviso;
+  var observaciones = req.body.observaciones;
 
-  var relevamiento = Museo.Relevamiento.build({ email: email, password: password });
+  var relevamiento = Museo.Relevamiento.build({
+    fechaRelev: fechaRelev,
+    fechaCatalog: fechaCatalog,
+    fechaRevision: fechaRevision,
+    quienRelevo: quienRelevo,
+    quienCatalogo: quienCatalogo,
+    quienReviso: quienReviso,
+    observaciones: observaciones
+  });
 
   relevamiento.add(function (success) {
     res.json({ message: 'Relevamiento creado!' });
@@ -53,9 +65,13 @@ router.get('/', function (req, res) {
 router.put('/:relevamientoId', function (req, res) {
   var relevamiento = Museo.Relevamiento.build();
 
-  relevamiento.email = req.body.email;
-  relevamiento.nombre = req.body.nombre;
-  relevamiento.password = req.body.password;
+  relevamiento.fechaRelev = req.body.fechaRelev;
+  relevamiento.fechaCatalog = req.body.fechaCatalog;
+  relevamiento.fechaRevision = req.body.fechaRevision;
+  relevamiento.quienRelevo = req.body.quienRelevo;
+  relevamiento.quienCatalogo = req.body.quienCatalogo;
+  relevamiento.quienReviso = req.body.quienReviso;
+  relevamiento.observaciones = req.body.observaciones;
 
   relevamiento.updateById(req.params.relevamientoId, function (success) {
     if (success) {
