@@ -9,15 +9,22 @@ var expressLayouts = require('express-ejs-layouts');
 var config = require('./config/config');
 
 var accesorio = require('./controllers/accesorio');
+var adquisicion = require('./controllers/adquisicion');
 var analisis = require('./controllers/analisis');
 var conservacion = require('./controllers/conservacion');
 var descripcion = require('./controllers/descripcion');
+var espacio = require('./controllers/espacio');
+var especialidad = require('./controllers/especialidad');
 var estatico = require('./controllers/estatico');
+var estructura = require('./controllers/estructura');
 var fotografia = require('./controllers/fotografia');
 var lugar = require('./controllers/lugar');
+var naturaleza = require('./controllers/naturaleza');
 var nivel = require('./controllers/nivel');
 var obra = require('./controllers/obra');
 var relevamiento = require('./controllers/relevamiento');
+var tecnicas = require('./controllers/tecnicas');
+var tecnicasArte = require('./controllers/tecnicasArte');
 var tipoAnalisis = require('./controllers/tipoAnalisis');
 var ubicacion = require('./controllers/ubicacion');
 var usuario = require('./controllers/usuario');
@@ -63,18 +70,25 @@ var router = express.Router();
   va a montar el controlador usuario bajo /api/usuario.
 */
 
-router.use( '/usuario', usuario );
 router.use( '/accesorio', accesorio );
+router.use( '/adquisicion', adquisicion );
 router.use( '/analisis', analisis );
 router.use( '/conservacion', conservacion );
 router.use( '/descripcion', descripcion );
+router.use( '/espacio', espacio );
+router.use( '/especialidad', especialidad );
+router.use( '/estructura', estructura );
 router.use( '/fotografia', fotografia );
 router.use( '/lugar', lugar );
+router.use( '/naturaleza', naturaleza );
 router.use( '/nivel', nivel );
 router.use( '/obra', obra );
 router.use( '/relevamiento', relevamiento );
+router.use( '/tecnicas', tecnicas );
+router.use( '/tecnicasArte', tecnicasArte );
 router.use( '/tipoAnalisis', tipoAnalisis );
 router.use( '/ubicacion', ubicacion );
+router.use( '/usuario', usuario );
 
 app.use( '/api', router );
 

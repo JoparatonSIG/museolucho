@@ -36,8 +36,8 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var naturaleza = Museo.Naturaleza.build();
 
-  naturaleza.retrieveAll(function (naturalezaes) {
-    if (naturalezaes) {
+  naturaleza.retrieveAll(function (naturaleza) {
+    if (naturaleza) {
       res.json(naturalezaes);
     } else {
       res.send(401, 'No se encontraron Naturalezaes');

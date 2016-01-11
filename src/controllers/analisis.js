@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var analisis = Museo.Analisis.build();
 
-  analisis.retrieveAll(function (analisiss) {
+  analisis.retrieveAll(function (analisis) {
     if (analisis) {
       res.json(analisis);
     } else {

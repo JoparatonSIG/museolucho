@@ -34,8 +34,8 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var especialidad = Museo.Especialidad.build();
 
-  especialidad.retrieveAll(function (especialidads) {
-    if (especialidads) {
+  especialidad.retrieveAll(function (especialidades) {
+    if (especialidades) {
       res.json(especialidads);
     } else {
       res.send(401, 'No se encontraron Especialidads');

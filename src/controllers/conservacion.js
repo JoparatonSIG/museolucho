@@ -35,7 +35,7 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var conservacion = Museo.Conservacion.build();
 
-  conservacion.retrieveAll(function (conservacions) {
+  conservacion.retrieveAll(function (conservacion) {
     if (conservacion) {
       res.json(conservacion);
     } else {

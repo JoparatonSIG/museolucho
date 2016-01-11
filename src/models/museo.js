@@ -165,20 +165,24 @@ Especialidad.belongsToMany(Naturaleza, {
 });
 
 // exportar tablas
-exports.Usuario = Usuario;
-exports.Nivel = Nivel;
-exports.Analisis = Analisis;
-exports.TipoAnalisis = TipoAnalisis;
-exports.Relevamiento = Relevamiento;
-exports.Descripcion = Descripcion;
-exports.Obra = Obra;
-exports.Ubicacion = Ubicacion;
-exports.Lugar = Lugar;
-exports.Conservacion = Conservacion;
-exports.Fotografia = Fotografia;
 exports.Accesorio = Accesorio;
-exports.Naturaleza = Naturaleza;
+exports.Analisis = Analisis;
+exports.Conservacion = Conservacion;
+exports.Descripcion = Descripcion;
+exports.Espacio = Espacio;
 exports.Especialidad = Especialidad;
+exports.Estructura = Estructura;
+exports.Fotografia = Fotografia;
+exports.Lugar = Lugar;
+exports.Naturaleza = Naturaleza;
+exports.Nivel = Nivel;
+exports.Obra = Obra;
+exports.Relevamiento = Relevamiento;
+// exports.Tecnicas = Tecnicas;
+// exports.TecnicasArte = TecnicasArte;
+exports.TipoAnalisis = TipoAnalisis;
+exports.Ubicacion = Ubicacion;
+exports.Usuario = Usuario;
 
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function () {

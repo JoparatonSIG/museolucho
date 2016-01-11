@@ -34,8 +34,8 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var tecnicas = Museo.Tecnicas.build();
 
-  tecnicas.retrieveAll(function (tecnicass) {
-    if (tecnicass) {
+  tecnicas.retrieveAll(function (tecnicas) {
+    if (tecnicas) {
       res.json(tecnicass);
     } else {
       res.send(401, 'No se encontraron Tecnicass');
