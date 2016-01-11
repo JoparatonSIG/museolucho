@@ -56,7 +56,7 @@ module.exports = function (sequelize, DataTypes) {
           isAlphanumeric: true,
           notNull: true
         }
-      },
+      }
     },
     {
       instanceMethods: {

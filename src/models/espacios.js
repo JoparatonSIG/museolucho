@@ -93,7 +93,7 @@ module.exports = function (sequelize, DataTypes) {
       underscore: false,
       freezeTableName:true,
       tableName: 'Espacios',
-      comment: 'Espacios registradas',
+      comment: 'Espacios registradas'
       /*
       indexes: [
         {

@@ -14,8 +14,8 @@ router.get('/', function (req, res, next) {
 router.get( '/obra', function ( req, res ) {
   console.log( 'get /obra');
 
-  var obra = Museo.Obra.build(),
-    page = 0; // iniciar la paginacion en 0 (si existe el parametro page va a sobreescribirlo)
+  var obra = Museo.Obra.build();
+  var page = 0; // iniciar la paginacion en 0 (si existe el parametro page va a sobreescribirlo)
 
   if ( req.query.page ) {
     page = req.query.page; // parseInt?
