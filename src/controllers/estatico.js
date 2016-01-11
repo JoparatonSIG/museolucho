@@ -19,7 +19,7 @@ router.get( '/obra', function( req, res ) {
 			// res.json(obras);
       // console.log( 'obras!', obras);
       // res.render( 'obra/index', { obras: obras } );
-      res.render( 'obra/index' );
+      res.render( 'obra/index', { obras: obras } );
 		} else {
 			// res.send(401, 'No se encontraron Obras');
 		}

@@ -1,1 +1,18 @@
 <h1>lista de obras</h1>
+
+<p><a href="/obra/create">Crear obra</a></p>
+
+<table>
+  <tr>
+    <td>ID</td>
+    <td>Codigo</td>
+    <td>Denominacion</td>
+  </tr>
+<% obras.forEach( function( obra ) { %>
+  <tr>
+    <td><%= obra.id %></td>
+    <td><%= obra.codigo %></td>
+    <td><%= obra.denominacion %></td>
+  </tr>
+<% }) %>
+</table>
