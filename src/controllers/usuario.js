@@ -13,6 +13,7 @@ var Museo = require('../models/museo.js');
 // router.route('/usuario') */
 
 // POST /usuarios
+
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var email = req.body.email;
@@ -31,6 +32,7 @@ router.post('/', function (req, res) {
 
 /* (trae todos los usuarios)
 // GET /usuario */
+
 router.get('/', function (req, res) {
   var usuario = Museo.Usuario.build();
 
