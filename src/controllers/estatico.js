@@ -3,10 +3,11 @@ var router = express.Router();
 
 var Museo = require('../models/museo.js');
 
-/* GET home page. */
+/*
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
+*/
 
 router.get( '/obra', function( req, res ) {
   console.log( 'get /obra');
@@ -16,8 +17,9 @@ router.get( '/obra', function( req, res ) {
 	obra.retrieveAll(function (obras) {
 		if (obras) {
 			// res.json(obras);
-      console.log( 'obras!', obras);
-      res.render( 'obra/index', { obras: obras } );
+      // console.log( 'obras!', obras);
+      // res.render( 'obra/index', { obras: obras } );
+      res.render( 'obra/index' );
 		} else {
 			// res.send(401, 'No se encontraron Obras');
 		}
