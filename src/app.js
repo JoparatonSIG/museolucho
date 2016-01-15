@@ -28,6 +28,7 @@ var tecnicasArte = require('./controllers/tecnicasArte');
 var tipoAnalisis = require('./controllers/tipoAnalisis');
 var ubicacion = require('./controllers/ubicacion');
 var usuario = require('./controllers/usuario');
+var webPublico = require('./controllers/webPublico');
 
 var app = express();
 
@@ -104,7 +105,7 @@ app.use( '/api', router );
   esta ruta es para el controlador de páginas estáticas, va a estar montada en la raíz
 */
 
-app.use('/', estatico);
+app.use('/', webPublico);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

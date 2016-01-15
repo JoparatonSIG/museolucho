@@ -1,0 +1,54 @@
+<div class="wrapper col-lg-10 col-sm-9 col-xs-12">
+  <div class="container">
+    <div class="row">
+      <header class="titleSeccion col-xs-8 col-lg-12 col-sm-12 movil-off">
+        <h1>Cómo llegar</h1>
+        <ol class="breadcrumb">
+          <li><a href="/">Inicio</a></li>
+          <li class="active">Información práctica</li>
+          <li class="active">Cómo llegar</li>
+        </ol>
+      </header>
+      <ul id="tabs" class="nav nav-tabs movil-on" data-tabs="tabs">
+        <li class="col-xs-3 active">
+          <a href="/informacion-practica" data-icon="llegar">
+            <span>Cómo llegar</span>
+          </a>
+        </li>
+        <li class="col-xs-3">
+          <a href="/horarios-tarifas" data-icon="horarios">
+            <span>Horarios</span>
+          </a>
+        </li>
+        <li class="col-xs-3">
+          <a href="/visitas-guiadas" data-icon="precios">
+            <span>Visitas Guiadas</span>
+          </a>
+        </li>
+        <li class="col-xs-3">
+          <a href="/planos" data-icon="museo">
+            <span>Plano <br>del museo</span>
+          </a>
+        </li>
+      </ul>
+      <div class="wysiwyg clearfix infoPractica">
+        <h2 class="movil-off">Transporte público y mapa</h2>
+        <div class="content col-lg-9 col-xs-12">
+          <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active wysiwyg" id="llegar">
+              <% include infoTabs/llegarTab %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="rowTabs row clearfix movil-on">
+    <a class="col-xs-6 first" href="/planos" title="ir a la sección">
+      <span>Planos</span>
+    </a>
+    <a class="col-xs-6 last" href="/horarios-tarifas" title="ir a la sección">
+      <span>Horarios</span>
+    </a>
+</nav>

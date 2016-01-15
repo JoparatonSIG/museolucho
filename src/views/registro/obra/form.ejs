@@ -1,0 +1,32 @@
+<p><br></p>
+<p><br></p>
+<h1>lista de obras</h1>
+<form action='/api/obra/cargar' method='post'>
+<table>
+  <tr>
+    <td>Numero</td>
+    <td>Codigo</td>
+    <td>Autor</td>
+  </tr>
+  <tr>
+    <td>
+      <div class="form-group">
+        <label for="numero" class="control-label">Numero</label>
+        <input type="text" class="form-control" id="numero" name="numero" value="<%=obra.numero%>" required="true" title="Numero de la obra" placeholder="<ingrese numero de la obra>">
+        <span class="help-block"></span>
+      </div>
+
+      <!--input type="text" class="form-control" id="numero" name="numero" value="<%=obra.numero%>" required="true" title="Numero de la obra" placeholder="<ingrese numero de la obra>"-->
+    </td>
+    <td>
+      <input type="text" class="form-control" id="codigo" name="codigo" value="<%=obra.codigo%>" required="true" title="Codigo de la obra" placeholder="<codigo de la obra>">
+    </td>
+    <td>
+      <input type="text" class="form-control" id="autor" name="autor" value="<%=obra.autor%>" required="true" title="Autor de la obra" placeholder="<autor de la obra>">
+    </td>
+  </tr>
+  <tr>
+    <input type="submit" value="Submit">
+  </tr>
+</table>
+</form>

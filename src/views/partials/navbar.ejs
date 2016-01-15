@@ -1,66 +1,96 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- MENU NAV -->
+<nav id="myNavbar" class="navbar navbar-inverse navbar-static col-lg-2 col-sm-3" role="navigation">
+  <div class="container">
+    <nav class="languageNavBar col-xs-12 col-md-12 col-lg-12 clearfix movil-off">
+      <a href="/pt/"  title="Seleccionar idioma"><abbr title="Portugues">PT</abbr></a>
+      <a href="/" class="active" title="Seleccionar idioma"><abbr title="Español">ES</abbr></a>
+      <a href="/in/"  title="Seleccionar idioma"><abbr title="Inglés">EN</abbr></a>
+    </nav>
+    <nav class="rss movil-off">
+      <a href="https://twitter.com/joparatonSIG" target="_blank" title="ir a twitter en ventana nueva"><img src="/img/logo/twitter.png" alt="twitter"></a>
+      <a href="https://www.facebook.com/pages/joparatonSIG/778943338836282" target="_blank" title="ir a facebook en ventana nueva"><img src="/img/logo/facebook.png" alt="facebook"></a>
+      <a href="http://www.youtube.com/user/joparatonSIG" target="_blank" title="ir a google play en ventana nueva"><img src="/img/logo/google-play.png" alt="google play"></a>
+    </nav>
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="sr-only">Menú de navegación</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">
-        <img src="/img/Museo.gif" ALT="Museo">
-      </a>
+      <a class="navbar-brand col-xs-2" href="/"><img src="/img/logo/museo.png" alt="Museo Diocesano de Arte de las Reducciones Jesuíticas: SAN IGNACIO GUASÚ"></a>
+      <h1 class="titleSeccion col-xs-7 movil-on">Museo</h1>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-light bg-faded navbar-static-top">
-        <%if(user){%>
-          <%if(user.isAdmin){%>
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Foros
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="/forum">Lista de Foros</a></li>
-              <li><a href="/forum/create">Crear Foro</a></li>
-              <hr>
-              <li><a href="/user">Lista de usuarios</a></li>
-              <li><a href="/user/create">Crear Usuario</a></li>
-              <hr>
-              <li><a href="/topics">Lista de Topics</a></li>
-              <li><a href="/topics/create">Crear Topic</a></li>
-              <hr>
-              <li><a href="/topics/:topicId(\\d+)/comment">Lista de Comments</a></li>
-              <li><a href="/topics/:topicId(\\d+)/comment/create">Crear Comments</a></li>
-
-            </ul>
+      <form class="navbar-form col-lg-12 movil-off" method="get" action="/resultados-busqueda">
+          <div class="form-group">
+              <label class="hide" for="search">Buscar</label>
+              <input type="text" id="search" class="form-control" placeholder="Buscar..." name="filtro">
           </div>
-          <%}%>
-        <%}%>
-      </ul>
-      <form class="navbar-form navbar-left" role="search" method="POST" action="/search">
-        <div class="form-group">
-          <input type="text" name="searchText" class="form-control" placeholder="Search">
-        </div>
-        <input name="_csrf" type="hidden" value="<%=_csrf%>" />
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></button>
+          <button type="submit" class="btn btn-default">Buscar</button>
       </form>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="/forum"><span class="glyphicon glyphicon-list"></span> Colecciones</a></li>
-        <li><a href="/donar"><span class="glyphicon glyphicon-tint"></span> Donar</a></li>
-        <%if(!user){%>
-          <li><a href="/user/create"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <%}else{%>
-          <li><a href="/user/<%=user.id%>"><span class="glyphicon glyphicon-user"></span> <%=user.username%></a></li>
-          <li><a href="/user/<%=user.id%>/topics"><span class="glyphicon glyphicon-file"></span> Mis Piezas</a></li>
-          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        <%}%>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <div class="navbar-collapse collapse" id="navbarCollapse">
+          <nav class="languageNavBar col-xs-12 col-md-12 col-lg-12 clearfix movil-on">
+              <a href="/pt/"  title="Seleccionar idioma"><abbr title="portugues">PT</abbr></a>
+              <a href="/" class="active" title="Seleccionar idioma"><abbr title="español">ES</abbr></a>
+              <a href="/in/"  title="Seleccionar idioma"><abbr title="ingles">EN</abbr></a>
+          </nav>
+          <ul class="nav navbar-nav">
+              <li class="dropdown ">
+                  <span class="dropdown-toggle movil-off" data-toggle="dropdown">Museo</span>
+                  <a href="/historia" class="movil-on">Museo</a>
+                  <ul class="dropdown-menu">
+                     <li class=""><a href="/historia">Historia</a></li>
+                     <li class=""><a href="/fundacion">Fundación</a></li>
+                  </ul>
+              </li>
+
+              <li class="dropdown ">
+                  <span class="dropdown-toggle movil-off" data-toggle="dropdown">Información práctica</span>
+                  <a href="/informacion-practica" class="movil-on">Información práctica</a>
+                  <ul class="dropdown-menu">
+                     <li class=""><a href="/informacion-practica">Cómo llegar</a></li>
+                     <li class=""><a href="/horarios-tarifas">Horarios y tarifas</a></li>
+                     <li class=" movil-off"><a href="/visitas-guiadas">Visitas guiadas</a></li>
+                     <li class=""><a href="/planos">Planos</a></li>
+                     <li class=" movil-off"><a href="/normas">Normas</a></li>
+                  </ul>
+              </li>
+              <li class=""><a href="/obras-maestras-listado" title="ir a la sección">Obras maestras</a></li>
+
+              <li class="dropdown ">
+                  <span class="dropdown-toggle" data-toggle="dropdown">Exposiciones</span>
+                  <ul class="dropdown-menu">
+                     <li class=""><a href="/exposiciones">Actuales</a></li>
+                     <li class=" "><a href="/exposiciones-proximas">Próximas</a></li>
+                  </ul>
+              </li>
+
+              <li class=""><a href="/actualidad" title="ir a la sección">Actualidad</a></li>
+
+              <!-- ESTAS SON OPCIONES DE MOVIL -->
+              <li class="shoper movil-on "><a href="/tienda" title="ir a la sección">Tienda</a></li>
+              <li class="movil-on "><a href="/contacto" title="ir a la sección">Contacto</a></li>
+              <!-- // FIN COMENTARIO -->
+
+              <!-- ESTAS SON OPCIONES DE DESKTOP -->
+              <li class="dropdown  movil-off"><span class="dropdown-toggle" data-toggle="dropdown">Educación</span>
+                  <ul class="dropdown-menu">
+                     <li class="  "><a href="/educacion">Programas educativos</a></li>
+                     <li class=""><a href="/educacion-material">Material educativo</a></li>
+                  </ul>
+              </li>
+
+              <li class="movil-off type02 "><a href="/obras-comentadas" title="ir a la sección">Obras comentadas</a></li>
+              <li class="movil-off type02 "><a href="/biblioteca-y-archivo" title="ir a la sección">Biblioteca y Archivo</a></li>
+              <li class="movil-off shoper    "><a href="/tienda" title="ir a la sección">Tienda online</a></li>
+              <li class="movil-off type03 "><a href="https://www.museobilbao.com/contacto.php" title="ir a la sección">Contacto</a></li>
+          </ul>
+          <nav class="rss col-xs-12 movil-on">
+              <a href="https://twitter.com/JoparatonSIG" target="_blank" title="ir a twitter en ventana nueva"><img src="/img/logo/twitter.png" alt="twitter"></a>
+              <a href="https://www.facebook.com/pages/JoparatonSIG/999999" target="_blank" title="ir a facebook en ventana nueva"><img src="/img/logo/facebook.png" alt="facebook"></a>
+              <a href="http://www.youtube.com/user/JoparatonSIG?ob=0" target="_blank" title="ir a google play en ventana nueva"><img src="/img/logo/google-play.png" alt="google play"></a>
+          </nav>
+      </div>
+  </div>
+</nav>    <!-- //MENU NAV -->

@@ -123,6 +123,20 @@ module.exports = function (sequelize, DataTypes) {
           })
           .save().then(onSuccess).catch(onError);
         },
+        addparcial: function (onSuccess, onError) {
+          var numero = this.numero;
+          var codigo = this.codigo;
+          var autor = this.autor;
+
+          console.log('numero', numero);
+          console.log('codigo', codigo);
+          console.log('autor', autor);
+          
+          Obra.build({
+            numero: numero, codigo: codigo, autor: autor
+          })
+          .save().then(onSuccess).catch(onError);
+        },
         updateById: function (obraId, onSuccess, onError) {
           var id = obraId;
           var numero = this.numero;

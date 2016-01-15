@@ -12,6 +12,39 @@ var Museo = require('../models/museo.js');
 /* Rutas que terminan en /obras
 // router.route('/obra') */
 
+router.get('/cargar', function (req, res) {
+  var obra = Museo.Obra.build();
+
+  res.render('./obra/form', {obra: obra});
+});
+
+router.post('/cargar', function (req, res) {
+  // bodyParser debe hacer la magia
+  console.log(req.body);
+  var numero = req.body.numero;
+  var codigo = req.body.codigo;
+  var autor = req.body.autor;
+
+  console.log('pre numero', numero);
+  console.log('pre codigo', codigo);
+  console.log('pre autor', autor);
+
+
+  var obra = Museo.Obra.build({
+    numero: numero,
+    codigo: codigo,
+    autor: autor
+  });
+  console.log ('pre add');
+  obra.addparcial(function (success) {
+    console.log('post add');
+    res.render('./obra/success');
+  },
+  function (err) {
+    res.send(err);
+  });
+});
+
 // POST /obras
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
@@ -128,5 +161,9 @@ router.delete('/:obraId', function (req, res) {
     res.send('Obra no encontrado');
   });
 });
+
+/* (trae todos los obras)
+// GET /obra */
+
 
 module.exports = router;
