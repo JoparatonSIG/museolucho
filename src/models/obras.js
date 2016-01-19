@@ -89,6 +89,36 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
         defaultValue: null,
         comment: 'Origen de la obra'
+      },
+      propietario: {
+        type: DataTypes.STRING(60),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Propietario de la obra'
+      },
+      ubicacion: {
+        type: DataTypes.STRING(60),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Ubicacion de la obra'
+      },
+      procedencia: {
+        type: DataTypes.STRING(60),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Procedencia de la obra'
+      },
+      fechaUso: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Fecha o época en que se uso la obra'
+      },
+      contexto: {
+        type: DataTypes.STRING(60),
+        allowNull: true,
+        defaultValue: null,
+        comment: 'Contexto o estilo de la obra'
       }
     },
     {
@@ -113,30 +143,35 @@ module.exports = function (sequelize, DataTypes) {
           var funcionOriginal = this.funcionOriginal;
           var tecnicaMaterial = this.tecnicaMaterial;
           var origen = this.origen;
+          var propietario = this.propietario;
+          var ubicacion = this.ubicacion;
+          var procedencia = this.procedencia;
+          var fechaUso = this.fechaUso;
+          var contexto = this.contexto;
 
           Obra.build({
             numero: numero, codigo: codigo, codigoAnterior1: codigoAnterior1,
             codigoAnterior2: codigoAnterior2, denominacion: denominacion,
             especialidad: especialidad, epoca: epoca, autor: autor,
             funcionOriginal: funcionOriginal, tecnicaMaterial: tecnicaMaterial,
-            origen: origen
+            origen: origen, propietario: propietario, ubicacion: ubicacion, procedencia: procedencia,
+            fechaUso: fechaUso, contexto: contexto
           })
           .save().then(onSuccess).catch(onError);
         },
+
         addparcial: function (onSuccess, onError) {
           var numero = this.numero;
           var codigo = this.codigo;
           var autor = this.autor;
 
-          console.log('numero', numero);
-          console.log('codigo', codigo);
-          console.log('autor', autor);
-          
+
           Obra.build({
             numero: numero, codigo: codigo, autor: autor
           })
           .save().then(onSuccess).catch(onError);
         },
+
         updateById: function (obraId, onSuccess, onError) {
           var id = obraId;
           var numero = this.numero;
@@ -150,13 +185,19 @@ module.exports = function (sequelize, DataTypes) {
           var funcionOriginal = this.funcionOriginal;
           var tecnicaMaterial = this.tecnicaMaterial;
           var origen = this.origen;
+          var propietario = this.propietario;
+          var ubicacion = this.ubicacion;
+          var procedencia = this.procedencia;
+          var fechaUso = this.fechaUso;
+          var contexto = this.contexto;
 
           Obra.update({
             numero: numero, codigo: codigo, codigoAnterior1: codigoAnterior1,
             codigoAnterior2: codigoAnterior2, denominacion: denominacion,
             especialidad: especialidad, epoca: epoca, autor: autor,
             funcionOriginal: funcionOriginal, tecnicaMaterial: tecnicaMaterial,
-            origen: origen
+            origen: origen, propietario: propietario, ubicacion: ubicacion, procedencia: procedencia,
+            fechaUso: fechaUso, contexto: contexto
           },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },

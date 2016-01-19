@@ -7,7 +7,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../models/museo.js');
+var Museo = require('../models/model.js');
 
 /* Rutas que terminan en /accesorios
 // router.route('/accesorio') */
