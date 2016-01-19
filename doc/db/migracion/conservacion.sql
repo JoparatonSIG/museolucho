@@ -2,7 +2,7 @@ INSERT INTO
   museo.Conservaciones
   (
     id,
-    ObraId;
+    ObraId,
     conservacion,
     condicionesSeguridad,
     creacion,
