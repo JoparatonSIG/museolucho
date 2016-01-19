@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Sub Tipo de Analisis'
       },
       valorPredeterminado: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING(50),
         allowNull: true,
         defaultValue: null,
         comment: 'Valor Predeterminado'
