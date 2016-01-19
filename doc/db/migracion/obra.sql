@@ -1,5 +1,5 @@
 INSERT INTO
-  museotest.Obras
+  museo.Obras
   (
     id,
     numero,
@@ -31,5 +31,5 @@ INSERT INTO
     Origen,
     now(),
     now()
-FROM bolivia.identificacion ori
+FROM museoOriginal.identificacion ori
 ORDER BY ori.IdIdentificacion ASC;
