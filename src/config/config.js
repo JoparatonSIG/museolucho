@@ -35,9 +35,9 @@ var host     = (url[4] || null);
 */
 config.db            = {};
 
-config.db.name     = 'museo';
-config.db.user     = 'root';
-config.db.pwd      = '123456';
+config.db.name     = 'museotest';
+config.db.user     = 'museo';
+config.db.pwd      = 'museotest';
 config.db.dialect  = 'mysql';
 config.db.protocol = 'mysql';
 config.db.port     = '3306';
