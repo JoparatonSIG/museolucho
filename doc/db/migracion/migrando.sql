@@ -1,4 +1,28 @@
 INSERT INTO
+  museo.Niveles
+   (categoria)
+   VALUES
+   ('admin'),
+   ('empleado'),
+   ('visitante');
+
+INSERT INTO
+   museo.Usuarios
+    ( idNivel, email, nombre, password )
+    VALUES
+    VALUES
+    ( 1, 'lucho@gmail.com', 'lucho', 'mono' },
+    { 2, 'usu@gmail.com', 'usu', 'usu' },
+    { 2, 'usu1@gmail.com', 'usu1', 'usu1' };
+
+UPDATE
+  museo.Obras
+  SET
+  MuseoId = 1
+  WHERE
+  MuseoId IS NULL;
+
+INSERT INTO
   museo.Obras
   (
     id,
