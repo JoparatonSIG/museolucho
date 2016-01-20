@@ -1,0 +1,1729 @@
+$back-color=#a1791b
+$color-blanco=#fff
+$color-negro=#000
+$color-tipo1=#222221
+$color-tipo2=#cdb885
+$color-tipo3=#d6d6d5
+$color-tipo4=#b49449
+$color-tipo5=#878783
+$color-tipo6=#af7a00
+$color-tipo7=#c68d1a
+$color-tipo8=#726b67
+$color-tipo9=#666
+$color-tipo10=#1a0e0e
+$color-tipo11=#ccc
+$color-tipo12=#cbc3b7
+$color-tipo13=#808080
+$color-tipo14=#7b756a
+$color-tipo15=#958e82
+$color-tipo16=#919190
+$color-tipo17=#b54a4a
+$color-tipo18=#767676
+$color-tipo19=#515151
+$color-tipo20=#616161
+$color-tipo21=#825d0d
+$color-tipo22=#825629
+$color-tipo23=#8b6b20
+
+body
+  font 1em/1 'dejavu_sans'
+  color $color-tipo1
+  .btn-default
+    -webkit-transition background-color 0.3s
+    transition background-color 0.3s
+    &:hover,
+    &:focus
+      background-color $back-color
+.container
+  width auto !important
+  margin-left auto
+  margin-right auto
+  padding-left 15px
+  padding-right 15px
+
+hr
+  border-color: $color-tipo2
+  .titleSeccion
+    margin: 14px 0 0 0
+    padding: 0
+    font: 2.6em/1 'dejavu_sansextralight'
+    text-transform: uppercase
+    color: $color-tipo3
+    letter-spacing: -3px
+
+  .title
+    margin: 0 0 27px 0
+    padding: 0 15px
+    font: 2.938em/1 'dejavu_sansextralight'
+
+  .exposiciones
+    .title
+      padding: 0
+
+  .title02
+    margin: 0 0 0.5em 0
+    padding: 0
+    font: 2.5em/1 'dejavu_sansextralight'
+
+  .title03
+    margin: 0 0 1em 0
+    padding: 0
+    font: 2.9em/1 'dejavu_sans'
+
+  .hide
+    display: none
+//
+// rowTabs // pestañas inferiores de color negro
+.rowTabs
+  display: none !important
+  clear: both
+  margin-bottom: 0.5em
+
+.container .rowTabs
+  display: block !important
+
+// navegacion horizontal
+.rowTabs
+  width 100%
+  margin 0 0 0.5em 0
+  background rgba(180,148,73,0.8)
+  a
+    display block
+    position relative
+    width 50%
+    padding 0 1em
+    background none
+    border 0
+    min-height 3.5em
+    font 2em/1 'dejavu_sanscondensed'
+    letter-spacing -1px
+    text-decoration none
+    color $color-negro
+    vertical-align middle
+    text-decoration none
+    &.last
+      text-align right
+    &:hover
+      background $color-tipo4
+      color $color-negro
+    &:before
+      position absolute
+      left 0
+      top 0
+      z-index 1
+      content ""
+      display block
+      width 1em
+      height 100%
+      background url("/img/bullet/bullet-01.png") no-repeat 0 center
+    &.first
+      float left
+      padding-left 3em
+
+    &.last
+      float right
+      padding-right 3em
+
+    &.first
+      &:before
+        -moz-transform rotate(180deg)
+        -webkit-transform rotate(180deg)
+        -o-transform rotate(180deg)
+        -ms-transform rotate(180deg)
+        transform rotate(180deg)
+
+    &.last
+      &:before
+        left auto
+        right 0
+
+.rowTabs
+  span
+    display table-cell
+    width 10%
+    height 3.5em
+    vertical-align middle
+
+  span
+    strong
+      display inline-block
+      padding-left 0.5em
+      font-size 0.9em
+      font-weight normal
+
+
+// rss
+.rss
+  position relative
+  left auto
+  top auto
+  padding 0
+  text-align center
+  margin-bottom 6em
+  a
+    display inline-block
+    width 2.5em
+    text-align center
+    line-height 2.5
+    opacity 0.6
+    transition 0.3s all
+    -webkit-transition 0.3s all
+    &:hover
+      transition 0.3s all
+      -webkit-transition 0.3s all
+      opacity 1
+  &.actualidad
+    margin-bottom 6em
+    margin-top 1em
+    text-align right
+  &.adaptado-expo
+    margin-top 0.5em
+    margin-bottom 1em
+
+// language en Barra de navegacion
+.languageNavBar
+  float right
+  padding 0
+  font 1.1em 'dejavu_sans'
+  text-align right
+  a
+    display inline-block
+    padding 5px 6px 0 6px
+    margin-right 1px
+    color $color-tipo5
+    text-decoration none
+  .active
+    color $color-negro
+    border-bottom 4px solid $color-tipo6
+  a:hover
+    color $color-negro
+    border-bottom 4px solid $color-tipo6
+    text-decoration none
+
+// wysiwyg
+.wysiwyg
+  header
+    font-size .7em
+  &.detalle
+    padding-top 3em
+
+  h2
+    padding 1.5em 1em 1em 1em
+    font-size 3.4em
+
+  h3
+    font-size 2.3em
+
+  p,ul
+    font-size 1.4em
+    padding-bottom 1em
+    line-height 1.7
+
+  .back
+    font-size 1.8em
+    font-family 'dejavu_sanscondensed'
+
+.sliderImg
+  .wysiwyg p
+    font-size 1.4em
+
+.wysiwyg
+  .content
+    padding-top 3.7em
+    padding-left 3.7em
+
+    .content
+      padding 0
+
+.columns
+  max-width 85%
+
+.wysiwyg
+  .content
+    &.columns
+      padding-left 3.7em
+      padding-bottom 3em
+
+// Barra de menu
+#smyNavbar
+  position fixed
+  top 0
+  left 0
+  z-index 1000
+  width 100%
+
+// cookies
+#ca_banner
+  font-family 'robotolight_italic', sans-serif
+  font-weight 100
+  word-wrap normal
+  z-index 16777270
+  width 100% !important
+  background-color $color-tipo8
+  text-align center
+  display none
+  padding 5px 0
+  left 0
+  right 0
+  float none !important
+  text-shadow none
+  border-radius 0 !important
+  margin 0px auto 0 !important
+  position relative
+
+#ca_banner
+  .ca_close
+    position absolute
+    cursor pointer
+    color $color-negro
+    font-size 18px
+    top 0.5em
+    right 0.5em
+    font-family "Trebuchet MS", Arial, Helvetica, sans-serif
+
+  .ca_close
+    &:hover
+      color $color-tipo7
+
+  p,h2
+    margin 4px 0
+    padding 0
+    line-height 1.2em
+    color $color-negro
+    float none !important
+
+  h2
+    font-size 16px
+    font-weight 300
+    margin 1em 3em
+
+  p
+    font-size 12px
+    width 90%
+    text-align left
+    padding 1em
+
+  a
+    text-decoration underline
+    color $color-negro
+    cursor pointer
+    font-weight bold
+    float none !important
+    -webkit-transition all 0.2s
+    -moz-transition all 0.2s
+    -ms-transition all 0.2s
+    transition all 0.2s
+
+  .modalCookies
+    margin-right 1em
+
+  a
+    &:hover
+      color $color-tipo7
+
+  .accept
+    cursor pointer
+    font-size 12px
+    margin 5px 15px 5px 5px
+    background $color-negro
+    padding 0.3em 0.5em
+    color $color-tipo9
+    -webkit-transition all 0.2s
+    -moz-transition all 0.2s
+    -ms-transition all 0.2s
+    transition all 0.2s
+    opacity 0.8
+    position absolute
+    top 0.5em
+    right 2.5em
+
+    &:hover
+      opacity 1
+
+  p
+    color $color-negro
+
+.dropdown-menu
+  background none
+  border none
+  box-shadow none
+  float none
+  padding inherit
+
+
+h3
+  &.dropdown-toggle
+    position relative
+
+    &:after
+      content ""
+      position absolute
+      right 0
+      bottom .3em
+      display block
+      height 1em
+      width 1.5em
+      background url(/img/bullet/bullet-05.png) no-repeat right center
+      -moz-transform rotate(180deg)
+      -webkit-transform rotate(180deg)
+      -o-transform rotate(180deg)
+      -ms-transform rotate(180deg)
+      transform rotate(180deg)
+
+.open
+  h3
+    &.dropdown-toggle
+      &:after
+        -moz-transform rotate(0deg)
+        -webkit-transform rotate(0deg)
+        -o-transform rotate(0deg)
+        -ms-transform rotate(0deg)
+        transform rotate(0deg)
+
+.titleSeccion
+  float none
+  margin 0
+  background $color-tipo10
+  font-size 1em
+
+  h1
+    margin 0
+    padding .7em 0 .4em .5em
+    background $color-tipo10
+    font-size 4.8em
+
+.breadcrumb
+  margin 0
+  padding 0 0 1em 2.7em
+  background none
+  border-radius 0
+  text-transform none
+  letter-spacing normal
+
+  a
+    color $color-tipo4
+    text-decoration none
+    font 1.4em 'dejavu_sanscondensed'
+
+    &:hover
+      color $color-tipo11
+      text-decoration underline
+      transition .3s all
+
+  .active
+    color $color-tipo12
+    font 1.4em 'dejavu_sanscondensed'
+
+  > li + li
+    &:before
+      content ">"
+      font-size 12px
+
+.wysiwyg
+  header
+    font-size .7em
+
+  &.detalle
+    padding-top 3em
+
+  h2
+    padding 1.5em 1em 1em 1em
+    font-size 3.4em
+
+  h3
+    font-size 2.3em
+
+  p,ul
+    font-size 1.4em
+    padding-bottom 1em
+    line-height 1.7
+
+  .back
+    font-size 1.8em
+    font-family 'dejavu_sanscondensed'
+
+.sliderImg
+  .wysiwyg
+    p
+      font-size 1.4em
+
+.wysiwyg
+  .content
+    padding-top 3.7em
+    padding-left 3.7em
+
+    .content
+      padding 0
+
+.columns
+  max-width 85%
+
+.wysiwyg
+  .content
+    &.columns
+      padding-left 3.7em
+      padding-bottom 3em
+
+// navbar
+// navBar
+.navbar-header
+  float none
+  width auto
+  padding-right 4em
+
+.navbar-brand
+  width auto
+  float none
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
+  margin-left 0
+
+.languageNavBar
+  float none
+  margin-bottom 1.8em
+  text-align left
+  font-size 1.2em
+
+.navbar-form
+  position relative
+  margin 4em 0
+  padding 0
+  input[type=text]
+    width 100%
+    height 2em
+    background $color-negro
+    box-shadow none
+    border 0
+    transition .3s all
+  &:hover
+    input[type=text]
+      position relative
+      z-index 100
+      width 130%
+  .btn
+    position absolute
+    right 0
+    top 0
+    width 2.5em
+    height 2.5em
+    background transparent url(/img/icons/ico-search.png) no-repeat center center
+    font 12px 'arial'
+    text-indent -99999em
+  input[type=text]
+    &:focus
+      border 3px solid $back-color
+  &:hover
+    .btn
+      z-index 101
+      right -25%
+      width 2em
+      height 2em
+      -webkit-transition .3s all
+      -moz-transition .3s all
+      transition .3s all
+  .btn
+    &:hover
+      border: 0 !important
+  .btn-default:hover
+  .btn-default:focus
+    background-color: transparent !important
+
+.navbar-collapse
+  padding 0
+  max-height inherit
+
+.navbar-nav
+  width 100%
+  li
+    float none
+    margin-bottom 1em
+    a
+    span
+      padding 0
+    a:hover
+    span:hover
+      color $color-negro
+      -webkit-transition .3s all
+      -moz-transition .3s all
+      transition .3s all
+    span
+      display block
+      cursor pointer
+
+.navbar
+  .navbar-brand
+  .navbar-nav > li > a
+  .navbar-nav > li > span
+    font-size 1.45em
+
+.navbar-nav
+  li.active a
+  li.open a
+  li.active span
+    background none
+    border-bottom 3px solid $back-color
+    color $back-color
+
+.navbar-inverse
+  .navbar-nav
+    >
+      .open
+        >
+          a
+          a:hover
+          a:focus
+          span
+          span:hover
+          span:focus
+            color $back-color
+      .active
+        >
+          a
+          a:hover
+          a:focus
+          span
+          span:hover
+          span:focus
+            color $back-color
+            background none
+      .open
+        >
+          a
+          a:hover
+          a:focus
+          span
+          span:hover
+          span:focus
+            background none
+.navbar-nav
+  li
+    &.visita-virtual
+      margin 4em 0
+      a
+        padding .3em 0 .3em 3em
+        background url(/img/icons/ico-360.png) no-repeat 0 0
+        color $back-color
+        font-family 'dejavu_sansextralight'
+        letter-spacing -1px
+        &:hover
+          background url(/img/icons/ico-360_hover.png) no-repeat 0 0
+    &.type02
+      margin-bottom .5em
+      a
+        text-transform none
+        color $color-tipo13
+        font-family 'dejavu_sans'
+        font-weight normal
+        font-size 1.4em
+        letter-spacing -1px
+    &.entradas
+      position relative
+      margin 4em 0
+      &:after
+      &:before
+        position absolute
+        z-index 2
+        top 1.7em
+        content " "
+        display block
+        width 1.2em
+        height 1.2em
+        border-radius 50%
+        background $color-tipo10
+      &:after
+        right -.6em
+      &:before
+        left -.6em
+      a
+      a:hover
+        position relative
+        display block
+        background $color-tipo14
+        padding .8em 1em
+        color $color-negro
+        font-weight normal
+        font-style italic
+        text-align center
+        -webkit-transition background .3s
+        transition background .3s
+      a:hover
+        background $color-tipo15
+      a
+        &:after
+        &:before
+          position absolute
+          z-index 2
+          top .9em
+          content " "
+          display block
+          width 2px
+          height 70%
+          background $color-tipo10
+          font-size .5em
+        &:after
+          right 1.2em
+        &:before
+          left 1.2em
+    &.shoper
+      margin 5em 0 0 0
+      background-position 0 center
+      a
+        background url(/img/icons/ico-tienda02.png) no-repeat 0 0
+        padding-left 1.8em
+        color $color-tipo14
+        font-size 1.4em
+        &:hover
+          background url(/img/icons/ico-tienda02.png) no-repeat 0 0
+      &.active
+        a
+          color $color-negro
+          border none
+    &.newsletter
+      margin 3em 0
+      p
+        opacity .7
+      &>
+        &a,&span
+          position relative
+          background url(/img/icons/ico-newsletter.png) no-repeat 0 0
+          padding-left 1.8em
+          color $color-tipo16
+          font-size 1.4em
+        &a:after,&span:after
+          content " "
+          position absolute
+          right 0
+          display inline-block
+          width 1.5em
+          height 1em
+          background url(/img/bullet/bullet-07.png) no-repeat 0 center
+        &a:hover,&span:hover
+          color $color-negro
+          background url(/img/icons/ico-newsletter.png) no-repeat 0 0
+      &.active
+        &>
+          &a
+          &span
+            color $color-tipo16
+            border none
+      &.open
+        &>
+          &a
+          &span
+            background url(/img/icons/ico-newsletter.png) no-repeat 0 0 !important
+            border-bottom 0 !important
+            color $color-tipo16 !important
+          &a:after
+          &span:after
+            right .5em
+            -moz-transform rotate(180deg)
+            -webkit-transform rotate(180deg)
+            transform rotate(180deg)
+      .dropdown-menu
+        padding 1.5em 0 1em 0
+        color $color-negro
+        font 1.2em/1 'Roboto'
+        font-weight 100
+        input[type=text]
+          margin-bottom 1em
+          font-size 1em
+          border 3px solid $color-tipo1
+          &.error
+            border 3px solid $color-tipo17
+            color $color-tipo17
+        fieldset
+          margin 0
+        span
+          font 1em/1 'Roboto'
+          font-weight 100
+          color $color-negro
+    &.newsletter
+      .dropdown-menu
+        a
+          border-bottom 0
+        .btn
+          border-radius 5px
+          background-image none
+          width 100%
+          border 0
+          margin 1em 0
+          font-size 1.3em
+        .checks
+          input[type="checkbox"]
+            top 9px
+            width 1.5em
+            height 1.5em
+            cursor pointer
+            + span
+              background-size 1.5em
+              padding-left 1.7em
+            &.error
+              + span
+                background-image url(/img/bg-check-off-error.png)
+              &:checked
+                + span
+                  background-image url(/img/bg-check-on-error.png)
+    &.type03
+      margin 0 0 3px 0
+      padding 0
+      a
+        color $color-negro
+        font 1.5em 'Roboto'
+        letter-spacing -1px
+        text-transform none
+        padding-bottom 4px
+.navbar-form
+  .form-group
+    display block
+//
+.navbar-nav
+  li
+    &.visita-virtual
+      margin 4em 0
+      a
+        padding .3em 0 .3em 3em
+        background url(/img/icons/ico-360.png) no-repeat 0 0
+        color $back-color
+        font-family 'dejavu_sansextralight'
+        letter-spacing -1px
+        &:hover
+          background url(/img/icons/ico-360_hover.png) no-repeat 0 0
+    &.type02
+      margin-bottom .5em
+      a
+        text-transform none
+        color $color-tipo13
+        font-family 'dejavu_sans'
+        font-weight normal
+        font-size 1.4em
+        letter-spacing -1px
+    &.entradas
+      position relative
+      margin 4em 0
+      &:after
+      &:before
+        position absolute
+        z-index 2
+        top 1.7em
+        content " "
+        display block
+        width 1.2em
+        height 1.2em
+        border-radius 50%
+        background $color-tipo10
+      &:after
+        right -.6em
+      &:before
+        left -.6em
+      a
+      a:hover
+        position relative
+        display block
+        background $color-tipo14
+        padding .8em 1em
+        color $color-negro
+        font-weight normal
+        font-style italic
+        text-align center
+        -webkit-transition background .3s
+        transition background .3s
+      a:hover
+        background $color-tipo15
+      a
+        &:after
+        &:before
+          position absolute
+          z-index 2
+          top .9em
+          content " "
+          display block
+          width 2px
+          height 70%
+          background $color-tipo10
+          font-size .5em
+        &:after
+          right 1.2em
+        &:before
+          left 1.2em
+    &.shoper
+      margin 5em 0 0 0
+      background-position 0 center
+      a
+        background url(/img/icons/ico-tienda02.png) no-repeat 0 0
+        padding-left 1.8em
+        color $color-tipo14
+        font-size 1.4em
+        &:hover
+          background url(/img/icons/ico-tienda02.png) no-repeat 0 0
+      &.active
+        a
+          color: $color-negro
+          border: none
+    &.newsletter
+      margin 3em 0
+      p
+        opacity .7
+
+    &.newsletter>a
+    &.newsletter>span
+      position: relative
+      background: url(/img/icons/ico-newsletter.png) no-repeat 0 0
+      padding-left: 1.8em
+      color: $color-tipo16
+      font-size: 1.4em
+    &.newsletter>a:after
+    &.newsletter>span:after
+      content: " "
+      position: absolute
+      right: 0
+      display: inline-block
+      width: 1.5em
+      height: 1em
+      background: url(/img/bullet/bullet-07.png) no-repeat 0 center
+
+.navbar-nav li.newsletter>a:hover, .navbar-nav li.newsletter>span:hover
+  color: $color-negro
+  background: url(/img/icons/ico-newsletter.png) no-repeat 0 0
+
+.navbar-nav li.newsletter.active>a, .navbar-nav li.newsletter.active>span
+  color: $color-tipo16
+  border: none
+
+.navbar-nav li.newsletter.open>a, .navbar-nav li.newsletter.open>span
+  background: url(/img/icons/ico-newsletter.png) no-repeat 0 0 !important
+  border-bottom: 0 !important
+  color: $color-tipo16 !important
+
+.navbar-nav li.newsletter.open>a:after, .navbar-nav li.newsletter.open>span:after
+  right: .5em
+  -moz-transform: rotate(180deg)
+  -webkit-transform: rotate(180deg)
+  transform: rotate(180deg)
+
+.navbar-nav li.newsletter .dropdown-menu
+  padding: 1.5em 0 1em 0
+  color: $color-negro
+  font: 1.2em/1 'Roboto'
+  font-weight: 100
+
+.navbar-nav li.newsletter .dropdown-menu input[type=text]
+  margin-bottom: 1em
+  font-size: 1em
+  border: 3px solid $color-tipo1
+
+.navbar-nav li.newsletter .dropdown-menu input[type=text].error
+  border: 3px solid $color-tipo17
+  color: $color-tipo17
+
+.navbar-nav li.newsletter .dropdown-menu fieldset
+  margin: 0
+
+.navbar-nav li.newsletter .dropdown-menu span
+  font: 1em/1 'Roboto'
+  font-weight: 100
+  color: $color-negro
+
+.navbar-nav li.newsletter .dropdown-menu a
+  border-bottom: 0
+
+.navbar-nav li.newsletter .dropdown-menu .btn
+  border-radius: 5px
+  background-image: none
+  width: 100%
+  border: 0
+  margin: 1em 0
+  font-size: 1.3em
+
+.navbar-nav li.newsletter .dropdown-menu .checks input[type="checkbox"]
+  top: 9px
+  width: 1.5em
+  height: 1.5em
+  cursor: pointer
+
+.navbar-nav li.newsletter .dropdown-menu .checks input[type="checkbox"] + span
+  background-size: 1.5em
+  padding-left: 1.7em
+
+.navbar-nav li.newsletter .dropdown-menu .checks input[type="checkbox"].error + span
+  background-image: url(/img/bg-check-off-error.png)
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a
+  padding-left: 3em
+
+.navbar-inverse .navbar-nav .open span, .navbar-inverse .navbar-nav .active span
+  color: $color-negro
+
+.nav .open a, .nav .open a:hover, .nav .open a:focus, .nav .open span
+  border-color: $back-color
+  color: $color-negro
+
+.navbar .navbar-nav > li.open > a, .navbar .navbar-nav > li.open > span, .navbar .navbar-nav > li.active > a, .navbar .navbar-nav > li.active > span
+  color: $color-negro
+
+.open .dropdown-menu
+  padding: .5em 0 0 0
+  background: none
+  border: 0
+  box-shadow: none
+  float: none
+  position: relative
+  left: auto
+  top: auto
+  z-index: auto
+  min-width: inherit
+
+.open .dropdown-menu li
+  margin: 0
+
+.open .dropdown-menu li a
+  padding: 0.3em 0 0.3em 2em
+  margin: 0
+  border-bottom: 0
+  text-transform: uppercase
+  color: $color-tipo12
+  white-space: normal
+  font-size: 0.857em
+  text-decoration: none !important
+
+.open .dropdown-menu li.active a, .open .dropdown-menu li a:hover
+  background: none !important
+  color: $color-negro
+  text-decoration: none
+
+.navbar-nav
+  padding-top: 1em
+  padding-left: 0
+
+.navbar .navbar-nav > li > a, .navbar .navbar-nav > li > span
+  font-size: 1.5em
+  padding-left: .3em
+  padding-bottom: 0
+  line-height: 1.5
+  cursor: pointer
+
+// download menu
+.nav .open a, .nav .open a:hover, .nav .open a:focus
+  border-color: $back-color
+
+.navbar-nav li.newsletter .dropdown-menu .checks input[type="checkbox"].error:checked + span
+  background-image: url(/img/bg-check-on-error.png)
+
+.navbar-nav li.type03
+  margin: 0 0 3px 0
+  padding: 0
+
+.navbar-nav li.type03 a
+  color: $color-negro
+  font: 1.5em 'Roboto'
+  letter-spacing: -1px
+  text-transform: none
+  padding-bottom: 4px
+
+.navbar-form .form-group
+  display: block
+//
+
+h3.dropdown-toggle
+  position: relative
+
+h3.dropdown-toggle:after
+  content: ""
+  position: absolute
+  right: 0
+  bottom: .3em
+  display: block
+  height: 1em
+  width: 1.5em
+  background: url(/img/bullet/bullet-05.png) no-repeat right center
+  -moz-transform: rotate(180deg)
+  -webkit-transform: rotate(180deg)
+  -o-transform: rotate(180deg)
+  -ms-transform: rotate(180deg)
+  transform: rotate(180deg)
+
+.open h3.dropdown-toggle:after
+  -moz-transform: rotate(0deg)
+  -webkit-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  -ms-transform: rotate(0deg)
+  transform: rotate(0deg)
+
+
+// tabs
+.nav-tabs
+  width: 100%
+  padding: 1em
+  margin: 0
+  background: $color-tipo18
+  border: 0
+  color: $color-negro
+  li
+    padding: 0
+    a
+      display: block
+      position: relative
+      max-width: 7em
+      min-height: 10em
+      padding: 7em 0.8em 2em 0.8em
+      color: $color-negro
+      font: 1.2em/1.3 'dejavu_sans'
+      text-align: center
+      text-decoration: none
+    span
+      display: block
+      padding: 4em 0 0 0
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus
+  box-shadow: inset 2px 2px 0 $color-tipo19
+  background: $color-tipo20
+  border-radius: 0
+  border: 0
+  color: $color-negro
+  text-decoration: none
+
+.nav-tabs > li.active > a:after,
+.nav-tabs > li.active > a:hover:after,
+.nav-tabs > li.active > a:focus:after,
+.nav-tabs > li > a:hover:after,
+.nav-tabs > li > a:focus:after
+  position: absolute
+  bottom: 0px
+  left: 0
+  z-index: 2
+  content: ""
+  display: block
+  width: 100%
+  height: 1.7em
+  background: $color-tipo21 url("/img/bg/bg-tabs-active.png") no-repeat center bottom
+
+[data-icon="agenda"] span
+  background: url("/img/icons/icon-agenda.png") no-repeat center 0
+  background-size: auto 3em
+
+[data-icon="noticias"] span
+  background: url("/img/icons/icon-noticias.png") no-repeat center 0
+  background-size: auto 3em
+
+[data-icon="llegar"] span
+  background: url("/img/icons/icon-como-llegar.png") no-repeat center 0
+  background-size: auto 3.4em
+
+[data-icon="horarios"] span
+  background: url("/img/icons/icon-horarios.png") no-repeat center 0
+  background-size: auto 3.4em
+
+[data-icon="precios"] span
+  background: url("/img/icons/icon-precio.png") no-repeat center 0
+  background-size: auto 3.4em
+
+[data-icon="museo"] span
+  background: url("/img/icons/icon-mapa.png") no-repeat center 0
+  background-size: 3.5em auto
+
+.tabs
+  list-style: none
+  margin: 0 0 1em 0
+  padding: 0 !important
+  li
+    display: inline-block
+    margin: 0 3px 0.4em 0
+    font: 1em 'Roboto'
+  a
+    display: block
+    min-width: 4em
+    padding: 4px 35px 5px 9px
+    background: $color-negro url("/img/selectedTabs.png") no-repeat 97% center
+    border: 1px solid $back-color
+    text-decoration: none !important
+  .active
+    a
+      background: $back-color url("/img/selectedTabsOn.png") no-repeat 97% center
+      color: $color-negro
+
+
+// footer
+.wrapper
+  position: relative
+  background: $color-tipo22
+  min-height: 119em
+
+.footer
+  padding: 0
+  color: $color-tipo13
+  border-top: 1px solid $color-negro
+  background-color: $color-blanco
+  footer
+    color: $color-tipo13
+    padding: 2em 0
+    p
+      margin: .7em 0 0 0
+      font-size: 1em
+    nav
+      text-align: left
+    nav:last-child
+      margin-top: .7em
+      text-align: right
+    a
+      display: inline-block
+      margin: 0 1em 0 0
+      color: $color-tipo13
+      font-size: 1.3em
+      text-decoration: none
+      opacity: .8
+      transition: all .3s
+    a:hover,
+    a.active
+      color: $color-negro
+      transition: .3s all
+      opacity: 1
+
+//
+// mobile footer
+.stickyfooter
+  padding: 2em
+  background: $color-tipo6
+  color: $color-negro
+  .module
+    float: left
+    width: 50%
+    min-height: 22em
+    padding: 2em
+    background: rgba(255,255,255,0.4)
+    border-right: 1em solid $color-tipo6
+    border-bottom: 0.7em solid $color-tipo6
+    word-wrap: break-word
+    -webkit-transition: background 0.3s
+    transition: background 0.3s
+  .module:hover
+    background: rgba(255,255,255,0.2)
+  .module:nth-child(2n)
+    border-right: 0
+  .module:nth-child(3n)
+    clear: both
+  .title02
+    text-transform: uppercase
+  a
+    color: $color-negro
+    text-decoration: none !important
+  a:hover
+    text-decoration: none
+  .contact a,
+  .call a
+    display: block
+  p
+    margin: 0
+    font-size: 1.688em
+    line-height: 1.4
+  .contact p,
+  .time p
+    font-size: 1.2em
+  .call p
+    font-size: 2.188em
+  .time strong
+    font-size: 1.286em
+  address
+    margin: 0
+  .address
+    padding-top: 9em
+    background-image: url("/img/icons/ico-address.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 7em
+    -webkit-transition: background 0.3s
+    transition: background 0.3s
+  .address:hover
+    background-image: url("/img/icons/ico-address.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 6em
+  .time
+    padding-top: 9em
+    background-image: url("/img/icons/ico-time.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 6.3em
+    -webkit-transition: background 0.3s
+    transition: background 0.3s
+  .time:hover
+    padding-top: 9em
+    background-image: url("/img/icons/ico-time.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 5.3em
+  .call
+    padding-top: 9em
+    background-color: rgba(255,255,255,0.2)
+    background-image: url("/img/icons/ico-call.png")
+    background-position: 2em 3em
+    background-repeat: no-repeat
+    background-size: 4em
+    -webkit-transition: background 0.3s
+    transition: background 0.3s
+  .call:hover
+    padding-top: 9em
+    background-image: url("/img/icons/ico-call.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 6.3em
+  .contact
+    padding-top: 9em
+    background-image: url("/img/icons/ico-contact.png")
+    background-position: 2em 2.5em
+    background-repeat: no-repeat
+    background-size: 7.5em
+    -webkit-transition: background 0.3s
+    transition: background 0.3s
+  .contact:hover
+    padding-top: 9em
+    background-image: url("/img/icons/ico-contact.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 6.3em
+  .agenda
+    padding-top: 9em
+    background-image: url("/img/icons/ico-agenda.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 5em
+    -webkit-transition: background 0.3s
+    transition: background 0.3s
+  .agenda:hover
+    padding-top: 9em
+    background-image: url("/img/icons/ico-agenda.png")
+    background-position: 2em 2em
+    background-repeat: no-repeat
+    background-size: 6.3em
+  .viewWeb
+    margin: 2em 0 0 0
+    text-transform: uppercase
+    text-align: center
+    font-size: 1.25em
+  .viewWeb a
+    text-decoration: underline
+
+//
+// carousel
+.carousel
+  margin-bottom: 2em
+  padding-left: 0
+  padding-right: 0
+  a:hover
+    text-decoration: none
+    box-shadow: none
+
+.carousel-caption
+  z-index: 10
+  left: 0
+  bottom: 0
+  width: 30%
+  background: rgba(161,121,27,0.9)
+  text-align: left
+  a
+    text-decoration: none
+  .mainTitle
+    clear: both
+    margin: 0 15% 0 15%
+    font: 1.423em 'dejavu_sanscondensed'
+    color: $color-negro
+    text-shadow: none
+    text-transform: uppercase
+    .when
+      font-size: 1.7em
+  .tipo
+    display: inline-block
+    margin: -20px 0 1em 1em
+    padding: 2.5em 2em 1em 2em
+    background: $color-blanco
+    color: $color-negro
+    font-family: 'Roboto'
+    font-weight: 400
+    text-transform: uppercase
+    float: right
+  .secondTitle
+    margin: 0 15% 20px 15%
+    font: 2.25em/1.3 'dejavu_sans'
+    color: $color-negro
+    text-shadow: none
+    text-transform: uppercase
+
+.homeSlider.carousel .carousel-caption:hover
+  box-shadow: 3px 3px rgba(0, 0, 0, .4)
+  background: rgba(161, 121, 27, 1)
+
+.homeSlider.carousel .container
+  font-size: .7em
+
+.homeSlider.carousel .carousel-caption
+  padding-top: 2em
+  padding-bottom: 0
+
+
+.li_exposicion .tipo,
+.expoSlideTitle .tipo
+  display: inline-block
+  padding: 2.5em 2em 1em 2em
+  background: $color-blanco
+  color: $color-negro
+  font-family: 'Roboto'
+  font-weight: 400
+  text-transform: uppercase
+  position: absolute
+  right: 0
+  top: 0
+  font-size: 1.2em
+  z-index: 99
+
+.carousel-caption
+  p.secondTitle
+    margin: 5% 15% 20px 15%
+  h3.secondTitle
+    font: 3.25em/1.3 'dejavu_sans'
+    margin-bottom: 0
+    margin-top: 0.5em
+  .secondTitle span
+    display: block
+    font-family: 'dejavu_sans'
+  .date
+    display: block
+    margin: 0 15% 5px 15%
+    font: 1.5em/1 'dejavu_sans'
+    color: $color-tipo1
+    text-transform: uppercase
+    text-shadow: none
+
+.carousel .item
+  background-color: $color-tipo1
+
+.homeSlider.carousel .item
+  max-height: 510px
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > video,
+.carousel-inner > .item > iframe
+  max-width: 100%
+  height: auto
+  min-height: inherit
+  width: 100%
+
+.carousel-control
+  z-index: 11
+  opacity: 1
+  bottom: 0
+  width: 10%
+  text-shadow: none
+  &.left,
+  &.right
+    background: none
+  &.left:after,
+  &.right:after
+    content: " "
+    display: block
+    width: 100%
+    height: 100%
+    background: url("/img/bullet/bullet-03.png") no-repeat center center
+    background-size: 1em
+  &.left:after
+    -moz-transform: rotate(180deg)
+    -webkit-transform: rotate(180deg)
+    -o-transform: rotate(180deg)
+    -ms-transform: rotate(180deg)
+    transform: rotate(180deg)
+  span
+    display: none
+
+.sliderImg
+  padding: 2em 3em 2em 3em
+  display: table
+
+.sliderImg .column:first-child
+  padding-left: 0
+
+.sliderImg .column
+  display: table-cell
+  float: none
+  vertical-align: middle
+
+.sliderImg .carousel .carousel-control
+  top: auto
+  bottom: 1.5em
+  width: 3em
+  height: 3em
+  background-color: $color-tipo23
+  background-size: 0.6em !important
+  background-position: center center
+  opacity: 0.9 !important
+  -webkit-transition: opacity 0.3s
+  transition: opacity 0.3s
+
+.sliderImg .carousel .carousel-control:hover
+  opacity: 1 !important
+
+.col-lg-6 .col-sm-6 .carousel-inner
+  max-height: 234px
+
+.carousel .carousel-control
+  top: auto
+  bottom: 1.5em
+  width: 3em
+  height: 3em
+  background-size: 0.7em
+  background-position: center center
+  opacity: 0.9 !important
+  -webkit-transition: opacity 0.3s, box-shadow 0.3s
+  transition: opacity 0.3s, box-shadow 0.3s
+
+.carousel .carousel-control:hover
+  opacity: 1 !important
+  box-shadow: 3px 3px rgba(0,0,0,0.4)
+
+.carousel .carousel-control.left:hover
+  opacity: 1 !important
+  box-shadow: -3px 3px rgba(0,0,0,0.4)
+
+.sliderImg .carousel .carousel-control.left
+  left: auto
+  right: 4.8em
+
+.sliderImg .carousel .carousel-control.right
+  right: 1.5em
+
+.col-lg-6.sliderImg .wysiwyg
+  font-size: 0.6em
+
+.col-lg-6.sliderImg .wysiwyg p
+  font-size: 1.9em
+
+.col-lg-6.sliderImg .wysiwyg .btn-normal
+  bottom: 1em
+
+.col-lg-6.sliderImg .carousel .carousel-control
+  bottom: 0.8em
+  width: 2em
+  height: 2em
+
+.col-lg-6.sliderImg .carousel .carousel-control.left
+  right: 2.9em
+
+.col-lg-6.sliderImg .carousel .carousel-control.right
+  right: 0.8em
+
+.col-lg-6.sliderImg .carousel .carousel-control.left:after,
+.col-lg-6.sliderImg .carousel .carousel-control.right:after
+  background-size: 0.6em
+
+.col-lg-4.sliderImg
+  padding: 2em
+
+.col-lg-4.sliderImg .column
+  display: inline-block
+
+.col-lg-4.sliderImg .wysiwyg
+  padding: 0
+
+.col-lg-4.sliderImg .wysiwyg .btn-normal
+  position: relative
+  right: auto
+  bottom: auto
+  text-align: right
+
+.col-lg-4.sliderImg .carousel .carousel-control
+  bottom: 0
+
+.col-lg-4.sliderImg .carousel .carousel-control.left
+  right: 3.1em
+
+.col-lg-4.sliderImg .carousel .carousel-control.right
+  right: 0
+
+//
+.carousel
+  margin-bottom: 0
+  margin-bottom: 1.2em
+
+.carousel .carousel-caption
+  background: rgba(161, 121, 27, .95)
+  left: 3em
+  bottom: 3em
+  width: 40%
+  padding-bottom: .8em
+  -webkit-transition: background .3s, box-shadow .3s
+  transition: background .3s, box-shadow .3s
+
+#relatedContent.carousel .carousel-caption
+  font-size: .9em
+  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8)
+  left: 0em
+  bottom: 0em
+  width: 100%
+  padding-bottom: .5em
+
+.carousel .carousel-caption .btn-default
+  opacity: 0
+  -webkit-transition: opacity .3s
+  transition: opacity .3s
+
+.carousel .carousel-caption:hover .btn-default
+  opacity: 1
+
+.carousel .carousel-caption:hover
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, .7)
+
+.carousel .carousel-caption .mainTitle
+  margin: 6% 5% 0 5%
+
+.carousel .carousel-caption h4.mainTitle
+  margin: 0% 5% 0 5%
+
+.carousel .carousel-caption .mainTitle span
+  padding: 0 0 0 1.3em
+  font-family: 'dejavu_sans'
+  text-transform: none
+
+.carousel-caption .mainTitle .when
+  position: absolute
+  left: .5em
+  top: 1.5em
+  font-size: 1em
+
+.carousel .carousel-caption .secondTitle
+  margin: 1.2em 5% .3em 5%
+  text-transform: none
+  font-size: 3.5em
+  line-height: 1.1
+
+.carousel .carousel-caption .secondTitle span
+  display: block
+  margin-top: 1em
+  font-size: .45em
+
+.carousel .carousel-caption .btn
+  padding-right: 5em
+  background-color: transparent
+  background-size: 1.8em
+  text-align: right
+  font-size: 1.1em
+
+.carousel .carousel-control
+  top: auto
+  bottom: 1.5em
+  width: 3em
+  height: 3em
+  background-color: $color-tipo23
+  background-size: .7em
+  background-position: center center
+
+.carousel .carousel-control.left
+  left: auto
+  right: 4.8em
+
+.carousel .carousel-control.right
+  right: 30px
+
+
+.chapa
+  position: absolute
+  left: 0.9em
+  top: 2.7em
+  z-index: 20
+  display: inline-block
+  width: 100%
+  padding: 0.2em 0
+  background: $back-color
+  font: 1.3em/1 'Roboto'
+  font-weight: 100
+  color: $color-negro
+  text-align: center
+  text-transform: uppercase
+  -moz-transform: rotate(-45deg)
+  -webkit-transform: rotate(-45deg)
+  transform: rotate(-45deg)
+
+#exposiciones span.chapa.promocion
+  position: absolute
+  left: 0em
+  top: -2em
+  font: 1.8em/1 "Roboto"
+  transform: rotate(0deg)
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  opacity: 0.8
+  text-align: center
+  padding-left: 1em
+  padding-top: 1em
+  background-color: rgb(0, 0, 0)
+  color: rgb(255, 255, 255)
+  width: 100%
+
+li.li_exposicion .chapa
+  left: 0em
+  top: 0em
+  transform: rotate(0)
+  -webkit-transform: rotate(0)
+  background-color: $color-blanco
+  opacity: 0.8
+// En carousel
+
+//.btn-normal
+.btn-normal a
+input.btn-normal
+  display: inline-block
+  padding: 0.7em 1.5em
+  background: rgba(34,34,33,0.9)
+  color: $color-negro
+  text-decoration: none
+  border: 0
+  -webkit-border-radius: 0
+  -webkit-appearance: none
+  -webkit-transition: background 0.3s, box-shadow 0.3s
+  transition: background 0.3s, box-shadow 0.3s
+
+.btn-normal a:hover,
+input.btn-normal:hover
+  background: $color-tipo1
+  box-shadow: 3px 3px rgba(0,0,0,0.4)
+// .btn-normal
+// mainTitle
+.mainTitle
+  margin-top: 0
+  font: 5em/1 'Roboto'
+  text-align: center
+  font-weight: 100
+  line-height: 141%
+//
+.sliderImg .wysiwyg
+  position: relative
+  padding-left: 4em
+  padding-bottom: 7em
+  border: 0
+
+.sliderImg .wysiwyg .mainTitle,
+.sliderImg .wysiwyg h2.mainTitle
+  padding: 0
+  background: none
+  color: $color-tipo1
+  margin: 0 0 0.5em 0
+  font: 4em "dejavu_sansextralight"
+  letter-spacing: -1px
+  line-height: 1.2
+
+.sliderImg .wysiwyg .secondTitle
+  padding: 0
+  margin: 0 0 1em 0
+  font-size: 2.5em
+
+.sliderImg .wysiwyg p
+  font-size: 1.4em
+
+.sliderImg .wysiwyg .btn-normal
+  position: absolute
+  right: 3em
+  bottom: 1em
+  padding-bottom: 0
+
+.sliderImg .wysiwyg .btn-normal a
+  color: $color-negro
+  text-decoration: none
