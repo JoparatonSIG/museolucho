@@ -244,5 +244,4 @@ sequelize.sync().then(function () {
       });
     }
   }); // Usuario.count()
-
 });
