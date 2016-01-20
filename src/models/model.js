@@ -160,9 +160,6 @@ Obra.hasMany(Accesorio);
 Obra.belongsTo(Naturaleza);
 Naturaleza.hasOne(Obra);
 
-// Obras tienen Accesorios
-Obra.belongsTo(Especialidad);
-Especialidad.hasMany(Obra);
 
 // Obras tienen Accesorios
 Intervencion.belongsTo(Obra);
