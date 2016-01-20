@@ -24,7 +24,7 @@ router.post('/', function (req, res) {
   var espesor = req.body.espesor;
   var peso = req.body.peso;
   var observaciones = req.body.observaciones;
-  var descripcionres = req.body.descripcion;
+  var descripcionreq = req.body.descripcion;
 
   var descripcion = Museo.Descripcion.build({
     marcasInscripciones: marcasInscripciones,
@@ -36,7 +36,7 @@ router.post('/', function (req, res) {
     espesor: espesor,
     peso: peso,
     observaciones: observaciones,
-    descripcion: descripcionres
+    descripcion: descripcionreq
   });
 
   descripcion.add(function (success) {
