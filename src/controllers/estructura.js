@@ -15,10 +15,10 @@ var Museo = require('../models/museo.js');
 // POST /estructuras
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var estructurareq = req.body.estructura;
+  var estructura = req.body.estructura;
 
   var estructura = Museo.Estructura.build({
-    estructura: estructurareq
+    estructura: estructura
   });
 
   estructura.add(function (success) {
