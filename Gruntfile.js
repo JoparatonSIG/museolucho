@@ -64,7 +64,7 @@ module.exports = function(grunt) {
         command: 'rm -f logs/*.log'
       },
       cpcss: {
-        command: 'cp src/stylus/museo.css src/public/css'
+        command: 'mv src/stylus/*.css src/public/css'
       }
     },
     mochaTest: {
@@ -87,7 +87,12 @@ module.exports = function(grunt) {
           paths: ['src/stylus']
         },
         files: {
-          'src/stylus/museo.css': 'src/stylus/museo.styl'
+          'src/stylus/magnific-popup.css': 'src/stylus/magnific-popup.styl',
+          'src/stylus/museo.css': 'src/stylus/museo.styl',
+          'src/stylus/plantilla.css': 'src/stylus/plantilla.styl',
+          'src/stylus/stacktable.css': 'src/stylus/stacktable.styl',
+          'src/stylus/submit-button.css': 'src/stylus/submit-button.styl',
+          'src/stylus/fonts.css': 'src/stylus/fonts.styl'
         }
       }
     },
@@ -107,7 +112,12 @@ module.exports = function(grunt) {
     csscomb: {
       museo: {
           files: {
+              'src/stylus/magnific-popup.css': ['src/public/css/magnific-popup.css'],
               'src/stylus/museo.css': ['src/public/css/museo.css'],
+              'src/stylus/plantilla.css': ['src/public/css/plantilla.css'],
+              'src/stylus/stacktable.css': ['src/public/css/stacktable.css'],
+              'src/stylus/submit-button.css': ['src/public/css/submit-button.css'],
+              'src/stylus/fonts.css': ['src/public/css/fonts.css']
           }
       }
     },
@@ -132,7 +142,14 @@ module.exports = function(grunt) {
             options: {
                 import: false
             },
-       src: ['src/public/css/museo.css']
+       src: [
+         'src/public/css/magnific-popup.css',
+         'src/public/css/museo.css',
+         'src/public/css/plantilla.css',
+         'src/public/css/stacktable.css',
+         'src/public/css/submit-button.css',
+         'src/public/css/fonts.css'
+       ]
       }
     }
   });
