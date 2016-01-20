@@ -127,8 +127,8 @@ Analisis.belongsTo(Obra);
 Obra.hasMany(Analisis);
 
 // Obras tienen TipoAdquisicion
-Adquisicion.belongsTo(Obra);
-Obra.hasOne(Adquisicion);
+Obra.belongsTo(Adquisicion);
+Adquisicion.hasOne(Obra);
 
 Analisis.belongsTo(TipoAnalisis);
 TipoAnalisis.hasMany(Analisis);
@@ -157,12 +157,9 @@ Accesorio.belongsTo(Obra);
 Obra.hasMany(Accesorio);
 
 // Obras tienen Naturaleza
-Naturaleza.belongsTo(Obra);
-Obra.hasOne(Naturaleza);
+Obra.belongsTo(Naturaleza);
+Naturaleza.hasOne(Obra);
 
-// Obras tienen Accesorios
-Especialidad.belongsTo(Obra);
-Obra.hasMany(Especialidad);
 
 // Obras tienen Accesorios
 Intervencion.belongsTo(Obra);

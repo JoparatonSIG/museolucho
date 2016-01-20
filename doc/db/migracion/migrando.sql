@@ -48,7 +48,7 @@ INSERT INTO
     Origen,
     now(),
     now()
-FROM museoOriginal.identificacion ori
+FROM museojesuitico.identificacion ori
 ORDER BY ori.IdIdentificacion ASC;
 
 UPDATE
@@ -66,7 +66,7 @@ INSERT INTO
         )
 SELECT
       IdLugar, localidad, codigoLocalidad, municipio, provincia, codigoProvincia, departamento, now(), now()
-FROM museoOriginal.lugar ori
+FROM museojesuitico.lugar ori
 ORDER BY ori.IdLugar ASC;
 
 INSERT INTO
@@ -88,7 +88,7 @@ SELECT
   ori.Propietario,
   now(),
   now()
-FROM museoOriginal.ubicacion ori
+FROM museojesuitico.ubicacion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 LEFT OUTER JOIN museo.Lugares l
@@ -112,7 +112,7 @@ INSERT INTO
     ValorPredeter,
     now(),
     now()
-FROM museoOriginal.analisistipo ori
+FROM museojesuitico.analisistipo ori
 ORDER BY ori.IdTipo ASC;
 
 INSERT INTO
@@ -128,7 +128,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM museoOriginal.tecnicar ori
+FROM museojesuitico.tecnicar ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -144,7 +144,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM museoOriginal.tecnica ori
+FROM museojesuitico.tecnica ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -172,7 +172,7 @@ INSERT INTO
     observaciones,
       now(),
       now()
-FROM museoOriginal.relevamiento ori
+FROM museojesuitico.relevamiento ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdIdentificacion ASC;
@@ -184,7 +184,7 @@ INSERT INTO
         )
 SELECT
       IdFotografías, IdIdentificacion, Foto, CodArchivoFotografico, NumRollo, NumFoto, Fotografo, Fecha, now(), now()
-FROM museoOriginal.fotografias ori
+FROM museojesuitico.fotografias ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdFotografías ASC;
@@ -202,7 +202,7 @@ INSERT INTO
   Estructura,
     now(),
     now()
-FROM museoOriginal.estructura ori
+FROM museojesuitico.estructura ori
 ORDER BY ori.IdEstructura ASC;
 
 INSERT INTO
@@ -226,7 +226,7 @@ INSERT INTO
   UbicaciónInmueble,
     now(),
     now()
-FROM museoOriginal.espacios ori
+FROM museojesuitico.espacios ori
 ORDER BY ori.IdEspacio ASC;
 
 INSERT INTO
@@ -262,7 +262,7 @@ INSERT INTO
   Descripcion,
     now(),
     now()
-FROM museoOriginal.descripcion ori
+FROM museojesuitico.descripcion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdDescripcion ASC;
@@ -284,7 +284,7 @@ INSERT INTO
     CondicionesSeguridad,
     now(),
     now()
-FROM museoOriginal.conservacion ori
+FROM museojesuitico.conservacion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdConservacion ASC;
@@ -304,7 +304,7 @@ INSERT INTO
     IdTipo,
     now(),
     now()
-FROM museoOriginal.analisis ori
+FROM museojesuitico.analisis ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 LEFT OUTER JOIN museo.TipoAnalisis l
@@ -318,7 +318,7 @@ INSERT INTO
        )
 SELECT
       IdAccesorios, IdIdentificacion, ObjetoCodigo, Relacion, now(), now()
-FROM museoOriginal.accesorios ori
+FROM museojesuitico.accesorios ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdIdentificacion ASC;
