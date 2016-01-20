@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../models/museo.js');
+var Museo = require('../models/model');
 
 // Rutas que terminan en /museo
 
@@ -16,7 +16,7 @@ router.post('/', function (req, res) {
   var direccion = req.body.direccion;
   var telefono = req.body.telefono;
 
-  var museo = Museo.Museo.build({ 
+  var museo = Museo.Museo.build({
     museo: museo,
     direccion: direccion,
     telefono:telefono
