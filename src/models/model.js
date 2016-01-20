@@ -207,30 +207,42 @@ exports.Usuario = Usuario;
 sequelize.sync().then(function () {
   console.log ('sequelize SYNC');
   // then(..) ejecuta el manejador una vez creada la tabla
-  Usuario.count().then(function (count) {
+  Nivel.count().then(function (count) {
     if (count === 0) {   // la tabla se inicializa solo si está vacía
-      Usuario.bulkCreate(
+      Nivel.bulkCreate(
         [
-          { email: 'lucho@gmail.com', nombre: 'lucho', password: 'mono' },
-          { email: 'usu@gmail.com', nombre: 'usu', password: 'usu' },
-          { email: 'usu1@gmail.com', nombre: 'usu1', password: 'usu1' }
+          { categoria: 'admin' },
+          { categoria: 'empleado' },
+          { categoria: 'visitante' }
         ]
       ).then(function () {
       console.log('Base de datos (tabla usuarios) inicializada');
-      Nivel.count().then(function (count) {
+      Usuario.count().then(function (count) {
         if (count === 0) {
-          Nivel.bulkCreate(
+          Usuario.bulkCreate(
           [
-            { categoria: 'admin' },
-            { categoria: 'empleado' },
-            { categoria: 'visitante' }
+            { email: 'admin@gmail.com', nombre: 'admin', password: 'admin',NivelId: 1 },
+            { email: 'usu@gmail.com', nombre: 'usu', password: 'usu',NivelId: 2 },
+            { email: 'usu1@gmail.com', nombre: 'usu1', password: 'usu1',NivelId: 2 }
           ]
           ).then(function () {
             console.log('Base de datos (tabla Niveles) inicializada');
           });
         }
-      }); // Nivel.count()
+      }); // Usuario.count()
     });
     }
+  }); // Nivel.count()
+  Museo.count().then(function (count) {
+    if (count === 0) {
+      Museo.bulkCreate(
+      [
+        { museo: 'Bolivia', direccion: 'Santa Cruz', telefono: 'telefon'  }
+      ]
+      ).then(function () {
+        console.log('Base de datos (tabla Niveles) inicializada');
+      });
+    }
   }); // Usuario.count()
+
 });
