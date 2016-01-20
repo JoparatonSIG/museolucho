@@ -15,13 +15,6 @@ INSERT INTO
     { 2, 'usu@gmail.com', 'usu', 'usu' },
     { 2, 'usu1@gmail.com', 'usu1', 'usu1' };
 
-UPDATE
-  museo.Obras
-  SET
-  MuseoId = 1
-  WHERE
-  MuseoId IS NULL;
-
 INSERT INTO
   museo.Obras
   (
@@ -57,6 +50,14 @@ INSERT INTO
     now()
 FROM museoOriginal.identificacion ori
 ORDER BY ori.IdIdentificacion ASC;
+
+UPDATE
+  museo.Obras
+  SET
+  MuseoId = 1
+  WHERE
+  MuseoId IS NULL;
+
 
 INSERT INTO
        museo.Lugares
