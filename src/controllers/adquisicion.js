@@ -16,8 +16,13 @@ var Museo = require('../models/museo');
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var tipoAdquisicion = req.body.tipoAdquisicion;
+  var tipoCompra = req.body.tipoCompra;
 
-  var adquisicion = Museo.Adquisicion.build({ tipoAdquisicion: tipoAdquisicion });
+  var adquisicion = Museo.Adquisicion.build({
+    tipoAdquisicion: tipoAdquisicion,
+    tipoCompra: tipoCompra
+
+  });
 
   adquisicion.add(function (success) {
     res.json({ message: 'Adquisicion creado!' });
@@ -52,7 +57,7 @@ router.put('/:adquisicionId', function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
 
   adquisicion.tipoAdquisicion = req.body.tipoAdquisicion;
-
+  adquisicion.tipoCompra = req.body.tipoCompra;
   adquisicion.updateById(req.params.adquisicionId, function (success) {
     if (success) {
       res.json({ message: 'Adquisicion actualizado!' });
