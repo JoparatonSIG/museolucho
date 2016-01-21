@@ -1,5 +1,6 @@
 <form id="topicForm" method="post" action="/web/museo/<%= museo.id %>" >
   <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="id" value="<%= museo.id %>">
 
   <table class="table table-bordred table-striped">
     <thead>
@@ -22,17 +23,17 @@
           </td>
           <td class="text-center">
             <label for="museo" class="control-label">Id</label>
-            <input type="text" class="form-control" id="museo" name="museo.museo" value="<%=museo.museo%>" required="true" title="Ingrese museo" placeholder="<museo>">
+            <input type="text" class="form-control" id="museo" name="museo" value="<%=museo.museo%>" required="true" title="Ingrese museo" placeholder="<museo>">
             <%= museo.museo %>
           </td>
           <td class="text-center">
-            <label for="direccion" class="control-label">Id</label>
-            <input type="text" class="form-control" id="direccion" name="museo.direccion" value="<%=museo.direccion%>" required="true" title="Ingrese direccion" placeholder="<direccion>">
+            <label for="direccion" class="control-label">Direccion</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" value="<%=museo.direccion%>" required="true" title="Ingrese direccion" placeholder="<direccion>">
             <%= museo.direccion %>
           </td>
           <td class="text-center">
             <label for="direccion" class="control-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono" name="museo.telefono" value="<%=museo.telefono%>" required="true" title="Ingrese telefono" placeholder="<telefono>">
+            <input type="text" class="form-control" id="telefono" name="telefono" value="<%=museo.telefono%>" required="true" title="Ingrese telefono" placeholder="<telefono>">
             <%= museo.telefono %>
           </td>
           <td class="text-center"><%= museo.fechaCrea %></td>

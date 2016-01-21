@@ -70,15 +70,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // If you want to simulate DELETE and PUT
 // in your app you need methodOverride.
-// override with POST having ?_method=DELETE
-app.use(methodOverride('_method'));
-
+// override with POST having
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
 var router = express.Router();
 var routerWeb = express.Router();
 
 // Keep user, csrf token and config available
 app.use(function (req, res, next) {
-  console.log(req);
+  //console.log(req);
   res.locals.user = req.user;
   res.locals.config = config;
   res.locals._csrf = "req.csrfToken()";

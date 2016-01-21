@@ -15,7 +15,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'museo',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
           notEmpty: true
         }
       },
@@ -26,7 +25,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'direccion',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
           notEmpty: true
         }
       },
@@ -37,7 +35,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'telefono',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
           notEmpty: true
         }
       }
@@ -73,8 +70,12 @@ module.exports = function (sequelize, DataTypes) {
           Museo.build({ museo: museo, direccion: direccion, telefono:telefono })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (museoId, museo, direccion, telefono, onSuccess, onError) {
-          Museo.update( { museo: museo ,direccion: direccion, telefono:telefono },{ where: { id: museoId } })
+        updateById: function (id, museo, direccion, telefono, onSuccess, onError) {
+          console.log(this.id, this.museo, this.direccion, this.telefono);
+          Museo.update(
+            { museo: this.museo, direccion: this.direccion, telefono:this.telefono },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
         removeById: function (empresaId, onSuccess, onError) {
