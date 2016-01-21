@@ -88,13 +88,13 @@ module.exports = function (sequelize, DataTypes) {
       deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
-      tableName: 'adquisicion',
+      tableName: 'Adquisiciones',
       comment: 'adquisicion de la obra',
       indexes: [
         {
           name: 'idxAdquisicion',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['tipoAdquisicion']
         }
       ]
