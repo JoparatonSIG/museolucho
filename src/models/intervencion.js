@@ -101,7 +101,7 @@ module.exports = function (sequelize, DataTypes) {
       deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
-      tableName: 'intervencion',
+      tableName: 'Intervenciones',
       comment: 'intervencion de la obra',
       indexes: [
         {

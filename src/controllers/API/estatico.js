@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../models/model');
+var Museo = require('../../models/model');
 
 router.get( '/', function ( req, res ) {
   res.render( 'home/index', { title: 'Bienvenidos' });

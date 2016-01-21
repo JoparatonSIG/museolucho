@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../models/model');
+var Museo = require('../../models/model');
 
 // Rutas que terminan en /museo
 

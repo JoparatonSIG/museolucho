@@ -1,5 +1,4 @@
-/*
--- niveles de usuarios --
+-- Se carga Niveles
 INSERT INTO
   museo.Niveles
    (categoria)
@@ -7,118 +6,16 @@ INSERT INTO
    ('admin'),
    ('empleado'),
    ('visitante');
-
+-- Se carga Usuarios
 INSERT INTO
    museo.Usuarios
     ( idNivel, email, nombre, password )
     VALUES
     VALUES
     ( 1, 'lucho@gmail.com', 'lucho', 'mono' },
-    { 2, 'usu@gmail.com', 'usu', 'usu' },
+    { 2, 'bolivia@gmail.com', 'bolivia', 'bolivia' },
     { 2, 'usu1@gmail.com', 'usu1', 'usu1' };
-
-UPDATE
-  museo.Obras
-  SET
-  MuseoId = 1
-  WHERE
-  MuseoId IS NULL;
-*/
-
---naturaleza
-INSERT INTO
-  museo.Naturaleza
-  (
-    id,
-    naturaleza,
-    codigoNaturaleza,
-    creacion,
-    modifica
-  )
-  SELECT
-    IdNatura,
-    Naturaleza,
-    IdNatura,
-    now(),
-    now()
-FROM museoOriginal.identificacion ori
-ORDER BY ori.IdIdentificacion ASC;
-
-UPDATE
-  museo.Obras
-  SET
-  NaturalezaId = 1
-  WHERE
-  codigo like "%-ES-%";
-
-  UPDATE
-    museo.Obras
-    SET
-    NaturalezaId = 4
-    WHERE
-    codigo is like "%-EA-%";
-
-    UPDATE
-      museo.Obras
-      SET
-      NaturalezaId = 7
-      WHERE
-      codigo is like "%-PC-%";
-
-      UPDATE
-        museo.Obras
-        SET
-        NaturalezaId = 10
-        WHERE
-        codigo is like "%-PM-%";
-
-        UPDATE
-          museo.Obras
-          SET
-          NaturalezaId = 13
-          WHERE
-          codigo is like "%-MO-%";
-
-          UPDATE
-          FROM
-            museo.Obras
-            SET
-            NaturalezaId = 15
-            WHERE
-            codigo is like "%-MA-%";
-
-            UPDATE
-              museo.Obras
-              SET
-              NaturalezaId = 18
-              WHERE
-              codigo like "%-ME-%";
-
-            UPDATE
-                museo.Obras
-                SET
-                NaturalezaId = 21
-                WHERE
-                codigo is like "%-PL-%";
-
-                UPDATE
-                    museo.Obras
-                    SET
-                    NaturalezaId = 24
-                    WHERE
-                    codigo is like "%-IN-%";
-
-                    UPDATE
-                        museo.Obras
-                        SET
-                        NaturalezaId = 28
-                        WHERE
-                        codigo is like "%-VA-%";
-
-
-
-
--- antiguos
+-- Se carga Obras
 INSERT INTO
   museo.Obras
   (
@@ -152,9 +49,141 @@ INSERT INTO
     Origen,
     now(),
     now()
-FROM museoOriginal.identificacion ori
+FROM bolivia.identificacion ori
 ORDER BY ori.IdIdentificacion ASC;
+-- Se carga Naturaleza
+INSERT INTO
+  museo.Naturaleza
+  (
+    id,
+    naturaleza,
+    codigoNaturaleza,
+    creacion,
+    modifica
+  )
+  SELECT
+    IdNatura,
+    Naturaleza,
+    CodigoNatura,
+    now(),
+    now()
+FROM bolivia.naturaapoyoiden ori
+ORDER BY ori.IdNatura ASC;
+-- Se carga Niveles
+INSERT INTO
+  museo.Museos
+   (museo, direccion, telefono, fechaCrea, fechaModifica)
+   VALUES
+   ('Bolivia', 'Chiquitos', 'telefono', now(), now()),
+   ('San Ignacio', 'San Ignacio, Misiones', 'telefono', now(), now());
 
+-- Se carga la nueva tabla Adquisiciones
+INSERT INTO
+  museo.Adquisiciones
+   (tipoAdquisicion, tipoCompra, fecha, fechaCrea, fechaModifica)
+   VALUES
+   ('No Adquirido','Creado', now(), now(), now()),
+   ('Donado','Donado', now(),now(),now()),
+   ('Comprado', 'Fondos propios', now(), now(),now()),
+   ('Comprado','Fondos externos', now(),now(),now()),
+   ('Prestado','Sin rubro',now(),now(),now())
+   ;
+-- Se agrega la relacion con la nueva tabla Adquisiciones
+UPDATE
+  museo.Obras
+  SET
+  AdquisicionId = 1;
+
+
+-- Relacionamos todas las tuplas con el museo original
+-- El nuevo museo es en el modelo nuevo
+UPDATE
+  museo.Obras
+  SET
+  MuseoId = 1
+  WHERE
+  MuseoId IS NULL;
+-- Desagregamos codigo y creamos la relacion
+-- con la tabla Naturaleza
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 1
+  WHERE
+  codigo like "%-ES-%";
+
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 4
+  WHERE
+  codigo like "%-EA-%";
+
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 7
+  WHERE
+  codigo like "%-PC-%";
+
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 10
+  WHERE
+  codigo like "%-PM-%";
+
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 13
+  WHERE
+  codigo like "%-MO-%";
+
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 15
+  WHERE
+  codigo like "%-MA-%";
+
+UPDATE
+  museo.Obras
+  SET
+  NaturalezaId = 18
+  WHERE
+  codigo like "%-ME-%";
+
+UPDATE
+    museo.Obras
+    SET
+    NaturalezaId = 21
+    WHERE
+    codigo like "%-PL-%";
+
+UPDATE
+    museo.Obras
+    SET
+    NaturalezaId = 24
+    WHERE
+    codigo like "%-IN-%";
+
+UPDATE
+    museo.Obras
+    SET
+    NaturalezaId = 28
+    WHERE
+    codigo like "%-VA-%";
+-- Se crea la relacion con el usuario que creo
+-- o registro la obra, todas la tuplas
+-- originales van a un solo usuario
+UPDATE
+  museo.Obras
+  SET
+  UsuarioId = 2;
+
+
+-- antiguos
 INSERT INTO
        museo.Lugares
        (
@@ -162,7 +191,7 @@ INSERT INTO
         )
 SELECT
       IdLugar, localidad, codigoLocalidad, municipio, provincia, codigoProvincia, departamento, now(), now()
-FROM museoOriginal.lugar ori
+FROM bolivia.lugar ori
 ORDER BY ori.IdLugar ASC;
 
 INSERT INTO
@@ -184,7 +213,7 @@ SELECT
   ori.Propietario,
   now(),
   now()
-FROM museoOriginal.ubicacion ori
+FROM bolivia.ubicacion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 LEFT OUTER JOIN museo.Lugares l
@@ -208,7 +237,7 @@ INSERT INTO
     ValorPredeter,
     now(),
     now()
-FROM museoOriginal.analisistipo ori
+FROM bolivia.analisistipo ori
 ORDER BY ori.IdTipo ASC;
 
 INSERT INTO
@@ -224,7 +253,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM museoOriginal.tecnicar ori
+FROM bolivia.tecnicar ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -240,7 +269,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM museoOriginal.tecnica ori
+FROM bolivia.tecnica ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -268,7 +297,7 @@ INSERT INTO
     observaciones,
       now(),
       now()
-FROM museoOriginal.relevamiento ori
+FROM bolivia.relevamiento ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdIdentificacion ASC;
@@ -280,7 +309,7 @@ INSERT INTO
         )
 SELECT
       IdFotografías, IdIdentificacion, Foto, CodArchivoFotografico, NumRollo, NumFoto, Fotografo, Fecha, now(), now()
-FROM museoOriginal.fotografias ori
+FROM bolivia.fotografias ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdFotografías ASC;
@@ -298,7 +327,7 @@ INSERT INTO
   Estructura,
     now(),
     now()
-FROM museoOriginal.estructura ori
+FROM bolivia.estructura ori
 ORDER BY ori.IdEstructura ASC;
 
 INSERT INTO
@@ -322,7 +351,7 @@ INSERT INTO
   UbicaciónInmueble,
     now(),
     now()
-FROM museoOriginal.espacios ori
+FROM bolivia.espacios ori
 ORDER BY ori.IdEspacio ASC;
 
 INSERT INTO
@@ -358,7 +387,7 @@ INSERT INTO
   Descripcion,
     now(),
     now()
-FROM museoOriginal.descripcion ori
+FROM bolivia.descripcion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdDescripcion ASC;
@@ -380,7 +409,7 @@ INSERT INTO
     CondicionesSeguridad,
     now(),
     now()
-FROM museoOriginal.conservacion ori
+FROM bolivia.conservacion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdConservacion ASC;
@@ -400,7 +429,7 @@ INSERT INTO
     IdTipo,
     now(),
     now()
-FROM museoOriginal.analisis ori
+FROM bolivia.analisis ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 LEFT OUTER JOIN museo.TipoAnalisis l
@@ -414,7 +443,7 @@ INSERT INTO
        )
 SELECT
       IdAccesorios, IdIdentificacion, ObjetoCodigo, Relacion, now(), now()
-FROM museoOriginal.accesorios ori
+FROM bolivia.accesorios ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdIdentificacion ASC;

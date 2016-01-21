@@ -5,31 +5,34 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLayouts = require('express-ejs-layouts');
+var methodOverride = require('method-override');
 
 var config = require('./config/config');
 
-var accesorio = require('./controllers/accesorio');
-var adquisicion = require('./controllers/adquisicion');
-var analisis = require('./controllers/analisis');
-var conservacion = require('./controllers/conservacion');
-var descripcion = require('./controllers/descripcion');
-var espacio = require('./controllers/espacio');
-var especialidad = require('./controllers/especialidad');
-var estatico = require('./controllers/estatico');
-var estructura = require('./controllers/estructura');
-var fotografia = require('./controllers/fotografia');
-var intervencion = require('./controllers/intervencion');
-var lugar = require('./controllers/lugar');
-var naturaleza = require('./controllers/naturaleza');
-var nivel = require('./controllers/nivel');
-var obra = require('./controllers/obra');
-var relevamiento = require('./controllers/relevamiento');
-var tecnicas = require('./controllers/tecnicas');
-var tecnicasArte = require('./controllers/tecnicasArte');
-var tipoAnalisis = require('./controllers/tipoAnalisis');
-var ubicacion = require('./controllers/ubicacion');
-var usuario = require('./controllers/usuario');
-var webPublico = require('./controllers/webPublico');
+var accesorio = require('./controllers/API/accesorio');
+var adquisicion = require('./controllers/API/adquisicion');
+var analisis = require('./controllers/API/analisis');
+var conservacion = require('./controllers/API/conservacion');
+var descripcion = require('./controllers/API/descripcion');
+var espacio = require('./controllers/API/espacio');
+var especialidad = require('./controllers/API/especialidad');
+var estatico = require('./controllers/API/estatico');
+var estructura = require('./controllers/API/estructura');
+var fotografia = require('./controllers/API/fotografia');
+var intervencion = require('./controllers/API/intervencion');
+var lugar = require('./controllers/API/lugar');
+var museo = require('./controllers/API/museo');
+var naturaleza = require('./controllers/API/naturaleza');
+var nivel = require('./controllers/API/nivel');
+var obra = require('./controllers/API/obra');
+var relevamiento = require('./controllers/API/relevamiento');
+var tecnicas = require('./controllers/API/tecnicas');
+var tecnicasArte = require('./controllers/API/tecnicasArte');
+var tipoAnalisis = require('./controllers/API/tipoAnalisis');
+var ubicacion = require('./controllers/API/ubicacion');
+var usuario = require('./controllers/API/usuario');
+var webPublico = require('./controllers/web/webPublico');
+var museoWeb = require('./controllers/web/museo');
 
 var app = express();
 
@@ -65,10 +68,17 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// If you want to simulate DELETE and PUT
+// in your app you need methodOverride.
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
+
 var router = express.Router();
+var routerWeb = express.Router();
 
 // Keep user, csrf token and config available
 app.use(function (req, res, next) {
+  console.log(req);
   res.locals.user = req.user;
   res.locals.config = config;
   res.locals._csrf = "req.csrfToken()";
@@ -91,6 +101,7 @@ router.use( '/estructura', estructura );
 router.use( '/fotografia', fotografia );
 router.use( '/intervencion', intervencion );
 router.use( '/lugar', lugar );
+router.use( '/museo', museo );
 router.use( '/naturaleza', naturaleza );
 router.use( '/nivel', nivel );
 router.use( '/obra', obra );
@@ -100,8 +111,11 @@ router.use( '/tecnicasArte', tecnicasArte );
 router.use( '/tipoAnalisis', tipoAnalisis );
 router.use( '/ubicacion', ubicacion );
 router.use( '/usuario', usuario );
+// router del web publico
+routerWeb.use( '/museo', museoWeb);
 
 app.use( '/api', router );
+app.use( '/web', routerWeb );
 
 /*
   esta ruta es para el controlador de páginas estáticas, va a estar montada en la raíz
