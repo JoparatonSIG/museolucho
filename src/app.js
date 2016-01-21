@@ -33,7 +33,7 @@ var ubicacion = require('./controllers/API/ubicacion');
 var usuario = require('./controllers/API/usuario');
 var webPublico = require('./controllers/web/webPublico');
 var museoWeb = require('./controllers/web/museo');
-
+var museoWeb = require('./controllers/web/adquisicion');
 var app = express();
 
 /**
@@ -119,6 +119,7 @@ router.use( '/ubicacion', ubicacion );
 router.use( '/usuario', usuario );
 // router del web publico
 routerWeb.use( '/museo', museoWeb);
+routerWeb.use( '/adquisicion', adquisicionWeb);
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );
