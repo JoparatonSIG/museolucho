@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -80,9 +81,32 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js'
       }
     },
+    autoprefixer: {
+      options: {
+        browsers: [
+          'Android 2.3',
+          'Android >= 4',
+          'Chrome >= 20',
+          'Firefox >= 24', // Firefox 24 is the latest ESR
+          'Explorer >= 8',
+          'iOS >= 6',
+          'Opera >= 12',
+          'Safari >= 6'
+        ]
+      },
+      main: {
+        expand: true,
+        flatten: true,
+        src: 'src/stylus/*.css',
+        dest: 'src/public/css/'
+      }
+    },
     stylus: {
       compile: {
         options: {
+      use: [
+        function(){ return require('autoprefixer-stylus')('last 3 versions', 'ie 8')}
+      ],
           compress: false,
           paths: ['src/stylus']
         },
@@ -121,7 +145,6 @@ module.exports = function(grunt) {
           }
       }
     },
-
     csslint: {
        options: {
            force: true,
@@ -136,7 +159,7 @@ module.exports = function(grunt) {
                import:2,
                "box-model":false,
            },
-           src:['src/public/css/*.css'],
+           src:['src/public/css/*.css','!src/public/css/bootstrap*'],
        },
        lax: {
             options: {

@@ -3,7 +3,6 @@ body {
   color: #222221;
 }
 body .btn-default {
-  -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 body .btn-default:hover,
@@ -104,9 +103,7 @@ hr .hide {
   padding-right: 3em;
 }
 .rowTabs a.first:before {
-  -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -142,10 +139,14 @@ hr .hide {
   opacity: 0.6;
   transition: 0.3s all;
   -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
 }
 .rss a:hover {
   transition: 0.3s all;
   -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
   opacity: 1;
 }
 .rss.actualidad {
@@ -241,7 +242,7 @@ hr .hide {
   float: none !important;
   text-shadow: none;
   border-radius: 0 !important;
-  margin: 0px auto 0 !important;
+  margin: 0 auto 0 !important;
   position: relative;
 }
 #ca_banner .ca_close {
@@ -274,6 +275,7 @@ hr .hide {
   width: 90%;
   text-align: left;
   padding: 1em;
+  color: #000;
 }
 #ca_banner a {
   text-decoration: underline;
@@ -281,16 +283,13 @@ hr .hide {
   cursor: pointer;
   font-weight: bold;
   float: none !important;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
   transition: all 0.2s;
-}
-#ca_banner .modalCookies {
-  margin-right: 1em;
 }
 #ca_banner a:hover {
   color: #c68d1a;
+}
+#ca_banner .modalCookies {
+  margin-right: 1em;
 }
 #ca_banner .accept {
   cursor: pointer;
@@ -299,9 +298,6 @@ hr .hide {
   background: #000;
   padding: 0.3em 0.5em;
   color: #666;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
   transition: all 0.2s;
   opacity: 0.8;
   position: absolute;
@@ -310,9 +306,6 @@ hr .hide {
 }
 #ca_banner .accept:hover {
   opacity: 1;
-}
-#ca_banner p {
-  color: #000;
 }
 .dropdown-menu {
   background: none;
@@ -333,16 +326,12 @@ h3.dropdown-toggle:after {
   height: 1em;
   width: 1.5em;
   background: url("/img/bullet/bullet-05.png") no-repeat right center;
-  -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .open h3.dropdown-toggle:after {
-  -moz-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
@@ -479,8 +468,6 @@ h3.dropdown-toggle:after {
   right: -25%;
   width: 2em;
   height: 2em;
-  -webkit-transition: 0.3s all;
-  -moz-transition: 0.3s all;
   transition: 0.3s all;
 }
 .navbar-form .btn:hover {
@@ -508,8 +495,6 @@ h3.dropdown-toggle:after {
 .navbar-nav li a:hover,
 .navbar-nav li span:hover {
   color: #000;
-  -webkit-transition: 0.3s all;
-  -moz-transition: 0.3s all;
   transition: 0.3s all;
 }
 .navbar-nav li span {
@@ -609,7 +594,6 @@ h3.dropdown-toggle:after {
   font-weight: normal;
   font-style: italic;
   text-align: center;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .navbar-nav li.entradas a:hover {
@@ -693,9 +677,9 @@ h3.dropdown-toggle:after {
 .navbar-nav li.newsletter.open>a:after,
 .navbar-nav li.newsletter.open>span:after {
   right: 0.5em;
-  -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
 }
 .navbar-nav li.newsletter .dropdown-menu {
   padding: 1.5em 0 1em 0;
@@ -817,7 +801,6 @@ h3.dropdown-toggle:after {
   font-weight: normal;
   font-style: italic;
   text-align: center;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .navbar-nav li.entradas a:hover {
@@ -901,9 +884,9 @@ h3.dropdown-toggle:after {
 .navbar-nav li.newsletter.open>a:after,
 .navbar-nav li.newsletter.open>span:after {
   right: 0.5em;
-  -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
 }
 .navbar-nav li.newsletter .dropdown-menu {
   padding: 1.5em 0 1em 0;
@@ -1049,16 +1032,12 @@ h3.dropdown-toggle:after {
   height: 1em;
   width: 1.5em;
   background: url("/img/bullet/bullet-05.png") no-repeat right center;
-  -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .open h3.dropdown-toggle:after {
-  -moz-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
@@ -1106,7 +1085,7 @@ h3.dropdown-toggle:after {
 .nav-tabs > li > a:hover:after,
 .nav-tabs > li > a:focus:after {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   z-index: 2;
   content: "";
@@ -1216,7 +1195,6 @@ h3.dropdown-toggle:after {
   border-right: 1em solid #af7a00;
   border-bottom: 0.7em solid #af7a00;
   word-wrap: break-word;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .stickyfooter .module:hover {
@@ -1266,7 +1244,6 @@ h3.dropdown-toggle:after {
   background-position: 2em 2em;
   background-repeat: no-repeat;
   background-size: 7em;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .stickyfooter .address:hover {
@@ -1281,7 +1258,6 @@ h3.dropdown-toggle:after {
   background-position: 2em 2em;
   background-repeat: no-repeat;
   background-size: 6.3em;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .stickyfooter .time:hover {
@@ -1298,7 +1274,6 @@ h3.dropdown-toggle:after {
   background-position: 2em 3em;
   background-repeat: no-repeat;
   background-size: 4em;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .stickyfooter .call:hover {
@@ -1314,7 +1289,6 @@ h3.dropdown-toggle:after {
   background-position: 2em 2.5em;
   background-repeat: no-repeat;
   background-size: 7.5em;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .stickyfooter .contact:hover {
@@ -1330,7 +1304,6 @@ h3.dropdown-toggle:after {
   background-position: 2em 2em;
   background-repeat: no-repeat;
   background-size: 5em;
-  -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .stickyfooter .agenda:hover {
@@ -1479,9 +1452,7 @@ h3.dropdown-toggle:after {
   background-size: 1em;
 }
 .carousel-control.left:after {
-  -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -1509,7 +1480,6 @@ h3.dropdown-toggle:after {
   background-size: 0.6em !important;
   background-position: center center;
   opacity: 0.9 !important;
-  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 .sliderImg .carousel .carousel-control:hover {
@@ -1526,7 +1496,6 @@ h3.dropdown-toggle:after {
   background-size: 0.7em;
   background-position: center center;
   opacity: 0.9 !important;
-  -webkit-transition: opacity 0.3s, box-shadow 0.3s;
   transition: opacity 0.3s, box-shadow 0.3s;
 }
 .carousel .carousel-control:hover {
@@ -1602,20 +1571,18 @@ h3.dropdown-toggle:after {
   bottom: 3em;
   width: 40%;
   padding-bottom: 0.8em;
-  -webkit-transition: background 0.3s, box-shadow 0.3s;
   transition: background 0.3s, box-shadow 0.3s;
 }
 #relatedContent.carousel .carousel-caption {
   font-size: 0.9em;
   background: none repeat scroll 0% 0% rgba(0,0,0,0.8);
-  left: 0em;
-  bottom: 0em;
+  left: 0;
+  bottom: 0;
   width: 100%;
   padding-bottom: 0.5em;
 }
 .carousel .carousel-caption .btn-default {
   opacity: 0;
-  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 .carousel .carousel-caption:hover .btn-default {
@@ -1689,16 +1656,17 @@ h3.dropdown-toggle:after {
   color: #000;
   text-align: center;
   text-transform: uppercase;
-  -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
 }
 #exposiciones span.chapa.promocion {
   position: absolute;
-  left: 0em;
+  left: 0;
   top: -2em;
   font: 1.8em/1 "Roboto";
-  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   opacity: 0.8;
@@ -1710,9 +1678,10 @@ h3.dropdown-toggle:after {
   width: 100%;
 }
 li.li_exposicion .chapa {
-  left: 0em;
-  top: 0em;
-  transform: rotate(0);
+  left: 0;
+  top: 0;
+  -ms-transform: rotate(0);
+      transform: rotate(0);
   -webkit-transform: rotate(0);
   background-color: #fff;
   opacity: 0.8;
@@ -1727,7 +1696,6 @@ input.btn-normal {
   border: 0;
   -webkit-border-radius: 0;
   -webkit-appearance: none;
-  -webkit-transition: background 0.3s, box-shadow 0.3s;
   transition: background 0.3s, box-shadow 0.3s;
 }
 .btn-normal a:hover,

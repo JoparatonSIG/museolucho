@@ -24,8 +24,7 @@
     margin: 0 auto;
     padding: 15px 0;
 
-    -webkit-transition: background-color .3s, color .3s, width .3s, border-width .3s, border-color .3s;
-            transition: background-color .3s, color .3s, width .3s, border-width .3s, border-color .3s, all .3s;
+    transition: background-color .3s, color .3s, width .3s, border-width .3s, border-color .3s, all .3s;
 
     opacity: .7;
     color: #fff;
@@ -51,8 +50,7 @@
 }
 .progress-button button span
 {
-    -webkit-transition: opacity .3s .1s;
-            transition: opacity .3s .1s;
+    transition: opacity .3s .1s;
 }
 .progress-button svg
 {
@@ -61,6 +59,7 @@
     left: 50%;
 
     -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
             transform: translateX(-50%);
     pointer-events: none;
 }
@@ -78,8 +77,7 @@
 .progress-button svg.checkmark path,
 .progress-button svg.cross path
 {
-    -webkit-transition: opacity .1s;
-            transition: opacity .1s;
+    transition: opacity .1s;
 
     stroke: #fff;
     stroke-linecap: round;
@@ -97,8 +95,7 @@
 }
 .loading.progress-button span
 {
-    -webkit-transition: opacity .15s;
-            transition: opacity .15s;
+    transition: opacity .15s;
 }
 .loading.progress-button span,
 .success.progress-button span,
@@ -109,8 +106,7 @@
 .success.progress-button button,
 .error.progress-button button
 {
-    -webkit-transition: background-color .3s, width .3s, border-width .3s;
-            transition: background-color .3s, width .3s, border-width .3s;
+    transition: background-color .3s, width .3s, border-width .3s;
 }
 .success.progress-button button
 {
@@ -126,20 +122,15 @@
 .success.progress-button svg.checkmark path,
 .error.progress-button svg.cross path
 {
-    -webkit-transition: stroke-dashoffset .3s;
-            transition: stroke-dashoffset .3s;
+    transition: stroke-dashoffset .3s;
 
     opacity: 1;
 }
 .elastic.progress-button button
 {
-    -webkit-transition: background-color .3s, color .3s, width .3s cubic-bezier(.25, .25, .4, 1), border-width .3s, border-color .3s;
-    -webkit-transition: background-color .3s, color .3s, width .3s cubic-bezier(.25, .25, .4, 1.6), border-width .3s, border-color .3s;
-            transition: background-color .3s, color .3s, width .3s cubic-bezier(.25, .25, .4, 1.6), border-width .3s, border-color .3s;
+    transition: background-color .3s, color .3s, width .3s cubic-bezier(.25, .25, .4, 1.6), border-width .3s, border-color .3s;
 }
 .loading.elastic.progress-button button
 {
-    -webkit-transition: background-color .3s, color .3s, width .3s cubic-bezier(.6, 0, .75, .75), border-width .3s, border-color .3s;
-    -webkit-transition: background-color .3s, color .3s, width .3s cubic-bezier(.6, -.6, .75, .75), border-width .3s, border-color .3s;
-            transition: background-color .3s, color .3s, width .3s cubic-bezier(.6, -.6, .75, .75), border-width .3s, border-color .3s;
+    transition: background-color .3s, color .3s, width .3s cubic-bezier(.6, -.6, .75, .75), border-width .3s, border-color .3s;
 }

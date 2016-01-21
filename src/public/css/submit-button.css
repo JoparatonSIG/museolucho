@@ -20,7 +20,6 @@
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   -webkit-tap-highlight-color: transparent;
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
   transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s, all 0.3s;
   opacity: 0.7;
 }
@@ -36,7 +35,6 @@
   outline: none;
 }
 .progress-button button span {
-  -webkit-transition: opacity 0.3s 0.1s;
   transition: opacity 0.3s 0.1s;
 }
 .progress-button svg {
@@ -44,7 +42,8 @@
   top: -5px;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
   pointer-events: none;
 }
 .progress-button svg path {
@@ -60,7 +59,6 @@
   stroke: #fff;
   stroke-linecap: round;
   stroke-width: 4;
-  -webkit-transition: opacity 0.1s;
   transition: opacity 0.1s;
 }
 .loading.progress-button button {
@@ -72,7 +70,6 @@
   background-color: transparent;
 }
 .loading.progress-button span {
-  -webkit-transition: opacity 0.15s;
   transition: opacity 0.15s;
 }
 .loading.progress-button span,
@@ -82,7 +79,6 @@
 }
 .success.progress-button button,
 .error.progress-button button {
-  -webkit-transition: background-color 0.3s, width 0.3s, border-width 0.3s;
   transition: background-color 0.3s, width 0.3s, border-width 0.3s;
 }
 .success.progress-button button {
@@ -97,16 +93,11 @@
 .success.progress-button svg.checkmark path,
 .error.progress-button svg.cross path {
   opacity: 1;
-  -webkit-transition: stroke-dashoffset 0.3s;
   transition: stroke-dashoffset 0.3s;
 }
 .elastic.progress-button button {
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s cubic-bezier(0.25, 0.25, 0.4, 1), border-width 0.3s, border-color 0.3s;
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s cubic-bezier(0.25, 0.25, 0.4, 1.6), border-width 0.3s, border-color 0.3s;
   transition: background-color 0.3s, color 0.3s, width 0.3s cubic-bezier(0.25, 0.25, 0.4, 1.6), border-width 0.3s, border-color 0.3s;
 }
 .loading.elastic.progress-button button {
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s cubic-bezier(0.6, 0, 0.75, 0.75), border-width 0.3s, border-color 0.3s;
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s cubic-bezier(0.6, -0.6, 0.75, 0.75), border-width 0.3s, border-color 0.3s;
   transition: background-color 0.3s, color 0.3s, width 0.3s cubic-bezier(0.6, -0.6, 0.75, 0.75), border-width 0.3s, border-color 0.3s;
 }

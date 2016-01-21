@@ -1,254 +1,210 @@
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 13, col 1, Warning - Outlines should only be modified using :focus.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 20, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 33, col 3, Warning - The box-sizing property isn't supported in IE6 and IE7.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 79, col 3, Warning - The property -ms-user-select is compatible with -webkit-user-select and -moz-user-select and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 83, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 87, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 112, col 1, Warning - Outlines should only be modified using :focus.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 118, col 3, Warning - The property -moz-appearance is compatible with -webkit-appearance and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 123, col 3, Warning - The property -moz-box-shadow is compatible with -webkit-box-shadow and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 141, col 3, Warning - Using height with padding can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 141, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 163, col 3, Warning - Using width with padding-right can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 282, col 3, Warning - The box-sizing property isn't supported in IE6 and IE7.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 350, col 5, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 358, col 5, Warning - The box-sizing property isn't supported in IE6 and IE7.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 373, col 5, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 381, col 5, Warning - The property -moz-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 381, col 5, Warning - The property -ms-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 381, col 5, Warning - The property -o-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 385, col 5, Warning - The property -moz-transform-origin is compatible with -webkit-transform-origin and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 385, col 5, Warning - The property -ms-transform-origin is compatible with -webkit-transform-origin and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 385, col 5, Warning - The property -o-transform-origin is compatible with -webkit-transform-origin and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 389, col 5, Warning - The property -moz-transform-origin is compatible with -webkit-transform-origin and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 389, col 5, Warning - The property -ms-transform-origin is compatible with -webkit-transform-origin and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 389, col 5, Warning - The property -o-transform-origin is compatible with -webkit-transform-origin and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/museo.css: Lint Free!/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 6, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 6, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 14, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 53, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 58, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 63, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 69, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 77, col 3, Warning - vertical-align can't be used with display: block.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 78, col 3, Warning - Duplicate property 'text-decoration' found.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 144, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 144, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 148, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 148, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 151, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 156, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 185, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 188, col 10, Warning - Heading (h2) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 192, col 10, Warning - Heading (h3) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 218, col 10, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 222, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 229, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 234, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 241, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 243, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 244, col 11, Warning - Values of 0 shouldn't have units specified.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 30, col 3, Warning - The box-sizing property isn't supported in IE6 and IE7.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 79, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 83, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 121, col 1, Warning - Outlines shouldn't be hidden unless other visual changes are made.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 140, col 3, Warning - Using height with padding can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 140, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 162, col 3, Warning - Using width with padding-right can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 279, col 3, Warning - The box-sizing property isn't supported in IE6 and IE7.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 354, col 5, Warning - The box-sizing property isn't supported in IE6 and IE7.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 378, col 5, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 378, col 5, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 383, col 5, Warning - The property -moz-transform-origin is compatible with -webkit-transform-origin and -ms-transform-origin and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 383, col 5, Warning - The property -o-transform-origin is compatible with -webkit-transform-origin and -ms-transform-origin and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 388, col 5, Warning - The property -moz-transform-origin is compatible with -webkit-transform-origin and -ms-transform-origin and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/magnific-popup.css: line 388, col 5, Warning - The property -o-transform-origin is compatible with -webkit-transform-origin and -ms-transform-origin and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/museo.css: Lint Free!/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 13, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 52, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 57, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 62, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 68, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 76, col 3, Warning - vertical-align can't be used with display: block.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 77, col 3, Warning - Duplicate property 'text-decoration' found.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 106, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 106, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 152, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 157, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 186, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 189, col 10, Warning - Heading (h2) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 193, col 10, Warning - Heading (h3) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 219, col 10, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 223, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 230, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 235, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 242, col 3, Warning - Use of !important
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: line 244, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 247, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 256, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 259, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 245, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 248, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 257, col 1, Warning - Don't use IDs in selectors.
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: line 260, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 260, col 12, Warning - Heading (h2) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 260, col 12, Warning - Heading (h2) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 265, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 267, col 12, Warning - Heading (h2) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 267, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 267, col 12, Warning - Heading (h2) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 272, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 276, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 278, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 283, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 284, col 3, Warning - The property -o-transition is compatible with -webkit-transition and -moz-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 289, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 292, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 295, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 302, col 3, Warning - The property -o-transition is compatible with -webkit-transition and -moz-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 311, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 314, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 324, col 1, Warning - Heading (h3) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 342, col 7, Warning - Heading (h3) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 355, col 15, Warning - Heading (h1) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 390, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 393, col 10, Warning - Heading (h2) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 393, col 10, Warning - Heading (h2) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 397, col 10, Warning - Heading (h3) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 397, col 10, Warning - Heading (h3) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 423, col 10, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 472, col 3, Warning - Negative text-indent doesn't work well with RTL. If you use text-indent for image replacement explicitly set direction for that item to ltr.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 482, col 3, Warning - The property -o-transition is compatible with -webkit-transition and -moz-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 487, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 491, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 511, col 3, Warning - The property -o-transition is compatible with -webkit-transition and -moz-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 612, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 612, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 647, col 3, Warning - Background image '/img/icons/ico-tienda02.png' was used multiple times, first declared at line 641, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 649, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 680, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 662, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 682, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 683, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 687, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 688, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 689, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 689, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 662, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 690, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 691, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 693, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 694, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 696, col 3, Warning - The property -ms-transform is compatible with -moz-transform and -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 696, col 3, Warning - The property -o-transform is compatible with -moz-transform and -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 769, col 3, Warning - Background image '/img/icons/ico-360.png' was used multiple times, first declared at line 561, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 775, col 3, Warning - Background image '/img/icons/ico-360_hover.png' was used multiple times, first declared at line 567, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 820, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 820, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 849, col 3, Warning - Background image '/img/icons/ico-tienda02.png' was used multiple times, first declared at line 641, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 855, col 3, Warning - Background image '/img/icons/ico-tienda02.png' was used multiple times, first declared at line 641, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 857, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 870, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 662, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 883, col 3, Warning - Background image '/img/bullet/bullet-07.png' was used multiple times, first declared at line 675, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 888, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 662, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 890, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 891, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 895, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 896, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 897, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 897, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 662, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 898, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 899, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 901, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 902, col 13, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 904, col 3, Warning - The property -o-transform is compatible with -moz-transform and -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 904, col 3, Warning - The property -ms-transform is compatible with -moz-transform and -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 953, col 3, Warning - Background image '/img/bg-check-off-error.png' was used multiple times, first declared at line 745, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 998, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1002, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1024, col 3, Warning - Background image '/img/bg-check-on-error.png' was used multiple times, first declared at line 748, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1040, col 1, Warning - Heading (h3) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1051, col 3, Warning - Background image '/img/bullet/bullet-05.png' was used multiple times, first declared at line 335, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1058, col 7, Warning - Heading (h3) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1067, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1109, col 11, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1145, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1158, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1214, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1215, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1216, col 3, Warning - Using width with border-right can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1219, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1219, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1223, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1236, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1269, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1269, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1273, col 3, Warning - Background image '/img/icons/ico-address.png' was used multiple times, first declared at line 1265, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1284, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1284, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1289, col 3, Warning - Background image '/img/icons/ico-time.png' was used multiple times, first declared at line 1280, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1296, col 3, Warning - Fallback background-color (hex or RGB) should precede RGBA background-color.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1301, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1301, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1306, col 3, Warning - Background image '/img/icons/ico-call.png' was used multiple times, first declared at line 1297, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1317, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1317, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1322, col 3, Warning - Background image '/img/icons/ico-contact.png' was used multiple times, first declared at line 1313, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1333, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1333, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1338, col 3, Warning - Background image '/img/icons/ico-agenda.png' was used multiple times, first declared at line 1329, col 3.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1366, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1392, col 3, Warning - float can't be used with display: inline-block.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1401, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1405, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1408, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1430, col 19, Warning - Heading (h3) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1430, col 19, Warning - Heading (h3) has already been defined.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1450, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1468, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1469, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1472, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1472, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1473, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1473, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1481, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1481, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1509, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1511, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1512, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1512, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1516, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1528, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1529, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1529, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1533, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1536, col 11, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1536, col 11, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1537, col 3, Warning - Use of !important
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1540, col 22, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1544, col 22, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1547, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1550, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1553, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1556, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 261, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 261, col 12, Warning - Heading (h2) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 261, col 12, Warning - Heading (h2) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 266, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 268, col 12, Warning - Heading (h2) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 268, col 12, Warning - Heading (h2) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 268, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 273, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 277, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 280, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 285, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 288, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 291, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 294, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 307, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 317, col 1, Warning - Heading (h3) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 329, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 329, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 333, col 7, Warning - Heading (h3) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 334, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 334, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 344, col 15, Warning - Heading (h1) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 379, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 382, col 10, Warning - Heading (h2) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 382, col 10, Warning - Heading (h2) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 386, col 10, Warning - Heading (h3) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 386, col 10, Warning - Heading (h3) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 412, col 10, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 461, col 3, Warning - Negative text-indent doesn't work well with RTL. If you use text-indent for image replacement explicitly set direction for that item to ltr.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 474, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 478, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 631, col 3, Warning - Background image '/img/icons/ico-tienda02.png' was used multiple times, first declared at line 625, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 633, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 664, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 646, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 666, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 667, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 671, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 672, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 673, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 673, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 646, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 674, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 675, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 677, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 678, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 680, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 680, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 753, col 3, Warning - Background image '/img/icons/ico-360.png' was used multiple times, first declared at line 546, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 759, col 3, Warning - Background image '/img/icons/ico-360_hover.png' was used multiple times, first declared at line 552, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 832, col 3, Warning - Background image '/img/icons/ico-tienda02.png' was used multiple times, first declared at line 625, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 838, col 3, Warning - Background image '/img/icons/ico-tienda02.png' was used multiple times, first declared at line 625, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 840, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 853, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 646, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 866, col 3, Warning - Background image '/img/bullet/bullet-07.png' was used multiple times, first declared at line 659, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 871, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 646, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 873, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 874, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 878, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 879, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 880, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 880, col 3, Warning - Background image '/img/icons/ico-newsletter.png' was used multiple times, first declared at line 646, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 881, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 882, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 884, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 885, col 13, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 887, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 887, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 936, col 3, Warning - Background image '/img/bg-check-off-error.png' was used multiple times, first declared at line 729, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 981, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 985, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1007, col 3, Warning - Background image '/img/bg-check-on-error.png' was used multiple times, first declared at line 732, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1023, col 1, Warning - Heading (h3) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1034, col 3, Warning - Background image '/img/bullet/bullet-05.png' was used multiple times, first declared at line 328, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1035, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1035, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1039, col 7, Warning - Heading (h3) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1040, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1040, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1046, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1124, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1137, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1193, col 3, Warning - Using width with padding can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1194, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1195, col 3, Warning - Using width with border-right can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1201, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1214, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1250, col 3, Warning - Background image '/img/icons/ico-address.png' was used multiple times, first declared at line 1243, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1265, col 3, Warning - Background image '/img/icons/ico-time.png' was used multiple times, first declared at line 1257, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1272, col 3, Warning - Fallback background-color (hex or RGB) should precede RGBA background-color.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1281, col 3, Warning - Background image '/img/icons/ico-call.png' was used multiple times, first declared at line 1273, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1296, col 3, Warning - Background image '/img/icons/ico-contact.png' was used multiple times, first declared at line 1288, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1311, col 3, Warning - Background image '/img/icons/ico-agenda.png' was used multiple times, first declared at line 1303, col 3.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1339, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1365, col 3, Warning - float can't be used with display: inline-block.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1374, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1378, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1381, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1403, col 19, Warning - Heading (h3) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1403, col 19, Warning - Heading (h3) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1423, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1441, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1442, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1445, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1445, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1446, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1446, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1454, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1454, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1455, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1455, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1480, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1482, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1486, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1498, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1502, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1505, col 11, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1505, col 11, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1506, col 3, Warning - Use of !important
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1509, col 22, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1513, col 22, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1516, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1519, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1522, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1525, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1530, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1530, col 31, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1533, col 31, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1533, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1536, col 31, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1536, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1536, col 31, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1537, col 31, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1537, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1537, col 31, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1540, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1543, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1546, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1549, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1555, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1558, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1558, col 31, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1561, col 1, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1561, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1564, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1564, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1567, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1567, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1567, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1568, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1568, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1568, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1571, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1574, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1577, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1580, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1586, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1589, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1589, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1592, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1592, col 31, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1600, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1605, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1605, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1608, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1610, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1610, col 37, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1610, col 34, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1611, col 9, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1612, col 11, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1618, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1618, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1630, col 29, Warning - Heading (h4) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1631, col 11, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1671, col 11, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1675, col 11, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1692, col 3, Warning - The property -ms-transform is compatible with -moz-transform and -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1692, col 3, Warning - The property -o-transform is compatible with -moz-transform and -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1696, col 15, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1696, col 15, Warning - Element (span.chapa.promocion) is overqualified, just use .promocion without element name.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1696, col 1, Warning - Don't use IDs in selectors.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1698, col 9, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1702, col 3, Warning - The property -ms-transform is compatible with -webkit-transform and -moz-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1702, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -moz-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1702, col 3, Warning - Standard property 'transform' should come after vendor-prefixed property '-webkit-transform'.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1703, col 3, Warning - Standard property 'transform' should come after vendor-prefixed property '-moz-transform'.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1706, col 3, Warning - Using width with padding-left can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1713, col 9, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1714, col 8, Warning - Values of 0 shouldn't have units specified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1716, col 3, Warning - The property -ms-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1716, col 3, Warning - The property -o-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1716, col 3, Warning - Standard property 'transform' should come after vendor-prefixed property '-webkit-transform'.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1716, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1724, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1728, col 3, Warning - Missing standard property 'border-radius' to go along with '-webkit-border-radius'.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1729, col 3, Warning - The property -moz-appearance is compatible with -webkit-appearance and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1730, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1730, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1752, col 21, Warning - Heading (h2) should not be qualified.
-/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1752, col 21, Warning - Heading (h2) has already been defined.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1569, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1576, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1578, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1578, col 34, Warning - Values of 0 shouldn't have units specified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1578, col 37, Warning - Values of 0 shouldn't have units specified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1597, col 29, Warning - Heading (h4) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1598, col 11, Warning - Values of 0 shouldn't have units specified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1638, col 11, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1642, col 11, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1659, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1659, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1663, col 1, Warning - Don't use IDs in selectors.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1663, col 15, Warning - Element (span.chapa.promocion) is overqualified, just use .promocion without element name.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1663, col 15, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1668, col 3, Warning - The property -o-transform is compatible with -ms-transform, -webkit-transform, -moz-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1670, col 3, Warning - Standard property 'transform' should come after vendor-prefixed property '-webkit-transform'.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1671, col 3, Warning - Standard property 'transform' should come after vendor-prefixed property '-moz-transform'.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1674, col 3, Warning - Using width with padding-left can sometimes make elements larger than you expect.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1683, col 3, Warning - The property -o-transform is compatible with -ms-transform and -webkit-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1683, col 3, Warning - The property -moz-transform is compatible with -ms-transform and -webkit-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1685, col 3, Warning - Standard property 'transform' should come after vendor-prefixed property '-webkit-transform'.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1693, col 3, Warning - Fallback background (hex or RGB) should precede RGBA background.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1697, col 3, Warning - Missing standard property 'border-radius' to go along with '-webkit-border-radius'.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1698, col 3, Warning - The property -moz-appearance is compatible with -webkit-appearance and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1720, col 21, Warning - Heading (h2) should not be qualified.
+/home/lucho/labs/museolucho/src/public/css/plantilla.css: line 1720, col 21, Warning - Heading (h2) has already been defined.
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: Warning - Too many !important declarations (28), try to use less than 10 to avoid specificity issues.
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: Warning - Too many font-size declarations (55), abstraction needed.
 /home/lucho/labs/museolucho/src/public/css/plantilla.css: Warning - You have 5 h2s, 5 h3s defined in this stylesheet.
@@ -260,45 +216,28 @@
 /home/lucho/labs/museolucho/src/public/css/stacktable.css: line 27, col 3, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/stacktable.css: line 30, col 3, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/submit-button.css: line 16, col 3, Warning - Using width with border can sometimes make elements larger than you expect.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 23, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 23, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 35, col 1, Warning - Outlines shouldn't be hidden unless other visual changes are made.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 39, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 39, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 46, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 46, col 3, Warning - The property -ms-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 46, col 3, Warning - The property -o-transform is compatible with -webkit-transform and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 52, col 3, Warning - Unknown property 'fill'.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 55, col 3, Warning - Unknown property 'stroke'.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 56, col 3, Warning - Unknown property 'stroke-width'.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 60, col 3, Warning - Unknown property 'stroke'.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 61, col 3, Warning - Unknown property 'stroke-linecap'.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 62, col 3, Warning - Unknown property 'stroke-width'.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 63, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 63, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 66, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 74, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 75, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 75, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 78, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 79, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 34, col 1, Warning - Outlines shouldn't be hidden unless other visual changes are made.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 44, col 3, Warning - The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 44, col 3, Warning - The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 51, col 3, Warning - Unknown property 'fill'.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 54, col 3, Warning - Unknown property 'stroke'.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 55, col 3, Warning - Unknown property 'stroke-width'.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 59, col 3, Warning - Unknown property 'stroke'.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 60, col 3, Warning - Unknown property 'stroke-linecap'.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 61, col 3, Warning - Unknown property 'stroke-width'.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 64, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 72, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 75, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 76, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 77, col 1, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/submit-button.css: line 80, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 83, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 81, col 1, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/submit-button.css: line 84, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 85, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 85, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
 /home/lucho/labs/museolucho/src/public/css/submit-button.css: line 88, col 1, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/submit-button.css: line 92, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 96, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 97, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 93, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 94, col 1, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/submit-button.css: line 98, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 100, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 100, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 103, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 104, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 104, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 108, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 108, col 1, Warning - Don't use adjoining classes.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 109, col 3, Warning - The property -moz-transition is compatible with -webkit-transition and should be included as well.
-/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 109, col 3, Warning - The property -o-transition is compatible with -webkit-transition and should be included as well.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 101, col 1, Warning - Don't use adjoining classes.
+/home/lucho/labs/museolucho/src/public/css/submit-button.css: line 101, col 1, Warning - Don't use adjoining classes.
 /home/lucho/labs/museolucho/src/public/css/fonts.css: Lint Free!

@@ -6,8 +6,7 @@ body
 }
 body .btn-default
 {
-    -webkit-transition: background-color .3s;
-            transition: background-color .3s;
+    transition: background-color .3s;
 }
 body .btn-default:hover,
 body .btn-default:focus
@@ -146,9 +145,7 @@ hr .hide
 .rowTabs a.first:before
 {
     -webkit-transform: rotate(180deg);
-       -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-         -o-transform: rotate(180deg);
             transform: rotate(180deg);
 }
 .rowTabs a.last:before
@@ -194,6 +191,8 @@ hr .hide
     width: 2.5em;
 
     -webkit-transition: .3s all;
+       -moz-transition: .3s all;
+         -o-transition: .3s all;
             transition: .3s all;
     text-align: center;
 
@@ -202,6 +201,8 @@ hr .hide
 .rss a:hover
 {
     -webkit-transition: .3s all;
+       -moz-transition: .3s all;
+         -o-transition: .3s all;
             transition: .3s all;
 
     opacity: 1;
@@ -381,6 +382,8 @@ hr .hide
     padding: 1em;
 
     text-align: left;
+
+    color: #000;
 }
 #ca_banner a
 {
@@ -389,21 +392,18 @@ hr .hide
     float: none !important;
 
     cursor: pointer;
-    -webkit-transition: all .2s;
-       -moz-transition: all .2s;
-        -ms-transition: all .2s;
-            transition: all .2s;
+    transition: all .2s;
     text-decoration: underline;
 
     color: #000;
 }
-#ca_banner .modalCookies
-{
-    margin-right: 1em;
-}
 #ca_banner a:hover
 {
     color: #c68d1a;
+}
+#ca_banner .modalCookies
+{
+    margin-right: 1em;
 }
 #ca_banner .accept
 {
@@ -417,10 +417,7 @@ hr .hide
     padding: .3em .5em;
 
     cursor: pointer;
-    -webkit-transition: all .2s;
-       -moz-transition: all .2s;
-        -ms-transition: all .2s;
-            transition: all .2s;
+    transition: all .2s;
 
     opacity: .8;
     color: #666;
@@ -429,10 +426,6 @@ hr .hide
 #ca_banner .accept:hover
 {
     opacity: 1;
-}
-#ca_banner p
-{
-    color: #000;
 }
 .dropdown-menu
 {
@@ -461,9 +454,7 @@ h3.dropdown-toggle:after
 
     content: '';
     -webkit-transform: rotate(180deg);
-       -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-         -o-transform: rotate(180deg);
             transform: rotate(180deg);
 
     background: url('/img/bullet/bullet-05.png') no-repeat right center;
@@ -471,9 +462,7 @@ h3.dropdown-toggle:after
 .open h3.dropdown-toggle:after
 {
     -webkit-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
             transform: rotate(0deg);
 }
 .titleSeccion
@@ -666,9 +655,7 @@ h3.dropdown-toggle:after
     width: 2em;
     height: 2em;
 
-    -webkit-transition: .3s all;
-       -moz-transition: .3s all;
-            transition: .3s all;
+    transition: .3s all;
 }
 .navbar-form .btn:hover
 {
@@ -702,9 +689,7 @@ h3.dropdown-toggle:after
 .navbar-nav li a:hover,
 .navbar-nav li span:hover
 {
-    -webkit-transition: .3s all;
-       -moz-transition: .3s all;
-            transition: .3s all;
+    transition: .3s all;
 
     color: #000;
 }
@@ -833,8 +818,7 @@ h3.dropdown-toggle:after
 
     padding: .8em 1em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
     text-align: center;
 
     color: #000;
@@ -954,7 +938,7 @@ h3.dropdown-toggle:after
     right: .5em;
 
     -webkit-transform: rotate(180deg);
-       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
             transform: rotate(180deg);
 }
 .navbar-nav li.newsletter .dropdown-menu
@@ -1125,8 +1109,7 @@ h3.dropdown-toggle:after
 
     padding: .8em 1em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
     text-align: center;
 
     color: #000;
@@ -1246,7 +1229,7 @@ h3.dropdown-toggle:after
     right: .5em;
 
     -webkit-transform: rotate(180deg);
-       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
             transform: rotate(180deg);
 }
 .navbar-nav li.newsletter .dropdown-menu
@@ -1445,9 +1428,7 @@ h3.dropdown-toggle:after
 
     content: '';
     -webkit-transform: rotate(180deg);
-       -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-         -o-transform: rotate(180deg);
             transform: rotate(180deg);
 
     background: url('/img/bullet/bullet-05.png') no-repeat right center;
@@ -1455,9 +1436,7 @@ h3.dropdown-toggle:after
 .open h3.dropdown-toggle:after
 {
     -webkit-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
             transform: rotate(0deg);
 }
 .nav-tabs
@@ -1668,8 +1647,7 @@ h3.dropdown-toggle:after
     min-height: 22em;
     padding: 2em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
     word-wrap: break-word;
 
     border-right: 1em solid #af7a00;
@@ -1735,8 +1713,7 @@ h3.dropdown-toggle:after
 {
     padding-top: 9em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
 
     background-image: url('/img/icons/ico-address.png');
     background-repeat: no-repeat;
@@ -1754,8 +1731,7 @@ h3.dropdown-toggle:after
 {
     padding-top: 9em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
 
     background-image: url('/img/icons/ico-time.png');
     background-repeat: no-repeat;
@@ -1775,8 +1751,7 @@ h3.dropdown-toggle:after
 {
     padding-top: 9em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
 
     background-color: rgba(255,255,255,.2);
     background-image: url('/img/icons/ico-call.png');
@@ -1797,8 +1772,7 @@ h3.dropdown-toggle:after
 {
     padding-top: 9em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
 
     background-image: url('/img/icons/ico-contact.png');
     background-repeat: no-repeat;
@@ -1818,8 +1792,7 @@ h3.dropdown-toggle:after
 {
     padding-top: 9em;
 
-    -webkit-transition: background .3s;
-            transition: background .3s;
+    transition: background .3s;
 
     background-image: url('/img/icons/ico-agenda.png');
     background-repeat: no-repeat;
@@ -2033,9 +2006,7 @@ h3.dropdown-toggle:after
 .carousel-control.left:after
 {
     -webkit-transform: rotate(180deg);
-       -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-         -o-transform: rotate(180deg);
             transform: rotate(180deg);
 }
 .carousel-control span
@@ -2067,8 +2038,7 @@ h3.dropdown-toggle:after
     width: 3em;
     height: 3em;
 
-    -webkit-transition: opacity .3s;
-            transition: opacity .3s;
+    transition: opacity .3s;
 
     opacity: .9 !important;
     background-color: #8b6b20;
@@ -2091,8 +2061,7 @@ h3.dropdown-toggle:after
     width: 3em;
     height: 3em;
 
-    -webkit-transition: opacity .3s, box-shadow .3s;
-            transition: opacity .3s, box-shadow .3s;
+    transition: opacity .3s, box-shadow .3s;
 
     opacity: .9 !important;
     background-position: center center;
@@ -2194,8 +2163,7 @@ h3.dropdown-toggle:after
     width: 40%;
     padding-bottom: .8em;
 
-    -webkit-transition: background .3s, box-shadow .3s;
-            transition: background .3s, box-shadow .3s;
+    transition: background .3s, box-shadow .3s;
 
     background: rgba(161,121,27,.95);
 }
@@ -2213,8 +2181,7 @@ h3.dropdown-toggle:after
 }
 .carousel .carousel-caption .btn-default
 {
-    -webkit-transition: opacity .3s;
-            transition: opacity .3s;
+    transition: opacity .3s;
 
     opacity: 0;
 }
@@ -2315,7 +2282,7 @@ h3.dropdown-toggle:after
     padding: .2em 0;
 
     -webkit-transform: rotate(-45deg);
-       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
     text-align: center;
     text-transform: uppercase;
@@ -2337,6 +2304,7 @@ h3.dropdown-toggle:after
 
     -webkit-transform: rotate(0deg);
        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
             transform: rotate(0deg);
     text-align: center;
 
@@ -2350,6 +2318,7 @@ li.li_exposicion .chapa
     left: 0;
 
     -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
             transform: rotate(0);
 
     opacity: .8;
@@ -2362,8 +2331,7 @@ input.btn-normal
 
     padding: .7em 1.5em;
 
-    -webkit-transition: background .3s, box-shadow .3s;
-            transition: background .3s, box-shadow .3s;
+    transition: background .3s, box-shadow .3s;
     text-decoration: none;
 
     color: #000;
