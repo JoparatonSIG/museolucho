@@ -1,4 +1,6 @@
-/*INSERT INTO
+/*
+-- niveles de usuarios --
+INSERT INTO
   museo.Niveles
    (categoria)
    VALUES
@@ -36,7 +38,7 @@ INSERT INTO
   SELECT
     IdNatura,
     Naturaleza,
-    IdNatura,  
+    IdNatura,
     now(),
     now()
 FROM museoOriginal.identificacion ori
@@ -112,6 +114,8 @@ UPDATE
                         NaturalezaId = 28
                         WHERE
                         codigo is like "%-VA-%";
+
+
 
 
 -- antiguos
