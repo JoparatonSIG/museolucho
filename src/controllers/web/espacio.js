@@ -11,13 +11,14 @@ var Model = require('../../models/model');
 // POST /espacio
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var espacio = req.body.espacio;
+  var espacioR = req.body.espacio;
   var codigoEspacio = req.body.codigoEspacio;
   var inmuebles = req.body.inmuebles;
   var codigoInmueble = req.body.codigoInmueble;
   var ubicacionInmueble = req.body.ubicacionInmueble;
 
   var espacio = Model.Espacio.build({
+    espacio: espacioR;
     codigoEspacio: codigoEspacio,
     inmuebles: inmuebles,
     codigoInmueble: codigoInmueble,
