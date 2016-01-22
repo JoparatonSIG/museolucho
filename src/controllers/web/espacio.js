@@ -58,7 +58,7 @@ router.put('/:espacioId', function (req, res) {
   espacio.codigoInmueble = req.body.codigoInmueble;
   espacio.ubicacionInmueble = req.body.ubicacionInmueble;
 
-  espacio.updateById(espacio.id, espacio.espacio, espacio.codigoEspacio, espacio.inmuebles, espacio.codigoInmueble, espacio.ubicacionInmueble, function (success) {
+  espacio.updateById(espacio.id, function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/espacio');
