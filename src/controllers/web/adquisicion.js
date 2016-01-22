@@ -57,7 +57,7 @@ router.put('/:adquisicionId', function (req, res) {
   console.log('ingresa al put: pre update');
 
   //adquisicion.updateById(adquisicion.id, adquisicion.tipoAdquisicion, adquisicion.tipoCompra, adquisicion.fecha, function (success) {
-  adquisicion.updateById(adquisicion, function (success) {
+  adquisicion.updateById(adquisicion.id, function (success) {
 
     console.log(success);
     if (success) {
