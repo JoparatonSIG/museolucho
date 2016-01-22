@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'tipo Adquisicion',
         comment: 'Tipo de Adquisicion de la obra',
         validate: {
-          notNull: true,
+      //    notNull: true,
           notEmpty: true
         }
       },
@@ -30,13 +30,13 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Tipo de compra',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
+      //    notNull: true,
           notEmpty: true
         }
       },
       fecha: {
         type: DataTypes.DATE,
-        allowNull: false,
+      //  allowNull: false,
         comment: 'Fecha',
       },
     },
