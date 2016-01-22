@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 // Rutas que terminan en /adquisicion
 // POST /adquisicion
@@ -15,7 +15,7 @@ router.post('/', function (req, res) {
   var tipoCompra = req.body.tipoCompra;
   var fecha = req.body.fecha;
 
-  var adquisicion = Museo.Adquisicion.build({
+  var adquisicion = Model.Adquisicion.build({
     tipoAdquisicion: tipoAdquisicion,
     tipoCompra: tipoCompra,
     fecha: fecha
@@ -31,7 +31,7 @@ router.post('/', function (req, res) {
 // (trae todas las adquisiciones)
 // GET /adquisiciones
 router.get('/', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
 
   adquisicion.retrieveAll(function (adquisiciones) {
     if (adquisiciones) {
@@ -47,30 +47,34 @@ router.get('/', function (req, res) {
 // PUT /adquisicion/:adquisicionId
 // Actualiza adquisicion
 router.put('/:adquisicionId', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
   console.log('ingresa al put');
-
-  tipoAdquisicion = req.body.tipoAdquisicion;
-  tipoCompra = req.body.tipoCompra;
-  fecha = req.body.fecha;
+  adquisicion.id = req.body.id;
+  adquisicion.tipoAdquisicion = req.body.tipoAdquisicion;
+  adquisicion.tipoCompra = req.body.tipoCompra;
+  adquisicion.fecha = req.body.fecha;
 
   console.log('ingresa al put: pre update');
 
-  adquisicion.updateById(req.params.adquisicionId, function (success) {
+  //adquisicion.updateById(adquisicion.id, adquisicion.tipoAdquisicion, adquisicion.tipoCompra, adquisicion.fecha, function (success) {
+  adquisicion.updateById(adquisicion.id, function (success) {
+
     console.log(success);
     if (success) {
-      res.json({ message: 'Adquisicion actualizada!' });
+      res.redirect('/web/adquisicion');
     } else {
+      console.log(success);
       res.send(401, 'Adquisicion no encontrada');
     }
   }, function (error) {
+    console.log(error);
     res.send('Adquisicion no encontrada');
   });
 });
 // GET /adquisicion/:adquisicionId
 // Toma una adquisicion por id
 router.get('/:adquisicionId', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
 
   adquisicion.retrieveById(req.params.adquisicionId, function (adquisicionq) {
     if (adquisicionq) {
@@ -85,7 +89,7 @@ router.get('/:adquisicionId', function (req, res) {
 // DELETE /adquisicion/adquisicionId
 // Borra el adquisicionId
 router.delete('/:adquisicionId', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
 
   adquisicion.removeById(req.params.adquisicionId, function (adquisicion) {
     if (adquisicion) {
