@@ -66,8 +66,8 @@ module.exports = function (sequelize, DataTypes) {
           })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (id, espacio, codigoEspacio, inmuebles, codigoInmueble, ubicacionInmueble, onSuccess, onError) {
-          console.log(this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble);
+        updateById: function (id, onSuccess, onError) {
+          //console.log(this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble);
           Espacio.update(
             { espacio: this.espacio, codigoEspacio: this.codigoEspacio, inmuebles: this.inmuebles, codigoInmueble: this.codigoInmueble, ubicacionInmueble: this.ubicacionInmueble },
             { where: { id: this.id } }
