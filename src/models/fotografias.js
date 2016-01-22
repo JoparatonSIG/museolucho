@@ -75,19 +75,12 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (fotoId, onSuccess, onError) {
-          var id = fotoId;
-          var foto = this.foto;
-          var codArchivoFotografico = this.codArchivoFotografico;
-          var numRollo = this.numRollo;
-          var numFoto = this.numFoto;
-          var fotografo = this.fotografo;
-          var fecha = this.fecha;
 
           Fotografia.update({
-            foto: foto, codArchivoFotografico: codArchivoFotografico,
-            numRollo: numRollo, numFoto: numFoto, fotografo: fotografo,
-            fecha: fecha
-          },{ where: { id: id } })
+            foto: this.foto, codArchivoFotografico: this.codArchivoFotografico,
+            numRollo: this.numRollo, numFoto: this.numFoto, fotografo: this.fotografo,
+            fecha: this.fecha
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (fotoId, onSuccess, onError) {

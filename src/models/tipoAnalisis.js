@@ -52,14 +52,11 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (taId, onSuccess, onError) {
-          var id = taId;
-          var tipo = this.tipo;
-          var subTipo = this.subTipo;
-          var valorPredeterminado = this.valorPredeterminado;
+
 
           TipoAnalisis.update({
-            tipo: tipo, subTipo: subTipo, valorPredeterminado: valorPredeterminado
-          },{ where: { id: id } })
+            tipo: this.tipo, subTipo: this.subTipo, valorPredeterminado: this.valorPredeterminado
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (taId, onSuccess, onError) {
