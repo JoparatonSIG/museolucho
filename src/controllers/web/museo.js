@@ -35,7 +35,7 @@ router.get('/', function (req, res) {
 
   museo.retrieveAll(function (museos) {
     if (museos) {
-      res.render('web/museo/list.ejs', { museos: museos});
+      res.render('web/museo/list', { museos: museos});
     } else {
       res.send(401, 'No se encontraron Museos');
     }
@@ -48,17 +48,28 @@ router.get('/', function (req, res) {
 // Actualiza museo
 router.put('/:museoId', function (req, res) {
   var museo = Museo.Museo.build();
+<<<<<<< HEAD
   museo.museo = req.body.museo;
   museo.direccion = req.body.direccion;
   museo.telefono = req.body.telefono;
+=======
+  console.log(req.body);
+  museo.id = req.body.id;
+  museo.museo = req.body.museo;
+  museo.direccion = req.body.direccion;
+  museo.telefono = req.body.telefono;
+  console.log(museo.dataValues);
+>>>>>>> 208077d9a04d4bf16df12ff98251ff72c0558285
   museo.updateById(museo.id, museo.museo, museo.direccion, museo.telefono, function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/museo');
     } else {
+      console.log(success);
       res.send(401, 'Museo no encontrado');
     }
   }, function (error) {
+    console.log(error);
     res.send('Museo no encontrado');
   });
 });

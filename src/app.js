@@ -33,8 +33,12 @@ var ubicacion = require('./controllers/API/ubicacion');
 var usuario = require('./controllers/API/usuario');
 var webPublico = require('./controllers/web/webPublico');
 var museoWeb = require('./controllers/web/museo');
+<<<<<<< HEAD
 var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
 
+=======
+var adquisicionWeb = require('./controllers/web/adquisicion');
+>>>>>>> 208077d9a04d4bf16df12ff98251ff72c0558285
 var app = express();
 
 /**
@@ -85,7 +89,7 @@ var routerWeb = express.Router();
 
 // Keep user, csrf token and config available
 app.use(function (req, res, next) {
-  console.log(req);
+  //console.log(req);
   res.locals.user = req.user;
   res.locals.config = config;
   res.locals._csrf = "req.csrfToken()";
@@ -120,7 +124,11 @@ router.use( '/ubicacion', ubicacion );
 router.use( '/usuario', usuario );
 // router del web publico
 routerWeb.use( '/museo', museoWeb);
+<<<<<<< HEAD
 routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
+=======
+routerWeb.use( '/adquisicion', adquisicionWeb);
+>>>>>>> 208077d9a04d4bf16df12ff98251ff72c0558285
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );

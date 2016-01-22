@@ -30,3 +30,6 @@ node_modules
 # Debug log from npm
 npm-debug.log
 src/config/config.js
+src/public/fonts
+src/public/img
+src/public/js
