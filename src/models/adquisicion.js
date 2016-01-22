@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'tipo Adquisicion',
         comment: 'Tipo de Adquisicion de la obra',
         validate: {
-          notNull: true,
+      //    notNull: true,
           notEmpty: true
         }
       },
@@ -30,13 +30,13 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Tipo de compra',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
+      //    notNull: true,
           notEmpty: true
         }
       },
       fecha: {
         type: DataTypes.DATE,
-        allowNull: false,
+      //  allowNull: false,
         comment: 'Fecha',
       },
     },
@@ -63,15 +63,12 @@ module.exports = function (sequelize, DataTypes) {
           Adquisicion.build({ tipoAdquisicion: tipoAdquisicion, tipoCompra: tipoCompra, fecha: fecha })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (adquisicionId, onSuccess, onError) {
-          var id = adquisicionId;
-          var tipoAdquisicion = this.tipoAdquisicion;
-          var tipoCompra = this.tipoCompra;
-          var fecha = this.fecha;
-
-
-
-          Adquisicion.update({ tipoAdquisicion: tipoAdquisicion, tipoCompra: tipoCompra, fecha: fecha },{ where: { id: id } })
+        updateById: function (id, onSuccess, onError) {
+          //console.log(this.id, this.tipoAdquisicion, this.tipoCompra, this.fecha);
+          Adquisicion.update(
+            { tipoAdquisicion: this.tipoAdquisicion, tipoCompra: this.tipoCompra, fecha:this.fecha },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
         removeById: function (adquisicionId, onSuccess, onError) {
