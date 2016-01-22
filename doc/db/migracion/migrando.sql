@@ -319,8 +319,8 @@ INSERT INTO
   (
     id,
     estructura,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
   IdEstructura,
