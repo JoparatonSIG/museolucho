@@ -63,15 +63,12 @@ module.exports = function (sequelize, DataTypes) {
           Adquisicion.build({ tipoAdquisicion: tipoAdquisicion, tipoCompra: tipoCompra, fecha: fecha })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (adquisicionId, onSuccess, onError) {
-          var id = adquisicionId;
-          var tipoAdquisicion = this.tipoAdquisicion;
-          var tipoCompra = this.tipoCompra;
-          var fecha = this.fecha;
-
-
-
-          Adquisicion.update({ tipoAdquisicion: tipoAdquisicion, tipoCompra: tipoCompra, fecha: fecha },{ where: { id: id } })
+        updateById: function (id, tipoAdquisicion, tipoCompra, fecha, onSuccess, onError) {
+          console.log(this.id, this.tipoAdquisicion, this.tipoCompra, this.fecha);
+          Adquisicion.update(
+            { adquisicion: this.tipoAdquisicion, tipoCompra: this.tipoCompra, fecha:this.fecha },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
         removeById: function (adquisicionId, onSuccess, onError) {
