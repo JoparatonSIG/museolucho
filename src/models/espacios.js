@@ -66,18 +66,12 @@ module.exports = function (sequelize, DataTypes) {
           })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (espacioId, onSuccess, onError) {
-          var id = espacioId;
-          var espacio = this.espacio;
-          var codigoEspacio = this.codigoEspacio;
-          var inmuebles = this.inmuebles;
-          var codigoInmueble = this.codigoInmueble;
-          var ubicacionInmueble = this.ubicacionInmueble;
-
-          Espacio.update({
-            espacio: espacio, codigoEspacio: codigoEspacio, inmuebles: inmuebles,
-            codigoInmueble: codigoInmueble, ubicacionInmueble: ubicacionInmueble
-          },{ where: { id: id } })
+        updateById: function (id, espacio, codigoEspacio, inmuebles, codigoInmueble, ubicacionInmueble, onSuccess, onError) {
+          console.log(this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble);
+          Espacio.update(
+            { espacio: this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
         removeById: function (espacioId, onSuccess, onError) {
