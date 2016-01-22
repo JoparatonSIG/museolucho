@@ -50,16 +50,17 @@ router.put('/:adquisicionId', function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
   console.log('ingresa al put');
 
-  tipoAdquisicion = req.body.tipoAdquisicion;
-  tipoCompra = req.body.tipoCompra;
-  fecha = req.body.fecha;
+  adquisicion.id = req.body.id;
+  adquisicion.tipoAdquisicion = req.body.tipoAdquisicion;
+  adquisicion.tipoCompra = req.body.tipoCompra;
+  adquisicion.fecha = req.body.fecha;
 
   console.log('ingresa al put: pre update');
 
-  adquisicion.updateById(req.params.adquisicionId, function (success) {
+  adquisicion.updateById(adquisicion.id,adquisicion.tipoAdquisicion,adquisicion.tipoCompra,adquisicion.fecha, function (success) {
     console.log(success);
     if (success) {
-      res.json({ message: 'Adquisicion actualizada!' });
+      res.redirect('/web/adquisicion');
     } else {
       res.send(401, 'Adquisicion no encontrada');
     }
