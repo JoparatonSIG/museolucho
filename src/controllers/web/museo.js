@@ -48,18 +48,10 @@ router.get('/', function (req, res) {
 // Actualiza museo
 router.put('/:museoId', function (req, res) {
   var museo = Museo.Museo.build();
-<<<<<<< HEAD
   museo.museo = req.body.museo;
   museo.direccion = req.body.direccion;
   museo.telefono = req.body.telefono;
-=======
-  console.log(req.body);
-  museo.id = req.body.id;
-  museo.museo = req.body.museo;
-  museo.direccion = req.body.direccion;
-  museo.telefono = req.body.telefono;
-  console.log(museo.dataValues);
->>>>>>> 208077d9a04d4bf16df12ff98251ff72c0558285
+
   museo.updateById(museo.id, museo.museo, museo.direccion, museo.telefono, function (success) {
     console.log(success);
     if (success) {
