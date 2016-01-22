@@ -35,9 +35,18 @@ var webPublico = require('./controllers/web/webPublico');
 var museoWeb = require('./controllers/web/museo');
 var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
 var adquisicionWeb = require('./controllers/web/adquisicion');
+<<<<<<< HEAD
 var fotografiaWeb = require('./controllers/web/fotografia');
 var tipoAnalisisWeb = require('./controllers/web/tipoanalisis');
 var ubicacionWeb = require('./controllers/web/ubicacion');
+=======
+var accesorioWeb = require('./controllers/web/accesorio');
+var analisisWeb = require('./controllers/web/analisis');
+var descripcionWeb = require('./controllers/web/descripcion');
+var espacioWeb = require('./controllers/web/espacio');
+var estructuraWeb = require('./controllers/web/estructura');
+
+>>>>>>> 4aee2c6b0e181d497dd3db5af99f68d39582e24e
 
 var app = express();
 
@@ -126,9 +135,17 @@ router.use( '/usuario', usuario );
 routerWeb.use( '/museo', museoWeb);
 routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
 routerWeb.use( '/adquisicion', adquisicionWeb);
+<<<<<<< HEAD
 routerWeb.use( '/fotografia', fotografiaWeb);
 routerWeb.use( '/tipoanalisis', tipoAnalisisWeb);
 routerWeb.use( '/ubicacion', ubicacionWeb);
+=======
+routerWeb.use( '/accesorio', accesorioWeb);
+routerWeb.use( '/analisis', analisisWeb);
+routerWeb.use( '/descripcion', descripcionWeb);
+routerWeb.use( '/espacio', espacioWeb);
+routerWeb.use( '/estructura', estructuraWeb);
+>>>>>>> 4aee2c6b0e181d497dd3db5af99f68d39582e24e
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );

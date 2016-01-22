@@ -38,12 +38,10 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (estructuraId, onSuccess, onError) {
-          var id = estructuraId;
-          var estructura = this.estructura;
 
           Estructura.update({
-            estructura: estructura
-          },{ where: { id: id } })
+            estructura: this.estructura
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (estructuraId, onSuccess, onError) {
@@ -53,9 +51,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Estructuras',
