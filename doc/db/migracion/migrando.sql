@@ -253,7 +253,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM bolivia.tecnicar ori
+FROM boli.tecnicar ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO

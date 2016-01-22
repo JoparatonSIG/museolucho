@@ -48,17 +48,13 @@ router.get('/', function (req, res) {
 // Actualiza museo
 router.put('/:museoId', function (req, res) {
   var museo = Museo.Museo.build();
-  console.log('ingresa al put');
-
   museo.museo = req.body.museo;
   museo.direccion = req.body.direccion;
   museo.telefono = req.body.telefono;
-  console.log('ingresa al put: pre update');
-
-  museo.updateById(req.params.museoId, function (success) {
+  museo.updateById(museo.id, museo.museo, museo.direccion, museo.telefono, function (success) {
     console.log(success);
     if (success) {
-      res.json({ message: 'Museo actualizado!' });
+      res.redirect('/web/museo');
     } else {
       res.send(401, 'Museo no encontrado');
     }
