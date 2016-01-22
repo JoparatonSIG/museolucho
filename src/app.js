@@ -38,8 +38,8 @@ var adquisicionWeb = require('./controllers/web/adquisicion');
 var accesorioWeb = require('./controllers/web/accesorio');
 var analisisWeb = require('./controllers/web/analisis');
 var descripcionWeb = require('./controllers/web/descripcion');
-
 var espacioWeb = require('./controllers/web/espacio');
+var estructuraWeb = require('./controllers/web/estructura');
 
 
 var app = express();
@@ -133,6 +133,7 @@ routerWeb.use( '/accesorio', accesorioWeb);
 routerWeb.use( '/analisis', analisisWeb);
 routerWeb.use( '/descripcion', descripcionWeb);
 routerWeb.use( '/espacio', espacioWeb);
+routerWeb.use( '/estructura', estructuraWeb);
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );
