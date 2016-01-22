@@ -35,7 +35,14 @@ var webPublico = require('./controllers/web/webPublico');
 var museoWeb = require('./controllers/web/museo');
 var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
 var adquisicionWeb = require('./controllers/web/adquisicion');
+<<<<<<< HEAD
+var accesorioWeb = require('./controllers/web/accesorio');
+var adquisicionWeb = require('./controllers/web/adquisicion');
+var analisisWeb = require('./controllers/web/analisis');
+var descripcionWeb = require('./controllers/web/descripcion');
+=======
 var espacioWeb = require('./controllers/web/espacio');
+>>>>>>> origin/desarrollo
 
 var app = express();
 
@@ -124,7 +131,14 @@ router.use( '/usuario', usuario );
 routerWeb.use( '/museo', museoWeb);
 routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
 routerWeb.use( '/adquisicion', adquisicionWeb);
+<<<<<<< HEAD
+routerWeb.use( '/accesorio', accesorioWeb);
+routerWeb.use( '/adquisicion', adquisicionWeb);
+routerWeb.use( '/analisis', analisisWeb);
+routerWeb.use( '/descripcion', descripcionWeb);
+=======
 routerWeb.use( '/espacio', espacioWeb);
+>>>>>>> origin/desarrollo
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );
