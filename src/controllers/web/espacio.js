@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 // Rutas que terminan en /espacio
 // POST /espacio
@@ -17,7 +17,7 @@ router.post('/', function (req, res) {
   var codigoInmueble = req.body.codigoInmueble;
   var ubicacionInmueble = req.body.ubicacionInmueble;
 
-  var espacio = Museo.Espacio.build({
+  var espacio = Model.Espacio.build({
     codigoEspacio: codigoEspacio,
     inmuebles: inmuebles,
     codigoInmueble: codigoInmueble,
@@ -34,7 +34,7 @@ router.post('/', function (req, res) {
 // (trae todos los espacios)
 // GET /espacio
 router.get('/', function (req, res) {
-  var espacio = Museo.Espacio.build();
+  var espacio = Model.Espacio.build();
 
   espacio.retrieveAll(function (espacios) {
     if (espacios) {
@@ -50,7 +50,7 @@ router.get('/', function (req, res) {
 // PUT /espacio/:espacioId
 // Actualiza espacio
 router.put('/:espacioId', function (req, res) {
-  var espacio = Museo.Espacio.build();
+  var espacio = Model.Espacio.build();
   espacio.id = req.body.id;
   espacio.espacio = req.body.espacio;
   espacio.codigoEspacio = req.body.codigoEspacio;
@@ -74,7 +74,7 @@ router.put('/:espacioId', function (req, res) {
 // GET /espacio/:espacioId
 // Toma un espacio por id
 router.get('/:espacioId', function (req, res) {
-  var espacio = Museo.Espacio.build();
+  var espacio = Model.Espacio.build();
 
   espacio.retrieveById(req.params.espacioId, function (espacioq) {
     if (espacioq) {
@@ -89,7 +89,7 @@ router.get('/:espacioId', function (req, res) {
 // DELETE /espacio/espacioId
 // Borra el espacioId
 router.delete('/:espacioId', function (req, res) {
-  var espacio = Museo.Espacio.build();
+  var espacio = Model.Espacio.build();
 
   espacio.removeById(req.params.espacioId, function (espacio) {
     if (espacio) {
