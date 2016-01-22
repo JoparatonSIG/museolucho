@@ -69,7 +69,7 @@ module.exports = function (sequelize, DataTypes) {
         updateById: function (id, espacio, codigoEspacio, inmuebles, codigoInmueble, ubicacionInmueble, onSuccess, onError) {
           console.log(this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble);
           Espacio.update(
-            { espacio: this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble },
+            { espacio: this.espacio, codigoEspacio: this.codigoEspacio, inmuebles: this.inmuebles, codigoInmueble: this.codigoInmueble, ubicacionInmueble: this.ubicacionInmueble },
             { where: { id: this.id } }
           )
           .then(onSuccess).catch(onError);
