@@ -38,12 +38,10 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (estructuraId, onSuccess, onError) {
-          var id = estructuraId;
-          var estructura = this.estructura;
 
           Estructura.update({
-            estructura: estructura
-          },{ where: { id: id } })
+            estructura: this.estructura
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (estructuraId, onSuccess, onError) {
