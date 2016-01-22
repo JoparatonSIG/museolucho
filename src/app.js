@@ -33,6 +33,12 @@ var ubicacion = require('./controllers/API/ubicacion');
 var usuario = require('./controllers/API/usuario');
 var webPublico = require('./controllers/web/webPublico');
 var museoWeb = require('./controllers/web/museo');
+var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
+var adquisicionWeb = require('./controllers/web/adquisicion');
+var accesorioWeb = require('./controllers/web/accesorio');
+var adquisicionWeb = require('./controllers/web/adquisicion');
+var analisisWeb = require('./controllers/web/analisis');
+var descripcionWeb = require('./controllers/web/descripcion');
 
 var app = express();
 
@@ -70,15 +76,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // If you want to simulate DELETE and PUT
 // in your app you need methodOverride.
-// override with POST having ?_method=DELETE
-app.use(methodOverride('_method'));
-
+// override with POST having
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
 var router = express.Router();
 var routerWeb = express.Router();
 
 // Keep user, csrf token and config available
 app.use(function (req, res, next) {
-  console.log(req);
+  //console.log(req);
   res.locals.user = req.user;
   res.locals.config = config;
   res.locals._csrf = "req.csrfToken()";
@@ -113,6 +125,12 @@ router.use( '/ubicacion', ubicacion );
 router.use( '/usuario', usuario );
 // router del web publico
 routerWeb.use( '/museo', museoWeb);
+routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
+routerWeb.use( '/adquisicion', adquisicionWeb);
+routerWeb.use( '/accesorio', accesorioWeb);
+routerWeb.use( '/adquisicion', adquisicionWeb);
+routerWeb.use( '/analisis', analisisWeb);
+routerWeb.use( '/descripcion', descripcionWeb);
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );

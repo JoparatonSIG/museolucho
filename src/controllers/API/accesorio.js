@@ -7,7 +7,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 /* Rutas que terminan en /accesorios
 // router.route('/accesorio') */
@@ -18,7 +18,7 @@ router.post('/', function (req, res) {
   var objetoCodigo = req.body.objetoCodigo;
   var relacion = req.body.relacion;
 
-  var accesorio = Museo.Accesorio.build({ objetoCodigo: objetoCodigo, relacion: relacion });
+  var accesorio = Model.Accesorio.build({ objetoCodigo: objetoCodigo, relacion: relacion });
 
   accesorio.add(function (success) {
     res.json({ message: 'Accesorio creado!' });
@@ -31,7 +31,7 @@ router.post('/', function (req, res) {
 /* (trae todos los accesorios)
 // GET /accesorio */
 router.get('/', function (req, res) {
-  var accesorio = Museo.Accesorio.build();
+  var accesorio = Model.Accesorio.build();
 
   accesorio.retrieveAll(function (accesorios) {
     if (accesorios) {
@@ -50,7 +50,7 @@ router.get('/', function (req, res) {
 // Actualiza accesorio */
 
 router.put('/:accesorioId', function (req, res) {
-  var accesorio = Museo.Accesorio.build();
+  var accesorio = Model.Accesorio.build();
 
   accesorio.objetoCodigo = req.body.objetoCodigo;
   accesorio.relacion = req.body.relacion;
@@ -69,7 +69,7 @@ router.put('/:accesorioId', function (req, res) {
 // GET /accesorio/:accesorioId
 // Toma un accesorio por id
 router.get('/:accesorioId', function (req, res) {
-  var accesorio = Museo.Accesorio.build();
+  var accesorio = Model.Accesorio.build();
 
   accesorio.retrieveById(req.params.accesorioId, function (accesorio) {
     if (accesorio) {
@@ -85,7 +85,7 @@ router.get('/:accesorioId', function (req, res) {
 // DELETE /accesorio/accesorioId
 // Borra el accesorioId
 router.delete('/:accesorioId', function (req, res) {
-  var accesorio = Museo.Accesorio.build();
+  var accesorio = Model.Accesorio.build();
 
   accesorio.removeById(req.params.accesorioId, function (accesorio) {
     if (accesorio) {

@@ -9,7 +9,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'ID accesorio',
         validate: {
           isNumeric:true,
-          notNull: true
         }
       },
       objetoCodigo: {
@@ -44,16 +43,17 @@ module.exports = function (sequelize, DataTypes) {
           })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (accesorioId, onSuccess, onError) {
-          var id = accesorioId;
-          var objetoCodigo = this.objetoCodigo;
-          var relacion = this.relacion;
 
-          Accesorio.update({
-            objetoCodigo: objetoCodigo, relacion: relacion
-          },{ where: { id: id } })
+
+        updateById: function (id, onSuccess, onError) {
+          console.log(this.id, this.objetoCodigo, this.relacion);
+          Accesorio.update(
+            { objetoCodigo: this.objetoCodigo, relacion: this.relacion },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
+
         removeById: function (accesorioId, onSuccess, onError) {
           Accesorio.destroy({ where: { id: accesorioId }})
           .then(onSuccess).catch(onError);

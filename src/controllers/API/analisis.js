@@ -7,7 +7,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 /* Rutas que terminan en /analisiss
 // router.route('/analisis') */
@@ -17,7 +17,7 @@ router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var analisisreq = req.body.analisis;
 
-  var analisis = Museo.Analisis.build({ analisis: analisisreq });
+  var analisis = Model.Analisis.build({ analisis: analisisreq });
 
   analisis.add(function (success) {
     res.json({ message: 'Analisis creado!' });
@@ -30,7 +30,7 @@ router.post('/', function (req, res) {
 /* (trae todos los analisiss)
 // GET /analisis */
 router.get('/', function (req, res) {
-  var analisis = Museo.Analisis.build();
+  var analisis = Model.Analisis.build();
 
   analisis.retrieveAll(function (analisis) {
     if (analisis) {
@@ -49,7 +49,7 @@ router.get('/', function (req, res) {
 // Actualiza analisis */
 
 router.put('/:analisisId', function (req, res) {
-  var analisis = Museo.Analisis.build();
+  var analisis = Model.Analisis.build();
 
   analisis.analisis = req.body.analisis;
 
@@ -67,7 +67,7 @@ router.put('/:analisisId', function (req, res) {
 // GET /analisis/:analisisId
 // Toma un analisis por id
 router.get('/:analisisId', function (req, res) {
-  var analisis = Museo.Analisis.build();
+  var analisis = Model.Analisis.build();
 
   analisis.retrieveById(req.params.analisisId, function (analisis) {
     if (analisis) {
@@ -83,7 +83,7 @@ router.get('/:analisisId', function (req, res) {
 // DELETE /analisis/analisisId
 // Borra el analisisId
 router.delete('/:analisisId', function (req, res) {
-  var analisis = Museo.Analisis.build();
+  var analisis = Model.Analisis.build();
 
   analisis.removeById(req.params.analisisId, function (analisis) {
     if (analisis) {

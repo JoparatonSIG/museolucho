@@ -7,7 +7,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 /* Rutas que terminan en /descripciones
 // router.route('/descripcion') */
@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
   var observaciones = req.body.observaciones;
   var descripcionreq = req.body.descripcion;
 
-  var descripcion = Museo.Descripcion.build({
+  var descripcion = Model.Descripcion.build({
     marcasInscripciones: marcasInscripciones,
     alto: alto,
     ancho: ancho,
@@ -50,7 +50,7 @@ router.post('/', function (req, res) {
 /* (trae todos los descripciones)
 // GET /descripcion */
 router.get('/', function (req, res) {
-  var descripcion = Museo.Descripcion.build();
+  var descripcion = Model.Descripcion.build();
 
   descripcion.retrieveAll(function (descripciones) {
     if (descripciones) {
@@ -69,7 +69,7 @@ router.get('/', function (req, res) {
 // Actualiza descripcion */
 
 router.put('/:descripcionId', function (req, res) {
-  var descripcion = Museo.Descripcion.build();
+  var descripcion = Model.Descripcion.build();
 
   descripcion.marcasInscripciones = req.body.marcasInscripciones;
   descripcion.alto = req.body.alto;
@@ -96,7 +96,7 @@ router.put('/:descripcionId', function (req, res) {
 // GET /descripcion/:descripcionId
 // Toma un descripcion por id
 router.get('/:descripcionId', function (req, res) {
-  var descripcion = Museo.Descripcion.build();
+  var descripcion = Model.Descripcion.build();
 
   descripcion.retrieveById(req.params.descripcionId, function (descripcion) {
     if (descripcion) {
@@ -112,7 +112,7 @@ router.get('/:descripcionId', function (req, res) {
 // DELETE /descripcion/descripcionId
 // Borra el descripcionId
 router.delete('/:descripcionId', function (req, res) {
-  var descripcion = Museo.Descripcion.build();
+  var descripcion = Model.Descripcion.build();
 
   descripcion.removeById(req.params.descripcionId, function (descripcion) {
     if (descripcion) {
