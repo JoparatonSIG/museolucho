@@ -90,8 +90,8 @@ router.get('/:adquisicionId', function (req, res) {
 // Borra el adquisicionId
 router.delete('/:adquisicionId', function (req, res) {
   var adquisicion = Model.Adquisicion.build();
-
-  adquisicion.removeById(req.body.id,
+  adquisicion.id=req.body.id;
+  adquisicion.removeById(
 
   /*  function (adquisicion) {
     if (adquisicion) {
