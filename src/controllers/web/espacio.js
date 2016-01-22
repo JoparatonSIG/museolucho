@@ -18,7 +18,7 @@ router.post('/', function (req, res) {
   var ubicacionInmueble = req.body.ubicacionInmueble;
 
   var espacio = Model.Espacio.build({
-    espacio: espacioR;
+    espacio: espacioR,
     codigoEspacio: codigoEspacio,
     inmuebles: inmuebles,
     codigoInmueble: codigoInmueble,
