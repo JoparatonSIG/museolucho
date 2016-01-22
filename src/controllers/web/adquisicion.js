@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 // Rutas que terminan en /adquisicion
 // POST /adquisicion
@@ -15,7 +15,7 @@ router.post('/', function (req, res) {
   var tipoCompra = req.body.tipoCompra;
   var fecha = req.body.fecha;
 
-  var adquisicion = Museo.Adquisicion.build({
+  var adquisicion = Model.Adquisicion.build({
     tipoAdquisicion: tipoAdquisicion,
     tipoCompra: tipoCompra,
     fecha: fecha
@@ -31,7 +31,7 @@ router.post('/', function (req, res) {
 // (trae todas las adquisiciones)
 // GET /adquisiciones
 router.get('/', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
 
   adquisicion.retrieveAll(function (adquisiciones) {
     if (adquisiciones) {
@@ -47,7 +47,7 @@ router.get('/', function (req, res) {
 // PUT /adquisicion/:adquisicionId
 // Actualiza adquisicion
 router.put('/:adquisicionId', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
   console.log('ingresa al put');
   adquisicion.id = req.body.id;
   adquisicion.tipoAdquisicion = req.body.tipoAdquisicion;
@@ -72,7 +72,7 @@ router.put('/:adquisicionId', function (req, res) {
 // GET /adquisicion/:adquisicionId
 // Toma una adquisicion por id
 router.get('/:adquisicionId', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
 
   adquisicion.retrieveById(req.params.adquisicionId, function (adquisicionq) {
     if (adquisicionq) {
@@ -87,7 +87,7 @@ router.get('/:adquisicionId', function (req, res) {
 // DELETE /adquisicion/adquisicionId
 // Borra el adquisicionId
 router.delete('/:adquisicionId', function (req, res) {
-  var adquisicion = Museo.Adquisicion.build();
+  var adquisicion = Model.Adquisicion.build();
 
   adquisicion.removeById(req.params.adquisicionId, function (adquisicion) {
     if (adquisicion) {
