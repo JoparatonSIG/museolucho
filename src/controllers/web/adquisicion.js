@@ -49,7 +49,6 @@ router.get('/', function (req, res) {
 router.put('/:adquisicionId', function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
   console.log('ingresa al put');
-
   adquisicion.id = req.body.id;
   adquisicion.tipoAdquisicion = req.body.tipoAdquisicion;
   adquisicion.tipoCompra = req.body.tipoCompra;
