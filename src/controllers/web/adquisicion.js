@@ -57,14 +57,16 @@ router.put('/:adquisicionId', function (req, res) {
 
   console.log('ingresa al put: pre update');
 
-  adquisicion.updateById(adquisicion.id,adquisicion.tipoAdquisicion,adquisicion.tipoCompra,adquisicion.fecha, function (success) {
+  adquisicion.updateById(adquisicion.id, adquisicion.tipoAdquisicion, adquisicion.tipoCompra, adquisicion.fecha, function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/adquisicion');
     } else {
+      console.log(success);
       res.send(401, 'Adquisicion no encontrada');
     }
   }, function (error) {
+    console.log(error);
     res.send('Adquisicion no encontrada');
   });
 });
