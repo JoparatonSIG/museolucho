@@ -35,6 +35,7 @@ var webPublico = require('./controllers/web/webPublico');
 var museoWeb = require('./controllers/web/museo');
 var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
 var adquisicionWeb = require('./controllers/web/adquisicion');
+var espacioWeb = require('./controllers/web/espacio');
 
 var app = express();
 
@@ -123,6 +124,7 @@ router.use( '/usuario', usuario );
 routerWeb.use( '/museo', museoWeb);
 routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
 routerWeb.use( '/adquisicion', adquisicionWeb);
+routerWeb.use( '/espacio', espacioWeb);
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );
