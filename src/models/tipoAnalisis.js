@@ -68,7 +68,7 @@ module.exports = function (sequelize, DataTypes) {
       paranoid: true,
       createdAt: 'fechaCrea',
       updatedAt: 'fechaModifica',
-      deletedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'TipoAnalisis',

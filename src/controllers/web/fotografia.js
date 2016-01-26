@@ -5,14 +5,15 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
-// (trae todos los museos)
-// GET /tipoanalisis
+// (trae todos los fotografias)
+// GET /fotografia
 router.get('/add', function (req, res) {
-  var museo = Model.Museo.build();
-  res.render('web/fotografia/add', { museo: museo});
+  var fotografia = Model.fotografias.build();
+  res.render('web/fotografia/add', { fotografias: fotografias});
 });
+
 // Rutas que terminan en /fotografia
 // POST /fotografia
 router.post('/', function (req, res) {
@@ -24,32 +25,33 @@ router.post('/', function (req, res) {
   var fotografo = req.body.fotografo;
   var fecha = req.body.fecha;
 
-  var fotografias = Museo.Fotografia.build({
+  var fotografia = Model.fotografias.build({
     foto: foto,
     codArchivoFotografico: codArchivoFotografico,
-    numRollo: numRollo,
-    numFoto: numFoto,
-    fotografo: fotografo,
-    fecha: fecha
+    numRollo:numRollo,
+    numFoto:numFoto,
+    fotografo:fotografo,
+    fecha:fecha
   });
 
   fotografia.add(function (success) {
-    res.render( 'web/fotografia/list',{ message: 'Fotografia creada!' } );
+    res.redirect( '/web/fotografia');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/web/fotografia');
+    // res.send(err);
   });
 });
-// (trae todas las fotografias)
-// GET /fotografias
+// (trae todos los fotografias)
+// GET /fotografia
 router.get('/', function (req, res) {
-  var fotografia = Museo.Fotografia.build();
+  var fotografia = Model.fotografias.build();
 
   fotografia.retrieveAll(function (fotografias) {
     if (fotografias) {
-      res.render('web/fotografia/list.ejs', { fotografias: fotografias});
+      res.render('web/fotografia/list', { fotografias: fotografias});
     } else {
-      res.send(401, 'No se encontraron fotografias');
+      res.send(401, 'No se encontraron Fotografias');
     }
   }, function (error) {
     res.send('Fotografia no encontrada');
@@ -59,8 +61,7 @@ router.get('/', function (req, res) {
 // PUT /fotografia/:fotografiaId
 // Actualiza fotografia
 router.put('/:fotografiaId', function (req, res) {
-  var fotografia = Museo.Fotografia.build();
-  console.log('ingresa al put');
+  var fotografia = Model.fotografias.build();
   fotografia.id = req.body.id;
   fotografia.foto = req.body.foto;
   fotografia.codArchivoFotografico = req.body.codArchivoFotografico;
@@ -69,9 +70,7 @@ router.put('/:fotografiaId', function (req, res) {
   fotografia.fotografo = req.body.fotografo;
   fotografia.fecha = req.body.fecha;
 
-  console.log('ingresa al put: pre update');
-
-  fotografia.updateById(fotografia.id, function (success) {
+  fotografia.updateById(fotografia.id,  function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/fotografia');
@@ -85,13 +84,13 @@ router.put('/:fotografiaId', function (req, res) {
   });
 });
 // GET /fotografia/:fotografiaId
-// Toma una fotografia por id
+// Toma un fotografia por id
 router.get('/:fotografiaId', function (req, res) {
-  var fotografia = Museo.Fotografia.build();
+  var fotografia = Model.fotografias.build();
 
   fotografia.retrieveById(req.params.fotografiaId, function (fotografiaq) {
     if (fotografiaq) {
-      res.render('web/fotografia/edit', {fotografia:fotografiaq});
+      res.render('web/fotografia/edit', {fotografias:fotografiaq});
     } else {
       res.send(401, 'Fotografia no encontrada');
     }
@@ -100,13 +99,13 @@ router.get('/:fotografiaId', function (req, res) {
   });
 });
 // DELETE /fotografia/fotografiaId
-// Borra el fotografiaId
+// Borra el fotografia
 router.delete('/:fotografiaId', function (req, res) {
-  var fotografia = Museo.Fotografia.build();
-
+  var fotografia = Model.fotografias.build();
+  console.log(req.params);
   fotografia.removeById(req.params.fotografiaId, function (fotografia) {
     if (fotografia) {
-      res.json({ message: 'Fotografia borrada!' });
+      res.redirect('/web/fotografia');
     } else {
       res.send(401, 'Fotografia no encontrada');
     }
