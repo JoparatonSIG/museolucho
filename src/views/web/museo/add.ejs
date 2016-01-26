@@ -1,0 +1,33 @@
+<form id="topicForm" method="post" action="/web/museo/<%= museo.id %>" >
+    <table class="table table-bordred table-striped">
+      <thead>
+        <tr>
+          <th class="cell-stat text-center">museo</th>
+          <th class="cell-stat text-center">direccion</th>
+          <th class="cell-stat text-center">telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="text-center">
+              <label for="museo" class="control-label">Museo</label>
+              <input type="text" class="form-control" id="museo" name="museo" value="<%=museo.museo%>" required="true" title="Ingrese museo" placeholder="<museo>">
+              <%= museo.museo %>
+            </td>
+            <td class="text-center">
+              <label for="direccion" class="control-label">Direccion</label>
+              <input type="text" class="form-control" id="direccion" name="direccion" value="<%=museo.direccion%>" required="true" title="Ingrese direccion" placeholder="<direccion>">
+              <%= museo.direccion %>
+            </td>
+            <td class="text-center">
+              <label for="telefono" class="control-label">Telefono</label>
+              <input type="text" class="form-control" id="telefono" name="telefono" value="<%=museo.telefono%>" required="true" title="Ingrese telefono" placeholder="<telefono>">
+              <%= museo.telefono %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>

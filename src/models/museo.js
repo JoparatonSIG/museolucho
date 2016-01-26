@@ -78,7 +78,7 @@ module.exports = function (sequelize, DataTypes) {
           )
           .then(onSuccess).catch(onError);
         },
-        removeById: function (empresaId, onSuccess, onError) {
+        removeById: function (museoId, onSuccess, onError) {
           Museo.destroy( { where: { id: museoId } })
           .then(onSuccess).catch(onError);
          }

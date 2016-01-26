@@ -7,6 +7,13 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+// (trae todos los museos)
+// GET /museo
+router.get('/add', function (req, res) {
+  var museo = Model.Museo.build();
+  res.render('web/museo/add', { museo: museo});
+});
+
 // Rutas que terminan en /museo
 // POST /museo
 router.post('/', function (req, res) {
@@ -22,10 +29,11 @@ router.post('/', function (req, res) {
   });
 
   museo.add(function (success) {
-    res.render( 'web/museo/list',{ message: 'Museo creado!' } );
+    res.redirect( '/');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/');
+    // res.send(err);
   });
 });
 // (trae todos los museos)
@@ -85,10 +93,10 @@ router.get('/:museoId', function (req, res) {
 // Borra el museoId
 router.delete('/:museoId', function (req, res) {
   var museo = Model.Museo.build();
-
+  console.log(req.params);
   museo.removeById(req.params.museoId, function (museo) {
     if (museo) {
-      res.json({ message: 'Museo borrado!' });
+      res.redirect('/web/museo');
     } else {
       res.send(401, 'Museo no encontrado');
     }
