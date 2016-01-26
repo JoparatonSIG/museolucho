@@ -70,7 +70,7 @@ module.exports = function (sequelize, DataTypes) {
           Museo.build({ museo: museo, direccion: direccion, telefono:telefono })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (id, museo, direccion, telefono, onSuccess, onError) {
+        updateById: function (id, onSuccess, onError) {
           console.log(this.id, this.museo, this.direccion, this.telefono);
           Museo.update(
             { museo: this.museo, direccion: this.direccion, telefono:this.telefono },

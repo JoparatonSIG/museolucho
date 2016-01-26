@@ -90,14 +90,20 @@ router.get('/:adquisicionId', function (req, res) {
 // Borra el adquisicionId
 router.delete('/:adquisicionId', function (req, res) {
   var adquisicion = Model.Adquisicion.build();
+  adquisicion.id=req.body.id;
+  adquisicion.removeById(
+  function (success) {
 
-  adquisicion.removeById(req.params.adquisicionId, function (adquisicion) {
-    if (adquisicion) {
-      res.json({ message: 'Adquisicion borrada!' });
+    console.log(success);
+    if (success) {
+      res.redirect('/web/adquisicion');
     } else {
+      console.log(success);
       res.send(401, 'Adquisicion no encontrada');
     }
-  }, function (error) {
+  }
+
+  , function (error) {
     res.send('Adquisicion no encontrada');
   });
 });

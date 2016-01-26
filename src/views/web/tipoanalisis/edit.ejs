@@ -1,0 +1,58 @@
+<form id="topicForm" method="post" action="/web/tipoanalisis/<%= tipoAnalisis.id %>" >
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="id" value="<%= tipoAnalisis.id %>">
+
+  <table class="table table-bordred table-striped">
+    <thead>
+      <tr>
+        <th class="cell-stat text-center">id</th>
+        <th class="cell-stat text-center">tipo</th>
+        <th class="cell-stat text-center">subTipo</th>
+        <th class="cell-stat text-center">valorPredeterminado</th>
+        <th class="cell-stat text-center">creacion</th>
+        <th class="cell-stat text-center">modifica</th>
+        <th class="cell-stat text-center">borrado</th>
+        <th class="cell-stat text-center">Accion</th>
+        <th class="cell-stat text-center">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="text-center">
+            <%= tipoAnalisis.id %>
+          </td>
+          <td class="text-center">
+            <label for="tipo" class="control-label">Tipo</label>
+            <input type="text" class="form-control" id="tipo" name="tipo" value="<%=tipoAnalisis.tipo%>" required="true" title="Ingrese Tipo analisis" placeholder="<tipo>">
+            <%= tipoAnalisis.tipo %>
+          </td>
+          <td class="text-center">
+            <label for="subTipo" class="control-label">SubTipo</label>
+            <input type="text" class="form-control" id="subTipo" name="subTipo" value="<%=tipoAnalisis.subTipo%>" required="true" title="Ingrese subtipo" placeholder="<subTipo>">
+            <%= tipoAnalisis.subTipo %>
+          </td>
+          <td class="text-center">
+            <label for="valorPredeterminado" class="control-label">Valor predeterminado</label>
+            <input type="text" class="form-control" id="valorPredeterminado" name="valorPredeterminado" value="<%=tipoAnalisis.valorPredeterminado%>" required="true" title="Ingrese valor predeterminado" placeholder="<valorPredeterminado>">
+            <%= tipoAnalisis.valorPredeterminado %>
+          </td>
+          <td class="text-center"><%= tipoAnalisis.creacion %></td>
+          <td class="text-center"><%= tipoAnalisis.modifica %></td>
+          <td class="text-center"><%= tipoAnalisis.borrado %></td>
+          <td>
+            <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+              Modificar
+            </button>
+          </td>
+          <td>
+            <a href="/web/tipoanalisis/<%= tipoAnalisis.id %>" class="btn btn-info" role="button">
+              <p data-placement="top" data-toggle="tooltip" title="Edit">
+                <button type="button" class="btn btn-info">Cancel
+                </button>
+              </p>
+            </a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</form>

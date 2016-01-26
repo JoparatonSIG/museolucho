@@ -71,8 +71,8 @@ module.exports = function (sequelize, DataTypes) {
           )
           .then(onSuccess).catch(onError);
         },
-        removeById: function (adquisicionId, onSuccess, onError) {
-          Adquisicion.destroy({ where: { id: adquisicionId }})
+        removeById: function (onSuccess, onError) {
+          Adquisicion.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },
