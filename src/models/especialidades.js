@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'ID especialidad',
         validate: {
           isNumeric:true,
-          notNull: true
+
         }
       },
       especialidad: {
