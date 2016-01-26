@@ -7,6 +7,12 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+
+router.get('/add', function (req, res) {
+  var adquisicion = Model.Adquisicion.build();
+  res.render('web/adquisicion/add', { adquisicion: adquisicion });
+});
+
 // Rutas que terminan en /adquisicion
 // POST /adquisicion
 router.post('/', function (req, res) {
@@ -22,10 +28,16 @@ router.post('/', function (req, res) {
   });
 
   adquisicion.add(function (success) {
-    res.render( 'web/adquisicion/list',{ message: 'Adquisicion creada!' } );
+    res.redirect('/web/adquisicion');
   },
   function (err) {
-    res.send(err);
+    //res.redirect('/web/adquisicion');
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  //  res.send('Adquisicion no encontrada');
   });
 });
 // (trae todas las adquisiciones)
