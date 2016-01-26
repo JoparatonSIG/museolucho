@@ -10,8 +10,8 @@ var Model = require('../../models/model');
 // (trae todos los fotografias)
 // GET /fotografia
 router.get('/add', function (req, res) {
-  var fotografia = Model.fotografias.build();
-  res.render('web/fotografia/add', { fotografias: fotografias});
+  var fotografia = Model.Fotografia.build();
+  res.render('web/fotografia/add', { fotografias: fotografia});
 });
 
 // Rutas que terminan en /fotografia
@@ -45,7 +45,7 @@ router.post('/', function (req, res) {
 // (trae todos los fotografias)
 // GET /fotografia
 router.get('/', function (req, res) {
-  var fotografia = Model.fotografias.build();
+  var fotografia = Model.Fotografia.build();
 
   fotografia.retrieveAll(function (fotografias) {
     if (fotografias) {
@@ -61,7 +61,7 @@ router.get('/', function (req, res) {
 // PUT /fotografia/:fotografiaId
 // Actualiza fotografia
 router.put('/:fotografiaId', function (req, res) {
-  var fotografia = Model.fotografias.build();
+  var fotografia = Model.Fotografia.build();
   fotografia.id = req.body.id;
   fotografia.foto = req.body.foto;
   fotografia.codArchivoFotografico = req.body.codArchivoFotografico;
@@ -86,7 +86,7 @@ router.put('/:fotografiaId', function (req, res) {
 // GET /fotografia/:fotografiaId
 // Toma un fotografia por id
 router.get('/:fotografiaId', function (req, res) {
-  var fotografia = Model.fotografias.build();
+  var fotografia = Model.Fotografia.build();
 
   fotografia.retrieveById(req.params.fotografiaId, function (fotografiaq) {
     if (fotografiaq) {
@@ -101,7 +101,7 @@ router.get('/:fotografiaId', function (req, res) {
 // DELETE /fotografia/fotografiaId
 // Borra el fotografia
 router.delete('/:fotografiaId', function (req, res) {
-  var fotografia = Model.fotografias.build();
+  var fotografia = Model.Fotografia.build();
   console.log(req.params);
   fotografia.removeById(req.params.fotografiaId, function (fotografia) {
     if (fotografia) {
