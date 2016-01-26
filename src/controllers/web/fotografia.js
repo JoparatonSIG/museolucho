@@ -49,7 +49,7 @@ router.get('/', function (req, res) {
 
   fotografia.retrieveAll(function (fotografias) {
     if (fotografias) {
-      res.render('web/fotografia/list', { fotografias: fotografias});
+      res.render('web/fotografia/list', { fotografiasss: fotografias});
     } else {
       res.send(401, 'No se encontraron Fotografias');
     }
