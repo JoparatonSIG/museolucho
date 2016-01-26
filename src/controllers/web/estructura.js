@@ -79,16 +79,26 @@ router.get('/:estructuraId', function (req, res) {
 // Borra el estructuraId
 router.delete('/:estructuraId', function (req, res) {
   var estructura = Model.Estructura.build();
+  estructura.id=req.body.id;
+  estructura.removeById(
+  function (success) {
 
-  estructura.removeById(req.params.estructuraId, function (estructura) {
-    if (estructura) {
-      res.json({ message: 'Estructura borrado!' });
+    console.log(success);
+    if (success) {
+      res.redirect('/web/estructura');
     } else {
-      res.send(401, 'Estructura no encontrado');
+      console.log(success);
+      res.send(401, 'Estructura no encontrada');
     }
-  }, function (error) {
-    res.send('Estructura no encontrado');
+  }
+
+  , function (error) {
+    res.send('Estructura no encontrada');
   });
 });
 
+
+
+
 module.exports = router;
+}

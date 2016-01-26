@@ -92,14 +92,6 @@ router.delete('/:adquisicionId', function (req, res) {
   var adquisicion = Model.Adquisicion.build();
   adquisicion.id=req.body.id;
   adquisicion.removeById(
-
-  /*  function (adquisicion) {
-    if (adquisicion) {
-      res.json({ message: 'Adquisicion borrada!' });
-    } else {
-      res.send(401, 'Adquisicion no encontrada');
-    }
-  }*/
   function (success) {
 
     console.log(success);
