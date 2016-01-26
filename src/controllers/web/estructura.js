@@ -13,11 +13,11 @@ router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var estructuraR = req.body.estructura;
 
-  var estructura = Model.Espacio.build({
+  var estructura = Model.Estructura.build({
     estructura: estructuraR
   });
 
-  espacio.add(function (success) {
+  estructura.add(function (success) {
     res.render( 'web/estructura/list',{ message: 'Esctructura creada!' } );
   },
   function (err) {
