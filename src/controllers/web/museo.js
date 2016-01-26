@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
 
 // Rutas que terminan en /museo
 // POST /museo
@@ -15,7 +15,7 @@ router.post('/', function (req, res) {
   var direccion = req.body.direccion;
   var telefono = req.body.telefono;
 
-  var museo = Museo.Museo.build({
+  var museo = Model.Museo.build({
     museo: museo,
     direccion: direccion,
     telefono:telefono
@@ -31,7 +31,7 @@ router.post('/', function (req, res) {
 // (trae todos los museos)
 // GET /museo
 router.get('/', function (req, res) {
-  var museo = Museo.Museo.build();
+  var museo = Model.Museo.build();
 
   museo.retrieveAll(function (museos) {
     if (museos) {
@@ -47,13 +47,13 @@ router.get('/', function (req, res) {
 // PUT /museo/:museoId
 // Actualiza museo
 router.put('/:museoId', function (req, res) {
-  var museo = Museo.Museo.build();
+  var museo = Model.Museo.build();
   museo.id = req.body.id;
   museo.museo = req.body.museo;
   museo.direccion = req.body.direccion;
   museo.telefono = req.body.telefono;
 
-  museo.updateById(museo.id, museo.museo, museo.direccion, museo.telefono, function (success) {
+  museo.updateById(museo.id,  function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/museo');
@@ -69,7 +69,7 @@ router.put('/:museoId', function (req, res) {
 // GET /museo/:museoId
 // Toma un museo por id
 router.get('/:museoId', function (req, res) {
-  var museo = Museo.Museo.build();
+  var museo = Model.Museo.build();
 
   museo.retrieveById(req.params.museoId, function (museoq) {
     if (museoq) {
@@ -84,7 +84,7 @@ router.get('/:museoId', function (req, res) {
 // DELETE /museo/museoId
 // Borra el museoId
 router.delete('/:museoId', function (req, res) {
-  var museo = Museo.Museo.build();
+  var museo = Model.Museo.build();
 
   museo.removeById(req.params.museoId, function (museo) {
     if (museo) {
