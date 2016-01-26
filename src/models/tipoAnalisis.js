@@ -52,8 +52,6 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (taId, onSuccess, onError) {
-
-
           TipoAnalisis.update({
             tipo: this.tipo, subTipo: this.subTipo, valorPredeterminado: this.valorPredeterminado
           },{ where: { id: this.id } })
@@ -66,9 +64,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'TipoAnalisis',

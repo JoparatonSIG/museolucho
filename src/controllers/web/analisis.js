@@ -7,6 +7,14 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+// (para agregar un nuevo analisis)
+// GET /analisis
+router.get('/add', function (req, res) {
+  var analisis = Model.Analisis.build();
+  res.render('web/analisis/add', { analisis: analisis});
+});
+
+
 // Rutas que terminan en /analisis
 // POST /analisis
 router.post('/', function (req, res) {
@@ -20,24 +28,33 @@ router.post('/', function (req, res) {
   });
 
   analisis.add(function (success) {
-    res.render( 'web/analisis/list',{ message: 'Analisis creado!' } );
+    res.redirect( '/web/analisis');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/web/analisis');
+    // res.send(err);
   });
 });
 // (trae todos los analisis)
 // GET /analisis
 router.get('/', function (req, res) {
   var analisis = Model.Analisis.build();
+  console.log('GET pre Select');
 
   analisis.retrieveAll(function (analisis) {
+    console.log('GET post Select');
     if (analisis) {
+//      console.log(analisis);
+      console.log(analisis[1].TipoAnalisis.id);
+      console.log(analisis[1].TipoAnalisis.tipo);
+      console.log(analisis[1].TipoAnalisis.subtipo);
+
       res.render('web/analisis/list.ejs', { analisiss: analisis});
     } else {
       res.send(401, 'No se encontraron Analisis');
     }
   }, function (error) {
+    console.log(error);
     res.send('Analisis no encontrado');
   });
 });
@@ -85,7 +102,7 @@ router.delete('/:analisisId', function (req, res) {
 
   analisis.removeById(req.params.analisisId, function (analisis) {
     if (analisis) {
-      res.json({ message: 'Analisis borrado!' });
+    res.redirect( '/web/analisis');
     } else {
       res.send(401, 'Analisis no encontrado');
     }

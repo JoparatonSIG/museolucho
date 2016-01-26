@@ -1,4 +1,5 @@
 var crypto = require('crypto');
+var Model = require('./model');
 
 module.exports = function (sequelize, DataTypes) {
   var Usuario = sequelize.define(
@@ -61,7 +62,9 @@ module.exports = function (sequelize, DataTypes) {
     {
       instanceMethods: {
         retrieveAll: function (onSuccess, onError) {
-          Usuario.findAll( { } )
+          Usuario.findAll( {
+            include: [ { Model: Model.Niveles } ]
+          } )
           .then(onSuccess).catch(onError);
         },
         retrieveById: function (userId, onSuccess, onError) {

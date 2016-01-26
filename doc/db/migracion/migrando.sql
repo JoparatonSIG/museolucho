@@ -1,20 +1,3 @@
--- Se carga Niveles
-INSERT INTO
-  museo.Niveles
-   (categoria)
-   VALUES
-   ('admin'),
-   ('empleado'),
-   ('visitante');
--- Se carga Usuarios
-INSERT INTO
-   museo.Usuarios
-    ( idNivel, email, nombre, password )
-    VALUES
-    VALUES
-    ( 1, 'lucho@gmail.com', 'lucho', 'mono' },
-    { 2, 'bolivia@gmail.com', 'bolivia', 'bolivia' },
-    { 2, 'usu1@gmail.com', 'usu1', 'usu1' };
 -- Se carga Obras
 INSERT INTO
   museo.Obras
@@ -31,8 +14,8 @@ INSERT INTO
     funcionOriginal,
     tecnicaMaterial,
     origen,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdIdentificacion,
@@ -58,8 +41,8 @@ INSERT INTO
     id,
     naturaleza,
     codigoNaturaleza,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdNatura,
@@ -187,7 +170,7 @@ UPDATE
 INSERT INTO
        museo.Lugares
        (
-        id, localidad, codigoLocalidad, municipio, provincia, codigoProvincia, departamento, creacion, modifica
+        id, localidad, codigoLocalidad, municipio, provincia, codigoProvincia, departamento, fechaCrea, fechaModifica
         )
 SELECT
       IdLugar, localidad, codigoLocalidad, municipio, provincia, codigoProvincia, departamento, now(), now()
@@ -202,8 +185,8 @@ INSERT INTO
          espacio,
          inmueble,
          propietario,
-         creacion,
-         modifica
+         fechaCrea,
+         fechaModifica
         )
 SELECT
   ori.IdIdentificacion,
@@ -227,8 +210,8 @@ INSERT INTO
     tipo,
     subtipo,
     valorPredeterminado,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdTipo,
@@ -245,15 +228,15 @@ INSERT INTO
   (
     id,
     tecnicaArte,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdTecnica,
     Tecnica,
     now(),
     now()
-FROM boli.tecnicar ori
+FROM bolivia.tecnicar ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -261,8 +244,8 @@ INSERT INTO
   (
     id,
     tecnica,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdTecnica,
@@ -283,8 +266,8 @@ INSERT INTO
     quienCatalogo,
     quienReviso,
     observaciones,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdIdentificacion,
@@ -305,7 +288,7 @@ ORDER BY ori.IdIdentificacion ASC;
 INSERT INTO
        museo.Fotografias
        (
-        id, ObraId, foto, codArchivoFotografico, numRollo, numFoto, fotografo, fecha, creacion, modifica
+        id, ObraId, foto, codArchivoFotografico, numRollo, numFoto, fotografo, fecha, fechaCrea, fechaModifica
         )
 SELECT
       IdFotografías, IdIdentificacion, Foto, CodArchivoFotografico, NumRollo, NumFoto, Fotografo, Fecha, now(), now()
@@ -339,8 +322,8 @@ INSERT INTO
     inmuebles,
     codigoInmueble,
     ubicacionInmueble,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
   IdEspacio,
@@ -369,8 +352,8 @@ INSERT INTO
     peso,
     observaciones,
     descripcion,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
   IdDescripcion,
@@ -399,8 +382,8 @@ INSERT INTO
     ObraId,
     conservacion,
     condicionesSeguridad,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     IdConservacion,
@@ -414,14 +397,16 @@ LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdConservacion ASC;
 
+
+
 INSERT INTO
   museo.Analisis
   (
     analisis,
     ObraId,
     TipoAnalisisId,
-    creacion,
-    modifica
+    fechaCrea,
+    fechaModifica
   )
   SELECT
     Analisis,
@@ -439,7 +424,7 @@ ORDER BY ori.IdIdentificacion ASC;
 INSERT INTO
        museo.Accesorios
        (
-       id, ObraId, objetoCodigo, relacion, creacion, modifica
+       id, ObraId, objetoCodigo, relacion, fechaCrea, fechaModifica
        )
 SELECT
       IdAccesorios, IdIdentificacion, ObjetoCodigo, Relacion, now(), now()

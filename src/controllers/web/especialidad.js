@@ -7,23 +7,34 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+// (para agregar un nuevo especialidad)
+// GET /especialidad
+router.get('/add', function (req, res) {
+  var especialidad = Model.Especialidad.build();
+  res.render('web/especialidad/add', { especialidad: especialidad});
+});
+
 // Rutas que terminan en /especialidad
 // POST /especialidad
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var especialidad = req.body.especialidad;
 
-  var especialidad = Model.Especialdad.build({
+  var especialidad = Model.Especialidad.build({
     especialidad: especialidad
   });
 
   especialidad.add(function (success) {
-    res.render( 'web/especialidad/list',{ message: 'Especialdiad creada!' } );
+    res.redirect( '/web/especialidad');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/web/especialidad');
+    // res.send(err);
   });
 });
+
+
+
 // (trae todas las especialidades)
 // GET /especialidad
 router.get('/', function (req, res) {
@@ -82,7 +93,7 @@ router.delete('/:especialidadId', function (req, res) {
 
   especialidad.removeById(req.params.especialidadId, function (especialidad) {
     if (especialidad) {
-      res.json({ message: 'Especialidad borrada!' });
+      res.redirect( '/web/especialidad');
     } else {
       res.send(401, 'Especialidad no encontrada');
     }

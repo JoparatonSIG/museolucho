@@ -7,6 +7,13 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+// (para agregar un nuevo descripcion)
+// GET /descripcion
+router.get('/add', function (req, res) {
+  var descripcion = Model.Accesorio.build();
+  res.render('web/descripcion/add', { descripcion: descripcion});
+});
+
 // Rutas que terminan en /descripcion
 // POST /descripcion
 router.post('/', function (req, res) {
@@ -38,10 +45,11 @@ router.post('/', function (req, res) {
   });
 
   descripcion.add(function (success) {
-    res.render( 'web/descripcion/list',{ message: 'Descripcion creada!' } );
+    res.redirect( '/web/descripcion');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/web/descripcion');
+    // res.send(err);
   });
 });
 // (trae todas las descripciones)
@@ -112,7 +120,7 @@ router.delete('/:descripcionId', function (req, res) {
 
   descripcion.removeById(req.params.descripcionId, function (descripcion) {
     if (descripcion) {
-      res.json({ message: 'Descripcion borrada!' });
+      res.redirect( '/web/descripcion');
     } else {
       res.send(401, 'Descripcion no encontrada');
     }
