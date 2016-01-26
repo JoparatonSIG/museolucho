@@ -48,15 +48,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-<<<<<<< HEAD
-      createdAt: 'FechaCrea',
-      updatedAt: 'FechaModifica',
-      deletedAt: 'FechaBorra',
-=======
       createdAt: 'fechaCrea',
       updatedAt: 'fechaModifica',
       deletedAt: 'fechaBorra',
->>>>>>> 05eeec5147e320c9706a0d09ab6ff104d6baff87
       underscore: false,
       freezeTableName:true,
       tableName: 'Analisis',
