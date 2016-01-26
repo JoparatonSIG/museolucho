@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(255),
         allowNull: false,
         defaultValue: 'tipo Adquisicion',
-        comment: 'Tipo de Adquisicion de la obra',
+        comment: 'Tipo de Adquisicion de la obra',      
         validate: {
       //    notNull: true,
           notEmpty: true

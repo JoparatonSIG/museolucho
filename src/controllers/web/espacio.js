@@ -7,6 +7,10 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+router.get('/add', function (req, res) {
+  var espacio = Model.Espacio.build();
+  res.render('web/espacio/add', { espacio: espacio });
+});
 // Rutas que terminan en /espacio
 // POST /espacio
 router.post('/', function (req, res) {
@@ -26,10 +30,14 @@ router.post('/', function (req, res) {
   });
 
   espacio.add(function (success) {
-    res.render( 'web/espacio/list',{ message: 'Espacio creado!' } );
+    res.redirect('/web/espacio');
   },
   function (err) {
-    res.send(err);
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
   });
 });
 // (trae todos los espacios)
