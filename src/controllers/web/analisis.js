@@ -42,13 +42,7 @@ router.get('/', function (req, res) {
   console.log('GET pre Select');
 
   analisis.retrieveAll(function (analisis) {
-    console.log('GET post Select');
     if (analisis) {
-//      console.log(analisis);
-      console.log(analisis[1].TipoAnalisis.id);
-      console.log(analisis[1].TipoAnalisis.tipo);
-      console.log(analisis[1].TipoAnalisis.subtipo);
-
       res.render('web/analisis/list.ejs', { analisiss: analisis});
     } else {
       res.send(401, 'No se encontraron Analisis');
