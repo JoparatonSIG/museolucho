@@ -7,6 +7,10 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+router.get('/add', function (req, res) {
+  var espacio = Model.Espacio.build();
+  res.render('web/espacio/add', { espacio: espacio });
+});
 // Rutas que terminan en /espacio
 // POST /espacio
 router.post('/', function (req, res) {
@@ -26,10 +30,14 @@ router.post('/', function (req, res) {
   });
 
   espacio.add(function (success) {
-    res.render( 'web/espacio/list',{ message: 'Espacio creado!' } );
+    res.redirect('/web/espacio');
   },
   function (err) {
-    res.send(err);
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
   });
 });
 // (trae todos los espacios)
@@ -91,15 +99,21 @@ router.get('/:espacioId', function (req, res) {
 // Borra el espacioId
 router.delete('/:espacioId', function (req, res) {
   var espacio = Model.Espacio.build();
+  espacio.id=req.body.id;
+  espacio.removeById(
+  function (success) {
 
-  espacio.removeById(req.params.espacioId, function (espacio) {
-    if (espacio) {
-      res.json({ message: 'Espacio borrado!' });
+    console.log(success);
+    if (success) {
+      res.redirect('/web/espacio');
     } else {
-      res.send(401, 'Espacio no encontrado');
+      console.log(success);
+      res.send(401, 'Espacio no encontrada');
     }
-  }, function (error) {
-    res.send('Espacio no encontrado');
+  }
+
+  , function (error) {
+    res.send('Espacio no encontrada');
   });
 });
 
