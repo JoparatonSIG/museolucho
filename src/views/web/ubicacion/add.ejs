@@ -1,0 +1,33 @@
+<form id="topicForm" method="post" action="/web/ubicacion/ %>" >
+    <table class="table table-bordred table-striped">
+      <thead>
+        <tr>
+          <th class="cell-stat text-center">espacio</th>
+          <th class="cell-stat text-center">inmueble</th>
+          <th class="cell-stat text-center">propietario</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="text-center">
+              <label for="espacio" class="control-label">Espacio</label>
+              <input type="text" class="form-control" id="espacio" name="espacio" value="<%=ubicacion.espacio%>" required="true" title="Ingrese espacio" placeholder="<espacio>">
+              <%= ubicacion.espacio %>
+            </td>
+            <td class="text-center">
+              <label for="inmueble" class="control-label">Inmueble</label>
+              <input type="text" class="form-control" id="inmueble" name="inmueble" value="<%=ubicacion.inmueble%>" required="true" title="Ingrese inmueble" placeholder="<inmueble>">
+              <%= ubicacion.inmueble %>
+            </td>
+            <td class="text-center">
+              <label for="propietario" class="control-label">propietario</label>
+              <input type="text" class="form-control" id="propietario" name="propietario" value="<%=ubicacion.propietario%>" required="true" title="Ingrese propietario" placeholder="<propietario>">
+              <%= ubicacion.propietario %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>

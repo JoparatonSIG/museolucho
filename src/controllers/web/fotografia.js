@@ -7,6 +7,12 @@ var router = express.Router();
 
 var Museo = require('../../models/model');
 
+// (trae todos los museos)
+// GET /tipoanalisis
+router.get('/add', function (req, res) {
+  var museo = Model.Museo.build();
+  res.render('web/fotografia/add', { museo: museo});
+});
 // Rutas que terminan en /fotografia
 // POST /fotografia
 router.post('/', function (req, res) {

@@ -9,9 +9,9 @@
         <th class="cell-stat text-center">espacio</th>
         <th class="cell-stat text-center">inmueble</th>
         <th class="cell-stat text-center">propietario</th>
-        <th class="cell-stat text-center">creacion</th>
-        <th class="cell-stat text-center">modifica</th>
-        <th class="cell-stat text-center">borrado</th>
+        <th class="cell-stat text-center">fechaCrea</th>
+        <th class="cell-stat text-center">fechaModifica</th>
+        <th class="cell-stat text-center">fechaBorra</th>
         <th class="cell-stat text-center">Accion</th>
         <th class="cell-stat text-center">Accion</th>
       </tr>
@@ -36,12 +36,12 @@
             <input type="text" class="form-control" id="propietario" name="propietario" value="<%=ubicacion.propietario%>" required="true" title="Ingrese ubicacion" placeholder="<propietario>">
             <%= ubicacion.propietario %>
           </td>
-          <td class="text-center"><%= ubicacion.creacion %></td>
-          <td class="text-center"><%= ubicacion.modifica %></td>
-          <td class="text-center"><%= ubicacion.borrado %></td>
+          <td class="text-center"><%= ubicacion.fechaCrea %></td>
+          <td class="text-center"><%= ubicacion.fechaModifica %></td>
+          <td class="text-center"><%= ubicacion.fechaBorra %></td>
           <td>
             <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
-              Modificar
+              fechaModificar
             </button>
           </td>
           <td>

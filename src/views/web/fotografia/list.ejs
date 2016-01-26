@@ -1,3 +1,8 @@
+<a href="/web/fotografia/add %>" class="btn btn-info" role="button">
+  <p data-placement="top" data-toggle="tooltip" title="Edit">
+    <button type="button" class="btn btn-info">Agregar</button>
+  </p>
+</a>
 <table class="table table-bordred table-striped">
   <thead>
     <tr>
@@ -8,10 +13,9 @@
       <th class="cell-stat text-center">numFoto</th>
       <th class="cell-stat text-center">fotografo</th>
       <th class="cell-stat text-center">fecha</th>
-      <th class="cell-stat text-center">creacion</th>
-      <th class="cell-stat text-center">modifica</th>
-      <th class="cell-stat text-center">borrado</th>
-      <th class="cell-stat text-center">ObraId</th>
+      <th class="cell-stat text-center">fechaCrea</th>
+      <th class="cell-stat text-center">fechaModifica</th>
+      <th class="cell-stat text-center">fechaBorra</th>
       <th class="cell-stat text-center">Accion</th>
       <th class="cell-stat text-center">Accion</th>
     </tr>
@@ -26,10 +30,9 @@
         <td class="text-center"><%= fotografias[i].numFoto %></td>
         <td class="text-center"><%= fotografias[i].fotografo %></td>
         <td class="text-center"><%= fotografias[i].fecha %></td>
-        <td class="text-center"><%= fotografias[i].creacion %></td>
-        <td class="text-center"><%= fotografias[i].modifica %></td>
-        <td class="text-center"><%= fotografias[i].borrado %></td>
-        <td class="text-center"><%= fotografias[i].ObraId %></td>
+        <td class="text-center"><%= fotografias[i].fechaCrea %></td>
+        <td class="text-center"><%= fotografias[i].fechaModifica %></td>
+        <td class="text-center"><%= fotografias[i].fechaBorra %></td>
         <td>
           <a href="/web/fotografia/<%= fotografias[i].id %>" class="btn btn-info" role="button">
             <p data-placement="top" data-toggle="tooltip" title="Edit">
@@ -38,11 +41,15 @@
           </a>
         </td>
         <td>
-          <a href="/web/fotografia/<%= fotografias[i].id %>" class="btn btn-info" role="button">
-            <p data-placement="top" data-toggle="tooltip" title="Edit">
-              <button type="button" class="btn btn-info">Delete</button>
+          <form id="topicForm" method="post" action="/web/fotografia/<%= fotografias[i].id %>" >
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="id" value="<%= fotografias[i].id %>">
+            <p data-placement="top" data-toggle="tooltip" title="Delete">
+              <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+                Delete
+              </button>
             </p>
-          </a>
+          </form>
         </td>
       </tr>
     <% } %>

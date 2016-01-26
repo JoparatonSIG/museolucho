@@ -12,9 +12,9 @@
         <th class="cell-stat text-center">numFoto</th>
         <th class="cell-stat text-center">fotografo</th>
         <th class="cell-stat text-center">fecha</th>
-        <th class="cell-stat text-center">creacion</th>
-        <th class="cell-stat text-center">modifica</th>
-        <th class="cell-stat text-center">borrado</th>
+        <th class="cell-stat text-center">fechaCrea</th>
+        <th class="cell-stat text-center">fechaModifica</th>
+        <th class="cell-stat text-center">fechaBorra</th>
         <th class="cell-stat text-center">Accion</th>
         <th class="cell-stat text-center">Accion</th>
       </tr>
@@ -54,12 +54,12 @@
             <input type="text" class="form-control" id="fecha" name="fecha" value="<%=fotografia.fecha%>" required="true" title="Ingrese fecha" placeholder="<fecha>">
             <%= fotografia.fecha %>
           </td>
-          <td class="text-center"><%= fotografia.creacion %></td>
-          <td class="text-center"><%= fotografia.modifica %></td>
-          <td class="text-center"><%= fotografia.borrado %></td>
+          <td class="text-center"><%= fotografia.fechaCrea %></td>
+          <td class="text-center"><%= fotografia.fechaModifica %></td>
+          <td class="text-center"><%= fotografia.fechaBorra %></td>
           <td>
             <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
-              Modificar
+              fechaModificar
             </button>
           </td>
           <td>
