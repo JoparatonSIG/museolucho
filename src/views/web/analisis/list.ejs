@@ -21,7 +21,11 @@
     <% var i; for (i=0; i < analisiss.length; i++) { %>
       <tr>
         <td class="text-center"><%= analisiss[i].id %></td>
-        <td class="text-center"><%= analisiss[i].TipoAnalisis.tipo %></td>
+        <% if (analisiss[i].TipoAnalisis == null)  {%>
+          <td class="text-center">sin tipo</td>
+        <% } else { %>
+          <td class="text-center"><%= analisiss[i].TipoAnalisis.tipo %></td>
+        <% }%>
         <td class="text-center"><%= analisiss[i].analisis %></td>
         <td class="text-center"><%= analisiss[i].ObraId %></td>
         <td class="text-center"><%= analisiss[i].fechaCrea %></td>
