@@ -1,3 +1,5 @@
+var Model = require('./model');
+
 module.exports = function (sequelize, DataTypes) {
   var Analisis = sequelize.define(
     'Analisis',
@@ -11,8 +13,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       instanceMethods: {
+
         retrieveAll: function (onSuccess, onError) {
-          Analisis.findAll( { } )
+          Analisis.findAll( {
+            include: [ Model.TipoAnalisis ]
+           } )
           .then(onSuccess).catch(onError);
         },
         retrieveById: function (analisisId, onSuccess, onError) {
@@ -43,9 +48,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Analisis',

@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th class="cell-stat text-center">id</th>
+      <th class="cell-stat text-center">Tipo Analisis</th>
       <th class="cell-stat text-center">analisis</th>
       <th class="cell-stat text-center">ObraId</th>
       <th class="cell-stat text-center">creacion</th>
@@ -20,11 +21,12 @@
     <% var i; for (i=0; i < analisiss.length; i++) { %>
       <tr>
         <td class="text-center"><%= analisiss[i].id %></td>
+        <td class="text-center"><%= analisiss[i].TipoAnalisis.tipo %></td>
         <td class="text-center"><%= analisiss[i].analisis %></td>
         <td class="text-center"><%= analisiss[i].ObraId %></td>
-        <td class="text-center"><%= analisiss[i].creacion %></td>
-        <td class="text-center"><%= analisiss[i].modifica %></td>
-        <td class="text-center"><%= analisiss[i].borrado %></td>
+        <td class="text-center"><%= analisiss[i].fechaCrea %></td>
+        <td class="text-center"><%= analisiss[i].fechaModifica %></td>
+        <td class="text-center"><%= analisiss[i].fechaBorra %></td>
         <td>
           <a href="/web/analisis/<%= analisiss[i].id %>" class="btn btn-info" role="button">
             <p data-placement="top" data-toggle="tooltip" title="Edit">
