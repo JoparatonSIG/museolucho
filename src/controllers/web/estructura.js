@@ -101,4 +101,3 @@ router.delete('/:estructuraId', function (req, res) {
 
 
 module.exports = router;
-}
