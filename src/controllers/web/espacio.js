@@ -99,15 +99,21 @@ router.get('/:espacioId', function (req, res) {
 // Borra el espacioId
 router.delete('/:espacioId', function (req, res) {
   var espacio = Model.Espacio.build();
+  espacio.id=req.body.id;
+  espacio.removeById(
+  function (success) {
 
-  espacio.removeById(req.params.espacioId, function (espacio) {
-    if (espacio) {
-      res.json({ message: 'Espacio borrado!' });
+    console.log(success);
+    if (success) {
+      res.redirect('/web/espacio');
     } else {
-      res.send(401, 'Espacio no encontrado');
+      console.log(success);
+      res.send(401, 'Espacio no encontrada');
     }
-  }, function (error) {
-    res.send('Espacio no encontrado');
+  }
+
+  , function (error) {
+    res.send('Espacio no encontrada');
   });
 });
 
