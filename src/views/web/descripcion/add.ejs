@@ -1,0 +1,81 @@
+<form id="topicForm" method="post" action="/web/descripcion/<%= descripcion.id %>" >
+    <table class="table table-bordred table-striped">
+      <thead>
+        <tr>
+          <th class="cell-stat text-center">marcasInscripciones</th>
+          <th class="cell-stat text-center">alto</th>
+          <th class="cell-stat text-center">ancho</th>
+          <th class="cell-stat text-center">longitud</th>
+          <th class="cell-stat text-center">profundidad</th>
+          <th class="cell-stat text-center">diametro</th>
+          <th class="cell-stat text-center">espesor</th>
+          <th class="cell-stat text-center">peso</th>
+          <th class="cell-stat text-center">observaciones</th>
+          <th class="cell-stat text-center">descripcion</th>
+
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="text-center">
+              <label for="marcasInscripciones" class="control-label">marcasInscripciones</label>
+              <input type="text" class="form-control" id="marcasInscripciones" name="marcasInscripciones" value="<%=descripcion.marcasInscripciones%>" required="true" title="Ingrese marcasInscripciones" placeholder="<marcasInscripciones>">
+              <%= descripcion.marcasInscripciones %>
+            </td>
+            <td class="text-center">
+              <label for="alto" class="control-label">alto</label>
+              <input type="text" class="form-control" id="alto" name="alto" value="<%=descripcion.alto%>" required="true" title="Ingrese alto" placeholder="<alto>">
+              <%= descripcion.alto %>
+            </td>
+            <td class="text-center">
+              <label for="ancho" class="control-label">ancho</label>
+              <input type="text" class="form-control" id="ancho" name="ancho" value="<%=descripcion.ancho%>" required="true" title="Ingrese ancho" placeholder="<ancho>">
+              <%= descripcion.ancho %>
+            </td>
+            <td class="text-center">
+              <label for="longitud" class="control-label">longitud</label>
+              <input type="text" class="form-control" id="longitud" name="longitud" value="<%=descripcion.longitud%>" required="true" title="Ingrese longitud" placeholder="<longitud>">
+              <%= descripcion.longitud %>
+            </td>
+          </td>
+          <td class="text-center">
+            <label for="profuncidad" class="control-label">Profundidad</label>
+            <input type="text" class="form-control" id="profundidad" name="profundidad" value="<%=descripcion.profundidad%>" required="true" title="Ingrese profundidad" placeholder="<profundidad>">
+            <%= descripcion.profundidad %>
+          </td>
+          </td>
+          <td class="text-center">
+            <label for="diametro" class="control-label">diametro</label>
+            <input type="text" class="form-control" id="diametro" name="diametro" value="<%=descripcion.diametro%>" required="true" title="Ingrese diametro" placeholder="<diametro>">
+            <%= descripcion.diametro %>
+          </td>
+          </td>
+          <td class="text-center">
+            <label for="espesor" class="control-label">espesor</label>
+            <input type="text" class="form-control" id="espesor" name="espesor" value="<%=descripcion.espesor%>" required="true" title="Ingrese espesor" placeholder="<espesor>">
+            <%= descripcion.espesor %>
+          </td>
+          </td>
+          <td class="text-center">
+            <label for="peso" class="control-label">peso</label>
+            <input type="text" class="form-control" id="peso" name="peso" value="<%=descripcion.peso%>" required="true" title="Ingrese peso" placeholder="<peso>">
+            <%= descripcion.peso %>
+          </td>
+          </td>
+          <td class="text-center">
+            <label for="observaciones" class="control-label">observaciones</label>
+            <input type="text" class="form-control" id="observaciones" name="descripcion.observaciones" value="<%=descripcion.observaciones%>" required="true" title="Ingrese observaciones" placeholder="<observaciones>">
+            <%= descripcion.observaciones %>
+          </td>
+          <td class="text-center">
+          <label for="descripcion" class="control-label">descripcion</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" value="<%=descripcion.descripcion%>" required="true" title="Ingrese descripcion" placeholder="<descripcion>">
+            <%= descripcion.descripcion %>
+          </td>
+          </tr>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>
