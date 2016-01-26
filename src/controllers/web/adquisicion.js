@@ -28,10 +28,16 @@ router.post('/', function (req, res) {
   });
 
   adquisicion.add(function (success) {
-    res.redirect( '/web/adquisicion');
+    res.redirect('/web/adquisicion');
   },
   function (err) {
-    res.redirect( '/web/adquisicion');
+    //res.redirect('/web/adquisicion');
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  //  res.send('Adquisicion no encontrada');
   });
 });
 // (trae todas las adquisiciones)
