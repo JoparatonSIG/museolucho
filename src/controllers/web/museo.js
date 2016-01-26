@@ -29,10 +29,10 @@ router.post('/', function (req, res) {
   });
 
   museo.add(function (success) {
-    res.redirect( '/');
+    res.redirect( '/web/museo');
   },
   function (err) {
-    res.redirect( '/');
+    res.redirect( '/web/museo');
     // res.send(err);
   });
 });

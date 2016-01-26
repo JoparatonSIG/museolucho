@@ -7,6 +7,14 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+
+// (para agregar un nuevo accesorio)
+// GET /accesorio
+router.get('/add', function (req, res) {
+  var accesorio = Model.Accesorio.build();
+  res.render('web/accesorio/add', { accesorio: accesorio});
+});
+
 // Rutas que terminan en /accesorio
 // POST /accesorio
 router.post('/', function (req, res) {
@@ -20,10 +28,11 @@ router.post('/', function (req, res) {
   });
 
   accesorio.add(function (success) {
-    res.render( 'web/accesorio/list',{ message: 'Accesorio creado!' } );
+    res.redirect( '/web/accesorio');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/web/accesorio');
+    // res.send(err);
   });
 });
 // (trae todos los accesorios)
@@ -85,7 +94,7 @@ router.delete('/:accesorioId', function (req, res) {
 
   accesorio.removeById(req.params.accesorioId, function (accesorio) {
     if (accesorio) {
-      res.json({ message: 'Accesorio borrado!' });
+      res.redirect( '/web/accesorio');
     } else {
       res.send(401, 'Accesorio no encontrado');
     }
