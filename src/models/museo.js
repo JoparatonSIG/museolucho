@@ -91,15 +91,7 @@ module.exports = function (sequelize, DataTypes) {
       underscore: false,
       freezeTableName:true,
       tableName: 'Museos',
-      comment: 'Museo rera',
-      indexes: [
-        {
-          name: 'idxMuseo',
-          method: 'BTREE',
-          unique: true,
-          fields: ['museo']
-        }
-      ]
+      comment: 'Museo rera'
     }
   );
   return Museo;

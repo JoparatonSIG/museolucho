@@ -52,8 +52,6 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (taId, onSuccess, onError) {
-
-
           TipoAnalisis.update({
             tipo: this.tipo, subTipo: this.subTipo, valorPredeterminado: this.valorPredeterminado
           },{ where: { id: this.id } })
