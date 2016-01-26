@@ -5,7 +5,14 @@
 var express = require('express');
 var router = express.Router();
 
-var Museo = require('../../models/model');
+var Model = require('../../models/model');
+
+// (trae todos las ubicaciones)
+// GET /ubicacion
+router.get('/add', function (req, res) {
+  var ubicacion = Model.Ubicacion.build();
+  res.render('web/ubicacion/add', { ubicacion: ubicacion});
+});
 
 // Rutas que terminan en /ubicacion
 // POST /ubicacion
@@ -15,27 +22,28 @@ router.post('/', function (req, res) {
   var inmueble = req.body.inmueble;
   var propietario = req.body.propietario;
 
-  var ubicaciones = Museo.Ubicacion.build({
+  var ubicacion = Model.Ubicacion.build({
     espacio: espacio,
     inmueble: inmueble,
-    propietario: propietario,
+    propietario:propietario
   });
 
   ubicacion.add(function (success) {
-    res.render( 'web/ubicacion/list',{ message: 'Ubicacion creada!' } );
+    res.redirect( '/');
   },
   function (err) {
-    res.send(err);
+    res.redirect( '/');
+    // res.send(err);
   });
 });
-// (trae todas las ubicaciones)
-// GET /ubicaciones
+// (trae todos los ubicaciones)
+// GET /ubicacion
 router.get('/', function (req, res) {
-  var ubicacion = Museo.Ubicacion.build();
+  var ubicacion = Model.Ubicacion.build();
 
   ubicacion.retrieveAll(function (ubicaciones) {
     if (ubicaciones) {
-      res.render('web/ubicacion/list.ejs', { ubicaciones: ubicaciones});
+      res.render('web/ubicacion/list', { ubicaciones: ubicaciones});
     } else {
       res.send(401, 'No se encontraron ubicaciones');
     }
@@ -47,17 +55,13 @@ router.get('/', function (req, res) {
 // PUT /ubicacion/:ubicacionId
 // Actualiza ubicacion
 router.put('/:ubicacionId', function (req, res) {
-  var ubicacion = Museo.Ubicacion.build();
-  console.log('ingresa al put');
+  var ubicacion = Model.Ubicacion.build();
   ubicacion.id = req.body.id;
   ubicacion.espacio = req.body.espacio;
   ubicacion.inmueble = req.body.inmueble;
   ubicacion.propietario = req.body.propietario;
 
-
-  console.log('ingresa al put: pre update');
-
-  ubicacion.updateById(ubicacion.id, function (success) {
+  ubicacion.updateById(ubicacion.id,  function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/ubicacion');
@@ -71,9 +75,9 @@ router.put('/:ubicacionId', function (req, res) {
   });
 });
 // GET /ubicacion/:ubicacionId
-// Toma una ubicacion por id
+// Toma un ubicacion por id
 router.get('/:ubicacionId', function (req, res) {
-  var ubicacion = Museo.Ubicacion.build();
+  var ubicacion = Model.Ubicacion.build();
 
   ubicacion.retrieveById(req.params.ubicacionId, function (ubicacionq) {
     if (ubicacionq) {
@@ -88,11 +92,11 @@ router.get('/:ubicacionId', function (req, res) {
 // DELETE /ubicacion/ubicacionId
 // Borra el ubicacionId
 router.delete('/:ubicacionId', function (req, res) {
-  var ubicacion = Museo.Ubicacion.build();
-
+  var ubicacion = Model.Ubicacion.build();
+  console.log(req.params);
   ubicacion.removeById(req.params.ubicacionId, function (ubicacion) {
     if (ubicacion) {
-      res.json({ message: 'Ubicacion borrada!' });
+      res.redirect('/web/ubicacion');
     } else {
       res.send(401, 'Ubicacion no encontrada');
     }
