@@ -13,10 +13,17 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       instanceMethods: {
-
         retrieveAll: function (onSuccess, onError) {
           Analisis.findAll( {
             include: [ Model.TipoAnalisis ]
+           } )
+          .then(onSuccess).catch(onError);
+        },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Analisis.findAndCountAll( {
+            include: [ Model.TipoAnalisis ],
+            offset: initial,
+            limit: offsetPage
            } )
           .then(onSuccess).catch(onError);
         },

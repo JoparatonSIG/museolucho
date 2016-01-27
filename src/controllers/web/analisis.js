@@ -50,11 +50,27 @@ router.post('/', function (req, res) {
 // GET /analisis
 router.get('/', function (req, res) {
   var analisis = Model.Analisis.build();
-  console.log('GET pre Select');
+  console.log('GET Paginado pre Select');
 
-  analisis.retrieveAll(function (analisis) {
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  analisis.retrievePag(initial, offset, limitPage, currentPage, function (analisis) {
     if (analisis) {
-      res.render('web/analisis/list.ejs', { analisiss: analisis});
+      var totalPage = analisis.count/limitPage;
+      res.render('web/analisis/list.ejs', {
+        analisiss: analisis.rows,
+        activePage: currentPage,
+        totalPage: totalPage
+      });
     } else {
       res.send(401, 'No se encontraron Analisis');
     }
