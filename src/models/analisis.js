@@ -28,10 +28,9 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         },
         add: function (onSuccess, onError) {
-          var analisis = this.analisis;
-
           Analisis.build({
-            analisis: analisis
+            analisis: this.analisis,
+            TipoAnalisisId: this.TipoAnalisisId
           })
           .save().then(onSuccess).catch(onError);
         },

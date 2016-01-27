@@ -10,8 +10,20 @@ var Model = require('../../models/model');
 // (para agregar un nuevo analisis)
 // GET /analisis
 router.get('/add', function (req, res) {
-  var analisis = Model.Analisis.build();
-  res.render('web/analisis/add', { analisis: analisis});
+  var tipoAnalisisDB = Model.TipoAnalisis.build();
+  var analisisDB = Model.Analisis.build();
+
+  tipoAnalisisDB.retrieveAll(function (tipoanalisisQ) {
+    if (tipoanalisisQ) {
+        res.render('web/analisis/add', {
+            analisisJ: analisisDB,
+            selectJ: tipoanalisisQ
+          });
+    }
+  }, function (error) {
+    res.send('Analisis no encontrado');
+    }
+  );
 });
 
 
@@ -19,15 +31,14 @@ router.get('/add', function (req, res) {
 // POST /analisis
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
-  var analisis = req.body.analisis;
-  var ObraId = req.body.ObraId;
-
-  var analisis = Model.Analisis.build({
-    analisis: analisis,
-    ObraId: ObraId
+  console.log(req.body);
+  var analisisDB = Model.Analisis.build({
+    analisis: req.body.analisis,
+    TipoAnalisisId: req.body.selectJ,
+    ObraId: req.body.ObraId
   });
 
-  analisis.add(function (success) {
+  analisisDB.add(function (success) {
     res.redirect( '/web/analisis');
   },
   function (err) {
