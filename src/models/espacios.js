@@ -53,6 +53,13 @@ module.exports = function (sequelize, DataTypes) {
           Espacio.find( { where: { id: espacioId } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Espacio.findAndCountAll( {          
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         add: function (onSuccess, onError) {
           var espacio = this.espacio;
           var codigoEspacio = this.codigoEspacio;

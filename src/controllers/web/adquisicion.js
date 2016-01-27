@@ -68,10 +68,6 @@ router.get('/', function (req, res) {
         limitPage: limitPage
       });
 
-/*  adquisicion.retrieveAll(function (adquisiciones) {
-    if (adquisiciones) {
-      res.render('web/adquisicion/list.ejs', { adquisiciones: adquisiciones});
-*/
 
     } else {
       res.send(401, 'No se encontraron Adquisiciones');

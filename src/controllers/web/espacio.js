@@ -45,10 +45,31 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var espacio = Model.Espacio.build();
 
-  espacio.retrieveAll(function (espacios) {
-    if (espacios) {
-      res.render('web/espacio/list', { espacios: espacios});
-    } else {
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  espacio.retrievePag(initial, offset, limitPage, currentPage, function (espacio) {
+    if (espacio) {
+      var totalPage = espacio.count/limitPage;
+      var count = espacio.count
+      res.render('web/espacio/list.ejs', {
+        espacios: espacio.rows,
+        activePage: currentPage,
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
+      });
+    }
+
+   else {
       res.send(401, 'No se encontraron Espacios');
     }
   }, function (error) {
