@@ -11,7 +11,7 @@ var Model = require('../../models/model');
 // GET /fotografia
 router.get('/add', function (req, res) {
   var fotografia = Model.Fotografia.build();
-  res.render('web/fotografia/add', { fotografias: fotografia});
+  res.render('web/fotografia/add', { fotografiass: fotografia});
 });
 
 // Rutas que terminan en /fotografia
@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
   var fotografo = req.body.fotografo;
   var fecha = req.body.fecha;
 
-  var fotografia = Model.fotografias.build({
+  var fotografia = Model.Fotografia.build({
     foto: foto,
     codArchivoFotografico: codArchivoFotografico,
     numRollo:numRollo,
@@ -49,7 +49,7 @@ router.get('/', function (req, res) {
 
   fotografia.retrieveAll(function (fotografias) {
     if (fotografias) {
-      res.render('web/fotografia/list', { fotografias: fotografias});
+      res.render('web/fotografia/list', { fotografiass: fotografias});
     } else {
       res.send(401, 'No se encontraron Fotografias');
     }
