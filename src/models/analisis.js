@@ -21,7 +21,10 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         },
         retrieveById: function (analisisId, onSuccess, onError) {
-          Analisis.find( { where: { id: analisisId } }, { raw: true })
+          Analisis.find( {
+            include: [ Model.TipoAnalisis ],
+            where: { id: analisisId }
+          }, { raw: true })
           .then(onSuccess).catch(onError);
         },
         add: function (onSuccess, onError) {
@@ -33,12 +36,10 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (analisisId, onSuccess, onError) {
-          var id = analisisId;
-          var analisis = this.analisis;
-
           Analisis.update({
-            analisis: analisis
-          },{ where: { id: id } })
+            analisis: this.analisis,
+            TipoAnalisisId: this.TipoAnalisisId
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (analisisId, onSuccess, onError) {
