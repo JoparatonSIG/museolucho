@@ -59,8 +59,10 @@ router.put('/:analisisId', function (req, res) {
   var analisis = Model.Analisis.build();
   console.log('ingresa al put');
 
+  analisis.id = req.body.id;
   analisis.analisis = req.body.analisis;
   analisis.ObraId = req.body.ObraId;
+  analisis.TipoAnalisisId = req.body.tipoAnalisisSele;
   console.log('ingresa al put: pre update');
 
   analisis.updateById(req.params.analisisId, function (success) {
@@ -77,17 +79,31 @@ router.put('/:analisisId', function (req, res) {
 // GET /analisis/:analisisId
 // Toma un analisis por id
 router.get('/:analisisId', function (req, res) {
+  var tipoAnalisis = Model.TipoAnalisis.build();
   var analisis = Model.Analisis.build();
 
-  analisis.retrieveById(req.params.analisisId, function (analisisq) {
-    if (analisisq) {
-      res.render('web/analisis/edit', {analisis:analisisq});
+  tipoAnalisis.retrieveAll(function (tipoanalisis) {
+    if (tipoanalisis) {
+      analisis.retrieveById(req.params.analisisId, function (analisisq) {
+        if (analisisq) {
+          res.render('web/analisis/edit', {
+                      analisis:analisisq,
+                      select: tipoanalisis
+                    });
+        } else {
+          res.send(401, 'Analisis no encontrado');
+        }
+      }, function (error) {
+        res.send('Analisis no encontrado');
+      });
     } else {
-      res.send(401, 'Analisis no encontrado');
+      res.send(401, 'No se encontraron Analisis');
     }
   }, function (error) {
+    console.log(error);
     res.send('Analisis no encontrado');
   });
+
 });
 // DELETE /analisis/analisisId
 // Borra el analisisId
