@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(255),
         allowNull: false,
         defaultValue: 'tipo Adquisicion',
-        comment: 'Tipo de Adquisicion de la obra',      
+        comment: 'Tipo de Adquisicion de la obra',
         validate: {
       //    notNull: true,
           notEmpty: true
@@ -44,6 +44,13 @@ module.exports = function (sequelize, DataTypes) {
       instanceMethods: {
         retrieveAll: function (onSuccess, onError) {
           Adquisicion.findAll( { } )
+          .then(onSuccess).catch(onError);
+        },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Adquisicion.findAndCountAll( {          
+            offset: initial,
+            limit: offsetPage
+           } )
           .then(onSuccess).catch(onError);
         },
         retrieveById: function (adquisicionId, onSuccess, onError) {
