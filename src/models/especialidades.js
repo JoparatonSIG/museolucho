@@ -25,6 +25,13 @@ module.exports = function (sequelize, DataTypes) {
           Especialidad.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Especialidad.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (especialidadId, onSuccess, onError) {
           Especialidad.find( { where: { id: especialidadId } }, { raw: true })
           .then(onSuccess).catch(onError);

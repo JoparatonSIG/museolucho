@@ -33,39 +33,37 @@ router.post('/', function (req, res) {
   });
 });
 
-
-
 // (trae todas las especialidades)
-// GET /especialidad
+// GET /especialidades
 router.get('/', function (req, res) {
   var especialidad = Model.Especialidad.build();
 
-  especialidad.retrieveAll(function (especialidades) {
-    if (especialidades) {
-      res.render('web/especialidad/list.ejs', { especialidades: especialidades});
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  especialidad.retrievePag(initial, offset, limitPage, currentPage, function (especialidad) {
+    if (especialidad) {
+      var totalPage = especialidad.count/limitPage;
+      var count = especialidad.count
+      res.render('web/especialidad/list.ejs', {
+        especialidades: especialidad.rows,
+        activePage: currentPage,
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
+      });
+
+
     } else {
       res.send(401, 'No se encontraron Especialidades');
-    }
-  }, function (error) {
-    res.send('Especialidad no encontrada');
-  });
-});
-// Rutas que terminan en /especialidad/:especialidadId
-// PUT /especialidad/:especialidadId
-// Actualiza especialidad
-router.put('/:especialidadId', function (req, res) {
-  var especialidad = Model.Especialidad.build();
-  console.log('ingresa al put');
-
-  especialidad.especialidad = req.body.especialidad;
-  console.log('ingresa al put: pre update');
-
-  especialidad.updateById(req.params.especialidadId, function (success) {
-    console.log(success);
-    if (success) {
-      res.redirect('/web/especialidad');
-    } else {
-      res.send(401, 'Especialidad no encontrada');
     }
   }, function (error) {
     res.send('Especialidad no encontrada');
