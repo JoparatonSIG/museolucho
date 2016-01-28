@@ -51,4 +51,9 @@ config.db.storage  = process.env.DATABASE_STORAGE || 'museo.sqlite';
 
 config.logging        = process.env.LOGGING || false;
 
+/***
+* Key para usuarios
+*/
+config.key            = process.env.KEY || '2b5deeee-c5f6-11e5-bbc1-6002925d298e';
+
 module.exports = config;

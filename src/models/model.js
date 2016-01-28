@@ -1,4 +1,8 @@
 'use strict';
+var crypto = require('crypto');
+var config = require('../config/config');
+
+var key = config.key;
 
 var path = require('path');
 var config = require('../config/config');
@@ -218,9 +222,9 @@ sequelize.sync().then(function () {
         if (count === 0) {
           Usuario.bulkCreate(
           [
-            { email: 'admin@gmail.com', nombre: 'admin', password: 'admin',NivelId: 1 },
-            { email: 'usu@gmail.com', nombre: 'usu', password: 'usu',NivelId: 2 },
-            { email: 'usu1@gmail.com', nombre: 'usu1', password: 'usu1',NivelId: 2 }
+            { email: 'admin@gmail.com', nombre: 'admin', password: crypto.createHmac('sha1', key).update('123456').digest('hex') ,NivelId: 1 },
+            { email: 'usu@gmail.com', nombre: 'usu', password: crypto.createHmac('sha1', key).update('123456').digest('hex') ,NivelId: 2 },
+            { email: 'usu1@gmail.com', nombre: 'usu1', password: crypto.createHmac('sha1', key).update('123456').digest('hex') ,NivelId: 2 }
           ]
           ).then(function () {
             console.log('Base de datos (tabla Niveles) inicializada');
