@@ -49,6 +49,7 @@ var nivelWeb = require('./controllers/web/nivel');
 var usuarioWeb = require('./controllers/web/usuario');
 var intervencionWeb = require('./controllers/web/intervencion');
 var conservacionWeb = require('./controllers/web/conservacion');
+var lugarWeb = require('./controllers/web/lugar');
 
 require('./config/passport')(passport);
 
@@ -157,6 +158,7 @@ routerWeb.use( '/nivel', nivelWeb);
 routerWeb.use( '/usuario', usuarioWeb);
 routerWeb.use( '/intervencion', intervencionWeb);
 routerWeb.use( '/conservacion', conservacionWeb);
+routerWeb.use( '/lugar', lugarWeb);
 
 
 app.use( '/api', router );
