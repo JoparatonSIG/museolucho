@@ -1,25 +1,19 @@
 <form id="topicForm" method="post" action="/web/accesorio/<%= accesorio.id %>" >
     <table class="table table-bordred table-striped">
-      <thead>
-        <tr>
-          <th class="cell-stat text-center">objetoCodigo</th>
-          <th class="cell-stat text-center">Relacion</th>
-
-        </tr>
-      </thead>
       <tbody>
-          <tr>
+        <tr>
+          <td class="cell-stat text-center">objetoCodigo</td>
             <td class="text-center">
-              <label for="objetoCodigo" class="control-label">objetoCodigo</label>
               <input type="text" class="form-control" id="objetoCodigo" name="objetoCodigo" value="<%=accesorio.objetoCodigo%>" required="true" title="Ingrese objetoCodigo" placeholder="<objetoCodigo>">
               <%= accesorio.objetoCodigo %>
             </td>
+        </tr>
+          <tr>
+          <td class="cell-stat text-center">Relacion</td>
             <td class="text-center">
-              <label for="Relacion" class="control-label">Relacion</label>
               <input type="text" class="form-control" id="Relacion" name="Relacion" value="<%=accesorio.Relacion%>" required="true" title="Ingrese Relacion" placeholder="<Relacion>">
               <%= accesorio.Relacion %>
             </td>
-
           </tr>
       </tbody>
     </table>

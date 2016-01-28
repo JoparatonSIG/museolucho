@@ -7,6 +7,10 @@ var router = express.Router();
 
 var Model = require('../../models/model');
 
+router.get('/add', function (req, res) {
+  var estructura = Model.Estructura.build();
+  res.render('web/estructura/add', { estructura: estructura });
+});
 // Rutas que terminan en /estructura
 // POST /espacio
 router.post('/', function (req, res) {
@@ -18,11 +22,15 @@ router.post('/', function (req, res) {
   });
 
   estructura.add(function (success) {
-    res.render( 'web/estructura/list',{ message: 'Esctructura creada!' } );
+    res.redirect( '/web/estructura');
   },
   function (err) {
-    res.send(err);
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
   });
+});
 });
 // (trae todos las estructuras)
 // GET /estructura

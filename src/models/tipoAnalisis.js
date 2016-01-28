@@ -1,3 +1,5 @@
+var Model = require('./model');
+
 module.exports = function (sequelize, DataTypes) {
   var TipoAnalisis = sequelize.define(
     'TipoAnalisis',
@@ -39,6 +41,13 @@ module.exports = function (sequelize, DataTypes) {
         },
         retrieveById: function (taId, onSuccess, onError) {
           TipoAnalisis.find( { where: { id: taId } }, { raw: true })
+          .then(onSuccess).catch(onError);
+        },
+        retrieveRelatedById: function (onSuccess, onError) {
+          TipoAnalisis.find({
+            include: [ Model.Analisis ],
+            where: { id: this.id }
+          })
           .then(onSuccess).catch(onError);
         },
         add: function (onSuccess, onError) {

@@ -55,7 +55,7 @@
 <form id="topicForm" method="get" action="/web/adquisicion/%>" >
     <% if (count > limitPage) { %>
     <% if (totalPage <= 8) { %>
-      <% var j; for (j=0; j <= totalPage; j++) { %>
+      <% var j; for (j=1; j <= totalPage; j++) { %>
         <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
           <%=j%>
         </button>

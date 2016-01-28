@@ -3,40 +3,58 @@
   <input type="hidden" name="id" value="<%= accesorio.id %>">
 
   <table class="table table-bordred table-striped">
-    <thead>
-      <tr>
-        <th class="cell-stat text-center">id</th>
-        <th class="cell-stat text-center">accesorio</th>
-        <th class="cell-stat text-center">relacion</th>
-        <th class="cell-stat text-center">ObraId</th>
-        <th class="cell-stat text-center">creacion</th>
-        <th class="cell-stat text-center">modifica</th>
-        <th class="cell-stat text-center">borrado</th>
-        <th class="cell-stat text-center">Accion</th>
-        <th class="cell-stat text-center">Accion</th>
-      </tr>
-    </thead>
     <tbody>
-        <tr>
-          <td class="text-center">
+      <tr>
+        <td class="cell-stat text-center">id</td>
+        <td class="text-center">
             <%= accesorio.id %>
-          </td>
+        </td>
+      </tr>
+      <tr>
+          <td class="cell-stat text-center">Objeto Codigo</td>
           <td class="text-center">
-            <label for="accesorio" class="control-label">ObjetoCodigo</label>
             <input type="text" class="form-control" id="objetoCodigo" name="objetoCodigo" value="<%=accesorio.objetoCodigo%>" required="true" title="Ingrese objetoCodigo" placeholder="<objetoCodigo>">
             <%= accesorio.objetoCodigo %>
           </td>
-          <td class="text-center">
-            <label for="relacion" class="control-label">Relacion</label>
-            <input type="text" class="form-control" id="relacion" name="relacion" value="<%=accesorio.relacion%>" required="true" title="Ingrese relacion" placeholder="<relacion>">
-            <%= accesorio.relacion %>
-          </td>
-          <td class="text-center">
-            <%= accesorio.ObraId %>
-          </td>
-          <td class="text-center"><%= accesorio.creacion %></td>
-          <td class="text-center"><%= accesorio.modifica %></td>
-          <td class="text-center"><%= accesorio.borrado %></td>
+      </tr>
+      <tr>
+        <td class="cell-stat text-center">Relacion</td>
+        <td class="text-center">
+          <input type="text" class="form-control" id="relacion" name="relacion" value="<%=accesorio.relacion%>" required="true" title="Ingrese relacion" placeholder="<relacion>">
+          <%= accesorio.relacion %>
+        </td>
+      </tr>
+      <tr>
+        <td class="cell-stat text-center">ObraId</td>
+        <td class="text-center">
+          <%= accesorio.ObraId %>
+        </td>
+      </tr>
+      <tr>
+        <td class="cell-stat text-center">FechaCrea</td>
+        <td class="text-center">
+          <%= accesorio.fechaCrea %>
+        </td>
+      </tr>
+      <tr>
+        <td class="cell-stat text-center">FechaModifica</td>
+        <td class="text-center">
+          <%= accesorio.fechaModifica %>
+        </td>
+      </tr>
+      <tr>
+        <td class="cell-stat text-center">FechaBorra</td>
+        <td class="text-center">
+          <%= accesorio.fechaBorra %>
+        </td>
+      <tr>
+          <td class="cell-stat text-center">Accion</td>
+        <th class="cell-stat text-center">Accion</td>
+      </tr>
+    </tbody>
+    <tbody>
+        <tr>
+
           <td>
             <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
               Modificar
