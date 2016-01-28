@@ -49,3 +49,27 @@
     <% } %>
   </tbody>
 </table>
+
+<form id="topicForm" method="get" action="/web/accesorio/%>" >
+    <% if (count > limitPage) { %>
+      <% if (totalPage <= 8) { %>
+        <% var j; for (j=0; j <= totalPage; j++) { %>
+          <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+            <%=j%>
+          </button>
+        <% } %>
+      <% } else { %>
+        <% var j; for (j=1; j <= 3; j++) { %>
+          <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+            <%=j%>
+          </button>
+        <% } %>
+        <p>...</p>
+        <% for (j=totalPage-3; j <= totalPage+1; j++) { %>
+          <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+            <%=j%>
+          </button>
+        <% } %>
+      <% } %>
+    <% } %>
+</form>

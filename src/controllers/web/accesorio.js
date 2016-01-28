@@ -35,18 +35,39 @@ router.post('/', function (req, res) {
     // res.send(err);
   });
 });
-// (trae todos los accesorios)
+// (trae todos los accesorio)
 // GET /accesorio
 router.get('/', function (req, res) {
   var accesorio = Model.Accesorio.build();
+  console.log('GET Paginado pre Select');
 
-  accesorio.retrieveAll(function (accesorios) {
-    if (accesorios) {
-      res.render('web/accesorio/list', { accesorios: accesorios});
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  accesorio.retrievePag(initial, offset, limitPage, currentPage, function (accesorio) {
+    if (accesorio) {
+      var totalPage = accesorio.count/limitPage;
+      var count = accesorio.count
+      res.render('web/accesorio/list.ejs', {
+        accesorios: accesorio.rows,
+        activePage: currentPage,
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
+      });
     } else {
-      res.send(401, 'No se encontraron Accesorios');
+      res.send(401, 'No se encontraron Accesorio');
     }
   }, function (error) {
+    console.log(error);
     res.send('Accesorio no encontrado');
   });
 });

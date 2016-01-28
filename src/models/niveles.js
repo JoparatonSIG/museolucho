@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Categoria del Nivel',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
+          //notNull: true,
           notEmpty: true
         }
       }
@@ -27,6 +27,7 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         },
         retrieveById: function (nivelId, onSuccess, onError) {
+          console.log('soy idnivel',nivelId);
           Nivel.find( { where: { id: nivelId } }, { raw: true } )
           .then(onSuccess).catch(onError);
         },
@@ -40,8 +41,11 @@ module.exports = function (sequelize, DataTypes) {
           Nivel.build({ categoria: categoria })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (nivelId, categoria, onSuccess, onError) {
-          Nivel.update( { categoria: categoria },{ where: { id: nivelId } })
+        updateById: function (nivelId, onSuccess, onError) {
+          Nivel.update( 
+            { categoria: this.categoria },
+            { where: { id: nivelId } 
+          })
           .then(onSuccess).catch(onError);
         },
         removeById: function (nivelId, onSuccess, onError) {
