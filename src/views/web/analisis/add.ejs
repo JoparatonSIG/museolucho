@@ -1,28 +1,26 @@
 <form id="topicForm" method="post" action="/web/analisis/<%= analisisJ.id %>" >
     <table class="table table-bordred table-striped">
-      <thead>
-        <tr>
-          <th class="cell-stat text-center">Tipo de Analisis</th>
-          <th class="cell-stat text-center">analisis</th>
-        </tr>
-      </thead>
       <tbody>
-          <tr>
+        <tr>
+          <td class="cell-stat text-center">Tipo de Analisis</td>
             <td class="text-center">
               <select name="selectJ">
-       <option value="-1" selected>Ingrese Tipo de Analisis</option>
-      <% var j; for (j=0; j < selectJ.length; j++) { %>
-       <option value="<%= selectJ[j].id %>"><%= selectJ[j].tipo %> /
-       <%= selectJ[j].subTipo %> </option>
-      <% } %>
+                 <option value="-1" selected>Ingrese Tipo de Analisis</option>
+                 <% var j; for (j=0; j < selectJ.length; j++) { %>
+                 <option value="<%= selectJ[j].id %>"><%= selectJ[j].tipo %> /
+                 <%= selectJ[j].subTipo %> </option>
+                 <% } %>
               </select>
-            <td class="text-center">
-              <label for="analisis" class="control-label">Analisis</label>
-              <input type="text" class="form-control" id="analisis" name="analisis" value="<%=analisisJ.analisis%>" required="true" title="Ingrese analisis" placeholder="<analisis>">
-              <%= analisisJ.analisis %>
             </td>
-          </tr>
-      </tbody>
+        </tr>
+        <tr>
+          <td class="cell-stat text-center">Analisis</td>
+          <td class="text-center">
+            <input type="text" class="form-control" id="analisis" name="analisis" value="<%=analisisJ.analisis%>" required="true" title="Ingrese analisis" placeholder="<analisis>">
+            <%= analisisJ.analisis %>
+          </td>
+        </tr>
+      </thead>
     </table>
     <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
       Agregar
