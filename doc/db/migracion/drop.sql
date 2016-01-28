@@ -16,6 +16,7 @@ drop table Lugares;
 drop table Intervenciones;
 drop table Obras;
 drop table Adquisiciones;
+drop table Sesiones;
 drop table Usuarios;
 drop table Niveles;
 drop table Museos;

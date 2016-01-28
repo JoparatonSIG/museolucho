@@ -1,4 +1,8 @@
 var crypto = require('crypto');
+var config = require('../config/config');
+
+var key = config.key;
+
 var Model = require('./model');
 
 module.exports = function (sequelize, DataTypes) {
@@ -21,9 +25,21 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'correo',
         comment: 'Correo electrónico del usuario, se utilizará como username',
         validate: {
-          isEmail: true,
-          //notNull: true,
-          notEmpty: true
+          notEmpty: { msg: '-> Falta username' },
+          // hay que devolver un mensaje de error si el username ya existe
+          isUnique: function (value, next) {
+            var self = this;
+            Usuarios.find({ where: { email: value } })
+            .then(function (user) {
+              if (user && self.id !== user.id) {
+                return next('Username ya utilizado');
+              }
+              return next();
+            })
+            .catch(function (err) {
+              return next(err);
+            });
+          }
         }
       },
       nombre: {
@@ -54,13 +70,56 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'none',
         comment: 'Password del usuario para ingresar al sistema',
         validate: {
-          isAlphanumeric: true
-          //notNull: true
+          notEmpty: { msg: '-> Falta password' },
+          set: function (password) {
+            var encripted = crypto.createHmac('sha1', key).update(password).digest('hex');
+            // Evita passwords vacíos
+            if (password === '') {
+              encripted = '';
+            }
+            this.setDataValue('password', encripted);
+            console.log(password);
+          }
+        }
+      },
+      lastLogin: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: '1000-01-01 00:00:00',
+        comment: 'FechaLogin, User Last Post Datetime',
+        validate: {
+          isDate: true
+        }
+      },
+      logCount: {
+        type: DataTypes.BIGINT(11),
+        allowNull: true,
+        defaultValue: 0,
+        comment: 'LOGcc, User login count'
+      },
+      ipAddr: {
+        type: DataTypes.STRING(80),
+        allowNull: true,
+        defaultValue: '00:00:00:00:00:00:00:00',
+        comment: 'none, User IP addr when create account',
+        validate: {
+          isIP: true
         }
       }
     },
     {
       instanceMethods: {
+        verifyPassword: function (password) {
+          var encripted = crypto.createHmac('sha1', key).update(password).digest('hex');
+          return encripted === this.password;
+        },
+        updateLastLogin: function (ip) {
+          this.update({
+            lastLogin: new Date(),
+            logCount: sequelize.literal('logCount +1'),
+            ipAddr: ip
+          });
+        },
         retrieveAll: function (onSuccess, onError) {
           Usuario.findAll( {
             include: [ { Model: Model.Nivel } ]
@@ -92,7 +151,7 @@ module.exports = function (sequelize, DataTypes) {
           var email = this.email;
           var nombre = this.nombre;
           var apellido = this.apellido;
-          var password = this.password;          
+          var password = this.password;
           var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');
@@ -112,7 +171,7 @@ module.exports = function (sequelize, DataTypes) {
           var email = this.email;
           var nombre = this.nombre;
           var apellido = this.apellido;
-          var password = this.password;          
+          var password = this.password;
           var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');

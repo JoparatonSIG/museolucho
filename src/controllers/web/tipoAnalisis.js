@@ -14,8 +14,6 @@ router.get('/add', function (req, res) {
   res.render('web/tipoanalisis/add', { tipoanalisis: tipoanalisis});
 });
 
-// Rutas que terminan en /museo
-// POST /museo
 router.post('/', function (req, res) {
   // bodyParser debe hacer la magia
   var tipo = req.body.tipo;
@@ -58,8 +56,6 @@ router.post('/details', function (req, res) {
     res.send('Tipo de analisis no encontrado');
   });
 });
-
-
 // (trae todos los museos)
 // GET /museo
 router.get('/', function (req, res) {
