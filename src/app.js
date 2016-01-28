@@ -48,6 +48,7 @@ var nivelWeb = require('./controllers/web/nivel');
 var usuarioWeb = require('./controllers/web/usuario');
 var intervencionWeb = require('./controllers/web/intervencion');
 var conservacionWeb = require('./controllers/web/conservacion');
+var relevamientoWeb = require('./controllers/web/relevamiento');
 
 
 var app = express();
@@ -150,6 +151,7 @@ routerWeb.use( '/nivel', nivelWeb);
 routerWeb.use( '/usuario', usuarioWeb);
 routerWeb.use( '/intervencion', intervencionWeb);
 routerWeb.use( '/conservacion', conservacionWeb);
+routerWeb.use( '/relevamiento', relevamientoWeb);
 
 
 app.use( '/api', router );
