@@ -1,38 +1,39 @@
 <form id="topicForm" method="post" action="/web/espacio/" >
     <table class="table table-bordred table-striped">
-      <thead>
-        <tr>
-          <th class="cell-stat text-center">espacio</th>
-          <th class="cell-stat text-center">codigoEspacio</th>
-          <th class="cell-stat text-center">inmuebles</th>
-          <th class="cell-stat text-center">codigoInmueble</th>
-          <th class="cell-stat text-center">ubicacionInmueble</th>
-        </tr>
-      </thead>
       <tbody>
-          <tr>
+
+        <tr>
+          <td class="cell-stat text-center">espacio</td>
             <td class="text-center">
-              <label for="espacio" class="control-label">espacio</label>
               <input type="text" class="form-control" id="espacio" name="espacio" value="<%=espacio.espacio%>" required="true" title="Ingrese espacio" placeholder="<espacio>">
               <%= espacio.espacio %>
             </td>
+        </tr>
+          <tr>
+          <td class="cell-stat text-center">codigoEspacio</td>
             <td class="text-center">
-              <label for="codigoEspacio" class="control-label">codigo espacio</label>
               <input type="text" class="form-control" id="codigoEspacio" name="codigoEspacio" value="<%=espacio.codigoEspacio%>" required="true" title="Ingrese codigo espacio" placeholder="<codigoEspacio>">
               <%= espacio.codigoEspacio %>
             </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">inmuebles</td>
             <td class="text-center">
-              <label for="inmuebles" class="control-label">inmuebles</label>
               <input type="text" class="form-control" id="inmuebles" name="inmuebles" value="<%=espacio.inmuebles%>" required="true" title="Ingrese inmuebles" placeholder="<inmuebles>">
               <%= espacio.inmuebles %>
             </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">codigoInmueble</td>
             <td class="text-center">
-              <label for="codigoInmueble" class="control-label">codigo inmueble</label>
               <input type="text" class="form-control" id="codigoInmueble" name="codigoInmueble" value="<%=espacio.codigoInmueble%>" required="true" title="Ingrese codigo inmuebles" placeholder="<codigoInmueble>">
               <%= espacio.codigoInmueble %>
             </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">ubicacionInmueble</td>
+
             <td class="text-center">
-              <label for="ubicacionInmueble" class="control-label">ubicacion inmueble</label>
               <input type="text" class="form-control" id="ubicacionInmueble" name="ubicacionInmueble" value="<%=espacio.ubicacionInmueble%>" required="true" title="Ingrese ubicacion inmuebles" placeholder="<ubicacionInmueble>">
               <%= espacio.ubicacionInmueble %>
             </td>
