@@ -40,6 +40,8 @@ router.post('/', function (req, res) {
 });
 // (trae todas las intervenciones)
 // GET /intervencion
+
+
 router.get('/', function (req, res) {
   var intervencion = Model.Intervencion.build();
 
@@ -74,11 +76,12 @@ router.get('/', function (req, res) {
     res.send('Intervencion no encontrada');
   });
 });
+
 // Rutas que terminan en /intervencion/:intervencionId
 // PUT /intervencion/:intervencionId
 // Actualiza intervencion
 router.put('/:intervencionId', function (req, res) {
-  var intervencion = Model.intervencion.build();
+  var intervencion = Model.Intervencion.build();
   intervencion.id = req.body.id;
   metodologia = req.body.metodologia;
   fechaRestauracion = req.body.fechaRestauracion;

@@ -19,7 +19,6 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'metodologia',
         comment: 'metodologia de la obra',
         validate: {
-          notNull: true,
           notEmpty: true
         }
       },
@@ -35,7 +34,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Apellido del Restaurador',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
           notEmpty: true
         }
       },
@@ -45,8 +43,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'descripcion',
         comment: 'descripcion de la obra',
         validate: {
-          is: ['[a-z]','i'],
-          notNull: true,
+          is: ['[a-z]','i'],          
           notEmpty: true
         }
       },
