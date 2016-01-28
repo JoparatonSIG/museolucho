@@ -94,6 +94,9 @@ var Obra = sequelize.import(obraPath);
 // Importar definicion de la tabla relevamiento
 var relevamientoPath = path.join(__dirname,'relevamientos');
 var Relevamiento = sequelize.import(relevamientoPath);
+// Importar definicion de la tabla Session
+var sesionPath = path.join(__dirname,'sesiones');
+var Sesion = sequelize.import(sesionPath);
 // Importar definicion de la Tecnica
 var tecnicaPath = path.join(__dirname,'tecnicas');
 var Tecnica = sequelize.import(tecnicaPath);
@@ -113,6 +116,10 @@ var Usuario = sequelize.import(usuarioPath);
 // Usuarios tienen un Nivel de acceso
 Usuario.belongsTo(Nivel);
 Nivel.hasMany(Usuario);
+
+// los Sesiones pertenecen a un Usuarios registrado
+Sesion.belongsTo(Usuario);
+Usuario.hasOne(Sesion);
 
 // Obras tienen relevamiento
 Relevamiento.belongsTo(Obra);
