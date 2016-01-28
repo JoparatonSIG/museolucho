@@ -43,7 +43,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'descripcion',
         comment: 'descripcion de la obra',
         validate: {
-          is: ['[a-z]','i'],          
+          is: ['[a-z]','i'],
           notEmpty: true
         }
       },
@@ -91,8 +91,8 @@ module.exports = function (sequelize, DataTypes) {
           Intervencion.update({ metodologia: metodologia, fechaRestauracion: fechaRestauracion, apellidoRestaurador: apellidoRestaurador, descripcion: descripcion },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
-        removeById: function (intervencionId, onSuccess, onError) {
-          Intervencion.destroy({ where: { id: intervencionId }})
+        removeById: function (onSuccess, onError) {
+          Intervencion.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },

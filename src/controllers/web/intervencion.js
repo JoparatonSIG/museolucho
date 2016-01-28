@@ -82,11 +82,13 @@ router.get('/', function (req, res) {
 // Actualiza intervencion
 router.put('/:intervencionId', function (req, res) {
   var intervencion = Model.Intervencion.build();
-  intervencion.id = req.body.id;
-  metodologia = req.body.metodologia;
-  fechaRestauracion = req.body.fechaRestauracion;
-  apellidoRestaurador = req.body.apellidoRestaurador;
-  descripcion = req.body.descripcion;
+
+
+  intervencion.id=req.body.id;
+  intervencion.metodologia = req.body.metodologia;
+  intervencion.fechaRestauracion = req.body.fechaRestauracion;
+  intervencion.apellidoRestaurador = req.body.apellidoRestaurador;
+  intervencion.descripcion = req.body.descripcion;
 
   intervencion.updateById(intervencion.id, function (success) {
     console.log(success);
@@ -121,6 +123,7 @@ router.get('/:intervencionId', function (req, res) {
 router.delete('/:intervencionId', function (req, res) {
   var intervencion = Model.Intervencion.build();
   intervencion.id=req.body.id;
+  console.log("id"+intervencion.id);
   intervencion.removeById(
   function (success) {
 
