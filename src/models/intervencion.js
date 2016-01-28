@@ -61,6 +61,13 @@ module.exports = function (sequelize, DataTypes) {
           Intervencion.find( { where: { id: intervencionId } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Intervencion.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveByMetodologia: function (intervencionMetodologia, onSuccess, onError) {
           Intervencion.find( { where: { metodologia: intervencionMetodologia } }, { raw: true })
           .then(onSuccess).catch(onError);
