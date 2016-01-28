@@ -81,6 +81,30 @@ module.exports = function (sequelize, DataTypes) {
             console.log(password);
           }
         }
+      },
+      lastLogin: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: '1000-01-01 00:00:00',
+        comment: 'FechaLogin, User Last Post Datetime',
+        validate: {
+          isDate: true
+        }
+      },
+      logCount: {
+        type: DataTypes.BIGINT(11),
+        allowNull: true,
+        defaultValue: 0,
+        comment: 'LOGcc, User login count'
+      },
+      ipAddr: {
+        type: DataTypes.STRING(80),
+        allowNull: true,
+        defaultValue: '00:00:00:00:00:00:00:00',
+        comment: 'none, User IP addr when create account',
+        validate: {
+          isIP: true
+        }
       }
     },
     {
@@ -88,6 +112,13 @@ module.exports = function (sequelize, DataTypes) {
         verifyPassword: function (password) {
           var encripted = crypto.createHmac('sha1', key).update(password).digest('hex');
           return encripted === this.password;
+        },
+        updateLastLogin: function (ip) {
+          this.update({
+            lastLogin: new Date(),
+            logCount: sequelize.literal('logCount +1'),
+            ipAddr: ip
+          });
         },
         retrieveAll: function (onSuccess, onError) {
           Usuario.findAll( {
@@ -140,7 +171,7 @@ module.exports = function (sequelize, DataTypes) {
           var email = this.email;
           var nombre = this.nombre;
           var apellido = this.apellido;
-          var password = this.password;
+          var password = crypto.createHmac('sha1', key).update(this.password).digest('hex');
           var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');
