@@ -31,6 +31,13 @@ module.exports = function (sequelize, DataTypes) {
           Conservacion.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Conservacion.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (conservacionId, onSuccess, onError) {
           Conservacion.find( { where: { id: conservacionId } }, { raw: true })
           .then(onSuccess).catch(onError);
