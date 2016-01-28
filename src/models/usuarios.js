@@ -118,7 +118,7 @@ module.exports = function (sequelize, DataTypes) {
           var shasum = crypto.createHash('sha1');
           shasum.update(password);
           password = shasum.digest('hex');
-
+          console.log('dentro de update valor de NivelId',NivelId);
           Usuario.update({ email: email, nombre: nombre, apellido: apellido, password: password, NivelId: NivelId },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
