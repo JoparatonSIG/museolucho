@@ -1,4 +1,5 @@
-<form id="topicForm" method="post" action="/web/tipoanalisis/ %>" >
+
+<form id="topicForm" method="post" action="/web/tipoanalisis/details %>" >
     <table class="table table-bordred table-striped">
       <thead>
         <tr>
@@ -15,12 +16,10 @@
               <%= tipoanalisis.tipo %>
             </td>
             <td class="text-center">
-              <label for="subTipo" class="control-label">SubTipo</label>
               <input type="text" class="form-control" id="subTipo" name="subTipo" value="<%=tipoanalisis.subTipo%>" required="true" title="Ingrese subtipo" placeholder="<subTipo>">
               <%= tipoanalisis.subTipo %>
             </td>
             <td class="text-center">
-              <label for="valorPredeterminado" class="control-label">Valor predeterminado</label>
               <input type="text" class="form-control" id="valorPredeterminado" name="valorPredeterminado" value="<%=tipoanalisis.valorPredeterminado%>" required="true" title="Ingrese valor predeterminado" placeholder="<valorPredeterminado>">
               <%= tipoanalisis.valorPredeterminado %>
             </td>
@@ -28,6 +27,6 @@
       </tbody>
     </table>
     <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
-      Agregar
+      Consultar
     </button>
 </form>

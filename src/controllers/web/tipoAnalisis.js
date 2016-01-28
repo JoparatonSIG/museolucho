@@ -38,6 +38,30 @@ router.post('/', function (req, res) {
 });
 // (trae todos los museos)
 // GET /museo
+router.get('/ask', function (req, res) {
+  res.render('web/tipoanalisis/ask');
+});
+
+router.post('/details', function (req, res) {
+  var tipoAnalisisDB = Model.TipoAnalisis.build();
+  tipoAnalisisDB.id = req.body.id;
+
+  tipoAnalisisDB.retrieveRelatedById(function (tipoAnalisisQ) {
+    if (tipoAnalisisQ) {
+      res.render('web/tipoanalisis/details', {tipoAnalisisEJS:tipoAnalisisQ});
+    } else {
+      console.log(success);
+      res.send(401, 'Tipo de analisis no encontrado');
+    }
+  }, function (error) {
+    console.log(error);
+    res.send('Tipo de analisis no encontrado');
+  });
+});
+
+
+// (trae todos los museos)
+// GET /museo
 router.get('/', function (req, res) {
   var tipoanalisis = Model.TipoAnalisis.build();
 
