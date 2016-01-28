@@ -95,15 +95,15 @@ router.put('/:relevamientoId', function (req, res) {
   var relevamiento = Model.Relevamiento.build();
   console.log('ingresa al put');
   relevamiento.id = req.body.id;
-  relevamiento.fechaRelev: req.body.fechaRelev;
-  relevamiento.fechaCatalog: req.body.fechaCatalog;
-  relevamiento.fechaRevision: req.body.fechaRevision;
+  relevamiento.fechaRelev= req.body.fechaRelev;
+  relevamiento.fechaCatalog= req.body.fechaCatalog;
+  relevamiento.fechaRevision= req.body.fechaRevision;
 
-  relevamiento.quienRelevo: req.body.quienRelevo;
-relevamiento.quienCatalogo: req.body.quienCatalogo;
-  relevamiento.quienReviso: req.body.quienReviso;
+  relevamiento.quienRelevo= req.body.quienRelevo;
+relevamiento.quienCatalogo= req.body.quienCatalogo;
+  relevamiento.quienReviso= req.body.quienReviso;
 
-  relevamiento.observaciones: req.body.observaciones;
+  relevamiento.observaciones= req.body.observaciones;
 
   console.log('ingresa al put: pre update');
 
