@@ -1,0 +1,61 @@
+<form id="topicForm" method="post" action="/web/relevamiento/" >
+    <table class="table table-bordred table-striped">
+      <tbody>
+
+        <tr>
+          <td class="cell-stat text-center">fechaRelev</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="fechaRelev" name="fechaRelev" value="<%=relevamiento.fechaRelev%>" required="true" title="Ingrese fechaRelev" placeholder="<fechaRelev>">
+              <%= relevamiento.fechaRelev %>
+            </td>
+        </tr>
+          <tr>
+          <td class="cell-stat text-center">fechaCatalog</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="fechaCatalog" name="fechaCatalog" value="<%=relevamiento.fechaCatalog%>" required="true" title="Ingrese fechaCatalog" placeholder="<fechaCatalog>">
+              <%= relevamiento.fechaCatalog %>
+            </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">fechaRevision</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="fechaRevision" name="fechaRevision" value="<%=relevamiento.fechaRevision%>" required="true" title="Ingrese fechaRevision" placeholder="<fechaRevision>">
+              <%= relevamiento.fechaRevision %>
+            </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">quienRelevo</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="quienRelevo" name="quienRelevo" value="<%=relevamiento.quienRelevo%>" required="true" title="Ingrese quienRelevo" placeholder="<quienRelevo>">
+              <%= relevamiento.quienRelevo %>
+            </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">quienCatalogo</td>
+
+            <td class="text-center">
+              <input type="text" class="form-control" id="quienCatalogo" name="quienCatalogo" value="<%=relevamiento.quienCatalogo%>" required="true" title="Ingrese quienCatalogo" placeholder="<quienCatalogo>">
+              <%= relevamiento.quienCatalogo %>
+            </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">quienReviso</td>
+
+            <td class="text-center">
+              <input type="text" class="form-control" id="quienReviso" name="quienReviso" value="<%=relevamiento.quienReviso%>" required="true" title="Ingrese quienReviso" placeholder="<quienReviso>">
+              <%= relevamiento.quienReviso %>
+            </td>
+          </tr>
+          <tr>
+          <td class="cell-stat text-center">observaciones</td>
+
+            <td class="text-center">
+              <input type="text" class="form-control" id="observaciones" name="observaciones" value="<%=relevamiento.observaciones%>" required="true" title="Ingrese observaciones" placeholder="<observaciones>">
+              <%= relevamiento.observaciones %>
+            </td>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>
