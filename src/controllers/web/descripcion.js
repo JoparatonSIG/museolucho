@@ -10,7 +10,7 @@ var Model = require('../../models/model');
 // (para agregar un nuevo descripcion)
 // GET /descripcion
 router.get('/add', function (req, res) {
-  var descripcion = Model.Accesorio.build();
+  var descripcion = Model.Descripcion.build();
   res.render('web/descripcion/add', { descripcion: descripcion});
 });
 
@@ -52,19 +52,58 @@ router.post('/', function (req, res) {
     // res.send(err);
   });
 });
-// (trae todas las descripciones)
+// (trae todas descripciones)
+// GET /descripcion
+router.post('/', function (req, res) {
+  // bodyParser debe hacer la magia
+  console.log(req.body);
+  var descripcionDB = Model.Descripcion.build({
+    descripcion: req.body.descripcion,
+    ObraId: req.body.ObraId
+  });
+
+  descripcionDB.add(function (success) {
+    res.redirect( '/web/descripcion');
+  },
+  function (err) {
+    res.redirect( '/web/descripcion');
+    // res.send(err);
+  });
+});
+// (trae todos los descripcion)
 // GET /descripcion
 router.get('/', function (req, res) {
   var descripcion = Model.Descripcion.build();
+  console.log('GET Paginado pre Select');
 
-  descripcion.retrieveAll(function (descripciones) {
-    if (descripciones) {
-      res.render('web/descripcion/list.ejs', { descripciones: descripciones});
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  descripcion.retrievePag(initial, offset, limitPage, currentPage, function (descripcion) {
+    if (descripcion) {
+      var totalPage = descripcion.count/limitPage;
+      var count = descripcion.count
+      res.render('web/descripcion/list.ejs', {
+        descripciones: descripcion.rows,
+        activePage: currentPage,
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
+      });
     } else {
-      res.send(401, 'No se encontraron Descripciones');
+      res.send(401, 'No se encontraron Descripcion');
     }
   }, function (error) {
-    res.send('Descripcion no encontrada');
+    console.log(error);
+    res.send('Descripcion no encontrado');
   });
 });
 // Rutas que terminan en /descripcion/:descripcionId

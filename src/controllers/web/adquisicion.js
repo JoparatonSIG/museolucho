@@ -45,9 +45,30 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var adquisicion = Model.Adquisicion.build();
 
-  adquisicion.retrieveAll(function (adquisiciones) {
-    if (adquisiciones) {
-      res.render('web/adquisicion/list.ejs', { adquisiciones: adquisiciones});
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  adquisicion.retrievePag(initial, offset, limitPage, currentPage, function (adquisicion) {
+    if (adquisicion) {
+      var totalPage = adquisicion.count/limitPage;
+      var count = adquisicion.count
+      res.render('web/adquisicion/list.ejs', {
+        adquisiciones: adquisicion.rows,
+        activePage: currentPage,
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
+      });
+
+
     } else {
       res.send(401, 'No se encontraron Adquisiciones');
     }

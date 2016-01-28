@@ -30,6 +30,13 @@ module.exports = function (sequelize, DataTypes) {
           Accesorio.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Accesorio.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (accesorioId, onSuccess, onError) {
           Accesorio.find( { where: { id: accesorioId } }, { raw: true })
           .then(onSuccess).catch(onError);

@@ -66,10 +66,13 @@ router.get('/', function (req, res) {
   analisis.retrievePag(initial, offset, limitPage, currentPage, function (analisis) {
     if (analisis) {
       var totalPage = analisis.count/limitPage;
+      var count = analisis.count
       res.render('web/analisis/list.ejs', {
         analisiss: analisis.rows,
         activePage: currentPage,
-        totalPage: totalPage
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
       });
     } else {
       res.send(401, 'No se encontraron Analisis');

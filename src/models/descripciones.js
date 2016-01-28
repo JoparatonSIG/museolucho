@@ -79,6 +79,13 @@ module.exports = function (sequelize, DataTypes) {
           Descripcion.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Descripcion.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (descId, onSuccess, onError) {
           Descripcion.find( { where: { id: descId } }, { raw: true })
           .then(onSuccess).catch(onError);

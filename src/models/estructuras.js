@@ -25,6 +25,13 @@ module.exports = function (sequelize, DataTypes) {
           Estructura.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Estructura.findAndCountAll( {          
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (estructuraId, onSuccess, onError) {
           Estructura.find( { where: { id: estructuraId } }, { raw: true })
           .then(onSuccess).catch(onError);

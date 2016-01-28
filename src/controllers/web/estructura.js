@@ -29,10 +29,33 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
   var estructura = Model.Estructura.build();
 
-  estructura.retrieveAll(function (estructuras) {
-    if (estructuras) {
-      res.render('web/estructura/list', { estructuras: estructuras});
-    } else {
+  var limitPage = 10;
+  if (currentPage == null ) {
+    var currentPage = 1;
+    var initial = 0;
+    var offset = initial+limitPage;
+  } else {
+    var currentPage = req.params.currentPage;
+    var initial = currentPage*limitPage;
+    var offset = initial+limitPage;
+  }
+
+  estructura.retrievePag(initial, offset, limitPage, currentPage, function (estructura) {
+    if (estructura) {
+      var totalPage = estructura.count/limitPage;
+      var count = estructura.count
+      res.render('web/estructura/list.ejs', {
+        estructuras: estructura.rows,
+        activePage: currentPage,
+        totalPage: totalPage,
+        count: count,
+        limitPage: limitPage
+      });
+
+
+    }
+
+  else {
       res.send(401, 'No se encontraron Estructuras');
     }
   }, function (error) {
