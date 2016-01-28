@@ -47,6 +47,7 @@ var estructuraWeb = require('./controllers/web/estructura');
 var nivelWeb = require('./controllers/web/nivel');
 var usuarioWeb = require('./controllers/web/usuario');
 var conservacionWeb = require('./controllers/web/conservacion');
+var lugarWeb = require('./controllers/web/lugar');
 
 var app = express();
 
@@ -147,6 +148,7 @@ routerWeb.use( '/estructura', estructuraWeb);
 routerWeb.use( '/nivel', nivelWeb);
 routerWeb.use( '/usuario', usuarioWeb);
 routerWeb.use( '/conservacion', conservacionWeb);
+routerWeb.use( '/lugar', lugarWeb);
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );
