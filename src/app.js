@@ -44,6 +44,8 @@ var descripcionWeb = require('./controllers/web/descripcion');
 var especialidadWeb = require('./controllers/web/especialidad');
 var espacioWeb = require('./controllers/web/espacio');
 var estructuraWeb = require('./controllers/web/estructura');
+var nivelWeb = require('./controllers/web/nivel');
+var usuarioWeb = require('./controllers/web/usuario');
 
 var app = express();
 
@@ -141,6 +143,8 @@ routerWeb.use( '/descripcion', descripcionWeb);
 routerWeb.use( '/espacio', espacioWeb);
 routerWeb.use( '/especialidad', especialidadWeb);
 routerWeb.use( '/estructura', estructuraWeb);
+routerWeb.use( '/nivel', nivelWeb);
+routerWeb.use( '/usuario', usuarioWeb);
 
 app.use( '/api', router );
 app.use( '/web', routerWeb );

@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'ID Usuario',
         validate: {
           isNumeric:true,
-          notNull: true
+          //notNull: true
         }
       },
       email: {
@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Correo electrónico del usuario, se utilizará como username',
         validate: {
           isEmail: true,
-          notNull: true,
+          //notNull: true,
           notEmpty: true
         }
       },
@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Nombre del Usuario',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
+          //notNull: true,
           notEmpty: true
         }
       },
@@ -44,7 +44,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Apellido del Usuario',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
+          //notNull: true,
           notEmpty: true
         }
       },
@@ -54,8 +54,8 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'none',
         comment: 'Password del usuario para ingresar al sistema',
         validate: {
-          isAlphanumeric: true,
-          notNull: true
+          isAlphanumeric: true
+          //notNull: true
         }
       }
     },
@@ -63,12 +63,24 @@ module.exports = function (sequelize, DataTypes) {
       instanceMethods: {
         retrieveAll: function (onSuccess, onError) {
           Usuario.findAll( {
-            include: [ { Model: Model.Niveles } ]
+            include: [ { Model: Model.Nivel } ]
           } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          console.log('estoy dentro de retrievePag');
+          Usuario.findAndCountAll( {
+            include: [ Model.Nivel ],
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (userId, onSuccess, onError) {
-          Usuario.find( { where: { id: userId } }, { raw: true })
+          Usuario.find( {
+            include: [ Model.Nivel ],
+            where: { id:userId }
+          }, { raw: true })
           .then(onSuccess).catch(onError);
         },
         retrieveByEmail: function (userEmail, onSuccess, onError) {
@@ -76,28 +88,38 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         },
         add: function (onSuccess, onError) {
+          console.log('dentro de add');
           var email = this.email;
           var nombre = this.nombre;
-          var password = this.password;
+          var apellido = this.apellido;
+          var password = this.password;          
+          var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');
           shasum.update(password);
           password = shasum.digest('hex');
 
-          Usuario.build({ email: email, nombre: nombre, password: password })
+          console.log('email:',email);
+          console.log('nombre:',nombre);
+          console.log('apellido:',apellido);
+          console.log('password:',password);
+          console.log('NivelesId:',NivelId);
+          Usuario.build({ email: email, nombre: nombre,apellido: apellido, password: password, NivelId: NivelId })
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (userId, onSuccess, onError) {
           var id = userId;
           var email = this.email;
           var nombre = this.nombre;
-          var password = this.password;
+          var apellido = this.apellido;
+          var password = this.password;          
+          var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');
           shasum.update(password);
           password = shasum.digest('hex');
 
-          Usuario.update({ email: email, nombre: nombre, password: password },{ where: { id: id } })
+          Usuario.update({ email: email, nombre: nombre, apellido: apellido, password: password, NivelId: NivelId },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (userId, onSuccess, onError) {
@@ -105,7 +127,7 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         }
       },
-      getterMethods: {
+      /*getterMethods: {
         nombreCompleto : function () { return this.nombre + ' ' + this.apellido; }
       },
       setterMethods: {
@@ -114,7 +136,7 @@ module.exports = function (sequelize, DataTypes) {
           this.setDataValue('nombre', nombres.slice(0,-1).join(' '));
           this.setDataValue('apellido', nombres.slice(-1).join(' '));
         }
-      },
+      },*/
       timestamps: true,
       paranoid:true,
       createdAt: 'fechaCrea',
