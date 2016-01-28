@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLayouts = require('express-ejs-layouts');
 var methodOverride = require('method-override');
+var passport = require('passport');
 
 var config = require('./config/config');
 
@@ -49,7 +50,9 @@ var usuarioWeb = require('./controllers/web/usuario');
 var intervencionWeb = require('./controllers/web/intervencion');
 var conservacionWeb = require('./controllers/web/conservacion');
 var relevamientoWeb = require('./controllers/web/relevamiento');
+var lugarWeb = require('./controllers/web/lugar');
 
+require('./config/passport')(passport);
 
 var app = express();
 
@@ -96,8 +99,13 @@ app.use(methodOverride(function(req, res){
     return method
   }
 }));
+
 var router = express.Router();
 var routerWeb = express.Router();
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Keep user, csrf token and config available
 app.use(function (req, res, next) {
@@ -152,6 +160,7 @@ routerWeb.use( '/usuario', usuarioWeb);
 routerWeb.use( '/intervencion', intervencionWeb);
 routerWeb.use( '/conservacion', conservacionWeb);
 routerWeb.use( '/relevamiento', relevamientoWeb);
+routerWeb.use( '/lugar', lugarWeb);
 
 
 app.use( '/api', router );

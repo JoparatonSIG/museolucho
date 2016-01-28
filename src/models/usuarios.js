@@ -120,6 +120,26 @@ module.exports = function (sequelize, DataTypes) {
             ipAddr: ip
           });
         },
+        autenticar: function (email, password, callback) {
+          this.find({
+            where: {
+              email: email
+            }
+          }).then(function (user) {
+            if (user) {
+              if (this.verifyPassword(password)) {
+                console.log('UserController.autenticar: Password OK');
+                callback(null, user);
+              }	else {
+                console.log('UserController.autenticar: Password NOK P');
+                callback(new Error('eMail o Password invalido'));
+              }
+            } else {
+              console.log('UserController.autenticar: Password NOK U');
+              callback(new Error('eMail o Password invalido'));
+            }
+          }).catch(function (error) { callback(error); });
+        },
         retrieveAll: function (onSuccess, onError) {
           Usuario.findAll( {
             include: [ { Model: Model.Nivel } ]
@@ -171,7 +191,7 @@ module.exports = function (sequelize, DataTypes) {
           var email = this.email;
           var nombre = this.nombre;
           var apellido = this.apellido;
-          var password = this.password;
+          var password = crypto.createHmac('sha1', key).update(this.password).digest('hex');
           var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');

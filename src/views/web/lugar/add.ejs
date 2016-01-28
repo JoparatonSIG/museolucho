@@ -1,0 +1,51 @@
+<form id="topicForm" method="post" action="/web/lugar/<%=lugar.id %>" >
+    <table class="table table-bordred table-striped">
+      <tbody>
+        <tr>
+          <td class="cell-stat text-center">localidad</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="localidad" name="localidad" value="<%=lugar.localidad%>" required="true" title="Ingrese localidad" placeholder="<localidad>">
+              <%= lugar.localidad %>
+            </td>
+        </tr>
+        <tr>
+        <td class="cell-stat text-center">codigoLocalidad</td>
+          <td class="text-center">
+            <input type="text" class="form-control" id="codigoLocalidad" name="codigoLocalidad" value="<%=lugar.codigoLocalidad%>" required="true" title="Ingrese codigoLocalidad" placeholder="<codigoLocalidad>">
+            <%= lugar.codigoLocalidad %>
+          </td>
+        </tr>
+        <tr>
+          <td class="cell-stat text-center">municipio</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="municipio" name="municipio" value="<%=lugar.municipio%>" required="true" title="Ingrese municipio" placeholder="<municipio>">
+              <%= lugar.municipio %>
+            </td>
+        </tr>
+        <tr>
+        <td class="cell-stat text-center">provincia</td>
+          <td class="text-center">
+            <input type="text" class="form-control" id="provincia" name="provincia" value="<%=lugar.provincia%>" required="true" title="Ingrese provincia" placeholder="<provincia>">
+            <%= lugar.provincia %>
+          </td>
+        </tr>
+        <tr>
+          <td class="cell-stat text-center">codigoProvincia</td>
+            <td class="text-center">
+              <input type="text" class="form-control" id="codigoProvincia" name="codigoProvincia" value="<%=lugar.codigoProvincia%>" required="true" title="Ingrese codigoProvincia" placeholder="<codigoProvincia>">
+              <%= lugar.codigoProvincia %>
+            </td>
+        </tr>
+        <tr>
+        <td class="cell-stat text-center">departamento</td>
+          <td class="text-center">
+            <input type="text" class="form-control" id="departamento" name="departamento" value="<%=lugar.departamento%>" required="true" title="Ingrese departamento" placeholder="<departamento>">
+            <%= lugar.departamento %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>
