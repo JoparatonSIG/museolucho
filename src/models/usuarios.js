@@ -171,7 +171,7 @@ module.exports = function (sequelize, DataTypes) {
           var email = this.email;
           var nombre = this.nombre;
           var apellido = this.apellido;
-          var password = this.password;
+          var password = crypto.createHmac('sha1', key).update(this.password).digest('hex');
           var NivelId = this.NivelId;
 
           var shasum = crypto.createHash('sha1');
