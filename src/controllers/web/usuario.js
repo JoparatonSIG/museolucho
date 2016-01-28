@@ -109,13 +109,13 @@ router.put('/:usuarioId', function (req, res) {
   usuario.nombre = req.body.nombre;
   usuario.apellido = req.body.apellido;
   usuario.password = req.body.password;
-  usuario.NivelesId = req.body.nivelSele;
+  usuario.NivelId = req.body.nivelSele;
   console.log('id>',usuario.id);
   console.log('email>',usuario.email);
   console.log('nombre>',usuario.nombre);
   console.log('apellido>',usuario.apellido);
   console.log('password>',usuario.password);  
-  console.log('nivelSele>',usuario.NivelesId);
+  console.log('nivelSele>',usuario.NivelId);
 
   usuario.updateById(req.params.usuarioId, function (success) {
     if (success) {
