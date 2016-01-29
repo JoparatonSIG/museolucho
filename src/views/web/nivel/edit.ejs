@@ -1,29 +1,29 @@
-<form id="topicForm" method="post" action="/web/nivel/<%= nivel.id %>" class="form-horizontal" role="form">
+<form id="topicForm" method="post" action="/web/nivel/<%= nivelesEJS.id %>" class="form-horizontal" role="form">
   <input type="hidden" name="_method" value="put">
-  <input type="hidden" name="id" value="<%= nivel.id %>">
+  <input type="hidden" name="id" value="<%= nivelesEJS.id %>">
   <div class="form-group">
-    <label class="control-label col-sm-2" for="usuario"/> Id de Nivel <%= nivel.id %>
+    <label class="control-label col-sm-2" for="usuario"/> Id de Nivel <%= nivelesEJS.id %>
   </div>
-  <div class="form-group">  
+  <div class="form-group">
     <label for="categoria" class="control-label col-sm-2">Id</label>
     <div class="col-sm-10" >
-      <input type="text" class="form-control" id="categoria" name="categoria" value="<%=nivel.categoria%>" required="true" title="Ingrese el Nivel" placeholder="<categoria>">
-      <%= nivel.categoria %>
+      <input type="text" class="form-control" id="categoria" name="categoria" value="<%=nivelesEJS.categoria%>" required="true" title="Ingrese el Nivel" placeholder="<categoria>">
+      <%= nivelesEJS.categoria %>
     </div>
-  </div>          
-  <div class="form-group">  
-    <label class="control-label col-sm-2" for="email">Fecha de Creacion:</label>
-    <div class="col-sm-10" >
-      <%= nivel.fechaCrea %>
-    </div>
-  </div> 
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Fecha de Modificacion:</label>  
-     <%= nivel.fechaModifica %>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Fecha de Eliminacion:</label>  
-      <%= nivel.fechaBorra %>
+    <label class="control-label col-sm-2" for="email">Fecha de Creacion:</label>
+    <div class="col-sm-10" >
+      <%= nivelesEJS.fechaCrea %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Fecha de Modificacion:</label>
+     <%= nivelesEJS.fechaModifica %>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Fecha de Eliminacion:</label>
+      <%= nivelesEJS.fechaBorra %>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-2" >
@@ -34,11 +34,11 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-2" >
-      <a href="/web/nivel/<%= nivel.id %>" class="btn btn-info" role="button">
+      <a href="/web/nivel/<%= nivelesEJS.id %>" class="btn btn-info" role="button">
         <p data-placement="top" data-toggle="tooltip" title="Edit">
           <button type="button" class="btn btn-info">Cancelar</button>
         </p>
       </a>
     </div>
-  </div>        
+  </div>
 </form>

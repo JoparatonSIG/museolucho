@@ -5,37 +5,27 @@ var Model = require('../../models/model');
 
 
 exports.getForm = function (req, res) {
-  var relevamiento = Model.Relevamiento.build();
-  res.render('web/relevamiento/add', { relevamiento: relevamiento });
+  var relevamientoDB = Model.Relevamiento.build();
+  res.render('web/relevamiento/add', { relevamientoEJS: relevamientoDB });
 };
 
 // Rutas que terminan en /relevamiento
 // POST /relevamiento
 exports.create = function (req, res) {
     // bodyParser debe hacer la magia
-  var fechaRelev = req.body.fechaRelev;
-  var fechaCatalog = req.body.fechaCatalog;
-  var fechaRevision = req.body.fechaRevision;
+    var relevamientoDB = Model.Relevamiento.build({
+    fechaRelev: req.body.fechaRelev,
+    fechaCatalog: req.body.fechaCatalog,
+    fechaRevision: req.body.fechaRevision,
 
-  var quienRelevo = req.body.quienRelevo;
+    quienRelevo: req.body.quienRelevo,
+  quienCatalogo: req.body.quienCatalogo,
+    quienReviso: req.body.quienReviso,
 
-  var quienCatalogo = req.body.quienCatalogo;
-  var quienReviso = req.body.quienReviso;
-  var observaciones = req.body.observaciones;
-
-  var relevamiento = Model.Relevamiento.build({
-    fechaRelev: fechaRelev,
-    fechaCatalog: fechaCatalog,
-    fechaRevision: fechaRevision,
-
-    quienRelevo: quienRelevo,
-  quienCatalogo: quienCatalogo,
-    quienReviso: quienReviso,
-
-    observaciones: observaciones
+    observaciones: req.body.observaciones
   });
 
-  relevamiento.add(function (success) {
+  relevamientoDB.add(function (success) {
     res.redirect('/web/relevamiento');
   },
   function (err) {
@@ -51,7 +41,7 @@ exports.create = function (req, res) {
 // (trae todos los relevamientos)
 // GET /relevamientos
 exports.listPag = function (req, res) {
-  var relevamiento = Model.Relevamiento.build();
+  var relevamientoDB = Model.Relevamiento.build();
 
   var limitPage = 10;
   if (currentPage == null ) {
@@ -64,12 +54,12 @@ exports.listPag = function (req, res) {
     var offset = initial+limitPage;
   }
 
-  relevamiento.retrievePag(initial, offset, limitPage, currentPage, function (relevamiento) {
-    if (relevamiento) {
-      var totalPage = relevamiento.count/limitPage;
-      var count = relevamiento.count
+  relevamientoDB.retrievePag(initial, offset, limitPage, currentPage, function (relevamientoQ) {
+    if (relevamientoQ) {
+      var totalPage = relevamientoQ.count/limitPage;
+      var count = relevamientoQ.count
       res.render('web/relevamiento/list.ejs', {
-        relevamientos: relevamiento.rows,
+        relevamientoEJS: relevamientoQ.rows,
         activePage: currentPage,
         totalPage: totalPage,
         count: count,
@@ -88,23 +78,23 @@ exports.listPag = function (req, res) {
 // PUT /relevamiento/:relevamientoId
 // Actualiza relevamiento
 exports.update = function (req, res) {
-  var relevamiento = Model.Relevamiento.build();
+  var relevamientoDB = Model.Relevamiento.build();
   console.log('ingresa al put');
-  relevamiento.id = req.body.id;
-  relevamiento.fechaRelev= req.body.fechaRelev;
-  relevamiento.fechaCatalog= req.body.fechaCatalog;
-  relevamiento.fechaRevision= req.body.fechaRevision;
+  relevamientoDB.id = req.body.id;
+  relevamientoDB.fechaRelev= req.body.fechaRelev;
+  relevamientoDB.fechaCatalog= req.body.fechaCatalog;
+  relevamientoDB.fechaRevision= req.body.fechaRevision;
 
-  relevamiento.quienRelevo= req.body.quienRelevo;
-relevamiento.quienCatalogo= req.body.quienCatalogo;
-  relevamiento.quienReviso= req.body.quienReviso;
+  relevamientoDB.quienRelevo= req.body.quienRelevo;
+relevamientoDB.quienCatalogo= req.body.quienCatalogo;
+  relevamientoDB.quienReviso= req.body.quienReviso;
 
-  relevamiento.observaciones= req.body.observaciones;
+  relevamientoDB.observaciones= req.body.observaciones;
 
   console.log('ingresa al put: pre update');
 
   //adquisicion.updateById(adquisicion.id, adquisicion.tipoAdquisicion, adquisicion.tipoCompra, adquisicion.fecha, function (success) {
-  relevamiento.updateById(relevamiento.id, function (success) {
+  relevamientoDB.updateById(relevamientoDB.id, function (success) {
 
     console.log(success);
     if (success) {
@@ -121,11 +111,11 @@ relevamiento.quienCatalogo= req.body.quienCatalogo;
 // GET /relevamiento/:relevamientoId
 // Toma un relevamiento por id
 exports.read = function (req, res) {
-  var relevamiento = Model.Relevamiento.build();
+  var relevamientoDB = Model.Relevamiento.build();
 
-  relevamiento.retrieveById(req.params.relevamientoId, function (relevamientoq) {
-    if (relevamientoq) {
-      res.render('web/relevamiento/edit', {relevamiento:relevamientoq});
+  relevamientoDB.retrieveById(req.params.relevamientoId, function (relevamientoQ) {
+    if (relevamientoQ) {
+      res.render('web/relevamiento/edit', {relevamientoEJS:relevamientoQ});
     } else {
       res.send(401, 'Relevamiento no encontrado');
     }
@@ -136,9 +126,9 @@ exports.read = function (req, res) {
 // DELETE /relevamiento/relevamientoId
 // Borra el relevamientoId
 exports.delete = function (req, res) {
-  var relevamiento = Model.Relevamiento.build();
-  relevamiento.id=req.body.id;
-  relevamiento.removeById(
+  var relevamientoDB = Model.Relevamiento.build();
+  relevamientoDB.id=req.body.id;
+  relevamientoDB.removeById(
   function (success) {
 
     console.log(success);

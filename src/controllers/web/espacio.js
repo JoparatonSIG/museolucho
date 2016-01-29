@@ -5,28 +5,22 @@
 var Model = require('../../models/model');
 
 exports.getForm = function (req, res) {
-  var espacio = Model.Espacio.build();
-  res.render('web/espacio/add', { espacio: espacio });
+  var espacioDB = Model.Espacio.build();
+  res.render('web/espacio/add', { espacioEJS: espacioDB });
 };
 // Rutas que terminan en /espacio
 // POST /espacio
 exports.create = function (req, res) {
   // bodyParser debe hacer la magia
-  var espacioR = req.body.espacio;
-  var codigoEspacio = req.body.codigoEspacio;
-  var inmuebles = req.body.inmuebles;
-  var codigoInmueble = req.body.codigoInmueble;
-  var ubicacionInmueble = req.body.ubicacionInmueble;
-
-  var espacio = Model.Espacio.build({
-    espacio: espacioR,
-    codigoEspacio: codigoEspacio,
-    inmuebles: inmuebles,
-    codigoInmueble: codigoInmueble,
-    ubicacionInmueble : ubicacionInmueble
+  var espacioDB = Model.Espacio.build({
+    espacio: req.body.espacio,
+    codigoEspacio: req.body.codigoEspacio,
+    inmuebles: req.body.inmuebles,
+    codigoInmueble: req.body.codigoInmueble,
+    ubicacionInmueble : req.body.ubicacionInmueble
   });
 
-  espacio.add(function (success) {
+  espacioDB.add(function (success) {
     res.redirect('/web/espacio');
   },
   function (err) {
@@ -40,7 +34,7 @@ exports.create = function (req, res) {
 // (trae todos los espacios)
 // GET /espacio
 exports.listPag = function (req, res) {
-  var espacio = Model.Espacio.build();
+  var espacioDB = Model.Espacio.build();
 
   var limitPage = 10;
   if (currentPage == null ) {
@@ -53,12 +47,12 @@ exports.listPag = function (req, res) {
     var offset = initial+limitPage;
   }
 
-  espacio.retrievePag(initial, offset, limitPage, currentPage, function (espacio) {
-    if (espacio) {
-      var totalPage = espacio.count/limitPage;
-      var count = espacio.count
+  espacioDB.retrievePag(initial, offset, limitPage, currentPage, function (espacioQ) {
+    if (espacioQ) {
+      var totalPage = espacioQ.count/limitPage;
+      var count = espacioQ.count
       res.render('web/espacio/list.ejs', {
-        espacios: espacio.rows,
+        espacioEJS: espacioQ.rows,
         activePage: currentPage,
         totalPage: totalPage,
         count: count,
@@ -77,15 +71,15 @@ exports.listPag = function (req, res) {
 // PUT /espacio/:espacioId
 // Actualiza espacio
 exports.update = function (req, res) {
-  var espacio = Model.Espacio.build();
-  espacio.id = req.body.id;
-  espacio.espacio = req.body.espacio;
-  espacio.codigoEspacio = req.body.codigoEspacio;
-  espacio.inmuebles = req.body.inmuebles;
-  espacio.codigoInmueble = req.body.codigoInmueble;
-  espacio.ubicacionInmueble = req.body.ubicacionInmueble;
+  var espacioDB = Model.Espacio.build();
+  espacioDB.id = req.body.id;
+  espacioDB.espacio = req.body.espacio;
+  espacioDB.codigoEspacio = req.body.codigoEspacio;
+  espacioDB.inmuebles = req.body.inmuebles;
+  espacioDB.codigoInmueble = req.body.codigoInmueble;
+  espacioDB.ubicacionInmueble = req.body.ubicacionInmueble;
 
-  espacio.updateById(espacio.id, function (success) {
+  espacioDB.updateById(espacioDB.id, function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/espacio');
@@ -101,11 +95,11 @@ exports.update = function (req, res) {
 // GET /espacio/:espacioId
 // Toma un espacio por id
 exports.read = function (req, res) {
-  var espacio = Model.Espacio.build();
+  var espacioDB = Model.Espacio.build();
 
-  espacio.retrieveById(req.params.espacioId, function (espacioq) {
-    if (espacioq) {
-      res.render('web/espacio/edit', {espacio:espacioq});
+  espacioDB.retrieveById(req.params.espacioId, function (espacioQ) {
+    if (espacioQ) {
+      res.render('web/espacio/edit', {espacioEJS:espacioQ});
     } else {
       res.send(401, 'Espacio no encontrado');
     }
@@ -116,9 +110,9 @@ exports.read = function (req, res) {
 // DELETE /espacio/espacioId
 // Borra el espacioId
 exports.delete = function (req, res) {
-  var espacio = Model.Espacio.build();
-  espacio.id=req.body.id;
-  espacio.removeById(
+  var espacioDB = Model.Espacio.build();
+  espacioDB.id=req.body.id;
+  espacioDB.removeById(
   function (success) {
 
     console.log(success);

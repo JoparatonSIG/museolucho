@@ -1,74 +1,74 @@
-<form id="topicForm" method="post" action="/web/lugar/<%= lugar.id %>" >
+<form id="topicForm" method="post" action="/web/lugar/<%= lugarEJS.id %>" >
   <input type="hidden" name="_method" value="put">
-  <input type="hidden" name="id" value="<%= lugar.id %>">
+  <input type="hidden" name="id" value="<%= lugarEJS.id %>">
 
   <table class="table table-bordred table-striped">
     <tbody>
       <tr>
         <td class="cell-stat text-center">id</td>
         <td class="text-center">
-            <%= lugar.id %>
+            <%= lugarEJS.id %>
         </td>
       </tr>
       <tr>
           <td class="cell-stat text-center">Localidad</td>
           <td class="text-center">
-            <input type="text" class="form-control" id="localidad" name="localidad" value="<%=lugar.localidad%>" required="true" title="Ingreselocalidad" placeholder="<localidad>">
-            <%= lugar.localidad %>
+            <input type="text" class="form-control" id="localidad" name="localidad" value="<%=lugarEJS.localidad%>" required="true" title="Ingreselocalidad" placeholder="<localidad>">
+            <%= lugarEJS.localidad %>
           </td>
       </tr>
       <tr>
         <td class="cell-stat text-center">Codigo de la Localidad</td>
         <td class="text-center">
-          <input type="text" class="form-control" id="codigoLocalidad" name="codigoLocalidad" value="<%=lugar.codigoLocalidad%>" required="true" title="Ingrese codigoLocalidad" placeholder="<codigoLocalidad>">
-          <%= lugar.codigoLocalidad %>
+          <input type="text" class="form-control" id="codigoLocalidad" name="codigoLocalidad" value="<%=lugarEJS.codigoLocalidad%>" required="true" title="Ingrese codigoLocalidad" placeholder="<codigoLocalidad>">
+          <%= lugarEJS.codigoLocalidad %>
         </td>
       </tr>
 
       <tr>
           <td class="cell-stat text-center">Municipio</td>
           <td class="text-center">
-            <input type="text" class="form-control" id="municipio" name="municipio" value="<%=lugar.municipio%>" required="true" title="Ingreselocalidad" placeholder="<municipio>">
-            <%= lugar.municipio %>
+            <input type="text" class="form-control" id="municipio" name="municipio" value="<%=lugarEJS.municipio%>" required="true" title="Ingreselocalidad" placeholder="<municipio>">
+            <%= lugarEJS.municipio %>
           </td>
       </tr>
       <tr>
         <td class="cell-stat text-center">Provincia</td>
         <td class="text-center">
-          <input type="text" class="form-control" id="provincia" name="provincia" value="<%=lugar.provincia%>" required="true" title="Ingrese provincia" placeholder="<provincia>">
-          <%= lugar.provincia %>
+          <input type="text" class="form-control" id="provincia" name="provincia" value="<%=lugarEJS.provincia%>" required="true" title="Ingrese provincia" placeholder="<provincia>">
+          <%= lugarEJS.provincia %>
         </td>
       </tr>
       <tr>
           <td class="cell-stat text-center">Codigo Provincia</td>
           <td class="text-center">
-            <input type="text" class="form-control" id="codigoProvincia" name="codigoProvincia" value="<%=lugar.codigoProvincia%>" required="true" title="Ingrese Codigo Provincia" placeholder="<codigoProvincia>">
-            <%= lugar.codigoProvincia %>
+            <input type="text" class="form-control" id="codigoProvincia" name="codigoProvincia" value="<%=lugarEJS.codigoProvincia%>" required="true" title="Ingrese Codigo Provincia" placeholder="<codigoProvincia>">
+            <%= lugarEJS.codigoProvincia %>
           </td>
       </tr>
       <tr>
         <td class="cell-stat text-center">Departamento</td>
         <td class="text-center">
-          <input type="text" class="form-control" id="departamento" name="departamento" value="<%=lugar.departamento%>" required="true" title="Ingrese departamento" placeholder="<departamento>">
-          <%= lugar.departamento %>
+          <input type="text" class="form-control" id="departamento" name="departamento" value="<%=lugarEJS.departamento%>" required="true" title="Ingrese departamento" placeholder="<departamento>">
+          <%= lugarEJS.departamento %>
         </td>
       </tr>
       <tr>
         <td class="cell-stat text-center">FechaCrea</td>
         <td class="text-center">
-          <%= lugar.fechaCrea %>
+          <%= lugarEJS.fechaCrea %>
         </td>
       </tr>
       <tr>
         <td class="cell-stat text-center">FechaModifica</td>
         <td class="text-center">
-          <%= lugar.fechaModifica %>
+          <%= lugarEJS.fechaModifica %>
         </td>
       </tr>
       <tr>
         <td class="cell-stat text-center">FechaBorra</td>
         <td class="text-center">
-          <%= lugar.fechaBorra %>
+          <%= lugarEJS.fechaBorra %>
         </td>
       <tr>
           <td class="cell-stat text-center">Accion</td>
@@ -84,7 +84,7 @@
             </button>
           </td>
           <td>
-            <a href="/web/lugar/<%= lugar.id %>" class="btn btn-info" role="button">
+            <a href="/web/lugar/<%= lugarEJS.id %>" class="btn btn-info" role="button">
               <p data-placement="top" data-toggle="tooltip" title="Edit">
                 <button type="button" class="btn btn-info">Cancel
                 </button>

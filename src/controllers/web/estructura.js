@@ -4,20 +4,18 @@
 var Model = require('../../models/model');
 
 exports.getForm = function (req, res) {
-  var estructura = Model.Estructura.build();
-  res.render('web/estructura/add', { estructura: estructura });
+  var estructuraDB = Model.Estructura.build();
+  res.render('web/estructura/add', { estructuraEJS: estructuraDB });
 };
 // Rutas que terminan en /estructura
 // POST /espacio
 exports.create = function (req, res) {
   // bodyParser debe hacer la magia
-  var estructuraR = req.body.estructura;
-
-  var estructura = Model.Estructura.build({
-    estructura: estructuraR
+  var estructuraDB = Model.Estructura.build({
+    estructura: req.body.estructura
   });
 
-  estructura.add(function (success) {
+  estructuraDB.add(function (success) {
     res.redirect( '/web/estructura');
   },
   function (err) {
@@ -31,7 +29,7 @@ exports.create = function (req, res) {
 // (trae todos las estructuras)
 // GET /estructura
 exports.listPag = function (req, res) {
-  var estructura = Model.Estructura.build();
+  var estructuraDB = Model.Estructura.build();
 
   var limitPage = 10;
   if (currentPage == null ) {
@@ -44,12 +42,12 @@ exports.listPag = function (req, res) {
     var offset = initial+limitPage;
   }
 
-  estructura.retrievePag(initial, offset, limitPage, currentPage, function (estructura) {
-    if (estructura) {
-      var totalPage = estructura.count/limitPage;
-      var count = estructura.count
+  estructuraDB.retrievePag(initial, offset, limitPage, currentPage, function (estructuraQ) {
+    if (estructuraQ) {
+      var totalPage = estructuraQ.count/limitPage;
+      var count = estructuraQ.count
       res.render('web/estructura/list.ejs', {
-        estructuras: estructura.rows,
+        estructuraEJS: estructuraQ.rows,
         activePage: currentPage,
         totalPage: totalPage,
         count: count,
@@ -70,11 +68,11 @@ exports.listPag = function (req, res) {
 // PUT /estructura/:estructuraId
 // Actualiza estructura
 exports.update = function (req, res) {
-  var estructura = Model.Estructura.build();
-  estructura.id = req.body.id;
-  estructura.estructura = req.body.estructura;
+  var estructuraDB = Model.Estructura.build();
+  estructuraDB.id = req.body.id;
+  estructuraDB.estructura = req.body.estructura;
 
-  estructura.updateById(estructura.id, function (success) {
+  estructuraDB.updateById(estructuraDB.id, function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/estructura');
@@ -90,11 +88,11 @@ exports.update = function (req, res) {
 // GET /estructura/:estructuraId
 // Toma una estructura por id
 exports.read = function (req, res) {
-  var estructura = Model.Estructura.build();
+  var estructuraDB = Model.Estructura.build();
 
-  estructura.retrieveById(req.params.estructuraId, function (estructuraq) {
-    if (estructuraq) {
-      res.render('web/estructura/edit', {estructura:estructuraq});
+  estructuraDB.retrieveById(req.params.estructuraId, function (estructuraQ) {
+    if (estructuraQ) {
+      res.render('web/estructura/edit', {estructuraEJS:estructuraQ});
     } else {
       res.send(401, 'Estructura no encontrado');
     }
@@ -105,9 +103,9 @@ exports.read = function (req, res) {
 // DELETE /estructura/estructuraId
 // Borra el estructuraId
 exports.delete = function (req, res) {
-  var estructura = Model.Estructura.build();
-  estructura.id=req.body.id;
-  estructura.removeById(
+  var estructuraDB = Model.Estructura.build();
+  estructuraDB.id=req.body.id;
+  estructuraDB.removeById(
   function (success) {
 
     console.log(success);
