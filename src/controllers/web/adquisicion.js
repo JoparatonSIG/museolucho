@@ -1,21 +1,17 @@
 'use strict';
 
 // NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var adquisicion = Model.Adquisicion.build();
   res.render('web/adquisicion/add', { adquisicion: adquisicion });
-});
+};
 
 // Rutas que terminan en /adquisicion
 // POST /adquisicion
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var tipoAdquisicion = req.body.tipoAdquisicion;
   var tipoCompra = req.body.tipoCompra;
@@ -39,10 +35,10 @@ router.post('/', function (req, res) {
     });
   //  res.send('Adquisicion no encontrada');
   });
-});
+};
 // (trae todas las adquisiciones)
 // GET /adquisiciones
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var adquisicion = Model.Adquisicion.build();
 
   var limitPage = 10;
@@ -75,11 +71,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Adquisicion no encontrada');
   });
-});
+};
 // Rutas que terminan en /adquisicion/:adquisicionId
 // PUT /adquisicion/:adquisicionId
 // Actualiza adquisicion
-router.put('/:adquisicionId', function (req, res) {
+exports.update = function (req, res) {
   var adquisicion = Model.Adquisicion.build();
   console.log('ingresa al put');
   adquisicion.id = req.body.id;
@@ -103,10 +99,10 @@ router.put('/:adquisicionId', function (req, res) {
     console.log(error);
     res.send('Adquisicion no encontrada');
   });
-});
+};
 // GET /adquisicion/:adquisicionId
 // Toma una adquisicion por id
-router.get('/:adquisicionId', function (req, res) {
+exports.read = function (req, res) {
   var adquisicion = Model.Adquisicion.build();
 
   adquisicion.retrieveById(req.params.adquisicionId, function (adquisicionq) {
@@ -118,10 +114,10 @@ router.get('/:adquisicionId', function (req, res) {
   }, function (error) {
     res.send('Adquisicion no encontrada');
   });
-});
+};
 // DELETE /adquisicion/adquisicionId
 // Borra el adquisicionId
-router.delete('/:adquisicionId', function (req, res) {
+exports.delete = function (req, res) {
   var adquisicion = Model.Adquisicion.build();
   adquisicion.id=req.body.id;
   adquisicion.removeById(
@@ -139,6 +135,4 @@ router.delete('/:adquisicionId', function (req, res) {
   , function (error) {
     res.send('Adquisicion no encontrada');
   });
-});
-
-module.exports = router;
+};

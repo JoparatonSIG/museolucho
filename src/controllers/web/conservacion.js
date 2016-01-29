@@ -1,23 +1,19 @@
 'use strict';
 
 // NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 
 // (para agregar un nuevo conservacion)
 // GET /conservacion
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var conservacion = Model.Conservacion.build();
   res.render('web/conservacion/add', { conservacion: conservacion});
-});
+};
 
 // Rutas que terminan en /conservacion
 // POST /conservacion
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var conservacion = req.body.conservacion;
   var condicionesSeguridad = req.body.condicionesSeguridad;
@@ -34,10 +30,10 @@ router.post('/', function (req, res) {
     res.redirect( '/web/conservacion');
     // res.send(err);
   });
-});
+};
 // (trae todos los conservacion)
 // GET /conservacion
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var conservacion = Model.Conservacion.build();
   console.log('GET Paginado pre Select');
 
@@ -70,11 +66,11 @@ router.get('/', function (req, res) {
     console.log(error);
     res.send('Conservacion no encontrado');
   });
-});
+};
 // Rutas que terminan en /conservacion/:conservacionId
 // PUT /conservacion/:conservacionId
 // Actualiza conservacion
-router.put('/:conservacionId', function (req, res) {
+exports.update = function (req, res) {
   var conservacion = Model.Conservacion.build();
   conservacion.id = req.body.id;
   conservacion.conservacion = req.body.conservacion;
@@ -92,10 +88,10 @@ router.put('/:conservacionId', function (req, res) {
     console.log(error);
     res.send('Conservacion no encontrado');
   });
-});
+};
 // GET /conservacion/:conservacionId
 // Toma un conservacion por id
-router.get('/:conservacionId', function (req, res) {
+exports.read = function (req, res) {
   var conservacion = Model.Conservacion.build();
 
   conservacion.retrieveById(req.params.conservacionId, function (conservacionq) {
@@ -107,10 +103,10 @@ router.get('/:conservacionId', function (req, res) {
   }, function (error) {
     res.send('Conservacion no encontrado');
   });
-});
+};
 // DELETE /conservacion/conservacionId
 // Borra el conservacionId
-router.delete('/:conservacionId', function (req, res) {
+exports.delete = function (req, res) {
   var conservacion = Model.Conservacion.build();
 
   conservacion.removeById(req.params.conservacionId, function (conservacion) {
@@ -122,6 +118,4 @@ router.delete('/:conservacionId', function (req, res) {
   }, function (error) {
     res.send('Conservacion no encontrado');
   });
-});
-
-module.exports = router;
+};

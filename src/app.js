@@ -12,7 +12,7 @@ var config = require('./config/config');
 
 var webPublico = require('./controllers/web/webPublico');
 var RoutesAPI = require('./controllers/routesAPI');
-var RoutesWEB = require('./controllers/routesWEB');
+var webPrivado = require('./controllers/routesWEB');
 
 require('./config/passport')(passport);
 
@@ -75,9 +75,10 @@ app.use(function (req, res, next) {
   res.locals._csrf = "req.csrfToken()";
   next();
 });
+//app.use(flash());
 
 app.use( '/api', RoutesAPI );
-app.use( '/web', RoutesWEB );
+app.use( '/web', webPrivado );
 
 app.use('/', webPublico);
 

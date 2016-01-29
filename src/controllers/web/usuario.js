@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /usuarios
 // router.route('/usuario') */
 
 // POST /usuarios
-router.get('/cargar', function (req, res) {
+exports.list = function (req, res) {
   var nivelesDB = Museo.Nivel.build();
   var usuarioDB = Museo.Usuario.build();
   nivelesDB.retrieveAll(function (nivelesQ) {
@@ -27,9 +21,9 @@ router.get('/cargar', function (req, res) {
     res.send('Usuario no encontrado');
     }
   );
-});
+};
 
-router.post('/cargar', function (req, res) {
+exports.create = function (req, res) {
   console.log('soy re.body',req.body);
 
   var usuarioDB = Museo.Usuario.build({
@@ -46,24 +40,13 @@ router.post('/cargar', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 /* (trae todos los usuarios)
 // GET /usuario */
 
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var usuario = Museo.Usuario.build();
-  /*console.log(req.body);
-  usuario.retrieveAll(function (usuarios) {
-    if (usuarios) {
-      res.render('web/usuario/list', { usuarios: usuarios});
-    } else {
-      res.send(401, 'No se encontraron Usuarios');
-    }
-  }, function (error) {
-    res.send('Usuario no encontrado');
-  });
-});*/
-console.log('GET Paginado pre Select');
+  console.log('GET Paginado pre Select');
 
   var limitPage = 10;
   if (currentPage == null ) {
@@ -93,15 +76,13 @@ console.log('GET Paginado pre Select');
     console.log('error',error);
     res.send('Usuarios no encontrado');
   });
-});
-
-
+};
 /* Rutas que terminan en /usuarios/:usuariosId
 // router.route('/usuario/:usuarioId')
 // PUT /usuarios/:usuarioId
 // Actualiza usuario */
 
-router.put('/:usuarioId', function (req, res) {
+exports.update = function (req, res) {
   var usuario = Museo.Usuario.build();
   console.log('ingresa al put');
   usuario.id = req.body.id;
@@ -114,7 +95,7 @@ router.put('/:usuarioId', function (req, res) {
   console.log('email>',usuario.email);
   console.log('nombre>',usuario.nombre);
   console.log('apellido>',usuario.apellido);
-  console.log('password>',usuario.password);  
+  console.log('password>',usuario.password);
   console.log('nivelSele>',usuario.NivelId);
 
   usuario.updateById(req.params.usuarioId, function (success) {
@@ -129,11 +110,11 @@ router.put('/:usuarioId', function (req, res) {
     console.log('ERROR');
     res.send('Usuario no encontrado');
   });
-});
+};
 
 // GET /usuario/:usuarioId
 // Toma un usuario por id
-router.get('/:usuarioId', function (req, res) {
+exports.read = function (req, res) {
   var nivelesDB = Museo.Nivel.build();
   var usuario = Museo.Usuario.build();
   nivelesDB.retrieveAll(function (niveles) {
@@ -157,11 +138,11 @@ router.get('/:usuarioId', function (req, res) {
     console.log(error);
     res.send('Usuario no encontrado');
   });
-});
+};
 
 // DELETE /usuario/usuarioId
 // Borra el usuarioId
-router.delete('/:usuarioId', function (req, res) {
+exports.delete = function (req, res) {
   var usuario = Museo.Usuario.build();
   usuario.removeById(req.params.usuarioId, function (usuario) {
     if (usuario) {
@@ -173,6 +154,4 @@ router.delete('/:usuarioId', function (req, res) {
   }, function (error) {
     res.send('Usuario no encontrado');
   });
-});
-
-module.exports = router;
+};

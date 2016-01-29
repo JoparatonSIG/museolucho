@@ -10,7 +10,6 @@ exports.getForm = function (req, res) {
   var accesorio = Model.Accesorio.build();
   res.render('web/accesorio/add', { accesorio: accesorio});
 };
-
 // Rutas que terminan en /accesorio
 // POST /accesorio
 exports.create = function (req, res) {
