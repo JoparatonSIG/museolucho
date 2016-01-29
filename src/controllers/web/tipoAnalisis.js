@@ -8,8 +8,8 @@ var Model = require('../../models/model');
 
 
 exports.getForm = function (req, res) {
-  var tipoanalisis = Model.TipoAnalisis.build();
-  res.render('web/tipoanalisis/add', { tipoanalisis: tipoanalisis});
+  var tipoanalisisDB = Model.TipoAnalisis.build();
+  res.render('web/tipoanalisis/add', { tipoanalisisEJS: tipoanalisisDB});
 };
 
 exports.create = function (req, res) {
