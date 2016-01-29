@@ -75,12 +75,12 @@ RoutesWEB.get('/especialidad/:especialidadId', sesion.isLogged, especialidad.rea
 RoutesWEB.put('/especialidad/:especialidadId', sesion.isLogged, especialidad.update);
 RoutesWEB.delete('/especialidad/:especialidadId', sesion.isLogged, especialidad.delete);
 
-RoutesWEB.get('/estructura/form', sesion.isLogged, estructura.getForm);
-RoutesWEB.get('/estructura/', sesion.isLogged, estructura.listPag);
-RoutesWEB.post('/estructura/', sesion.isLogged, estructura.create);
-RoutesWEB.get('/estructura/:estructuraId', sesion.isLogged, estructura.read);
-RoutesWEB.put('/estructura/:estructuraId', sesion.isLogged, estructura.update);
-RoutesWEB.delete('/estructura/:estructuraId', sesion.isLogged, estructura.delete);
+RoutesWEB.get('/estructura/form', estructura.getForm);
+RoutesWEB.get('/estructura/', estructura.listPag);
+RoutesWEB.post('/estructura/',  estructura.create);
+RoutesWEB.get('/estructura/:estructuraId',  estructura.read);
+RoutesWEB.put('/estructura/:estructuraId',  estructura.update);
+RoutesWEB.delete('/estructura/:estructuraId',  estructura.delete);
 
 RoutesWEB.get('/fotografia/form', sesion.isLogged, fotografia.getForm);
 RoutesWEB.get('/fotografia/', sesion.isLogged, fotografia.listPag);
