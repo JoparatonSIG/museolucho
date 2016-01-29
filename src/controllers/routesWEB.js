@@ -14,7 +14,9 @@ var estructura = require('./web/estructura');
 var fotografia = require('./web/fotografia');
 var intervencion = require('./web/intervencion');
 var lugar = require('./web/lugar');
+var museo = require('./web/museo');
 var nivel = require('./web/nivel');
+var relevamiento = require('./web/relevamiento');
 var tecnicasArte = require('./web/tecnicasArte');
 var tipoAnalisis = require('./web/tipoAnalisis');
 var ubicacion = require('./web/ubicacion');
@@ -102,7 +104,7 @@ RoutesWEB.put('/lugar/:lugarId', sesion.isLogged, lugar.update);
 RoutesWEB.delete('/lugar/:lugarId', sesion.isLogged, lugar.delete);
 
 RoutesWEB.get('/museo/form', sesion.isLogged, museo.getForm);
-RoutesWEB.get('/museo/', sesion.isLogged, museo.listPag);
+RoutesWEB.get('/museo/', sesion.isLogged, museo.list);
 RoutesWEB.post('/museo/', sesion.isLogged, museo.create);
 RoutesWEB.get('/museo/:museoId', sesion.isLogged, museo.read);
 RoutesWEB.put('/museo/:museoId', sesion.isLogged, museo.update);
@@ -122,8 +124,7 @@ RoutesWEB.get('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.rea
 RoutesWEB.put('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.update);
 RoutesWEB.delete('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.delete);
 
-RoutesWEB.get('/tecnicasArte/form', sesion.isLogged, tecnicasArte.getForm);
-RoutesWEB.get('/tecnicasArte/', sesion.isLogged, tecnicasArte.listPag);
+RoutesWEB.get('/tecnicasArte/', sesion.isLogged, tecnicasArte.list);
 RoutesWEB.post('/tecnicasArte/', sesion.isLogged, tecnicasArte.create);
 RoutesWEB.get('/tecnicasArte/:tecnicasArteId', sesion.isLogged, tecnicasArte.read);
 RoutesWEB.put('/tecnicasArte/:tecnicasArteId', sesion.isLogged, tecnicasArte.update);

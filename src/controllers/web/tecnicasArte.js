@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /tecnicaArtes
 // router.route('/tecnicaArte') */
 
 // POST /tecnicaArtes
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var tecnicaArtereq = req.body.tecnicaArte;
 
@@ -27,11 +21,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los tecnicaArtes)
 // GET /tecnicaArte */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var tecnicaArte = Museo.TecnicasArte.build();
 
   tecnicaArte.retrieveAll(function (tecnicasArtes) {
@@ -43,14 +37,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('TecnicaArte no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /tecnicaArtes/:tecnicaArtesId
 // router.route('/tecnicaArte/:tecnicaArteId')
 // PUT /tecnicaArtes/:tecnicaArteId
 // Actualiza tecnicaArte */
 
-router.put('/:tecnicaArteId', function (req, res) {
+exports.update = function (req, res) {
   var tecnicaArte = Museo.TecnicaArte.build();
 
   tecnicaArte.tecnicaArte = req.body.tecnicaArte;
@@ -64,11 +58,11 @@ router.put('/:tecnicaArteId', function (req, res) {
   }, function (error) {
     res.send('TecnicaArte no encontrado');
   });
-});
+};
 
 // GET /tecnicaArte/:tecnicaArteId
 // Toma un tecnicaArte por id
-router.get('/:tecnicaArteId', function (req, res) {
+exports.read = function (req, res) {
   var tecnicaArte = Museo.TecnicasArte.build();
 
   tecnicaArte.retrieveById(req.params.tecnicaArteId, function (tecnicaArteq) {
@@ -80,11 +74,11 @@ router.get('/:tecnicaArteId', function (req, res) {
   }, function (error) {
     res.send('Tecnica Arte no encontrado');
   });
-});
+};
 
 // DELETE /tecnicaArte/tecnicaArteId
 // Borra el tecnicaArteId
-router.delete('/:tecnicaArteId', function (req, res) {
+exports.delete = function (req, res) {
   var tecnicaArte = Museo.TecnicaArte.build();
 
   tecnicaArte.removeById(req.params.tecnicaArteId, function (tecnicaArte) {
@@ -96,6 +90,4 @@ router.delete('/:tecnicaArteId', function (req, res) {
   }, function (error) {
     res.send('TecnicaArte no encontrado');
   });
-});
-
-module.exports = router;
+};

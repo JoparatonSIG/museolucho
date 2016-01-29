@@ -1,22 +1,18 @@
 'use strict';
 
 // NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 // (trae todos los museos)
 // GET /museo
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var museo = Model.Museo.build();
   res.render('web/museo/add', { museo: museo});
-});
+};
 
 // Rutas que terminan en /museo
 // POST /museo
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var museo = req.body.museo;
   var direccion = req.body.direccion;
@@ -35,10 +31,10 @@ router.post('/', function (req, res) {
     res.redirect( '/web/museo');
     // res.send(err);
   });
-});
+};
 // (trae todos los museos)
 // GET /museo
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var museo = Model.Museo.build();
 
   museo.retrieveAll(function (museos) {
@@ -50,11 +46,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
+};
 // Rutas que terminan en /museo/:museoId
 // PUT /museo/:museoId
 // Actualiza museo
-router.put('/:museoId', function (req, res) {
+exports.update = function (req, res) {
   var museo = Model.Museo.build();
   museo.id = req.body.id;
   museo.museo = req.body.museo;
@@ -73,10 +69,10 @@ router.put('/:museoId', function (req, res) {
     console.log(error);
     res.send('Museo no encontrado');
   });
-});
+};
 // GET /museo/:museoId
 // Toma un museo por id
-router.get('/:museoId', function (req, res) {
+exports.read = function (req, res) {
   var museo = Model.Museo.build();
 
   museo.retrieveById(req.params.museoId, function (museoq) {
@@ -88,10 +84,10 @@ router.get('/:museoId', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
+};
 // DELETE /museo/museoId
 // Borra el museoId
-router.delete('/:museoId', function (req, res) {
+exports.delete = function (req, res) {
   var museo = Model.Museo.build();
   console.log(req.params);
   museo.removeById(req.params.museoId, function (museo) {
@@ -103,6 +99,4 @@ router.delete('/:museoId', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
-
-module.exports = router;
+};

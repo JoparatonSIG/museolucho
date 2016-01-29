@@ -35,7 +35,7 @@ exports.create = function (req, res) {
 };
 // (trae todas las intervenciones)
 // GET /intervencion
-exports.limitPage = function (req, res) {
+exports.listPag = function (req, res) {
   var intervencion = Model.Intervencion.build();
 
   var limitPage = 10;

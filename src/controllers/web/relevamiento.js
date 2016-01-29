@@ -50,7 +50,7 @@ exports.create = function (req, res) {
 };
 // (trae todos los relevamientos)
 // GET /relevamientos
-rexports.listPag = function (req, res) {
+exports.listPag = function (req, res) {
   var relevamiento = Model.Relevamiento.build();
 
   var limitPage = 10;
