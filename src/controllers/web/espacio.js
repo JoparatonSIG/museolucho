@@ -55,10 +55,10 @@ exports.listPag = function (req, res) {
 
   espacioDB.retrievePag(initial, offset, limitPage, currentPage, function (espacioQ) {
     if (espacioQ) {
-      var totalPage = espacioDB.count/limitPage;
-      var count = espacioDB.count
+      var totalPage = espacioQ.count/limitPage;
+      var count = espacioQ.count
       res.render('web/espacio/list.ejs', {
-        espacios: espacioDB.rows,
+        espacioEJS: espacioQ.rows,
         activePage: currentPage,
         totalPage: totalPage,
         count: count,
@@ -85,7 +85,7 @@ exports.update = function (req, res) {
   espacioDB.codigoInmueble = req.body.codigoInmueble;
   espacioDB.ubicacionInmueble = req.body.ubicacionInmueble;
 
-  espacioDB.updateById(espacio.id, function (success) {
+  espacioDB.updateById(espacioDB.id, function (success) {
     console.log(success);
     if (success) {
       res.redirect('/web/espacio');

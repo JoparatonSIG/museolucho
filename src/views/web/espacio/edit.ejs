@@ -13,7 +13,7 @@
         <tr>
         <td class="cell-stat text-center">espacio</td>
           <td class="text-center">
-            <input type="text" class="form-control" id="espacio" name="espacio" value="<%=espacioEJS.espacio%>" required="true" title="Ingrese espacio" placeholder="<espacio>">
+            <input type="text" class="form-control" id="espacio" name="espacio" value="<%=espacioEJS.espacio%>" required="true" title="Ingrese espacio" placeholder="<espacioEJS>">
             <%= espacioEJS.espacio %>
           </td>
       </tr>
@@ -48,15 +48,15 @@
       </tr>
       <tr>
         <td class="cell-stat text-center">fechaCrea</td>
-          <td class="text-center"><%= espacio.fechaCrea %></td>
+          <td class="text-center"><%= espacioEJS.fechaCrea %></td>
       </tr>
       <tr>
         <td class="cell-stat text-center">fechaModifica</td>
-          <td class="text-center"><%= espacio.fechaModifica %></td>
+          <td class="text-center"><%= espacioEJS.fechaModifica %></td>
       </tr>
       <tr>
         <td class="cell-stat text-center">fechaBorra</td>
-          <td class="text-center"><%= espacio.fechaBorra %></td>
+          <td class="text-center"><%= espacioEJS.fechaBorra %></td>
       </tr>
       <tr>
         <td class="cell-stat text-center">Accion</td>
@@ -70,7 +70,7 @@
         <td class="cell-stat text-center">Accion</td>
 
           <td>
-            <a href="/web/espacio/<%= espacio.id %>" class="btn btn-info" role="button">
+            <a href="/web/espacio/<%= espacioEJS.id %>" class="btn btn-info" role="button">
               <p data-placement="top" data-toggle="tooltip" title="Edit">
                 <button type="button" class="btn btn-info">Cancel
                 </button>

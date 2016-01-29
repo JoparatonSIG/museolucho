@@ -61,12 +61,12 @@ RoutesWEB.get('/descripcion/:descripcionId', sesion.isLogged, descripcion.read);
 RoutesWEB.put('/descripcion/:descripcionId', sesion.isLogged, descripcion.update);
 RoutesWEB.delete('/descripcion/:descripcionId', sesion.isLogged, descripcion.delete);
 
-RoutesWEB.get('/espacio/form', sesion.isLogged, espacio.getForm);
-RoutesWEB.get('/espacio/', sesion.isLogged, espacio.listPag);
-RoutesWEB.post('/espacio/', sesion.isLogged, espacio.create);
-RoutesWEB.get('/espacio/:espacioId', sesion.isLogged, espacio.read);
-RoutesWEB.put('/espacio/:espacioId', sesion.isLogged, espacio.update);
-RoutesWEB.delete('/espacio/:espacioId', sesion.isLogged, espacio.delete);
+RoutesWEB.get('/espacio/form',  espacio.getForm);
+RoutesWEB.get('/espacio/',  espacio.listPag);
+RoutesWEB.post('/espacio/',  espacio.create);
+RoutesWEB.get('/espacio/:espacioId',  espacio.read);
+RoutesWEB.put('/espacio/:espacioId', espacio.update);
+RoutesWEB.delete('/espacio/:espacioId',  espacio.delete);
 
 RoutesWEB.get('/especialidad/form', sesion.isLogged, especialidad.getForm);
 RoutesWEB.get('/especialidad/', sesion.isLogged, especialidad.listPag);
