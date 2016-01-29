@@ -1,9 +1,6 @@
 'use strict';
 
 // NIVEL CRUD
-
-
-
 var Model = require('../../models/model');
 
 // (trae todos los museos)

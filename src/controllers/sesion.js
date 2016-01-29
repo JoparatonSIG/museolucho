@@ -12,12 +12,8 @@ exports.isLogged = function (req, res, next) {
 };
 
 exports.index = function (req, res, next) {
-  Model.Sesion.findAll({
-    }).then(
-      function (session) {
-        res.render('sesion/login', { title: 'Session', sessions: session, errors: [], message: req.flash('error') });
-      }
-  ).catch(function (error) { next(error); });
+  res.render('sesion/login', { title: 'Session', sessions: req.session, errors: [], message : 'mensaje' });
+  // , errors: [], message: req.flash('error')
 };
 
 exports.create = function (req, res) {

@@ -206,16 +206,6 @@ module.exports = function (sequelize, DataTypes) {
           .then(onSuccess).catch(onError);
         }
       },
-      /*getterMethods: {
-        nombreCompleto : function () { return this.nombre + ' ' + this.apellido; }
-      },
-      setterMethods: {
-        nombreCompleto: function (valor) {
-          var nombres = valor.split(' ');
-          this.setDataValue('nombre', nombres.slice(0,-1).join(' '));
-          this.setDataValue('apellido', nombres.slice(-1).join(' '));
-        }
-      },*/
       timestamps: true,
       paranoid:true,
       createdAt: 'fechaCrea',

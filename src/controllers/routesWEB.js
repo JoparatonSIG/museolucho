@@ -52,12 +52,108 @@ RoutesWEB.get('/conservacion/:conservacionId', sesion.isLogged, conservacion.rea
 RoutesWEB.put('/conservacion/:conservacionId', sesion.isLogged, conservacion.update);
 RoutesWEB.delete('/conservacion/:conservacionId', sesion.isLogged, conservacion.delete);
 
+RoutesWEB.get('/descripcion/form', sesion.isLogged, descripcion.getForm);
+RoutesWEB.get('/descripcion/', sesion.isLogged, descripcion.listPag);
+RoutesWEB.post('/descripcion/', sesion.isLogged, descripcion.create);
+RoutesWEB.get('/descripcion/:descripcionId', sesion.isLogged, descripcion.read);
+RoutesWEB.put('/descripcion/:descripcionId', sesion.isLogged, descripcion.update);
+RoutesWEB.delete('/descripcion/:descripcionId', sesion.isLogged, descripcion.delete);
+
+RoutesWEB.get('/espacio/form', sesion.isLogged, espacio.getForm);
+RoutesWEB.get('/espacio/', sesion.isLogged, espacio.listPag);
+RoutesWEB.post('/espacio/', sesion.isLogged, espacio.create);
+RoutesWEB.get('/espacio/:espacioId', sesion.isLogged, espacio.read);
+RoutesWEB.put('/espacio/:espacioId', sesion.isLogged, espacio.update);
+RoutesWEB.delete('/espacio/:espacioId', sesion.isLogged, espacio.delete);
+
+RoutesWEB.get('/especialidad/form', sesion.isLogged, especialidad.getForm);
+RoutesWEB.get('/especialidad/', sesion.isLogged, especialidad.listPag);
+RoutesWEB.post('/especialidad/', sesion.isLogged, especialidad.create);
+RoutesWEB.get('/especialidad/:especialidadId', sesion.isLogged, especialidad.read);
+RoutesWEB.put('/especialidad/:especialidadId', sesion.isLogged, especialidad.update);
+RoutesWEB.delete('/especialidad/:especialidadId', sesion.isLogged, especialidad.delete);
+
+RoutesWEB.get('/estructura/form', sesion.isLogged, estructura.getForm);
+RoutesWEB.get('/estructura/', sesion.isLogged, estructura.listPag);
+RoutesWEB.post('/estructura/', sesion.isLogged, estructura.create);
+RoutesWEB.get('/estructura/:estructuraId', sesion.isLogged, estructura.read);
+RoutesWEB.put('/estructura/:estructuraId', sesion.isLogged, estructura.update);
+RoutesWEB.delete('/estructura/:estructuraId', sesion.isLogged, estructura.delete);
+
+RoutesWEB.get('/fotografia/form', sesion.isLogged, fotografia.getForm);
+RoutesWEB.get('/fotografia/', sesion.isLogged, fotografia.listPag);
+RoutesWEB.post('/fotografia/', sesion.isLogged, fotografia.create);
+RoutesWEB.get('/fotografia/:fotografiaId', sesion.isLogged, fotografia.read);
+RoutesWEB.put('/fotografia/:fotografiaId', sesion.isLogged, fotografia.update);
+RoutesWEB.delete('/fotografia/:fotografiaId', sesion.isLogged, fotografia.delete);
+
+RoutesWEB.get('/intervencion/form', sesion.isLogged, intervencion.getForm);
+RoutesWEB.get('/intervencion/', sesion.isLogged, intervencion.listPag);
+RoutesWEB.post('/intervencion/', sesion.isLogged, intervencion.create);
+RoutesWEB.get('/intervencion/:intervencionId', sesion.isLogged, intervencion.read);
+RoutesWEB.put('/intervencion/:intervencionId', sesion.isLogged, intervencion.update);
+RoutesWEB.delete('/intervencion/:intervencionId', sesion.isLogged, intervencion.delete);
+
+RoutesWEB.get('/lugar/form', sesion.isLogged, lugar.getForm);
+RoutesWEB.get('/lugar/', sesion.isLogged, lugar.listPag);
+RoutesWEB.post('/lugar/', sesion.isLogged, lugar.create);
+RoutesWEB.get('/lugar/:lugarId', sesion.isLogged, lugar.read);
+RoutesWEB.put('/lugar/:lugarId', sesion.isLogged, lugar.update);
+RoutesWEB.delete('/lugar/:lugarId', sesion.isLogged, lugar.delete);
+
+RoutesWEB.get('/museo/form', sesion.isLogged, museo.getForm);
+RoutesWEB.get('/museo/', sesion.isLogged, museo.listPag);
+RoutesWEB.post('/museo/', sesion.isLogged, museo.create);
+RoutesWEB.get('/museo/:museoId', sesion.isLogged, museo.read);
+RoutesWEB.put('/museo/:museoId', sesion.isLogged, museo.update);
+RoutesWEB.delete('/museo/:museoId', sesion.isLogged, museo.delete);
+
+RoutesWEB.get('/nivel/form', sesion.isLogged, nivel.getForm);
+RoutesWEB.get('/nivel/', sesion.isLogged, nivel.listPag);
+RoutesWEB.post('/nivel/', sesion.isLogged, nivel.create);
+RoutesWEB.get('/nivel/:nivelId', sesion.isLogged, nivel.read);
+RoutesWEB.put('/nivel/:nivelId', sesion.isLogged, nivel.update);
+RoutesWEB.delete('/nivel/:nivelId', sesion.isLogged, nivel.delete);
+
+RoutesWEB.get('/relevamiento/form', sesion.isLogged, relevamiento.getForm);
+RoutesWEB.get('/relevamiento/', sesion.isLogged, relevamiento.listPag);
+RoutesWEB.post('/relevamiento/', sesion.isLogged, relevamiento.create);
+RoutesWEB.get('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.read);
+RoutesWEB.put('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.update);
+RoutesWEB.delete('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.delete);
+
+RoutesWEB.get('/tecnicasArte/form', sesion.isLogged, tecnicasArte.getForm);
+RoutesWEB.get('/tecnicasArte/', sesion.isLogged, tecnicasArte.listPag);
+RoutesWEB.post('/tecnicasArte/', sesion.isLogged, tecnicasArte.create);
+RoutesWEB.get('/tecnicasArte/:tecnicasArteId', sesion.isLogged, tecnicasArte.read);
+RoutesWEB.put('/tecnicasArte/:tecnicasArteId', sesion.isLogged, tecnicasArte.update);
+RoutesWEB.delete('/tecnicasArte/:tecnicasArteId', sesion.isLogged, tecnicasArte.delete);
+
+RoutesWEB.get('/tipoAnalisis/getId', sesion.isLogged, tipoAnalisis.getId);
+RoutesWEB.get('/tipoAnalisis/form', sesion.isLogged, tipoAnalisis.getForm);
+RoutesWEB.get('/tipoAnalisis/getDetails', sesion.isLogged, tipoAnalisis.getDetails);
+RoutesWEB.get('/tipoAnalisis/', sesion.isLogged, tipoAnalisis.listPag);
+RoutesWEB.post('/tipoAnalisis/', sesion.isLogged, tipoAnalisis.create);
+RoutesWEB.get('/tipoAnalisis/:tipoAnalisisId', sesion.isLogged, tipoAnalisis.read);
+RoutesWEB.put('/tipoAnalisis/:tipoAnalisisId', sesion.isLogged, tipoAnalisis.update);
+RoutesWEB.delete('/tipoAnalisis/:tipoAnalisisId', sesion.isLogged, tipoAnalisis.delete);
+
+RoutesWEB.get('/ubicacion/form', sesion.isLogged, ubicacion.getForm);
+RoutesWEB.get('/ubicacion/', sesion.isLogged, ubicacion.listPag);
+RoutesWEB.post('/ubicacion/', sesion.isLogged, ubicacion.create);
+RoutesWEB.get('/ubicacion/:ubicacionId', sesion.isLogged, ubicacion.read);
+RoutesWEB.put('/ubicacion/:ubicacionId', sesion.isLogged, ubicacion.update);
+RoutesWEB.delete('/ubicacion/:ubicacionId', sesion.isLogged, ubicacion.delete);
+
+
 RoutesWEB.get('/usuario/', sesion.isLogged, usuario.list);
 RoutesWEB.get('/usuario/', sesion.isLogged, usuario.listPag);
 RoutesWEB.post('/usuario/', sesion.isLogged, usuario.create);
 RoutesWEB.get('/usuario/:usuarioId', sesion.isLogged, usuario.read);
 RoutesWEB.put('/usuario/:usuarioId', sesion.isLogged, usuario.update);
 RoutesWEB.delete('/usuario/:usuarioId', sesion.isLogged, usuario.delete);
+
+
 
 RoutesWEB.get('/login/', sesion.index);
 RoutesWEB.post('/login/', sesion.create);
