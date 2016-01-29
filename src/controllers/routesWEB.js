@@ -75,12 +75,12 @@ RoutesWEB.get('/especialidad/:especialidadId', sesion.isLogged, especialidad.rea
 RoutesWEB.put('/especialidad/:especialidadId', sesion.isLogged, especialidad.update);
 RoutesWEB.delete('/especialidad/:especialidadId', sesion.isLogged, especialidad.delete);
 
-RoutesWEB.get('/estructura/form', sesion.isLogged, estructura.getForm);
-RoutesWEB.get('/estructura/', sesion.isLogged, estructura.listPag);
-RoutesWEB.post('/estructura/', sesion.isLogged, estructura.create);
-RoutesWEB.get('/estructura/:estructuraId', sesion.isLogged, estructura.read);
-RoutesWEB.put('/estructura/:estructuraId', sesion.isLogged, estructura.update);
-RoutesWEB.delete('/estructura/:estructuraId', sesion.isLogged, estructura.delete);
+RoutesWEB.get('/estructura/form', estructura.getForm);
+RoutesWEB.get('/estructura/', estructura.listPag);
+RoutesWEB.post('/estructura/',  estructura.create);
+RoutesWEB.get('/estructura/:estructuraId',  estructura.read);
+RoutesWEB.put('/estructura/:estructuraId',  estructura.update);
+RoutesWEB.delete('/estructura/:estructuraId',  estructura.delete);
 
 RoutesWEB.get('/fotografia/form', sesion.isLogged, fotografia.getForm);
 RoutesWEB.get('/fotografia/', sesion.isLogged, fotografia.listPag);
@@ -117,12 +117,12 @@ RoutesWEB.get('/nivel/:nivelId', nivel.read);
 RoutesWEB.put('/nivel/:nivelId', nivel.update);
 RoutesWEB.delete('/nivel/:nivelId', nivel.delete);
 
-RoutesWEB.get('/relevamiento/form', sesion.isLogged, relevamiento.getForm);
-RoutesWEB.get('/relevamiento/', sesion.isLogged, relevamiento.listPag);
-RoutesWEB.post('/relevamiento/', sesion.isLogged, relevamiento.create);
-RoutesWEB.get('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.read);
-RoutesWEB.put('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.update);
-RoutesWEB.delete('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.delete);
+RoutesWEB.get('/relevamiento/form',  relevamiento.getForm);
+RoutesWEB.get('/relevamiento/',  relevamiento.listPag);
+RoutesWEB.post('/relevamiento/', relevamiento.create);
+RoutesWEB.get('/relevamiento/:relevamientoId',  relevamiento.read);
+RoutesWEB.put('/relevamiento/:relevamientoId',  relevamiento.update);
+RoutesWEB.delete('/relevamiento/:relevamientoId', relevamiento.delete);
 
 RoutesWEB.get('/tecnicasArte/', sesion.isLogged, tecnicasArte.list);
 RoutesWEB.post('/tecnicasArte/', sesion.isLogged, tecnicasArte.create);

@@ -12,18 +12,12 @@ exports.getForm = function (req, res) {
 // POST /espacio
 exports.create = function (req, res) {
   // bodyParser debe hacer la magia
-  var espacioR = req.body.espacio;
-  var codigoEspacioR = req.body.codigoEspacio;
-  var inmueblesR = req.body.inmuebles;
-  var codigoInmuebleR = req.body.codigoInmueble;
-  var ubicacionInmuebleR = req.body.ubicacionInmueble;
-
   var espacioDB = Model.Espacio.build({
-    espacio: espacioR,
-    codigoEspacio: codigoEspacioR,
-    inmuebles: inmueblesR,
-    codigoInmueble: codigoInmuebleR,
-    ubicacionInmueble : ubicacionInmuebleR
+    espacio: req.body.espacio,
+    codigoEspacio: req.body.codigoEspacio,
+    inmuebles: req.body.inmuebles,
+    codigoInmueble: req.body.codigoInmueble,
+    ubicacionInmueble : req.body.ubicacionInmueble
   });
 
   espacioDB.add(function (success) {
