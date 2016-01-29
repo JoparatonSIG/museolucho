@@ -10,46 +10,8 @@ var passport = require('passport');
 
 var config = require('./config/config');
 
-var accesorio = require('./controllers/API/accesorio');
-var adquisicion = require('./controllers/API/adquisicion');
-var analisis = require('./controllers/API/analisis');
-var conservacion = require('./controllers/API/conservacion');
-var descripcion = require('./controllers/API/descripcion');
-var espacio = require('./controllers/API/espacio');
-var especialidad = require('./controllers/API/especialidad');
-var estatico = require('./controllers/API/estatico');
-var estructura = require('./controllers/API/estructura');
-var fotografia = require('./controllers/API/fotografia');
-var intervencion = require('./controllers/API/intervencion');
-var lugar = require('./controllers/API/lugar');
-var museo = require('./controllers/API/museo');
-var naturaleza = require('./controllers/API/naturaleza');
-var nivel = require('./controllers/API/nivel');
-var obra = require('./controllers/API/obra');
-var relevamiento = require('./controllers/API/relevamiento');
-var tecnicas = require('./controllers/API/tecnicas');
-var tecnicasArte = require('./controllers/API/tecnicasArte');
-var tipoAnalisis = require('./controllers/API/tipoAnalisis');
-var ubicacion = require('./controllers/API/ubicacion');
-var usuario = require('./controllers/API/usuario');
 var webPublico = require('./controllers/web/webPublico');
-var museoWeb = require('./controllers/web/museo');
-var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
-var adquisicionWeb = require('./controllers/web/adquisicion');
-var fotografiaWeb = require('./controllers/web/fotografia');
-var tipoAnalisisWeb = require('./controllers/web/tipoAnalisis');
-var ubicacionWeb = require('./controllers/web/ubicacion');
-var accesorioWeb = require('./controllers/web/accesorio');
-var analisisWeb = require('./controllers/web/analisis');
-var descripcionWeb = require('./controllers/web/descripcion');
-var especialidadWeb = require('./controllers/web/especialidad');
-var espacioWeb = require('./controllers/web/espacio');
-var estructuraWeb = require('./controllers/web/estructura');
-var nivelWeb = require('./controllers/web/nivel');
-var usuarioWeb = require('./controllers/web/usuario');
-var intervencionWeb = require('./controllers/web/intervencion');
-var conservacionWeb = require('./controllers/web/conservacion');
-var lugarWeb = require('./controllers/web/lugar');
+var RoutesAPI = require('./controllers/routesAPI');
 
 require('./config/passport')(passport);
 
@@ -99,8 +61,6 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
-var router = express.Router();
-var routerWeb = express.Router();
 
 // Passport init
 app.use(passport.initialize());
@@ -115,58 +75,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-/*
-  este router va a estar montado bajo /api, es decir router.use( '/usuario', usuario )
-  va a montar el controlador usuario bajo /api/usuario.
-*/
-
-router.use( '/accesorio', accesorio );
-router.use( '/adquisicion', adquisicion );
-router.use( '/analisis', analisis );
-router.use( '/conservacion', conservacion );
-router.use( '/descripcion', descripcion );
-router.use( '/espacio', espacio );
-router.use( '/especialidad', especialidad );
-router.use( '/estructura', estructura );
-router.use( '/fotografia', fotografia );
-router.use( '/intervencion', intervencion );
-router.use( '/lugar', lugar );
-router.use( '/museo', museo );
-router.use( '/naturaleza', naturaleza );
-router.use( '/nivel', nivel );
-router.use( '/obra', obra );
-router.use( '/relevamiento', relevamiento );
-router.use( '/tecnica', tecnicas );
-router.use( '/tecnicasArte', tecnicasArte );
-router.use( '/tipoAnalisis', tipoAnalisis );
-router.use( '/ubicacion', ubicacion );
-router.use( '/usuario', usuario );
-// router del web publico
-routerWeb.use( '/museo', museoWeb);
-routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
-routerWeb.use( '/adquisicion', adquisicionWeb);
-routerWeb.use( '/fotografia', fotografiaWeb);
-routerWeb.use( '/tipoanalisis', tipoAnalisisWeb);
-routerWeb.use( '/ubicacion', ubicacionWeb);
-routerWeb.use( '/accesorio', accesorioWeb);
-routerWeb.use( '/analisis', analisisWeb);
-routerWeb.use( '/descripcion', descripcionWeb);
-routerWeb.use( '/espacio', espacioWeb);
-routerWeb.use( '/especialidad', especialidadWeb);
-routerWeb.use( '/estructura', estructuraWeb);
-routerWeb.use( '/nivel', nivelWeb);
-routerWeb.use( '/usuario', usuarioWeb);
-routerWeb.use( '/intervencion', intervencionWeb);
-routerWeb.use( '/conservacion', conservacionWeb);
-routerWeb.use( '/lugar', lugarWeb);
-
-
-app.use( '/api', router );
-app.use( '/web', routerWeb );
-
-/*
-  esta ruta es para el controlador de páginas estáticas, va a estar montada en la raíz
-*/
+app.use( '/api', RoutesAPI );
+//app.use( '/web', RoutersController.sistema );
 
 app.use('/', webPublico);
 

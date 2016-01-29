@@ -1,12 +1,6 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /usuarios
@@ -14,7 +8,7 @@ var Museo = require('../../models/model');
 
 // POST /usuarios
 
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var email = req.body.email;
   var nombre = req.body.nombre;
@@ -28,12 +22,12 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los usuarios)
 // GET /usuario */
 
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var usuario = Museo.Usuario.build();
 
   usuario.retrieveAll(function (usuarios) {
@@ -45,14 +39,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Usuario no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /usuarios/:usuariosId
 // router.route('/usuario/:usuarioId')
 // PUT /usuarios/:usuarioId
 // Actualiza usuario */
 
-router.put('/:usuarioId', function (req, res) {
+exports.update = function (req, res) {
   var usuario = Museo.Usuario.build();
 
   usuario.email = req.body.email;
@@ -68,11 +62,11 @@ router.put('/:usuarioId', function (req, res) {
   }, function (error) {
     res.send('Usuario no encontrado');
   });
-});
+};
 
 // GET /usuario/:usuarioId
 // Toma un usuario por id
-router.get('/:usuarioId', function (req, res) {
+exports.read = function (req, res) {
   var usuario = Museo.Usuario.build();
 
   usuario.retrieveById(req.params.usuarioId, function (usuario) {
@@ -84,11 +78,11 @@ router.get('/:usuarioId', function (req, res) {
   }, function (error) {
     res.send('Usuario no encontrado');
   });
-});
+};
 
 // DELETE /usuario/usuarioId
 // Borra el usuarioId
-router.delete('/:usuarioId', function (req, res) {
+exports.delete = function (req, res) {
   var usuario = Museo.Usuario.build();
 
   usuario.removeById(req.params.usuarioId, function (usuario) {
@@ -100,6 +94,4 @@ router.delete('/:usuarioId', function (req, res) {
   }, function (error) {
     res.send('Usuario no encontrado');
   });
-});
-
-module.exports = router;
+};

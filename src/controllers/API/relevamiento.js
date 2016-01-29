@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /relevamientos
 // router.route('/relevamiento') */
 
 // POST /relevamientos
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var fechaRelev = req.body.fechaRelev;
   var fechaCatalog = req.body.fechaCatalog;
@@ -39,11 +33,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los relevamientos)
 // GET /relevamiento */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var relevamiento = Museo.Relevamiento.build();
 
   relevamiento.retrieveAll(function (relevamientos) {
@@ -55,14 +49,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Relevamiento no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /relevamientos/:relevamientosId
 // router.route('/relevamiento/:relevamientoId')
 // PUT /relevamientos/:relevamientoId
 // Actualiza relevamiento */
 
-router.put('/:relevamientoId', function (req, res) {
+exports.update = function (req, res) {
   var relevamiento = Museo.Relevamiento.build();
 
   relevamiento.fechaRelev = req.body.fechaRelev;
@@ -82,11 +76,11 @@ router.put('/:relevamientoId', function (req, res) {
   }, function (error) {
     res.send('Relevamiento no encontrado');
   });
-});
+};
 
 // GET /relevamiento/:relevamientoId
 // Toma un relevamiento por id
-router.get('/:relevamientoId', function (req, res) {
+exports.read = function (req, res) {
   var relevamiento = Museo.Relevamiento.build();
 
   relevamiento.retrieveById(req.params.relevamientoId, function (relevamiento) {
@@ -98,11 +92,11 @@ router.get('/:relevamientoId', function (req, res) {
   }, function (error) {
     res.send('Relevamiento no encontrado');
   });
-});
+};
 
 // DELETE /relevamiento/relevamientoId
 // Borra el relevamientoId
-router.delete('/:relevamientoId', function (req, res) {
+exports.delete = function (req, res) {
   var relevamiento = Museo.Relevamiento.build();
 
   relevamiento.removeById(req.params.relevamientoId, function (relevamiento) {
@@ -114,6 +108,4 @@ router.delete('/:relevamientoId', function (req, res) {
   }, function (error) {
     res.send('Relevamiento no encontrado');
   });
-});
-
-module.exports = router;
+};

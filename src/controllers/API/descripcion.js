@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 /* Rutas que terminan en /descripciones
 // router.route('/descripcion') */
 
 // POST /descripciones
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var marcasInscripciones = req.body.marcasInscripciones;
   var alto = req.body.alto;
@@ -45,11 +39,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los descripciones)
 // GET /descripcion */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var descripcion = Model.Descripcion.build();
 
   descripcion.retrieveAll(function (descripciones) {
@@ -61,14 +55,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /descripciones/:descripcionesId
 // router.route('/descripcion/:descripcionId')
 // PUT /descripciones/:descripcionId
 // Actualiza descripcion */
 
-router.put('/:descripcionId', function (req, res) {
+exports.update = function (req, res) {
   var descripcion = Model.Descripcion.build();
 
   descripcion.marcasInscripciones = req.body.marcasInscripciones;
@@ -91,11 +85,11 @@ router.put('/:descripcionId', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrado');
   });
-});
+};
 
 // GET /descripcion/:descripcionId
 // Toma un descripcion por id
-router.get('/:descripcionId', function (req, res) {
+exports.read = function (req, res) {
   var descripcion = Model.Descripcion.build();
 
   descripcion.retrieveById(req.params.descripcionId, function (descripcion) {
@@ -107,11 +101,11 @@ router.get('/:descripcionId', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrado');
   });
-});
+};
 
 // DELETE /descripcion/descripcionId
 // Borra el descripcionId
-router.delete('/:descripcionId', function (req, res) {
+exports.delete = function (req, res) {
   var descripcion = Model.Descripcion.build();
 
   descripcion.removeById(req.params.descripcionId, function (descripcion) {
@@ -123,6 +117,4 @@ router.delete('/:descripcionId', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrado');
   });
-});
-
-module.exports = router;
+};

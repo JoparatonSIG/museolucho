@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /naturalezaes
 // router.route('/naturaleza') */
 
 // POST /naturalezaes
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var naturalezareq = req.body.naturaleza;
   var codigoNaturaleza = req.body.codigoNaturaleza;
@@ -29,11 +23,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los naturalezaes)
 // GET /naturaleza */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var naturaleza = Museo.Naturaleza.build();
 
   naturaleza.retrieveAll(function (naturaleza) {
@@ -45,14 +39,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Naturaleza no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /naturalezaes/:naturalezaesId
 // router.route('/naturaleza/:naturalezaId')
 // PUT /naturalezaes/:naturalezaId
 // Actualiza naturaleza */
 
-router.put('/:naturalezaId', function (req, res) {
+exports.update = function (req, res) {
   var naturaleza = Museo.Naturaleza.build();
 
   naturaleza.naturaleza = req.body.naturaleza;
@@ -67,11 +61,11 @@ router.put('/:naturalezaId', function (req, res) {
   }, function (error) {
     res.send('Naturaleza no encontrado');
   });
-});
+};
 
 // GET /naturaleza/:naturalezaId
 // Toma un naturaleza por id
-router.get('/:naturalezaId', function (req, res) {
+exports.read = function (req, res) {
   var naturaleza = Museo.Naturaleza.build();
 
   naturaleza.retrieveById(req.params.naturalezaId, function (naturaleza) {
@@ -83,11 +77,11 @@ router.get('/:naturalezaId', function (req, res) {
   }, function (error) {
     res.send('Naturaleza no encontrado');
   });
-});
+};
 
 // DELETE /naturaleza/naturalezaId
 // Borra el naturalezaId
-router.delete('/:naturalezaId', function (req, res) {
+exports.delete = function (req, res) {
   var naturaleza = Museo.Naturaleza.build();
 
   naturaleza.removeById(req.params.naturalezaId, function (naturaleza) {
@@ -99,6 +93,4 @@ router.delete('/:naturalezaId', function (req, res) {
   }, function (error) {
     res.send('Naturaleza no encontrado');
   });
-});
-
-module.exports = router;
+};

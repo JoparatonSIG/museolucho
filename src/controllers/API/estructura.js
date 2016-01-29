@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /estructuras
 // router.route('/estructura') */
 
 // POST /estructuras
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var estructurareq = req.body.estructura;
 
@@ -27,11 +21,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los estructuras)
 // GET /estructura */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var estructura = Museo.Estructura.build();
 
   estructura.retrieveAll(function (estructuras) {
@@ -43,14 +37,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Estructura no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /estructuras/:estructurasId
 // router.route('/estructura/:estructuraId')
 // PUT /estructuras/:estructuraId
 // Actualiza estructura */
 
-router.put('/:estructuraId', function (req, res) {
+exports.update = function (req, res) {
   var estructura = Museo.Estructura.build();
 
   estructura.estructura = req.body.estructura;
@@ -64,11 +58,11 @@ router.put('/:estructuraId', function (req, res) {
   }, function (error) {
     res.send('Estructura no encontrado');
   });
-});
+};
 
 // GET /estructura/:estructuraId
 // Toma un estructura por id
-router.get('/:estructuraId', function (req, res) {
+exports.read = function (req, res) {
   var estructura = Museo.Estructura.build();
 
   estructura.retrieveById(req.params.estructuraId, function (estructura) {
@@ -80,11 +74,11 @@ router.get('/:estructuraId', function (req, res) {
   }, function (error) {
     res.send('Estructura no encontrado');
   });
-});
+};
 
 // DELETE /estructura/estructuraId
 // Borra el estructuraId
-router.delete('/:estructuraId', function (req, res) {
+exports.delete = function (req, res) {
   var estructura = Museo.Estructura.build();
 
   estructura.removeById(req.params.estructuraId, function (estructura) {
@@ -96,6 +90,4 @@ router.delete('/:estructuraId', function (req, res) {
   }, function (error) {
     res.send('Estructura no encontrado');
   });
-});
-
-module.exports = router;
+};

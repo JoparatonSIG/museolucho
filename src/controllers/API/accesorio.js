@@ -1,19 +1,10 @@
 'use strict';
 
 // ACCESORIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
-/* Rutas que terminan en /accesorios
-// router.route('/accesorio') */
-
 // POST /accesorios
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var objetoCodigo = req.body.objetoCodigo;
   var relacion = req.body.relacion;
@@ -26,11 +17,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los accesorios)
 // GET /accesorio */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var accesorio = Model.Accesorio.build();
 
   accesorio.retrieveAll(function (accesorios) {
@@ -42,14 +33,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Accesorio no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /accesorios/:accesoriosId
 // router.route('/accesorio/:accesorioId')
 // PUT /accesorios/:accesorioId
 // Actualiza accesorio */
 
-router.put('/:accesorioId', function (req, res) {
+exports.update = function (req, res) {
   var accesorio = Model.Accesorio.build();
 
   accesorio.objetoCodigo = req.body.objetoCodigo;
@@ -64,11 +55,11 @@ router.put('/:accesorioId', function (req, res) {
   }, function (error) {
     res.send('Accesorio no encontrado');
   });
-});
+};
 
 // GET /accesorio/:accesorioId
 // Toma un accesorio por id
-router.get('/:accesorioId', function (req, res) {
+exports.read = function (req, res) {
   var accesorio = Model.Accesorio.build();
 
   accesorio.retrieveById(req.params.accesorioId, function (accesorio) {
@@ -80,11 +71,11 @@ router.get('/:accesorioId', function (req, res) {
   }, function (error) {
     res.send('Accesorio no encontrado');
   });
-});
+};
 
 // DELETE /accesorio/accesorioId
 // Borra el accesorioId
-router.delete('/:accesorioId', function (req, res) {
+exports.delete = function (req, res) {
   var accesorio = Model.Accesorio.build();
 
   accesorio.removeById(req.params.accesorioId, function (accesorio) {
@@ -96,6 +87,4 @@ router.delete('/:accesorioId', function (req, res) {
   }, function (error) {
     res.send('Accesorio no encontrado');
   });
-});
-
-module.exports = router;
+};

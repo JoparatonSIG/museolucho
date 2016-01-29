@@ -1,12 +1,6 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /intervencion
@@ -14,7 +8,7 @@ var Museo = require('../../models/model');
 
 // POST /usuarios
 
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var metodologia = req.body.metodologia;
   var fechaRestauracion = req.body.fechaRestauracion;
@@ -29,12 +23,12 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos las intervenciones)
 // GET /intervencion */
 
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var intervencion = Museo.Intervencion.build();
 
   intervencion.retrieveAll(function (intervenciones) {
@@ -46,14 +40,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Intervencion no encontrada');
   });
-});
+};
 
 /* Rutas que terminan en /intervenciones/:IntervencionesId
 // router.route('/intervenciones/:intervencioneId')
 // PUT /intervenciones/:intervencioneId
 // Actualiza intervencion */
 
-router.put('/:intervencionId', function (req, res) {
+exports.update = function (req, res) {
   var intervencion = Museo.Intervencion.build();
 
   intervencion.metodologia = req.body.metodologia;
@@ -70,11 +64,11 @@ router.put('/:intervencionId', function (req, res) {
   }, function (error) {
     res.send('Intervencion no encontrada');
   });
-});
+};
 
 // GET /intervencion/:intervencionId
 // Toma un intervencion por id
-router.get('/:intervencionId', function (req, res) {
+exports.read = function (req, res) {
   var intervencion = Museo.Intervencion.build();
 
   intervencion.retrieveById(req.params.intervencionId, function (usuario) {
@@ -86,11 +80,11 @@ router.get('/:intervencionId', function (req, res) {
   }, function (error) {
     res.send('Intervencion no encontrada');
   });
-});
+};
 
 // DELETE /intervencion/intervencionId
 // Borra el intervencionId
-router.delete('/:intervencionId', function (req, res) {
+exports.delete = function (req, res) {
   var intervencion = Museo.Intervencion.build();
 
   intervencion.removeById(req.params.intervencionId, function (usuario) {
@@ -102,6 +96,4 @@ router.delete('/:intervencionId', function (req, res) {
   }, function (error) {
     res.send('Intervencion no encontrada');
   });
-});
-
-module.exports = router;
+};

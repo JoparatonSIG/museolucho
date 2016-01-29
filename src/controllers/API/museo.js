@@ -1,16 +1,12 @@
 'use strict';
 
 // NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 // Rutas que terminan en /museo
 
 // POST /museo
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var museo = req.body.museo;
   var direccion = req.body.direccion;
@@ -28,11 +24,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 // (trae todos los museos)
 // GET /museo
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var museo = Museo.Museo.build();
 
   museo.retrieveAll(function (museos) {
@@ -44,13 +40,13 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
+};
 
 // Rutas que terminan en /museo/:museoId
 
 // PUT /museo/:museoId
 // Actualiza museo
-router.put('/:museoId', function (req, res) {
+exports.update = function (req, res) {
   var museo = Museo.Museo.build();
 
   museo.museo = req.body.museo;
@@ -67,11 +63,11 @@ router.put('/:museoId', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
+};
 
 // GET /museo/:museoId
 // Toma un museo por id
-router.get('/:museoId', function (req, res) {
+exports.read = function (req, res) {
   var museo = Museo.Museo.build();
 
   museo.retrieveById(req.params.museoId, function (museo) {
@@ -83,11 +79,11 @@ router.get('/:museoId', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
+};
 
 // DELETE /museo/museoId
 // Borra el museoId
-router.delete('/:museoId', function (req, res) {
+exports.delete = function (req, res) {
   var museo = Museo.Museo.build();
 
   museo.removeById(req.params.museoId, function (museo) {
@@ -99,6 +95,4 @@ router.delete('/:museoId', function (req, res) {
   }, function (error) {
     res.send('Museo no encontrado');
   });
-});
-
-module.exports = router;
+};

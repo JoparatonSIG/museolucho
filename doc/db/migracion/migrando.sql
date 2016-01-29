@@ -32,7 +32,7 @@ INSERT INTO
     Origen,
     now(),
     now()
-FROM museooriginal.identificacion ori
+FROM bolivia.identificacion ori
 ORDER BY ori.IdIdentificacion ASC;
 -- Se carga Naturaleza
 INSERT INTO
@@ -50,14 +50,14 @@ INSERT INTO
     CodigoNatura,
     now(),
     now()
-FROM museooriginal.naturaapoyoiden ori
+FROM bolivia.naturaapoyoiden ori
 ORDER BY ori.IdNatura ASC;
 -- Se carga Niveles
 INSERT INTO
   museo.Museos
    (museo, direccion, telefono, fechaCrea, fechaModifica)
    VALUES
-   ('museooriginal', 'Chiquitos', 'telefono', now(), now()),
+   ('bolivia', 'Chiquitos', 'telefono', now(), now()),
    ('San Ignacio', 'San Ignacio, Misiones', 'telefono', now(), now());
 
 -- Se carga la nueva tabla Adquisiciones
@@ -174,7 +174,7 @@ INSERT INTO
         )
 SELECT
       IdLugar, localidad, codigoLocalidad, municipio, provincia, codigoProvincia, departamento, now(), now()
-FROM museooriginal.lugar ori
+FROM bolivia.lugar ori
 ORDER BY ori.IdLugar ASC;
 
 INSERT INTO
@@ -196,7 +196,7 @@ SELECT
   ori.Propietario,
   now(),
   now()
-FROM museooriginal.ubicacion ori
+FROM bolivia.ubicacion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 LEFT OUTER JOIN museo.Lugares l
@@ -220,7 +220,7 @@ INSERT INTO
     ValorPredeter,
     now(),
     now()
-FROM museooriginal.analisistipo ori
+FROM bolivia.analisistipo ori
 ORDER BY ori.IdTipo ASC;
 
 INSERT INTO
@@ -236,7 +236,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM museooriginal.tecnicar ori
+FROM bolivia.tecnicar ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -252,7 +252,7 @@ INSERT INTO
     Tecnica,
     now(),
     now()
-FROM museooriginal.tecnica ori
+FROM bolivia.tecnica ori
 ORDER BY ori.IdTecnica ASC;
 
 INSERT INTO
@@ -280,7 +280,7 @@ INSERT INTO
     observaciones,
       now(),
       now()
-FROM museooriginal.relevamiento ori
+FROM bolivia.relevamiento ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdIdentificacion ASC;
@@ -292,7 +292,7 @@ INSERT INTO
         )
 SELECT
       IdFotografías, IdIdentificacion, Foto, CodArchivoFotografico, NumRollo, NumFoto, Fotografo, Fecha, now(), now()
-FROM museooriginal.fotografias ori
+FROM bolivia.fotografias ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdFotografías ASC;
@@ -310,7 +310,7 @@ INSERT INTO
   Estructura,
     now(),
     now()
-FROM museooriginal.estructura ori
+FROM bolivia.estructura ori
 ORDER BY ori.IdEstructura ASC;
 
 INSERT INTO
@@ -334,7 +334,7 @@ INSERT INTO
   UbicaciónInmueble,
     now(),
     now()
-FROM museooriginal.espacios ori
+FROM bolivia.espacios ori
 ORDER BY ori.IdEspacio ASC;
 
 INSERT INTO
@@ -370,7 +370,7 @@ INSERT INTO
   Descripcion,
     now(),
     now()
-FROM museooriginal.descripcion ori
+FROM bolivia.descripcion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdDescripcion ASC;
@@ -392,7 +392,7 @@ INSERT INTO
     CondicionesSeguridad,
     now(),
     now()
-FROM museooriginal.conservacion ori
+FROM bolivia.conservacion ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdConservacion ASC;
@@ -414,7 +414,7 @@ INSERT INTO
     IdTipo,
     now(),
     now()
-FROM museooriginal.analisis ori
+FROM bolivia.analisis ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 LEFT OUTER JOIN museo.TipoAnalisis l
@@ -428,7 +428,7 @@ INSERT INTO
        )
 SELECT
       IdAccesorios, IdIdentificacion, ObjetoCodigo, Relacion, now(), now()
-FROM museooriginal.accesorios ori
+FROM bolivia.accesorios ori
 LEFT OUTER JOIN museo.Obras o
   ON (ori.IdIdentificacion = o.id)
 ORDER BY ori.IdIdentificacion ASC;

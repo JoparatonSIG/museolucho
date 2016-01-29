@@ -2,18 +2,13 @@
 
 // ACCESORIOS CRUD
 
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /adquisiciones
 // router.route('/adquisicion') */
 
 // POST /adquisiciones
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var tipoAdquisicion = req.body.tipoAdquisicion;
   var tipoCompra = req.body.tipoCompra;
@@ -30,11 +25,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los adquisiciones)
 // GET /adquisicion */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
 
   adquisicion.retrieveAll(function (adquisiciones) {
@@ -46,14 +41,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Adquisicion no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /adquisiciones/:adquisicionesId
 // router.route('/adquisicion/:adquisicionId')
 // PUT /adquisiciones/:adquisicionId
 // Actualiza adquisicion */
 
-router.put('/:adquisicionId', function (req, res) {
+exports.update = function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
 
   adquisicion.tipoAdquisicion = req.body.tipoAdquisicion;
@@ -67,11 +62,11 @@ router.put('/:adquisicionId', function (req, res) {
   }, function (error) {
     res.send('Adquisicion no encontrado');
   });
-});
+};
 
 // GET /adquisicion/:adquisicionId
 // Toma un adquisicion por id
-router.get('/:adquisicionId', function (req, res) {
+exports.read = function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
 
   adquisicion.retrieveById(req.params.adquisicionId, function (adquisicion) {
@@ -83,11 +78,11 @@ router.get('/:adquisicionId', function (req, res) {
   }, function (error) {
     res.send('Adquisicion no encontrado');
   });
-});
+};
 
 // DELETE /adquisicion/adquisicionId
 // Borra el adquisicionId
-router.delete('/:adquisicionId', function (req, res) {
+exports.delete = function (req, res) {
   var adquisicion = Museo.Adquisicion.build();
 
   adquisicion.removeById(req.params.adquisicionId, function (adquisicion) {
@@ -99,6 +94,4 @@ router.delete('/:adquisicionId', function (req, res) {
   }, function (error) {
     res.send('Adquisicion no encontrado');
   });
-});
-
-module.exports = router;
+};

@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /lugares
 // router.route('/lugar') */
 
 // POST /lugares
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var localidad = req.body.localidad;
   var codigoLocalidad = req.body.codigoLocalidad;
@@ -37,11 +31,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los lugares)
 // GET /lugar */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.retrieveAll(function (lugares) {
@@ -53,14 +47,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /lugares/:lugaresId
 // router.route('/lugar/:lugarId')
 // PUT /lugares/:lugarId
 // Actualiza lugar */
 
-router.put('/:lugarId', function (req, res) {
+exports.update = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.localidad = req.body.localidad;
@@ -79,11 +73,11 @@ router.put('/:lugarId', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
+};
 
 // GET /lugar/:lugarId
 // Toma un lugar por id
-router.get('/:lugarId', function (req, res) {
+exports.read = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.retrieveById(req.params.lugarId, function (lugar) {
@@ -95,11 +89,11 @@ router.get('/:lugarId', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
+};
 
 // DELETE /lugar/lugarId
 // Borra el lugarId
-router.delete('/:lugarId', function (req, res) {
+exports.delete = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.removeById(req.params.lugarId, function (lugar) {
@@ -111,6 +105,4 @@ router.delete('/:lugarId', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
-
-module.exports = router;
+};

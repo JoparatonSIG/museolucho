@@ -1,19 +1,13 @@
 'use strict';
 
 // ACCESORIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 /* Rutas que terminan en /analisiss
 // router.route('/analisis') */
 
 // POST /analisiss
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var analisisreq = req.body.analisis;
 
@@ -25,11 +19,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los analisiss)
 // GET /analisis */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var analisis = Model.Analisis.build();
 
   analisis.retrieveAll(function (analisis) {
@@ -41,14 +35,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Analisis no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /analisis/:analisisId
 // router.route('/analisis/:analisisId')
 // PUT /analisis/:analisisId
 // Actualiza analisis */
 
-router.put('/:analisisId', function (req, res) {
+exports.update = function (req, res) {
   var analisis = Model.Analisis.build();
 
   analisis.analisis = req.body.analisis;
@@ -62,11 +56,11 @@ router.put('/:analisisId', function (req, res) {
   }, function (error) {
     res.send('Analisis no encontrado');
   });
-});
+};
 
 // GET /analisis/:analisisId
 // Toma un analisis por id
-router.get('/:analisisId', function (req, res) {
+exports.read = function (req, res) {
   var analisis = Model.Analisis.build();
 
   analisis.retrieveById(req.params.analisisId, function (analisis) {
@@ -78,11 +72,11 @@ router.get('/:analisisId', function (req, res) {
   }, function (error) {
     res.send('Analisis no encontrado');
   });
-});
+};
 
 // DELETE /analisis/analisisId
 // Borra el analisisId
-router.delete('/:analisisId', function (req, res) {
+exports.delete = function (req, res) {
   var analisis = Model.Analisis.build();
 
   analisis.removeById(req.params.analisisId, function (analisis) {
@@ -94,6 +88,4 @@ router.delete('/:analisisId', function (req, res) {
   }, function (error) {
     res.send('Analisis no encontrado');
   });
-});
-
-module.exports = router;
+};

@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /ubicacion
 // router.route('/ubicacion') */
 
 // POST /ubicacion
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var espacio = req.body.espacio;
   var inmueble = req.body.inmueble;
@@ -31,11 +25,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los ubicacion)
 // GET /ubicacion */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.retrieveAll(function (ubicaciones) {
@@ -47,14 +41,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /ubicacion/:ubicacionId
 // router.route('/ubicacion/:ubicacionId')
 // PUT /ubicacion/:ubicacionId
 // Actualiza ubicacion */
 
-router.put('/:ubicacionId', function (req, res) {
+exports.update = function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.espacio = req.body.espacio;
@@ -70,11 +64,11 @@ router.put('/:ubicacionId', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrado');
   });
-});
+};
 
 // GET /ubicacion/:ubicacionId
 // Toma un ubicacion por id
-router.get('/:ubicacionId', function (req, res) {
+exports.read = function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.retrieveById(req.params.ubicacionId, function (ubicacion) {
@@ -86,11 +80,11 @@ router.get('/:ubicacionId', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrado');
   });
-});
+};
 
 // DELETE /ubicacion/ubicacionId
 // Borra el ubicacionId
-router.delete('/:ubicacionId', function (req, res) {
+exports.delete = function (req, res) {
   var ubicacion = Museo.Ubicacion.build();
 
   ubicacion.removeById(req.params.ubicacionId, function (ubicacion) {
@@ -102,6 +96,4 @@ router.delete('/:ubicacionId', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrado');
   });
-});
-
-module.exports = router;
+};

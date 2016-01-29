@@ -1,16 +1,12 @@
 'use strict';
 
 // NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 // Rutas que terminan en /nivel
 
 // POST /nivel
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var categoria = req.body.categoria;
   var nivel = Museo.Nivel.build({ categoria: categoria });
@@ -21,11 +17,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 // (trae todos los niveles)
 // GET /nivel
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var nivel = Museo.Nivel.build();
 
   nivel.retrieveAll(function (niveles) {
@@ -37,13 +33,13 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Nivel no encontrado');
   });
-});
+};
 
 // Rutas que terminan en /nivel/:nivelId
 
 // PUT /nivel/:nivelId
 // Actualiza nivel
-router.put('/:nivelId', function (req, res) {
+exports.update = function (req, res) {
   var nivel = Museo.Nivel.build();
   nivel.categoria = req.body.categoria;
 
@@ -57,11 +53,11 @@ router.put('/:nivelId', function (req, res) {
   }, function (error) {
     res.send('Nivel no encontrado');
   });
-});
+};
 
 // GET /nivel/:nivelId
 // Toma un nivel por id
-router.get('/:nivelId', function (req, res) {
+exports.read = function (req, res) {
   var nivel = Museo.Nivel.build();
 
   nivel.retrieveById(req.params.nivelId, function (nivel) {
@@ -73,11 +69,11 @@ router.get('/:nivelId', function (req, res) {
   }, function (error) {
     res.send('Nivel no encontrado');
   });
-});
+};
 
 // DELETE /nivel/nivelId
 // Borra el nivelId
-router.delete('/:nivelId', function (req, res) {
+exports.delete = function (req, res) {
   var nivel = Museo.Nivel.build();
 
   nivel.removeById(req.params.nivelId, function (nivel) {
@@ -89,6 +85,4 @@ router.delete('/:nivelId', function (req, res) {
   }, function (error) {
     res.send('Nivel no encontrado');
   });
-});
-
-module.exports = router;
+};

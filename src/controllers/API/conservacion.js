@@ -1,19 +1,13 @@
 'use strict';
 
 // ACCESORIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /conservacions
 // router.route('/conservacion') */
 
 // POST /conservacions
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var conservacionreq = req.body.conservacion;
   var condicionesSeguridad = req.body.condicionesSeguridad;
@@ -28,11 +22,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los conservacions)
 // GET /conservacion */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var conservacion = Museo.Conservacion.build();
 
   conservacion.retrieveAll(function (conservacion) {
@@ -44,14 +38,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Conservacion no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /conservacion/:conservacionId
 // router.route('/conservacion/:conservacionId')
 // PUT /conservacion/:conservacionId
 // Actualiza conservacion */
 
-router.put('/:conservacionId', function (req, res) {
+exports.update = function (req, res) {
   var conservacion = Museo.Conservacion.build();
 
   conservacion.conservacion = req.body.conservacion;
@@ -66,11 +60,11 @@ router.put('/:conservacionId', function (req, res) {
   }, function (error) {
     res.send('Conservacion no encontrado');
   });
-});
+};
 
 // GET /conservacion/:conservacionId
 // Toma un conservacion por id
-router.get('/:conservacionId', function (req, res) {
+exports.read = function (req, res) {
   var conservacion = Museo.Conservacion.build();
 
   conservacion.retrieveById(req.params.conservacionId, function (conservacion) {
@@ -82,11 +76,11 @@ router.get('/:conservacionId', function (req, res) {
   }, function (error) {
     res.send('Conservacion no encontrado');
   });
-});
+};
 
 // DELETE /conservacion/conservacionId
 // Borra el conservacionId
-router.delete('/:conservacionId', function (req, res) {
+exports.delete = function (req, res) {
   var conservacion = Museo.Conservacion.build();
 
   conservacion.removeById(req.params.conservacionId, function (conservacion) {
@@ -98,6 +92,4 @@ router.delete('/:conservacionId', function (req, res) {
   }, function (error) {
     res.send('Conservacion no encontrado');
   });
-});
-
-module.exports = router;
+};

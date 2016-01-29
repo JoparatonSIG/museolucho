@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /especialidads
 // router.route('/especialidad') */
 
 // POST /especialidads
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var especialidadreq = req.body.especialidad;
 
@@ -27,11 +21,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los especialidads)
 // GET /especialidad */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var especialidad = Museo.Especialidad.build();
 
   especialidad.retrieveAll(function (especialidades) {
@@ -43,14 +37,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Especialidad no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /especialidads/:especialidadsId
 // router.route('/especialidad/:especialidadId')
 // PUT /especialidads/:especialidadId
 // Actualiza especialidad */
 
-router.put('/:especialidadId', function (req, res) {
+exports.update = function (req, res) {
   var especialidad = Museo.Especialidad.build();
 
   especialidad.especialidad = req.body.especialidad;
@@ -64,11 +58,11 @@ router.put('/:especialidadId', function (req, res) {
   }, function (error) {
     res.send('Especialidad no encontrado');
   });
-});
+};
 
 // GET /especialidad/:especialidadId
 // Toma un especialidad por id
-router.get('/:especialidadId', function (req, res) {
+exports.read = function (req, res) {
   var especialidad = Museo.Especialidad.build();
 
   especialidad.retrieveById(req.params.especialidadId, function (especialidad) {
@@ -80,11 +74,11 @@ router.get('/:especialidadId', function (req, res) {
   }, function (error) {
     res.send('Especialidad no encontrado');
   });
-});
+};
 
 // DELETE /especialidad/especialidadId
 // Borra el especialidadId
-router.delete('/:especialidadId', function (req, res) {
+exports.delete = function (req, res) {
   var especialidad = Museo.Especialidad.build();
 
   especialidad.removeById(req.params.especialidadId, function (especialidad) {
@@ -96,6 +90,4 @@ router.delete('/:especialidadId', function (req, res) {
   }, function (error) {
     res.send('Especialidad no encontrado');
   });
-});
-
-module.exports = router;
+};

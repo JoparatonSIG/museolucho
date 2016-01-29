@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /tecnicass
 // router.route('/tecnicas') */
 
 // POST /tecnicass
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var tecnicareq = req.body.tecnica;
 
@@ -27,11 +21,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los tecnicass)
 // GET /tecnicas */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var tecnica = Museo.Tecnica.build();
 
   tecnica.retrieveAll(function (tecnicas) {
@@ -43,14 +37,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Tecnicas no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /tecnicass/:tecnicassId
 // router.route('/tecnicas/:tecnicasId')
 // PUT /tecnicass/:tecnicasId
 // Actualiza tecnicas */
 
-router.put('/:tecnicasId', function (req, res) {
+exports.update = function (req, res) {
   var tecnicas = Museo.Tecnicas.build();
 
   tecnicas.tecnica = req.body.tecnica;
@@ -64,11 +58,11 @@ router.put('/:tecnicasId', function (req, res) {
   }, function (error) {
     res.send('Tecnicas no encontrado');
   });
-});
+};
 
 // GET /tecnicas/:tecnicasId
 // Toma un tecnicas por id
-router.get('/:tecnicasId', function (req, res) {
+exports.read = function (req, res) {
   var tecnica = Museo.Tecnica.build();
 
   tecnica.retrieveById(req.params.tecnicasId, function (tecnicas) {
@@ -80,11 +74,11 @@ router.get('/:tecnicasId', function (req, res) {
   }, function (error) {
     res.send('Tecnicas no encontrado');
   });
-});
+};
 
 // DELETE /tecnicas/tecnicasId
 // Borra el tecnicasId
-router.delete('/:tecnicasId', function (req, res) {
+exports.delete = function (req, res) {
   var tecnicas = Museo.Tecnicas.build();
 
   tecnicas.removeById(req.params.tecnicasId, function (tecnicas) {
@@ -96,6 +90,4 @@ router.delete('/:tecnicasId', function (req, res) {
   }, function (error) {
     res.send('Tecnicas no encontrado');
   });
-});
-
-module.exports = router;
+};

@@ -1,19 +1,13 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /espacios
 // router.route('/espacio') */
 
 // POST /espacios
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var espacioreq = req.body.espacio;
   var codigoEspacio = req.body.codigoEspacio;
@@ -35,11 +29,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los espacios)
 // GET /espacio */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var espacio = Museo.Espacio.build();
 
   espacio.retrieveAll(function (espacios) {
@@ -51,14 +45,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Espacio no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /espacios/:espaciosId
 // router.route('/espacio/:espacioId')
 // PUT /espacios/:espacioId
 // Actualiza espacio */
 
-router.put('/:espacioId', function (req, res) {
+exports.update = function (req, res) {
   var espacio = Museo.Espacio.build();
 
   espacio.espacio = req.body.espacio;
@@ -76,11 +70,11 @@ router.put('/:espacioId', function (req, res) {
   }, function (error) {
     res.send('Espacio no encontrado');
   });
-});
+};
 
 // GET /espacio/:espacioId
 // Toma un espacio por id
-router.get('/:espacioId', function (req, res) {
+exports.read = function (req, res) {
   var espacio = Museo.Espacio.build();
 
   espacio.retrieveById(req.params.espacioId, function (espacio) {
@@ -92,11 +86,11 @@ router.get('/:espacioId', function (req, res) {
   }, function (error) {
     res.send('Espacio no encontrado');
   });
-});
+};
 
 // DELETE /espacio/espacioId
 // Borra el espacioId
-router.delete('/:espacioId', function (req, res) {
+exports.delete = function (req, res) {
   var espacio = Museo.Espacio.build();
 
   espacio.removeById(req.params.espacioId, function (espacio) {
@@ -108,6 +102,4 @@ router.delete('/:espacioId', function (req, res) {
   }, function (error) {
     res.send('Espacio no encontrado');
   });
-});
-
-module.exports = router;
+};

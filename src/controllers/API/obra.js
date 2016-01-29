@@ -1,24 +1,18 @@
 'use strict';
 
 // USUARIOS CRUD
-
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /obras
 // router.route('/obra') */
 
-router.get('/cargar', function (req, res) {
+exports.list = function (req, res) {
   var obra = Museo.Obra.build();
 
   res.render('./obra/form', {obra: obra});
-});
+};
 
-router.post('/cargar', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   console.log(req.body);
   var numero = req.body.numero;
@@ -87,10 +81,10 @@ router.post('/cargar', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 // POST /obras
-router.post('/', function (req, res) {
+exports.update = function (req, res) {
   // bodyParser debe hacer la magia
   var numero = req.body.numero;
   var codigo = req.body.codigo;
@@ -138,12 +132,12 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los obras)
 // GET /obra */
 
-router.get('/', function (req, res) {
+exports.read = function (req, res) {
   var obra = Museo.Obra.build();
 
   obra.retrieveAll(function (obras) {
@@ -155,14 +149,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Obra no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /obras/:obrasId
 // router.route('/obra/:obraId')
 // PUT /obras/:obraId
 // Actualiza obra */
 
-router.put('/:obraId', function (req, res) {
+exports.update = function (req, res) {
   var obra = Museo.Obra.build();
 
   obra.numero = req.body.numero;
@@ -193,11 +187,11 @@ router.put('/:obraId', function (req, res) {
   }, function (error) {
     res.send('Obra no encontrado');
   });
-});
+};
 
 // GET /obra/:obraId
 // Toma un obra por id
-router.get('/:obraId', function (req, res) {
+exports.read = function (req, res) {
   var obra = Museo.Obra.build();
 
   obra.retrieveById(req.params.obraId, function (obra) {
@@ -209,11 +203,11 @@ router.get('/:obraId', function (req, res) {
   }, function (error) {
     res.send('Obra no encontrado');
   });
-});
+};
 
 // DELETE /obra/obraId
 // Borra el obraId
-router.delete('/:obraId', function (req, res) {
+exports.delete = function (req, res) {
   var obra = Museo.Obra.build();
 
   obra.removeById(req.params.obraId, function (obra) {
@@ -225,10 +219,4 @@ router.delete('/:obraId', function (req, res) {
   }, function (error) {
     res.send('Obra no encontrado');
   });
-});
-
-/* (trae todos los obras)
-// GET /obra */
-
-
-module.exports = router;
+};

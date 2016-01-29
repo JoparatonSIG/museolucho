@@ -2,18 +2,13 @@
 
 // USUARIOS CRUD
 
-// Importar rutas
-// =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /tipoAnalisis
 // router.route('/tipoAnalisis') */
 
 // POST /tipoAnalisis
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var tipo = req.body.tipo;
   var subTipo = req.body.subTipo;
@@ -31,11 +26,11 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los tipoAnalisis)
 // GET /tipoAnalisis */
-router.get('/', function (req, res) {
+exports.list = function (req, res) {
   var tipoAnalisis = Museo.TipoAnalisis.build();
 
   tipoAnalisis.retrieveAll(function (tipoAnalisis) {
@@ -47,14 +42,14 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('TipoAnalisis no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /tipoAnalisis/:tipoAnalisisId
 // router.route('/tipoAnalisis/:tipoAnalisisId')
 // PUT /tipoAnalisis/:tipoAnalisisId
 // Actualiza tipoAnalisis */
 
-router.put('/:tipoAnalisisId', function (req, res) {
+exports.update = function (req, res) {
   var tipoAnalisis = Museo.TipoAnalisis.build();
 
   tipoAnalisis.tipo = req.body.tipo;
@@ -70,11 +65,11 @@ router.put('/:tipoAnalisisId', function (req, res) {
   }, function (error) {
     res.send('TipoAnalisis no encontrado');
   });
-});
+};
 
 // GET /tipoAnalisis/:tipoAnalisisId
 // Toma un tipoAnalisis por id
-router.get('/:tipoAnalisisId', function (req, res) {
+exports.read = function (req, res) {
   var tipoAnalisis = Museo.TipoAnalisis.build();
 
   tipoAnalisis.retrieveById(req.params.tipoAnalisisId, function (tipoAnalisis) {
@@ -86,11 +81,11 @@ router.get('/:tipoAnalisisId', function (req, res) {
   }, function (error) {
     res.send('TipoAnalisis no encontrado');
   });
-});
+};
 
 // DELETE /tipoAnalisis/tipoAnalisisId
 // Borra el tipoAnalisisId
-router.delete('/:tipoAnalisisId', function (req, res) {
+exports.delete = function (req, res) {
   var tipoAnalisis = Museo.TipoAnalisis.build();
 
   tipoAnalisis.removeById(req.params.tipoAnalisisId, function (tipoAnalisis) {
@@ -102,6 +97,4 @@ router.delete('/:tipoAnalisisId', function (req, res) {
   }, function (error) {
     res.send('TipoAnalisis no encontrado');
   });
-});
-
-module.exports = router;
+};
