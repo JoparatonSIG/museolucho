@@ -11,8 +11,29 @@ var passport = require('passport');
 var config = require('./config/config');
 
 var webPublico = require('./controllers/web/webPublico');
+<<<<<<< HEAD
 var RoutesAPI = require('./controllers/routesAPI');
 var webPrivado = require('./controllers/routesWEB');
+=======
+var museoWeb = require('./controllers/web/museo');
+var tecnicasArteWeb = require('./controllers/web/tecnicasArte');
+var adquisicionWeb = require('./controllers/web/adquisicion');
+var fotografiaWeb = require('./controllers/web/fotografia');
+var tipoAnalisisWeb = require('./controllers/web/tipoAnalisis');
+var ubicacionWeb = require('./controllers/web/ubicacion');
+var accesorioWeb = require('./controllers/web/accesorio');
+var analisisWeb = require('./controllers/web/analisis');
+var descripcionWeb = require('./controllers/web/descripcion');
+var especialidadWeb = require('./controllers/web/especialidad');
+var espacioWeb = require('./controllers/web/espacio');
+var estructuraWeb = require('./controllers/web/estructura');
+var nivelWeb = require('./controllers/web/nivel');
+var usuarioWeb = require('./controllers/web/usuario');
+var intervencionWeb = require('./controllers/web/intervencion');
+var conservacionWeb = require('./controllers/web/conservacion');
+var relevamientoWeb = require('./controllers/web/relevamiento');
+var lugarWeb = require('./controllers/web/lugar');
+>>>>>>> 0bf53722f2a5b0068bd45df4fe165ba1e6f5588f
 
 require('./config/passport')(passport);
 
@@ -77,8 +98,64 @@ app.use(function (req, res, next) {
 });
 //app.use(flash());
 
+<<<<<<< HEAD
 app.use( '/api', RoutesAPI );
 app.use( '/web', webPrivado );
+=======
+/*
+  este router va a estar montado bajo /api, es decir router.use( '/usuario', usuario )
+  va a montar el controlador usuario bajo /api/usuario.
+*/
+
+router.use( '/accesorio', accesorio );
+router.use( '/adquisicion', adquisicion );
+router.use( '/analisis', analisis );
+router.use( '/conservacion', conservacion );
+router.use( '/descripcion', descripcion );
+router.use( '/espacio', espacio );
+router.use( '/especialidad', especialidad );
+router.use( '/estructura', estructura );
+router.use( '/fotografia', fotografia );
+router.use( '/intervencion', intervencion );
+router.use( '/lugar', lugar );
+router.use( '/museo', museo );
+router.use( '/naturaleza', naturaleza );
+router.use( '/nivel', nivel );
+router.use( '/obra', obra );
+router.use( '/relevamiento', relevamiento );
+router.use( '/tecnica', tecnicas );
+router.use( '/tecnicasArte', tecnicasArte );
+router.use( '/tipoAnalisis', tipoAnalisis );
+router.use( '/ubicacion', ubicacion );
+router.use( '/usuario', usuario );
+// router del web publico
+routerWeb.use( '/museo', museoWeb);
+routerWeb.use( '/tecnicasArte', tecnicasArteWeb);
+routerWeb.use( '/adquisicion', adquisicionWeb);
+routerWeb.use( '/fotografia', fotografiaWeb);
+routerWeb.use( '/tipoanalisis', tipoAnalisisWeb);
+routerWeb.use( '/ubicacion', ubicacionWeb);
+routerWeb.use( '/accesorio', accesorioWeb);
+routerWeb.use( '/analisis', analisisWeb);
+routerWeb.use( '/descripcion', descripcionWeb);
+routerWeb.use( '/espacio', espacioWeb);
+routerWeb.use( '/especialidad', especialidadWeb);
+routerWeb.use( '/estructura', estructuraWeb);
+routerWeb.use( '/nivel', nivelWeb);
+routerWeb.use( '/usuario', usuarioWeb);
+routerWeb.use( '/intervencion', intervencionWeb);
+routerWeb.use( '/conservacion', conservacionWeb);
+routerWeb.use( '/relevamiento', relevamientoWeb);
+routerWeb.use( '/lugar', lugarWeb);
+
+
+app.use( '/api', router );
+app.use( '/web', routerWeb );
+
+/*
+  esta ruta es para el controlador de páginas estáticas, va a estar montada en la raíz
+*/
+>>>>>>> 0bf53722f2a5b0068bd45df4fe165ba1e6f5588f
 
 app.use('/', webPublico);
 
