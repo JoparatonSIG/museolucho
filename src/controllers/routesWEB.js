@@ -117,12 +117,12 @@ RoutesWEB.get('/nivel/:nivelId', sesion.isLogged, nivel.read);
 RoutesWEB.put('/nivel/:nivelId', sesion.isLogged, nivel.update);
 RoutesWEB.delete('/nivel/:nivelId', sesion.isLogged, nivel.delete);
 
-RoutesWEB.get('/relevamiento/form', sesion.isLogged, relevamiento.getForm);
-RoutesWEB.get('/relevamiento/', sesion.isLogged, relevamiento.listPag);
-RoutesWEB.post('/relevamiento/', sesion.isLogged, relevamiento.create);
-RoutesWEB.get('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.read);
-RoutesWEB.put('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.update);
-RoutesWEB.delete('/relevamiento/:relevamientoId', sesion.isLogged, relevamiento.delete);
+RoutesWEB.get('/relevamiento/form',  relevamiento.getForm);
+RoutesWEB.get('/relevamiento/',  relevamiento.listPag);
+RoutesWEB.post('/relevamiento/', relevamiento.create);
+RoutesWEB.get('/relevamiento/:relevamientoId',  relevamiento.read);
+RoutesWEB.put('/relevamiento/:relevamientoId',  relevamiento.update);
+RoutesWEB.delete('/relevamiento/:relevamientoId', relevamiento.delete);
 
 RoutesWEB.get('/tecnicasArte/', sesion.isLogged, tecnicasArte.list);
 RoutesWEB.post('/tecnicasArte/', sesion.isLogged, tecnicasArte.create);
