@@ -26,12 +26,12 @@ var usuario = require('./web/usuario');
   este router va a estar montado bajo /api, es decir router.use( '/usuario', usuario )
   va a montar el controlador usuario bajo /api/usuario.
 */
-RoutesWEB.get('/accesorio/form', sesion.isLogged, accesorio.getForm);
-RoutesWEB.get('/accesorio/', sesion.isLogged, accesorio.listPag);
-RoutesWEB.post('/accesorio/', sesion.isLogged, accesorio.create);
-RoutesWEB.get('/accesorio/:accesorioId', sesion.isLogged, accesorio.read);
-RoutesWEB.put('/accesorio/:accesorioId', sesion.isLogged, accesorio.update);
-RoutesWEB.delete('/accesorio/:accesorioId', sesion.isLogged, accesorio.delete);
+RoutesWEB.get('/accesorio/form', accesorio.getForm);
+RoutesWEB.get('/accesorio/', accesorio.listPag);
+RoutesWEB.post('/accesorio/', accesorio.create);
+RoutesWEB.get('/accesorio/:accesorioId', accesorio.read);
+RoutesWEB.put('/accesorio/:accesorioId', accesorio.update);
+RoutesWEB.delete('/accesorio/:accesorioId', accesorio.delete);
 
 RoutesWEB.get('/adquisicion/form', sesion.isLogged, adquisicion.getForm);
 RoutesWEB.get('/adquisicion/', sesion.isLogged, adquisicion.listPag);

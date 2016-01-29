@@ -2,14 +2,9 @@
 <html lang="es">
   <% include ./partials/head %>
   <body>
-    <!-- panel de cookies -->
-<div id="ca_banner">
-    <span class="ca_close">X</span>
-    <p style="text-align:center">Este sitio web utiliza cookies, tanto propias como de terceros, para recopilar información estadística sobre tu navegación. Si continúas navegando, consideramos que aceptas su uso.  <a href="https://www.museobilbao.com/politicas-cookies.php" class="modalCookies">Si quieres puedes cambiar tus preferencias o ampliar tu información</a> <span class="accept" style="">Acepto</span></p>
-</div>
-<!-- fin de panel de cookies -->
-
-    <% include ./partials/navbar %>
+    <div id="header" class="header-section">
+      <% include ./partials/navbar %>
+    </div>
     <%- body %>
     <% include ./partials/footer %>
     <% include ./partials/footerScripts %>
