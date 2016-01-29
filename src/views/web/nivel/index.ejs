@@ -1,12 +1,12 @@
-<form id="topicForm" method="post" action="/web/nivel/cargar" >
+<form id="topicForm" method="post" action="/web/nivel/" >
 	<div class="form-group">
 	  <label class="control-label col-sm-2" for="categoria">Categoria:</label>
 	  <div class="col-sm-10">
-	    <input type="text" class="form-control" id="categoria" name="categoria" value="<%=nivel.categoria%>" required="true" title="Ingrese el Nivel" placeholder="<categoria>">
+	    <input type="text" class="form-control" id="categoria" name="categoria" value="<%=nivelesEJS.categoria%>" required="true" title="Ingrese el Nivel" placeholder="<categoria>">
 	  </div>
 	</div>
 	<div class="form-group">
-      <div class="col-sm-offset-2 col-sm-2" >	
+      <div class="col-sm-offset-2 col-sm-2" >
 	    <button type="submit" value="submit" class="btn btn-success btn-block"> Agregar Nivel </button>
 	  </div>
 	</div>

@@ -96,12 +96,12 @@ RoutesWEB.get('/intervencion/:intervencionId', sesion.isLogged, intervencion.rea
 RoutesWEB.put('/intervencion/:intervencionId', sesion.isLogged, intervencion.update);
 RoutesWEB.delete('/intervencion/:intervencionId', sesion.isLogged, intervencion.delete);
 
-RoutesWEB.get('/lugar/form', sesion.isLogged, lugar.getForm);
-RoutesWEB.get('/lugar/', sesion.isLogged, lugar.listPag);
-RoutesWEB.post('/lugar/', sesion.isLogged, lugar.create);
-RoutesWEB.get('/lugar/:lugarId', sesion.isLogged, lugar.read);
-RoutesWEB.put('/lugar/:lugarId', sesion.isLogged, lugar.update);
-RoutesWEB.delete('/lugar/:lugarId', sesion.isLogged, lugar.delete);
+RoutesWEB.get('/lugar/form', lugar.getForm);
+RoutesWEB.get('/lugar/', lugar.listPag);
+RoutesWEB.post('/lugar/',lugar.create);
+RoutesWEB.get('/lugar/:lugarId', lugar.read);
+RoutesWEB.put('/lugar/:lugarId',  lugar.update);
+RoutesWEB.delete('/lugar/:lugarId', lugar.delete);
 
 RoutesWEB.get('/museo/form', sesion.isLogged, museo.getForm);
 RoutesWEB.get('/museo/', sesion.isLogged, museo.list);
@@ -110,12 +110,12 @@ RoutesWEB.get('/museo/:museoId', sesion.isLogged, museo.read);
 RoutesWEB.put('/museo/:museoId', sesion.isLogged, museo.update);
 RoutesWEB.delete('/museo/:museoId', sesion.isLogged, museo.delete);
 
-RoutesWEB.get('/nivel/form', sesion.isLogged, nivel.getForm);
-RoutesWEB.get('/nivel/', sesion.isLogged, nivel.listPag);
-RoutesWEB.post('/nivel/', sesion.isLogged, nivel.create);
-RoutesWEB.get('/nivel/:nivelId', sesion.isLogged, nivel.read);
-RoutesWEB.put('/nivel/:nivelId', sesion.isLogged, nivel.update);
-RoutesWEB.delete('/nivel/:nivelId', sesion.isLogged, nivel.delete);
+RoutesWEB.get('/nivel/form', nivel.getForm);
+RoutesWEB.get('/nivel/', nivel.listPag);
+RoutesWEB.post('/nivel/', nivel.create);
+RoutesWEB.get('/nivel/:nivelId', nivel.read);
+RoutesWEB.put('/nivel/:nivelId', nivel.update);
+RoutesWEB.delete('/nivel/:nivelId', nivel.delete);
 
 RoutesWEB.get('/relevamiento/form', sesion.isLogged, relevamiento.getForm);
 RoutesWEB.get('/relevamiento/', sesion.isLogged, relevamiento.listPag);
