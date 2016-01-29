@@ -12,6 +12,7 @@ var config = require('./config/config');
 
 var webPublico = require('./controllers/web/webPublico');
 var RoutesAPI = require('./controllers/routesAPI');
+var RoutesWEB = require('./controllers/routesWEB');
 
 require('./config/passport')(passport);
 
@@ -76,7 +77,7 @@ app.use(function (req, res, next) {
 });
 
 app.use( '/api', RoutesAPI );
-//app.use( '/web', RoutersController.sistema );
+app.use( '/web', RoutesWEB );
 
 app.use('/', webPublico);
 

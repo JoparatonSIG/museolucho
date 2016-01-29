@@ -1,23 +1,19 @@
 'use strict';
 
 // NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 
 // (para agregar un nuevo accesorio)
 // GET /accesorio
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var accesorio = Model.Accesorio.build();
   res.render('web/accesorio/add', { accesorio: accesorio});
-});
+};
 
 // Rutas que terminan en /accesorio
 // POST /accesorio
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var objetoCodigo = req.body.objetoCodigo;
   var relacion = req.body.relacion;
@@ -34,10 +30,10 @@ router.post('/', function (req, res) {
     res.redirect( '/web/accesorio');
     // res.send(err);
   });
-});
+};
 // (trae todos los accesorio)
 // GET /accesorio
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var accesorio = Model.Accesorio.build();
   console.log('GET Paginado pre Select');
 
@@ -70,11 +66,11 @@ router.get('/', function (req, res) {
     console.log(error);
     res.send('Accesorio no encontrado');
   });
-});
+};
 // Rutas que terminan en /accesorio/:accesorioId
 // PUT /accesorio/:accesorioId
 // Actualiza accesorio
-router.put('/:accesorioId', function (req, res) {
+exports.update = function (req, res) {
   var accesorio = Model.Accesorio.build();
   accesorio.id = req.body.id;
   accesorio.objetoCodigo = req.body.objetoCodigo;
@@ -92,10 +88,10 @@ router.put('/:accesorioId', function (req, res) {
     console.log(error);
     res.send('Accesorio no encontrado');
   });
-});
+};
 // GET /accesorio/:accesorioId
 // Toma un accesorio por id
-router.get('/:accesorioId', function (req, res) {
+exports.read = function (req, res) {
   var accesorio = Model.Accesorio.build();
 
   accesorio.retrieveById(req.params.accesorioId, function (accesorioq) {
@@ -107,10 +103,10 @@ router.get('/:accesorioId', function (req, res) {
   }, function (error) {
     res.send('Accesorio no encontrado');
   });
-});
+};
 // DELETE /accesorio/accesorioId
 // Borra el accesorioId
-router.delete('/:accesorioId', function (req, res) {
+exports.delete = function (req, res) {
   var accesorio = Model.Accesorio.build();
 
   accesorio.removeById(req.params.accesorioId, function (accesorio) {
@@ -122,6 +118,4 @@ router.delete('/:accesorioId', function (req, res) {
   }, function (error) {
     res.send('Accesorio no encontrado');
   });
-});
-
-module.exports = router;
+};
