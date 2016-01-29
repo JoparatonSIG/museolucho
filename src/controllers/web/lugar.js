@@ -1,22 +1,18 @@
 'use strict';
-
-// USUARIOS CRUD
-
 // Importar rutas
 // =============================================================================
-var express = require('express');
-var router = express.Router();
+
 
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /lugares
 // router.route('/lugar') */
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var lugar = Museo.Lugar.build();
   res.render('web/lugar/add',{lugar: lugar});
-});
+};
 // POST /lugares
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var localidad = req.body.localidad;
   var codigoLocalidad = req.body.codigoLocalidad;
@@ -40,25 +36,14 @@ router.post('/', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los lugares)
 // GET /lugar */
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var lugar = Museo.Lugar.build();
-/*
-  lugar.retrieveAll(function (lugares) {
-    if (lugares) {
-      res.render('web/lugar/list', { lugares: lugares});
-    } else {
-      res.send(401, 'No se encontraron Lugares');
-    }
-  }, function (error) {
-    res.send('Lugar no encontrado');
-  });
-});*/
 
-console.log('GET Paginado pre Select');
+  console.log('GET Paginado pre Select');
 
   var limitPage = 10;
   if (currentPage == null ) {
@@ -90,14 +75,14 @@ console.log('GET Paginado pre Select');
     console.log('error',error);
     res.send('Lugar no encontrado');
   });
-});
+};
 
 /* Rutas que terminan en /lugares/:lugaresId
 // router.route('/lugar/:lugarId')
 // PUT /lugares/:lugarId
 // Actualiza lugar */
 
-router.put('/:lugarId', function (req, res) {
+exports.update = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.localidad = req.body.localidad;
@@ -116,11 +101,11 @@ router.put('/:lugarId', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
+};
 
 // GET /lugar/:lugarId
 // Toma un lugar por id
-router.get('/:lugarId', function (req, res) {
+exports.read = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.retrieveById(req.params.lugarId, function (lugarq) {
@@ -132,11 +117,11 @@ router.get('/:lugarId', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
+};
 
 // DELETE /lugar/lugarId
 // Borra el lugarId
-router.delete('/:lugarId', function (req, res) {
+exports.delete = function (req, res) {
   var lugar = Museo.Lugar.build();
 
   lugar.removeById(req.params.lugarId, function (lugar) {
@@ -148,6 +133,4 @@ router.delete('/:lugarId', function (req, res) {
   }, function (error) {
     res.send('Lugar no encontrado');
   });
-});
-
-module.exports = router;
+};

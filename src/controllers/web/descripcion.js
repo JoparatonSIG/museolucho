@@ -2,21 +2,17 @@
 
 // NIVEL CRUD
 
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 // (para agregar un nuevo descripcion)
 // GET /descripcion
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var descripcion = Model.Descripcion.build();
   res.render('web/descripcion/add', { descripcion: descripcion});
-});
-
+};
 // Rutas que terminan en /descripcion
 // POST /descripcion
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var marcasInscripciones = req.body.marcasInscripciones;
   var alto = req.body.alto;
@@ -51,10 +47,10 @@ router.post('/', function (req, res) {
     res.redirect( '/web/descripcion');
     // res.send(err);
   });
-});
+};
 // (trae todas descripciones)
 // GET /descripcion
-router.post('/', function (req, res) {
+exports.list = function (req, res) {
   // bodyParser debe hacer la magia
   console.log(req.body);
   var descripcionDB = Model.Descripcion.build({
@@ -69,10 +65,10 @@ router.post('/', function (req, res) {
     res.redirect( '/web/descripcion');
     // res.send(err);
   });
-});
+};
 // (trae todos los descripcion)
 // GET /descripcion
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var descripcion = Model.Descripcion.build();
   console.log('GET Paginado pre Select');
 
@@ -105,11 +101,11 @@ router.get('/', function (req, res) {
     console.log(error);
     res.send('Descripcion no encontrado');
   });
-});
+};
 // Rutas que terminan en /descripcion/:descripcionId
 // PUT /descripcion/:descripcionId
 // Actualiza descripcion
-router.put('/:descripcionId', function (req, res) {
+exports.update = function (req, res) {
   var descripcion = Model.Descripcion.build();
   console.log('ingresa al put');
 
@@ -136,10 +132,10 @@ router.put('/:descripcionId', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrada');
   });
-});
+};
 // GET /descripcion/:descripcionId
 // Toma un descripcion por id
-router.get('/:descripcionId', function (req, res) {
+exports.read = function (req, res) {
   var descripcion = Model.Descripcion.build();
 
   descripcion.retrieveById(req.params.descripcionId, function (descripcionq) {
@@ -151,10 +147,10 @@ router.get('/:descripcionId', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrada');
   });
-});
+};
 // DELETE /descripcion/descripcionId
 // Borra el descripcionId
-router.delete('/:descripcionId', function (req, res) {
+exports.delete = function (req, res) {
   var descripcion = Model.Descripcion.build();
 
   descripcion.removeById(req.params.descripcionId, function (descripcion) {
@@ -166,6 +162,4 @@ router.delete('/:descripcionId', function (req, res) {
   }, function (error) {
     res.send('Descripcion no encontrada');
   });
-});
-
-module.exports = router;
+};

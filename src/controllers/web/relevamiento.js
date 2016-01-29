@@ -1,22 +1,18 @@
 'use strict';
 
-// NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
 
 var Model = require('../../models/model');
 
 
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var relevamiento = Model.Relevamiento.build();
   res.render('web/relevamiento/add', { relevamiento: relevamiento });
-});
+};
 
 // Rutas que terminan en /relevamiento
 // POST /relevamiento
-router.post('/', function (req, res) {
-  // bodyParser debe hacer la magia
+exports.create = function (req, res) {
+    // bodyParser debe hacer la magia
   var fechaRelev = req.body.fechaRelev;
   var fechaCatalog = req.body.fechaCatalog;
   var fechaRevision = req.body.fechaRevision;
@@ -51,10 +47,10 @@ router.post('/', function (req, res) {
     });
   //  res.send('relevamiento no encontrada');
   });
-});
+};
 // (trae todos los relevamientos)
 // GET /relevamientos
-router.get('/', function (req, res) {
+rexports.listPag = function (req, res) {
   var relevamiento = Model.Relevamiento.build();
 
   var limitPage = 10;
@@ -87,11 +83,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Relevamiento no encontrada');
   });
-});
+};
 // Rutas que terminan en /relevamiento/:relevamientoId
 // PUT /relevamiento/:relevamientoId
 // Actualiza relevamiento
-router.put('/:relevamientoId', function (req, res) {
+exports.update = function (req, res) {
   var relevamiento = Model.Relevamiento.build();
   console.log('ingresa al put');
   relevamiento.id = req.body.id;
@@ -121,10 +117,10 @@ relevamiento.quienCatalogo= req.body.quienCatalogo;
     console.log(error);
     res.send('Relevamiento no encontrado');
   });
-});
+};
 // GET /relevamiento/:relevamientoId
 // Toma un relevamiento por id
-router.get('/:relevamientoId', function (req, res) {
+exports.read = function (req, res) {
   var relevamiento = Model.Relevamiento.build();
 
   relevamiento.retrieveById(req.params.relevamientoId, function (relevamientoq) {
@@ -136,10 +132,10 @@ router.get('/:relevamientoId', function (req, res) {
   }, function (error) {
     res.send('Relevamiento no encontrado');
   });
-});
+};
 // DELETE /relevamiento/relevamientoId
 // Borra el relevamientoId
-router.delete('/:relevamientoId', function (req, res) {
+exports.delete = function (req, res) {
   var relevamiento = Model.Relevamiento.build();
   relevamiento.id=req.body.id;
   relevamiento.removeById(
@@ -157,6 +153,4 @@ router.delete('/:relevamientoId', function (req, res) {
   , function (error) {
     res.send('Relevamiento no encontrado');
   });
-});
-
-module.exports = router;
+};

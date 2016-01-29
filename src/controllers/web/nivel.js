@@ -4,24 +4,20 @@
 
 // Importar rutas
 // =============================================================================
-var express = require('express');
-var router = express.Router();
-
 var Museo = require('../../models/model');
 
 /* Rutas que terminan en /nivel
 // router.route('/nivel') */
-
-router.get('/cargar', function (req, res) {
+exports.getForm = function (req, res) {
   var nivel = Museo.Nivel.build();
   res.render('web/nivel/index',{nivel: nivel});
-});
+};
 
 // POST /nivel
-router.post('/cargar', function (req, res) {
+exports.create = function (req, res) {
   console.log(req.body);
   // bodyParser debe hacer la magia
-  var categoria = req.body.categoria; 
+  var categoria = req.body.categoria;
 
   var index = Museo.Nivel.build({
     categoria: categoria
@@ -33,13 +29,13 @@ router.post('/cargar', function (req, res) {
   function (err) {
     res.send(err);
   });
-});
+};
 
 /* (trae todos los nivel)
 // GET /nivel */
 
 
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var nivel = Museo.Nivel.build();
   console.log(req.body);
   nivel.retrieveAll(function (niveles) {
@@ -51,13 +47,13 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Nivel no encontrado');
   });
-});
+};
 /* Rutas que terminan en /nivel/:nivelId
 // router.route('/nivel/:nivelId')
 // PUT /nivel/:nivelId
 // Actualiza nivel */
 
-router.put('/:nivelId', function (req, res) {
+exports.update = function (req, res) {
   var nivel = Museo.Nivel.build();
 
   nivel.categoria = req.body.categoria;
@@ -74,11 +70,11 @@ router.put('/:nivelId', function (req, res) {
     console.log('error');
     res.send('Nivel no encontrado');
   });
-});
+};
 
 // GET /nivel/:nivelId
 // Toma un nivel por id
-router.get('/:nivelId', function (req, res) {
+exports.read = function (req, res) {
   var nivel = Museo.Nivel.build();
 
   nivel.retrieveById(req.params.nivelId, function (niveloq) {
@@ -91,23 +87,20 @@ router.get('/:nivelId', function (req, res) {
   }, function (error) {
     res.send('Nivel no encontrado');
   });
-});
+};
 
 // DELETE /nivel/nivelId
 // Borra el nivelId
-router.delete('/:nivelId', function (req, res) {
+exports.delete = function (req, res) {
   var nivel = Museo.Nivel.build();
-
- nivel.removeById(req.params.nivelId, function (nivel) {
-    if (nivel) {
-      console.log('dentro de borrar:*****************');
-      res.redirect('/web/nivel');
-    } else {
-      res.send(401, 'Nivel no encontrado');
-    }
-  }, function (error) {
-    res.send('Nivel no encontrado');
-  });
-});
-
-module.exports = router;
+  nivel.removeById(req.params.nivelId, function (nivel) {
+      if (nivel) {
+        console.log('dentro de borrar:*****************');
+        res.redirect('/web/nivel');
+      } else {
+        res.send(401, 'Nivel no encontrado');
+      }
+    }, function (error) {
+      res.send('Nivel no encontrado');
+    });
+};

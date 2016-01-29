@@ -1,19 +1,15 @@
 'use strict';
 
-// NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
 
 var Model = require('../../models/model');
 
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var estructura = Model.Estructura.build();
   res.render('web/estructura/add', { estructura: estructura });
-});
+};
 // Rutas que terminan en /estructura
 // POST /espacio
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var estructuraR = req.body.estructura;
 
@@ -31,10 +27,10 @@ router.post('/', function (req, res) {
       error: err
   });
 });
-});
+};
 // (trae todos las estructuras)
 // GET /estructura
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var estructura = Model.Estructura.build();
 
   var limitPage = 10;
@@ -69,11 +65,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Estructura no encontrado');
   });
-});
+};
 // Rutas que terminan en /estructura/:estructuraId
 // PUT /estructura/:estructuraId
 // Actualiza estructura
-router.put('/:estructuraId', function (req, res) {
+exports.update = function (req, res) {
   var estructura = Model.Estructura.build();
   estructura.id = req.body.id;
   estructura.estructura = req.body.estructura;
@@ -90,10 +86,10 @@ router.put('/:estructuraId', function (req, res) {
     console.log(error);
     res.send('Estrucutra no encontrado');
   });
-});
+};
 // GET /estructura/:estructuraId
 // Toma una estructura por id
-router.get('/:estructuraId', function (req, res) {
+exports.read = function (req, res) {
   var estructura = Model.Estructura.build();
 
   estructura.retrieveById(req.params.estructuraId, function (estructuraq) {
@@ -105,10 +101,10 @@ router.get('/:estructuraId', function (req, res) {
   }, function (error) {
     res.send('Estructura no encontrado');
   });
-});
+};
 // DELETE /estructura/estructuraId
 // Borra el estructuraId
-router.delete('/:estructuraId', function (req, res) {
+exports.delete = function (req, res) {
   var estructura = Model.Estructura.build();
   estructura.id=req.body.id;
   estructura.removeById(
@@ -126,9 +122,4 @@ router.delete('/:estructuraId', function (req, res) {
   , function (error) {
     res.send('Estructura no encontrada');
   });
-});
-
-
-
-
-module.exports = router;
+};

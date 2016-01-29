@@ -2,21 +2,18 @@
 
 // NIVEL CRUD
 
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 // (trae todos los fotografias)
 // GET /fotografia
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var fotografia = Model.Fotografia.build();
   res.render('web/fotografia/add', { fotografiass: fotografia});
-});
+};
 
 // Rutas que terminan en /fotografia
 // POST /fotografia
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var foto = req.body.foto;
   var codArchivoFotografico = req.body.codArchivoFotografico;
@@ -41,10 +38,10 @@ router.post('/', function (req, res) {
     res.redirect( '/web/fotografia');
     // res.send(err);
   });
-});
+};
 // (trae todos los fotografias)
 // GET /fotografia
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var fotografia = Model.Fotografia.build();
 
   fotografia.retrieveAll(function (fotografias) {
@@ -56,11 +53,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Fotografia no encontrada');
   });
-});
+};
 // Rutas que terminan en /fotografia/:fotografiaId
 // PUT /fotografia/:fotografiaId
 // Actualiza fotografia
-router.put('/:fotografiaId', function (req, res) {
+exports.update = function (req, res) {
   var fotografia = Model.Fotografia.build();
   fotografia.id = req.body.id;
   fotografia.foto = req.body.foto;
@@ -82,10 +79,10 @@ router.put('/:fotografiaId', function (req, res) {
     console.log(error);
     res.send('Fotografia no encontrada');
   });
-});
+};
 // GET /fotografia/:fotografiaId
 // Toma un fotografia por id
-router.get('/:fotografiaId', function (req, res) {
+exports.read = function (req, res) {
   var fotografia = Model.Fotografia.build();
 
   fotografia.retrieveById(req.params.fotografiaId, function (fotografiaq) {
@@ -97,10 +94,10 @@ router.get('/:fotografiaId', function (req, res) {
   }, function (error) {
     res.send('Fotografia no encontrada');
   });
-});
+};
 // DELETE /fotografia/fotografiaId
 // Borra el fotografia
-router.delete('/:fotografiaId', function (req, res) {
+exports.delete = function (req, res) {
   var fotografia = Model.Fotografia.build();
   console.log(req.params);
   fotografia.removeById(req.params.fotografiaId, function (fotografia) {
@@ -112,6 +109,4 @@ router.delete('/:fotografiaId', function (req, res) {
   }, function (error) {
     res.send('Fotografia no encontrada');
   });
-});
-
-module.exports = router;
+};

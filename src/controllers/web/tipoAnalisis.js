@@ -2,19 +2,20 @@
 
 // NIVEL CRUD
 
-var express = require('express');
-var router = express.Router();
+
 
 var Model = require('../../models/model');
 
 // (trae todos los museos)
 // GET /museo
-router.get('/add', function (req, res) {
+
+
+exports.getForm = function (req, res) {
   var tipoanalisis = Model.TipoAnalisis.build();
   res.render('web/tipoanalisis/add', { tipoanalisis: tipoanalisis});
-});
+};
 
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var tipo = req.body.tipo;
   var subTipo = req.body.subTipo;
@@ -33,14 +34,14 @@ router.post('/', function (req, res) {
     res.redirect( '/web/tipoanalisis');
     // res.send(err);
   });
-});
+};
 // (trae todos los museos)
 // GET /museo
-router.get('/ask', function (req, res) {
+exports.getId = function (req, res) {
   res.render('web/tipoanalisis/ask');
-});
+};
 
-router.post('/details', function (req, res) {
+exports.getDetails = function (req, res) {
   var tipoAnalisisDB = Model.TipoAnalisis.build();
   tipoAnalisisDB.id = req.body.id;
 
@@ -55,10 +56,10 @@ router.post('/details', function (req, res) {
     console.log(error);
     res.send('Tipo de analisis no encontrado');
   });
-});
+};
 // (trae todos los museos)
 // GET /museo
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var tipoanalisis = Model.TipoAnalisis.build();
 
   tipoanalisis.retrieveAll(function (tipoanalisis) {
@@ -70,11 +71,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Tipo de analisis no encontrado');
   });
-});
+};
 // Rutas que terminan en /museo/:museoId
 // PUT /museo/:museoId
 // Actualiza museo
-router.put('/:tipoanalisisId', function (req, res) {
+exports.update = function (req, res) {
   var tipoanalisis = Model.TipoAnalisis.build();
   tipoanalisis.id = req.body.id;
   tipoanalisis.tipo = req.body.tipo;
@@ -93,10 +94,10 @@ router.put('/:tipoanalisisId', function (req, res) {
     console.log(error);
     res.send('Tipo de analisis no encontrado');
   });
-});
+};
 // GET /museo/:museoId
 // Toma un museo por id
-router.get('/:tipoanalisisId', function (req, res) {
+exports.read = function (req, res) {
   var tipoanalisis = Model.TipoAnalisis.build();
 
   tipoanalisis.retrieveById(req.params.tipoanalisisId, function (tipoanalisisq) {
@@ -108,10 +109,10 @@ router.get('/:tipoanalisisId', function (req, res) {
   }, function (error) {
     res.send('Tipo de analisis no encontrado');
   });
-});
+};
 // DELETE /museo/museoId
 // Borra el museoId
-router.delete('/:tipoanalisisId', function (req, res) {
+exports.delete = function (req, res) {
   var tipoanalisis = Model.TipoAnalisis.build();
   console.log(req.params);
   tipoanalisis.removeById(req.params.tipoanalisisId, function (tipoanalisis) {
@@ -123,6 +124,4 @@ router.delete('/:tipoanalisisId', function (req, res) {
   }, function (error) {
     res.send('Tipo de analisis no encontrado');
   });
-});
-
-module.exports = router;
+};

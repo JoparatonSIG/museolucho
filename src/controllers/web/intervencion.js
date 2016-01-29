@@ -1,19 +1,14 @@
 'use strict';
 
-// NIVEL CRUD
-
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var intervencion = Model.Intervencion.build();
   res.render('web/intervencion/add', { intervencion: intervencion });
-});
+};
 // Rutas que terminan en /intervencion
 // POST /intervencion
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var metodologia = req.body.metodologia;
   var fechaRestauracion = req.body.fechaRestauracion;
@@ -37,12 +32,10 @@ router.post('/', function (req, res) {
       error: err
     });
   });
-});
+};
 // (trae todas las intervenciones)
 // GET /intervencion
-
-
-router.get('/', function (req, res) {
+exports.limitPage = function (req, res) {
   var intervencion = Model.Intervencion.build();
 
   var limitPage = 10;
@@ -75,12 +68,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Intervencion no encontrada');
   });
-});
-
+};
 // Rutas que terminan en /intervencion/:intervencionId
 // PUT /intervencion/:intervencionId
 // Actualiza intervencion
-router.put('/:intervencionId', function (req, res) {
+exports.update = function (req, res) {
   var intervencion = Model.Intervencion.build();
 
 
@@ -102,10 +94,10 @@ router.put('/:intervencionId', function (req, res) {
     console.log(error);
     res.send('Intervencion no encontrada');
   });
-});
+};
 // GET /intervencion/:intervencionId
 // Toma una intervencion por id
-router.get('/:intervencionId', function (req, res) {
+exports.read = function (req, res) {
   var intervencion = Model.Intervencion.build();
 
   intervencion.retrieveById(req.params.intervencionId, function (intervencionq) {
@@ -117,10 +109,10 @@ router.get('/:intervencionId', function (req, res) {
   }, function (error) {
     res.send('Intervencion no encontrado');
   });
-});
+};
 // DELETE /intervencion/intervencionId
 // Borra el intervencionId
-router.delete('/:intervencionId', function (req, res) {
+exports.delete = function (req, res) {
   var intervencion = Model.Intervencion.build();
   intervencion.id=req.body.id;
   console.log("id"+intervencion.id);
@@ -139,6 +131,4 @@ router.delete('/:intervencionId', function (req, res) {
   , function (error) {
     res.send('Intervencion no encontrada');
   });
-});
-
-module.exports = router;
+};

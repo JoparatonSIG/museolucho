@@ -1,19 +1,16 @@
 'use strict';
 
-// NIVEL CRUD
 
-var express = require('express');
-var router = express.Router();
 
 var Model = require('../../models/model');
 
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var espacio = Model.Espacio.build();
   res.render('web/espacio/add', { espacio: espacio });
-});
+};
 // Rutas que terminan en /espacio
 // POST /espacio
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var espacioR = req.body.espacio;
   var codigoEspacio = req.body.codigoEspacio;
@@ -39,10 +36,10 @@ router.post('/', function (req, res) {
       error: err
     });
   });
-});
+};
 // (trae todos los espacios)
 // GET /espacio
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var espacio = Model.Espacio.build();
 
   var limitPage = 10;
@@ -75,11 +72,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Espacio no encontrado');
   });
-});
+};
 // Rutas que terminan en /espacio/:espacioId
 // PUT /espacio/:espacioId
 // Actualiza espacio
-router.put('/:espacioId', function (req, res) {
+exports.update = function (req, res) {
   var espacio = Model.Espacio.build();
   espacio.id = req.body.id;
   espacio.espacio = req.body.espacio;
@@ -100,10 +97,10 @@ router.put('/:espacioId', function (req, res) {
     console.log(error);
     res.send('Espacio no encontrado');
   });
-});
+};
 // GET /espacio/:espacioId
 // Toma un espacio por id
-router.get('/:espacioId', function (req, res) {
+exports.read = function (req, res) {
   var espacio = Model.Espacio.build();
 
   espacio.retrieveById(req.params.espacioId, function (espacioq) {
@@ -115,10 +112,10 @@ router.get('/:espacioId', function (req, res) {
   }, function (error) {
     res.send('Espacio no encontrado');
   });
-});
+};
 // DELETE /espacio/espacioId
 // Borra el espacioId
-router.delete('/:espacioId', function (req, res) {
+exports.delete = function (req, res) {
   var espacio = Model.Espacio.build();
   espacio.id=req.body.id;
   espacio.removeById(
@@ -136,6 +133,4 @@ router.delete('/:espacioId', function (req, res) {
   , function (error) {
     res.send('Espacio no encontrada');
   });
-});
-
-module.exports = router;
+};

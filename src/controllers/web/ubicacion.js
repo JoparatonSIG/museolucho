@@ -2,21 +2,18 @@
 
 // NIVEL CRUD
 
-var express = require('express');
-var router = express.Router();
-
 var Model = require('../../models/model');
 
 // (trae todos las ubicaciones)
 // GET /ubicacion
-router.get('/add', function (req, res) {
+exports.getForm = function (req, res) {
   var ubicacion = Model.Ubicacion.build();
   res.render('web/ubicacion/add', { ubicacion: ubicacion});
-});
+};
 
 // Rutas que terminan en /ubicacion
 // POST /ubicacion
-router.post('/', function (req, res) {
+exports.create = function (req, res) {
   // bodyParser debe hacer la magia
   var espacio = req.body.espacio;
   var inmueble = req.body.inmueble;
@@ -35,10 +32,10 @@ router.post('/', function (req, res) {
     res.redirect( '/');
     // res.send(err);
   });
-});
+};
 // (trae todos los ubicaciones)
 // GET /ubicacion
-router.get('/', function (req, res) {
+exports.listPag = function (req, res) {
   var ubicacion = Model.Ubicacion.build();
 
   ubicacion.retrieveAll(function (ubicaciones) {
@@ -50,11 +47,11 @@ router.get('/', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrada');
   });
-});
+};
 // Rutas que terminan en /ubicacion/:ubicacionId
 // PUT /ubicacion/:ubicacionId
 // Actualiza ubicacion
-router.put('/:ubicacionId', function (req, res) {
+exports.update = function (req, res) {
   var ubicacion = Model.Ubicacion.build();
   ubicacion.id = req.body.id;
   ubicacion.espacio = req.body.espacio;
@@ -73,10 +70,10 @@ router.put('/:ubicacionId', function (req, res) {
     console.log(error);
     res.send('Ubicacion no encontrada');
   });
-});
+};
 // GET /ubicacion/:ubicacionId
 // Toma un ubicacion por id
-router.get('/:ubicacionId', function (req, res) {
+exports.read = function (req, res) {
   var ubicacion = Model.Ubicacion.build();
 
   ubicacion.retrieveById(req.params.ubicacionId, function (ubicacionq) {
@@ -88,10 +85,10 @@ router.get('/:ubicacionId', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrada');
   });
-});
+};
 // DELETE /ubicacion/ubicacionId
 // Borra el ubicacionId
-router.delete('/:ubicacionId', function (req, res) {
+exports.delete = function (req, res) {
   var ubicacion = Model.Ubicacion.build();
   console.log(req.params);
   ubicacion.removeById(req.params.ubicacionId, function (ubicacion) {
@@ -103,6 +100,4 @@ router.delete('/:ubicacionId', function (req, res) {
   }, function (error) {
     res.send('Ubicacion no encontrada');
   });
-});
-
-module.exports = router;
+};
