@@ -2,12 +2,12 @@
 	border-radius: 10px;
 	background: #000;
 	background: rgba(0,0,0,0.7);
-	background: url(images/loading.gif) no-repeat center center; /* Loading Gif by http://preloaders.net/ */
+	background: url(/img/skin/loading.gif) no-repeat center center; /* Loading Gif by http://preloaders.net/ */
 	height: 32px;
 	left: 20px;
 	position: fixed;
 	top: 20px;
-	width: 32px; 
+	width: 32px;
 	z-index: 0;
 }
 
