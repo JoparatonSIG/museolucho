@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'tipo Adquisicion',
         comment: 'Tipo de Adquisicion de la obra',
         validate: {
-          notNull: true,
+      //    notNull: true,
           notEmpty: true
         }
       },
@@ -30,13 +30,13 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Tipo de compra',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
+      //    notNull: true,
           notEmpty: true
         }
       },
       fecha: {
         type: DataTypes.DATE,
-        allowNull: false,
+      //  allowNull: false,
         comment: 'Fecha',
       },
     },
@@ -44,6 +44,13 @@ module.exports = function (sequelize, DataTypes) {
       instanceMethods: {
         retrieveAll: function (onSuccess, onError) {
           Adquisicion.findAll( { } )
+          .then(onSuccess).catch(onError);
+        },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Adquisicion.findAndCountAll( {          
+            offset: initial,
+            limit: offsetPage
+           } )
           .then(onSuccess).catch(onError);
         },
         retrieveById: function (adquisicionId, onSuccess, onError) {
@@ -63,19 +70,16 @@ module.exports = function (sequelize, DataTypes) {
           Adquisicion.build({ tipoAdquisicion: tipoAdquisicion, tipoCompra: tipoCompra, fecha: fecha })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (adquisicionId, onSuccess, onError) {
-          var id = adquisicionId;
-          var tipoAdquisicion = this.tipoAdquisicion;
-          var tipoCompra = this.tipoCompra;
-          var fecha = this.fecha;
-
-
-
-          Adquisicion.update({ tipoAdquisicion: tipoAdquisicion, tipoCompra: tipoCompra, fecha: fecha },{ where: { id: id } })
+        updateById: function (id, onSuccess, onError) {
+          //console.log(this.id, this.tipoAdquisicion, this.tipoCompra, this.fecha);
+          Adquisicion.update(
+            { tipoAdquisicion: this.tipoAdquisicion, tipoCompra: this.tipoCompra, fecha:this.fecha },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
-        removeById: function (adquisicionId, onSuccess, onError) {
-          Adquisicion.destroy({ where: { id: adquisicionId }})
+        removeById: function (onSuccess, onError) {
+          Adquisicion.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },
@@ -88,13 +92,13 @@ module.exports = function (sequelize, DataTypes) {
       deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
-      tableName: 'adquisicion',
+      tableName: 'Adquisiciones',
       comment: 'adquisicion de la obra',
       indexes: [
         {
           name: 'idxAdquisicion',
           method: 'BTREE',
-          unique: true,
+          unique: false,
           fields: ['tipoAdquisicion']
         }
       ]

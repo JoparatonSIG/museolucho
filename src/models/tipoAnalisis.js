@@ -1,3 +1,5 @@
+var Model = require('./model');
+
 module.exports = function (sequelize, DataTypes) {
   var TipoAnalisis = sequelize.define(
     'TipoAnalisis',
@@ -25,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Sub Tipo de Analisis'
       },
       valorPredeterminado: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING(50),
         allowNull: true,
         defaultValue: null,
         comment: 'Valor Predeterminado'
@@ -41,6 +43,13 @@ module.exports = function (sequelize, DataTypes) {
           TipoAnalisis.find( { where: { id: taId } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
+        retrieveRelatedById: function (onSuccess, onError) {
+          TipoAnalisis.find({
+            include: [ Model.Analisis ],
+            where: { id: this.id }
+          })
+          .then(onSuccess).catch(onError);
+        },
         add: function (onSuccess, onError) {
           var tipo = this.tipo;
           var subTipo = this.subTipo;
@@ -52,14 +61,9 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (taId, onSuccess, onError) {
-          var id = taId;
-          var tipo = this.tipo;
-          var subTipo = this.subTipo;
-          var valorPredeterminado = this.valorPredeterminado;
-
           TipoAnalisis.update({
-            tipo: tipo, subTipo: subTipo, valorPredeterminado: valorPredeterminado
-          },{ where: { id: id } })
+            tipo: this.tipo, subTipo: this.subTipo, valorPredeterminado: this.valorPredeterminado
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (taId, onSuccess, onError) {
@@ -69,9 +73,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'TipoAnalisis',

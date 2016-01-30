@@ -35,9 +35,9 @@ var host     = (url[4] || null);
 */
 config.db            = {};
 
-config.db.name     = 'museotest';
-config.db.user     = 'museo';
-config.db.pwd      = 'museotest';
+config.db.name     = 'museo';
+config.db.user     = 'umuseo';
+config.db.pwd      = '123456';
 config.db.dialect  = 'mysql';
 config.db.protocol = 'mysql';
 config.db.port     = '3306';
@@ -50,5 +50,10 @@ config.db.storage  = process.env.DATABASE_STORAGE || 'museo.sqlite';
  */
 
 config.logging        = process.env.LOGGING || false;
+
+/***
+* Key para usuarios
+*/
+config.key            = process.env.KEY || '2b5deeee-c5f6-11e5-bbc1-6002925d298e';
 
 module.exports = config;

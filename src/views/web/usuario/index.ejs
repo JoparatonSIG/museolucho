@@ -1,0 +1,47 @@
+<form id="topicForm" method="post" action="/web/usuario/cargar/<%= usuarioJ.id %>" class="form-horizontal" role="form">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="email" name="email" value="<%=usuarioJ.email%>" required="true" title="Ingrese email" placeholder="<email>">
+      <%= usuarioJ.email %>
+    </div>
+  </div>    
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Nombre:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nombre" name="nombre" value="<%=usuarioJ.nombre%>" required="true" title="Ingrese nombre" placeholder="<nombre>">
+      <%= usuarioJ.nombre %>
+    </div>
+  </div>    
+  <div class="form-group">  
+    <label class="control-label col-sm-2" for="email">Apellido:</label> 
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="apellido" name="apellido" value="<%=usuarioJ.apellido%>" required="true" title="Ingrese apellido" placeholder="<apellido>">
+      <%= usuarioJ.apellido %>
+    </div>
+  </div>
+  <div class="form-group">  
+    <label class="control-label col-sm-2" for="email">Password:</label> 
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="password" name="password" value="<%=usuarioJ.password%>" required="true" title="Ingrese password" placeholder="<password>">
+      <%= usuarioJ.password %>
+    </div>
+  </div> 
+  <div class="form-group"> 
+    <label class="control-label col-sm-2" for="email">Nivel de Usuario:</label> 
+    <div class="col-sm-10">  
+      <select name="selectJ">
+  	      <option value="-1" selected>Seleccione Nivel</option>
+  	      <% var j; for (j=0; j < selectJ.length; j++) { %>
+  		       <option value="<%= selectJ[j].id %>"><%= selectJ[j].categoria %></option>
+  	      <% } %>
+      </select>
+    </div>
+  </div>  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2" >   
+      <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">Agregar</button>
+    </div>
+  </div>
+</div>
+</form>

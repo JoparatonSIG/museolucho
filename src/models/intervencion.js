@@ -19,7 +19,6 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'metodologia',
         comment: 'metodologia de la obra',
         validate: {
-          notNull: true,
           notEmpty: true
         }
       },
@@ -35,7 +34,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'Apellido del Restaurador',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
           notEmpty: true
         }
       },
@@ -46,7 +44,6 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'descripcion de la obra',
         validate: {
           is: ['[a-z]','i'],
-          notNull: true,
           notEmpty: true
         }
       },
@@ -59,6 +56,13 @@ module.exports = function (sequelize, DataTypes) {
         },
         retrieveById: function (intervencionId, onSuccess, onError) {
           Intervencion.find( { where: { id: intervencionId } }, { raw: true })
+          .then(onSuccess).catch(onError);
+        },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Intervencion.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
           .then(onSuccess).catch(onError);
         },
         retrieveByMetodologia: function (intervencionMetodologia, onSuccess, onError) {
@@ -87,8 +91,8 @@ module.exports = function (sequelize, DataTypes) {
           Intervencion.update({ metodologia: metodologia, fechaRestauracion: fechaRestauracion, apellidoRestaurador: apellidoRestaurador, descripcion: descripcion },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
-        removeById: function (intervencionId, onSuccess, onError) {
-          Intervencion.destroy({ where: { id: intervencionId }})
+        removeById: function (onSuccess, onError) {
+          Intervencion.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },
@@ -101,7 +105,7 @@ module.exports = function (sequelize, DataTypes) {
       deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
-      tableName: 'intervencion',
+      tableName: 'Intervenciones',
       comment: 'intervencion de la obra',
       indexes: [
         {

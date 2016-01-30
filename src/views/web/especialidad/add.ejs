@@ -1,0 +1,16 @@
+<form id="topicForm" method="post" action="/web/especialidad/<%= especialidad.id %>" >
+    <table class="table table-bordred table-striped">
+      <tbody>
+        <tr>
+          <td class="cell-stat text-center">Especialidad</td>
+          <td class="text-center">
+            <input type="text" class="form-control" id="especialidad" name="especialidad" value="<%=especialidad.especialidad%>" required="true" title="Ingrese especialidad" placeholder="<especialidad>">
+            <%= especialidad.especialidad %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>

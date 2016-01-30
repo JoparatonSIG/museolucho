@@ -43,15 +43,12 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (ubicacionId, onSuccess, onError) {
-          var id = ubicacionId;
-          var espacio = this.espacio;
-          var inmueble = this.inmueble;
-          var propietario = this.propietario;
+
 
           Ubicacion.update({
-            espacio: espacio, inmueble: inmueble,
-            propietario: propietario
-          },{ where: { id: id } })
+            espacio: this.espacio, inmueble: this.inmueble,
+            propietario: this.propietario
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
         removeById: function (ubicacionId, onSuccess, onError) {
@@ -61,9 +58,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Ubicaciones',

@@ -79,6 +79,13 @@ module.exports = function (sequelize, DataTypes) {
           Descripcion.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Descripcion.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (descId, onSuccess, onError) {
           Descripcion.find( { where: { id: descId } }, { raw: true })
           .then(onSuccess).catch(onError);
@@ -133,9 +140,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Descripciones',

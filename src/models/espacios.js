@@ -53,6 +53,13 @@ module.exports = function (sequelize, DataTypes) {
           Espacio.find( { where: { id: espacioId } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Espacio.findAndCountAll( {          
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         add: function (onSuccess, onError) {
           var espacio = this.espacio;
           var codigoEspacio = this.codigoEspacio;
@@ -66,30 +73,24 @@ module.exports = function (sequelize, DataTypes) {
           })
           .save().then(onSuccess).catch(onError);
         },
-        updateById: function (espacioId, onSuccess, onError) {
-          var id = espacioId;
-          var espacio = this.espacio;
-          var codigoEspacio = this.codigoEspacio;
-          var inmuebles = this.inmuebles;
-          var codigoInmueble = this.codigoInmueble;
-          var ubicacionInmueble = this.ubicacionInmueble;
-
-          Espacio.update({
-            espacio: espacio, codigoEspacio: codigoEspacio, inmuebles: inmuebles,
-            codigoInmueble: codigoInmueble, ubicacionInmueble: ubicacionInmueble
-          },{ where: { id: id } })
+        updateById: function (id, onSuccess, onError) {
+          //console.log(this.id, this.espacio, this.codigoEspacio, this.inmuebles, this.codigoInmueble, this.ubicacionInmueble);
+          Espacio.update(
+            { espacio: this.espacio, codigoEspacio: this.codigoEspacio, inmuebles: this.inmuebles, codigoInmueble: this.codigoInmueble, ubicacionInmueble: this.ubicacionInmueble },
+            { where: { id: this.id } }
+          )
           .then(onSuccess).catch(onError);
         },
-        removeById: function (espacioId, onSuccess, onError) {
-          Espacio.destroy({ where: { id: espacioId }})
+        removeById: function (onSuccess, onError) {
+          Espacio.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Espacios',

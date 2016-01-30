@@ -5,30 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLayouts = require('express-ejs-layouts');
+var methodOverride = require('method-override');
+var passport = require('passport');
 
 var config = require('./config/config');
 
-var accesorio = require('./controllers/accesorio');
-var adquisicion = require('./controllers/adquisicion');
-var analisis = require('./controllers/analisis');
-var conservacion = require('./controllers/conservacion');
-var descripcion = require('./controllers/descripcion');
-var espacio = require('./controllers/espacio');
-var especialidad = require('./controllers/especialidad');
-var estatico = require('./controllers/estatico');
-var estructura = require('./controllers/estructura');
-var fotografia = require('./controllers/fotografia');
-var lugar = require('./controllers/lugar');
-var naturaleza = require('./controllers/naturaleza');
-var nivel = require('./controllers/nivel');
-var obra = require('./controllers/obra');
-var relevamiento = require('./controllers/relevamiento');
-var tecnicas = require('./controllers/tecnicas');
-var tecnicasArte = require('./controllers/tecnicasArte');
-var tipoAnalisis = require('./controllers/tipoAnalisis');
-var ubicacion = require('./controllers/ubicacion');
-var usuario = require('./controllers/usuario');
-var webPublico = require('./controllers/webPublico');
+var webPublico = require('./controllers/web/webPublico');
+var RoutesAPI = require('./controllers/routesAPI');
+var webPrivado = require('./controllers/routesWEB');
+
+require('./config/passport')(passport);
 
 var app = express();
 
@@ -64,46 +50,35 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-var router = express.Router();
+// If you want to simulate DELETE and PUT
+// in your app you need methodOverride.
+// override with POST having
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
+
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Keep user, csrf token and config available
 app.use(function (req, res, next) {
+  //console.log(req);
   res.locals.user = req.user;
   res.locals.config = config;
   res.locals._csrf = "req.csrfToken()";
   next();
 });
+//app.use(flash());
 
-/*
-  este router va a estar montado bajo /api, es decir router.use( '/usuario', usuario )
-  va a montar el controlador usuario bajo /api/usuario.
-*/
-
-router.use( '/accesorio', accesorio );
-router.use( '/adquisicion', adquisicion );
-router.use( '/analisis', analisis );
-router.use( '/conservacion', conservacion );
-router.use( '/descripcion', descripcion );
-router.use( '/espacio', espacio );
-router.use( '/especialidad', especialidad );
-router.use( '/estructura', estructura );
-router.use( '/fotografia', fotografia );
-router.use( '/lugar', lugar );
-router.use( '/naturaleza', naturaleza );
-router.use( '/nivel', nivel );
-router.use( '/obra', obra );
-router.use( '/relevamiento', relevamiento );
-router.use( '/tecnica', tecnicas );
-router.use( '/tecnicasArte', tecnicasArte );
-router.use( '/tipoAnalisis', tipoAnalisis );
-router.use( '/ubicacion', ubicacion );
-router.use( '/usuario', usuario );
-
-app.use( '/api', router );
-
-/*
-  esta ruta es para el controlador de páginas estáticas, va a estar montada en la raíz
-*/
+app.use( '/api', RoutesAPI );
+app.use( '/web', webPrivado );
 
 app.use('/', webPublico);
 
@@ -121,6 +96,7 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
+    console.log(err.message);
     res.render('error', {
       message: err.message,
       error: err
@@ -132,6 +108,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
+  console.log(err.message);
   res.render('error', {
     message: err.message,
     error: {}

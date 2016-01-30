@@ -67,6 +67,13 @@ module.exports = function (sequelize, DataTypes) {
           Relevamiento.find( { where: { id: relevamientoId } }, { raw: true })
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Relevamiento.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         add: function (onSuccess, onError) {
           var fechaRelev = this.fechaRelev;
           var fechaCatalog = this.fechaCatalog;
@@ -102,16 +109,16 @@ module.exports = function (sequelize, DataTypes) {
           },{ where: { id: id } })
           .then(onSuccess).catch(onError);
         },
-        removeById: function (relevamientoId, onSuccess, onError) {
-          Relevamiento.destroy({ where: { id: relevamientoId }})
+        removeById: function ( onSuccess, onError) {
+          Relevamiento.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Relevamientos',

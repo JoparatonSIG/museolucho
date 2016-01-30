@@ -1,0 +1,51 @@
+<form id="topicForm" method="post" action="/web/fotografia/<%= fotografiass.id %>" >
+    <table class="table table-bordred table-striped">
+      <thead>
+        <tr>
+          <th class="cell-stat text-center">foto</th>
+          <th class="cell-stat text-center">codArchivoFotografico</th>
+          <th class="cell-stat text-center">numRollo</th>
+          <th class="cell-stat text-center">numFoto</th>
+          <th class="cell-stat text-center">fotografo</th>
+          <th class="cell-stat text-center">fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="text-center">
+              <label for="foto" class="control-label">Foto</label>
+              <input type="text" class="form-control" id="foto" name="foto" value="<%=fotografiass.foto%>" required="true" title="Ingrese foto" placeholder="<foto>">
+              <%= fotografiass.foto %>
+            </td>
+            <td class="text-center">
+              <label for="codArchivoFotografico" class="control-label">Codigo de archivo fotografico</label>
+              <input type="text" class="form-control" id="codArchivoFotografico" name="codArchivoFotografico" value="<%=fotografiass.codArchivoFotografico%>" required="true" title="Ingrese codigo de archivo fotografico" placeholder="<codArchivoFotografico>">
+              <%= fotografiass.codArchivoFotografico %>
+            </td>
+            <td class="text-center">
+              <label for="numRollo" class="control-label">Numero de rollo</label>
+              <input type="text" class="form-control" id="numRollo" name="numRollo" value="<%=fotografiass.numRollo%>" required="true" title="Ingrese numero de rollo" placeholder="<numRollo>">
+              <%= fotografiass.numRollo %>
+            </td>
+            <td class="text-center">
+              <label for="numFoto" class="control-label">Numero de foto</label>
+              <input type="text" class="form-control" id="numFoto" name="numFoto" value="<%=fotografiass.numFoto%>" required="true" title="Ingrese numero de foto" placeholder="<numFoto>">
+              <%= fotografiass.numFoto %>
+            </td>
+            <td class="text-center">
+              <label for="fotografo" class="control-label">Fotografo</label>
+              <input type="text" class="form-control" id="fotografo" name="fotografo" value="<%=fotografiass.fotografo%>" required="true" title="Ingrese fotografo" placeholder="<fotografo>">
+              <%= fotografiass.fotografo %>
+            </td>
+            <td class="text-center">
+              <label for="fecha" class="control-label">Fecha</label>
+              <input type="text" class="form-control" id="fecha" name="fecha" value="<%=fotografiass.fecha%>" required="true" title="Ingrese fecha" placeholder="<fecha>">
+              <%= fotografiass.fecha %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+      Agregar
+    </button>
+</form>

@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -64,7 +65,7 @@ module.exports = function(grunt) {
         command: 'rm -f logs/*.log'
       },
       cpcss: {
-        command: 'cp src/stylus/museo.css src/public/css'
+        command: 'mv src/stylus/*.css src/public/css'
       }
     },
     mochaTest: {
@@ -80,14 +81,42 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js'
       }
     },
+    autoprefixer: {
+      options: {
+        browsers: [
+          'Android 2.3',
+          'Android >= 4',
+          'Chrome >= 20',
+          'Firefox >= 24', // Firefox 24 is the latest ESR
+          'Explorer >= 8',
+          'iOS >= 6',
+          'Opera >= 12',
+          'Safari >= 6'
+        ]
+      },
+      main: {
+        expand: true,
+        flatten: true,
+        src: 'src/stylus/*.css',
+        dest: 'src/public/css/'
+      }
+    },
     stylus: {
       compile: {
         options: {
+      use: [
+        function(){ return require('autoprefixer-stylus')('last 3 versions', 'ie 8')}
+      ],
           compress: false,
           paths: ['src/stylus']
         },
         files: {
-          'src/stylus/museo.css': 'src/stylus/museo.styl'
+          'src/stylus/magnific-popup.css': 'src/stylus/magnific-popup.styl',
+          'src/stylus/museo.css': 'src/stylus/museo.styl',
+          'src/stylus/plantilla.css': 'src/stylus/plantilla.styl',
+          'src/stylus/stacktable.css': 'src/stylus/stacktable.styl',
+          'src/stylus/submit-button.css': 'src/stylus/submit-button.styl',
+          'src/stylus/fonts.css': 'src/stylus/fonts.styl'
         }
       }
     },
@@ -107,11 +136,15 @@ module.exports = function(grunt) {
     csscomb: {
       museo: {
           files: {
+              'src/stylus/magnific-popup.css': ['src/public/css/magnific-popup.css'],
               'src/stylus/museo.css': ['src/public/css/museo.css'],
+              'src/stylus/plantilla.css': ['src/public/css/plantilla.css'],
+              'src/stylus/stacktable.css': ['src/public/css/stacktable.css'],
+              'src/stylus/submit-button.css': ['src/public/css/submit-button.css'],
+              'src/stylus/fonts.css': ['src/public/css/fonts.css']
           }
       }
     },
-
     csslint: {
        options: {
            force: true,
@@ -126,13 +159,20 @@ module.exports = function(grunt) {
                import:2,
                "box-model":false,
            },
-           src:['src/public/css/*.css'],
+           src:['src/public/css/*.css','!src/public/css/bootstrap*'],
        },
        lax: {
             options: {
                 import: false
             },
-       src: ['src/public/css/museo.css']
+       src: [
+         'src/public/css/magnific-popup.css',
+         'src/public/css/museo.css',
+         'src/public/css/plantilla.css',
+         'src/public/css/stacktable.css',
+         'src/public/css/submit-button.css',
+         'src/public/css/fonts.css'
+       ]
       }
     }
   });

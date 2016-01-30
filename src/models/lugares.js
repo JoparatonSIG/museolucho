@@ -55,6 +55,13 @@ module.exports = function (sequelize, DataTypes) {
           Lugar.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Lugar.findAndCountAll( {
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (lugarId, onSuccess, onError) {
           Lugar.find( { where: { id: lugarId } }, { raw: true })
           .then(onSuccess).catch(onError);
@@ -97,9 +104,9 @@ module.exports = function (sequelize, DataTypes) {
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Lugares',

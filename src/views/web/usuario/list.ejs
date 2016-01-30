@@ -1,0 +1,78 @@
+<table class="table table-bordred table-striped">
+  <thead>
+    <tr>
+      <th class="cell-stat text-center">id</th>
+      <th class="cell-stat text-center">email</th>
+      <th class="cell-stat text-center">nombre</th>
+      <th class="cell-stat text-center">apellido</th>
+      <th class="cell-stat text-center">password</th>      
+      <th class="cell-stat text-center">IDNIVEL</th>
+      <th class="cell-stat text-center">NIVEL</th>
+      <th class="cell-stat text-center">Accion</th>
+      <th class="cell-stat text-center">Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% var i; for (i=0; i < usuario.length; i++) { %>
+      <tr>
+        <td class="text-center"><%= usuario[i].id %></td>
+        <td class="text-center"><%= usuario[i].email %></td>        
+        <td class="text-center"><%= usuario[i].nombre %></td>        
+        <td class="text-center"><%= usuario[i].apellido %></td>        
+        <td class="text-center"><%= usuario[i].password %></td>
+        <td class="text-center"><%= usuario[i].Nivel.id %></td>
+          <% if (usuario[i].Nivel == null)  {%>
+            <td class="text-center">sin categoria</td>
+          <% } else { %>
+            <td class="text-center"><%= usuario[i].Nivel.categoria %></td>
+          <% }%>
+
+        <td>
+          <a href="/web/usuario/<%= usuario[i].id %>" class="btn btn-info" role="button">
+            <p data-placement="top" data-toggle="tooltip" title="Edit">
+              <button type="button" class="btn btn-info">Edit</button>
+            </p>
+          </a>
+        </td>
+        <td>
+          <form id="topicForm" method="post" action="/web/usuario/<%= usuario[i].id %>">
+            <input type="hidden" name="_method" value="delete"/>
+            <input type="hidden" name="id" value="<%= usuario[i].id %>"/>               
+            <td>
+              <a href="/web/usuario/<%= usuario[i].id %>" class="btn btn-info" role="button">
+                <p data-placement="top" data-toggle="tooltip" title="Delete">
+                  <button type="submit" class="btn btn-info">Delete</button>
+                </p>
+              </a>
+            </td>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+<a href="/web/usuario/cargar" class="btn btn-info" role="button">
+  <p data-placement="top" data-toggle="tooltip" title="Add"/>
+    <button type="button" class="btn btn-info"/> Agregar Usuario
+    
+<form id="topicForm" method="get" action="/web/usuario/%>" >
+    <% if (totalPage <= 8) { %>
+      <% var j; for (j=0; j <= totalPage; j++) { %>
+        <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+          <%=j%>
+        </button>
+      <% } %>
+    <% } else { %>
+      <% var j; for (j=1; j <= 3; j++) { %>
+        <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+          <%=j%>
+        </button>
+      <% } %>
+      <p>...</p>
+      <% for (j=totalPage-3; j <= totalPage+1; j++) { %>
+        <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+          <%=j%>
+        </button>
+      <% } %>
+    <% } %>
+</form>

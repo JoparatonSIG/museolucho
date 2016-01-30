@@ -1,0 +1,136 @@
+.progress-button
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 95%;
+    margin: 10px 0;
+
+    text-align: center;
+}
+.dropdown-menu .progress-button
+{
+    width: 100%;
+}
+.progress-button button
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+
+    display: block;
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 0;
+
+    transition: background-color .3s, color .3s, width .3s, border-width .3s, border-color .3s, all .3s;
+
+    opacity: .7;
+    color: #fff;
+    border: 2px solid #b49449;
+    border-radius: 3px;
+    background: #b49449;
+
+    -webkit-tap-highlight-color: transparent;
+}
+.dropdown-menu .progress-button button
+{
+    padding: .5em 0;
+}
+.progress-button button:hover
+{
+    opacity: 1;
+    color: #fff;
+    background-color: #b49449;
+}
+.progress-button button:focus
+{
+    outline: none;
+}
+.progress-button button span
+{
+    transition: opacity .3s .1s;
+}
+.progress-button svg
+{
+    position: absolute;
+    top: -5px;
+    left: 50%;
+
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    pointer-events: none;
+}
+.progress-button svg path
+{
+    opacity: 0;
+
+    fill: none;
+}
+.progress-button svg.progress-circle path
+{
+    stroke: #1ecd97;
+    stroke-width: 5;
+}
+.progress-button svg.checkmark path,
+.progress-button svg.cross path
+{
+    transition: opacity .1s;
+
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-width: 4;
+}
+.loading.progress-button button
+{
+    width: 70px;
+    height: 70px;
+
+    border-width: 5px;
+    border-color: #ccc;
+    border-radius: 50%;
+    background-color: transparent;
+}
+.loading.progress-button span
+{
+    transition: opacity .15s;
+}
+.loading.progress-button span,
+.success.progress-button span,
+.error.progress-button span
+{
+    opacity: 0;
+}
+.success.progress-button button,
+.error.progress-button button
+{
+    transition: background-color .3s, width .3s, border-width .3s;
+}
+.success.progress-button button
+{
+    border-color: #1ecd97;
+    background-color: #1ecd97;
+}
+.error.progress-button button
+{
+    border-color: #fb797e;
+    background-color: #fb797e;
+}
+.loading.progress-button svg.progress-circle path,
+.success.progress-button svg.checkmark path,
+.error.progress-button svg.cross path
+{
+    transition: stroke-dashoffset .3s;
+
+    opacity: 1;
+}
+.elastic.progress-button button
+{
+    transition: background-color .3s, color .3s, width .3s cubic-bezier(.25, .25, .4, 1.6), border-width .3s, border-color .3s;
+}
+.loading.elastic.progress-button button
+{
+    transition: background-color .3s, color .3s, width .3s cubic-bezier(.6, -.6, .75, .75), border-width .3s, border-color .3s;
+}

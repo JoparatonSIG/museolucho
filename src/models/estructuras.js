@@ -25,6 +25,13 @@ module.exports = function (sequelize, DataTypes) {
           Estructura.findAll( { } )
           .then(onSuccess).catch(onError);
         },
+        retrievePag: function (initial, offsetPage, limitPage, currentPage, onSuccess, onError) {
+          Estructura.findAndCountAll( {          
+            offset: initial,
+            limit: offsetPage
+           } )
+          .then(onSuccess).catch(onError);
+        },
         retrieveById: function (estructuraId, onSuccess, onError) {
           Estructura.find( { where: { id: estructuraId } }, { raw: true })
           .then(onSuccess).catch(onError);
@@ -38,24 +45,22 @@ module.exports = function (sequelize, DataTypes) {
           .save().then(onSuccess).catch(onError);
         },
         updateById: function (estructuraId, onSuccess, onError) {
-          var id = estructuraId;
-          var estructura = this.estructura;
 
           Estructura.update({
-            estructura: estructura
-          },{ where: { id: id } })
+            estructura: this.estructura
+          },{ where: { id: this.id } })
           .then(onSuccess).catch(onError);
         },
-        removeById: function (estructuraId, onSuccess, onError) {
-          Estructura.destroy({ where: { id: estructuraId }})
+        removeById: function (onSuccess, onError) {
+          Estructura.destroy({ where: { id: this.id }})
           .then(onSuccess).catch(onError);
         }
       },
       timestamps: true,
       paranoid: true,
-      createdAt: 'creacion',
-      updatedAt: 'modifica',
-      deletedAt: 'borrado',
+      createdAt: 'fechaCrea',
+      updatedAt: 'fechaModifica',
+      deletedAt: 'fechaBorra',
       underscore: false,
       freezeTableName:true,
       tableName: 'Estructuras',

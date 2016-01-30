@@ -1,0 +1,84 @@
+<form id="topicForm" method="post" action="/web/usuario/<%= usuario.id %>" class="form-horizontal" role="form">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="id" value="<%= usuario.id %>">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="usuario"/> Id de Usuario <%= usuario.id %>
+  </div>
+  <div class="form-group">      
+    <label class="control-label col-sm-2" for="email">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="email" name="email" value="<%=usuario.email%>" required="true" title="Ingrese el Email" placeholder="<email>">
+      <%= usuario.email %>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label for="nombre" class="control-label col-sm-2">Nombre</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nombre" name="nombre" value="<%=usuario.nombre%>" required="true" title="Ingrese el Nombre" placeholder="<nombre>">
+      <%= usuario.nombre %>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label for="apellido" class="control-label col-sm-2">Apellido</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="apellido" name="apellido" value="<%=usuario.apellido%>" required="true" title="Ingrese el Apellido" placeholder="<apellido>">
+      <%= usuario.apellido %>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label for="password" class="control-label col-sm-2">Password</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="password" name="password" value="<%=usuario.password%>" required="true" title="Ingrese el Password" placeholder="<password>">
+      <%= usuario.password %>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label class="control-label col-sm-2" for="email">Nivel de Usuario:</label> 
+    <div class="col-sm-10">  
+      <select name="nivelSele">
+        <% var j; for (j=0; j < select.length; j++) { %>
+          <% if (usuario.NivelesId == select[j].id) {%>
+         <option value="<%= select[j].id %>" selected ><%= select[j].categoria %> </option>
+         <% } else {%>
+         <option value="<%= select[j].id %>"><%= select[j].categoria %></option>
+         <% } %>
+        <% } %>
+      </select>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label class="control-label col-sm-2" for="email">Fecha de Creacion:</label>
+    <div class="col-sm-10" >
+      <%= usuario.fechaCrea %>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label class="control-label col-sm-2" for="email">Fecha de Modificacion:</label>
+    <div class="col-sm-10" >
+      <%= usuario.fechaModifica %>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label class="control-label col-sm-2" for="email">Fecha de Eliminacion:</label>
+    <div class="col-sm-10" >
+      <%= usuario.fechaBorra %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2" >   
+      <button type="submit" name="commit" value="Form" class="btn btn-success btn-block">
+        Modificar
+      </button>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2" >  
+      <a href="/web/usuario/<%= usuario.id %>" class="btn btn-info" role="button">
+        <p data-placement="top" data-toggle="tooltip" title="Edit">
+          <button type="button" class="btn btn-info">Cancelar</button>
+        </p>
+      </a>
+    </div>
+  </div>
+      
+</form>
