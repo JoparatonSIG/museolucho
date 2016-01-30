@@ -10,7 +10,7 @@ var passport = require('passport');
 
 var config = require('./config/config');
 
-var webPublico = require('./controllers/web/webPublico');
+var webPublico = require('./controllers/webPublico');
 var RoutesAPI = require('./controllers/routesAPI');
 var webPrivado = require('./controllers/routesWEB');
 

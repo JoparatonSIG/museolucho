@@ -3,7 +3,7 @@
   <!-- sticky-bar Starts-->
   <div class="sticky-bar-wrap">
     <div class="sticky-section">
-      <div id="topbar-hold" class="nav-hold container">
+      <div id="topbar-hold" class="navbar container">
         <nav class="navbar" role="navigation">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -15,40 +15,39 @@
             <!--=== Site Name ===-->
             <a class="site-name navbar-brand" href="#"><span>M</span>useo Diocesano</a>
           </div>
-
           <!-- Main Navigation menu Starts -->
-          <div class="collapse navbar-collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="current"><a href="#header">Home</a></li>
-              <li class="dropdown ">
-                <span class="dropdown-toggle" data-toggle="dropdown">
-                  Museo
-                </span>
+          <!--div class="navbar navbar-responsive dropdown">
+            <ul class="nav navbar-nav navbar-right"-->
+          <!--div class="dropdown">
+            <ul class="dropdown-menu"-->
+          <div class="navbar navbar-responsive dropdown">
+            <ul role="navigation" class="nav navbar-nav navbar-right">
+              <li><a href="/">Home</a></li>
+              <li class="dropdown">
+                <a href="/historia" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true">Museo <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                   <li class=""><a href="/historia">Historia</a></li>
-                   <li class=""><a href="/fundacion">Fundación</a></li>
+                  <li><a href="/historia">Historia</a></li>
+                  <li><a href="/fundacion">Fundación</a></li>
                 </ul>
               </li>
-
-              <li class="dropdown ">
-                  <span class="dropdown-toggle movil-off" data-toggle="dropdown"> Informaciones</span>
-                  <ul class="dropdown-menu">
-                     <li class=""><a href="/informacion-practica">Cómo llegar</a></li>
-                     <li class=""><a href="/horarios-tarifas">Horarios y tarifas</a></li>
-                     <li class=" movil-off"><a href="/visitas-guiadas">Visitas guiadas</a></li>
-                     <li class=""><a href="/planos">Planos</a></li>
-                     <li class=" movil-off"><a href="/normas">Normas</a></li>
-                  </ul>
+              <li class="dropdown">
+                <a href="/informacion-practica" data-toggle="dropdown" class="dropdown-toggle">Informaciones<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/informacion-practica">Cómo llegar</a></li>
+                  <li><a href="/horarios-tarifas">Horarios y tarifas</a></li>
+                  <li><a href="/visitas-guiadas">Visitas guiadas</a></li>
+                  <li><a href="/planos">Planos</a></li>
+                  <li><a href="/normas">Normas</a></li>
+                </ul>
               </li>
-
-              <li class="dropdown ">
-                  <span class="dropdown-toggle" data-toggle="dropdown"> Exposiciones</span>
-                  <ul class="dropdown-menu">
-                    <li class=""><a href="/actualidad" title="ir a la sección">Actualidad</a></li>
-                    <li class=""><a href="/obras-maestras-listado" title="ir a la sección">Obras maestras</a></li>
-                     <li class=""><a href="/exposiciones">Actuales</a></li>
-                     <li class=" "><a href="/exposiciones-proximas">Próximas</a></li>
-                  </ul>
+              <li class="dropdown">
+                <a href="/actualidad" data-toggle="dropdown" class="dropdown-toggle">Exposiciones<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/actualidad">Actualidad</a></li>
+                  <li><a href="/obras-maestras-listado">Obras maestras</a></li>
+                  <li><a href="/exposiciones">Actuales</a></li>
+                  <li><a href="/exposiciones-proximas">Próximas</a></li>
+                </ul>
               </li>
             </ul>
           </div>
